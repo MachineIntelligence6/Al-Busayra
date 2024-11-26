@@ -1,7 +1,10 @@
 import React from "react";
 import Input from "../../Input/Input";
+import { useRouter } from "next/navigation";
 
 function Login({ setComponent }) {
+const router = useRouter();
+
   return (
     <div className="flex flex-col items-center justify-center h-full ">
       <div className = 'flex flex-col items-center max-w-[366px] w-full'>
@@ -15,8 +18,8 @@ function Login({ setComponent }) {
           </div>
         </div>
         <div className="flex flex-col gap-[20px]">
-          <Input labelText={"Email"} />
-          <Input labelText={"Password"} />
+          <Input labelText={"Email"} fieldName = 'email' />
+          <Input labelText={"Password"} fieldName={'password'} />
         </div>
         <div className="flex flex-row items-center w-full justify-between mt-[10px]">
           <div className="flex flex-row items-center gap-2">
@@ -29,7 +32,7 @@ function Login({ setComponent }) {
             Forgot Password ?
           </div>
         </div>
-        <button onClick={()=> setComponent('otp')} className="w-full py-[10px] mt-[17px] bg-[#104774] rounded-[7px] font-medium text-[15px] leading-[22px] text-[#FFFFFF]">
+        <button onClick={()=> router.push('/dashboard')} className="w-full py-[10px] mt-[17px] bg-[#104774] rounded-[7px] font-medium text-[15px] leading-[22px] text-[#FFFFFF]">
           Login
         </button>
       </div>
