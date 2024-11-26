@@ -32,7 +32,7 @@ const router = useRouter();
             Forgot Password ?
           </div>
         </div>
-        <button onClick={()=> router.push('/dashboard')} className="w-full py-[10px] mt-[17px] bg-[#104774] rounded-[7px] font-medium text-[15px] leading-[22px] text-[#FFFFFF]">
+        <button onClick={()=> setComponent('otp')} className="w-full py-[10px] mt-[17px] bg-[#104774] rounded-[7px] font-medium text-[15px] leading-[22px] text-[#FFFFFF]">
           Login
         </button>
       </div>
