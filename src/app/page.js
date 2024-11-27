@@ -4,7 +4,7 @@ import Auth from "./Components/AuthComponents/Auth";
 export default function Home() {
   return (
     <>
-     <Auth/> 
+      <Auth />
     </>
   );
 }
