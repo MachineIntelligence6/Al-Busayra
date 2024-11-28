@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Plus, Upload } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import CustomBreadcrumb from "../Components/sharedComponents/BreadCrum/page";
+import CustomBreadcrumb from "../../Components/sharedComponents/BreadCrum/page";
 import { Button } from "@/components/ui/button";
 import {
   AlertDialog,
@@ -18,10 +18,10 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import CompanyInfo from "../Components/dashboardComponents/modalComponents/CompanyInfo";
-import ContactInfo from "../Components/dashboardComponents/modalComponents/ContactInfo";
-import Locations from "../Components/dashboardComponents/modalComponents/Locations";
-import Listings from "../Components/dashboardComponents/modalComponents/Listings";
+import CompanyInfo from "../../Components/dashboardComponents/modalComponents/CompanyInfo";
+import ContactInfo from "../../Components/dashboardComponents/modalComponents/ContactInfo";
+import Locations from "../../Components/dashboardComponents/modalComponents/Locations";
+import Listings from "../../Components/dashboardComponents/modalComponents/Listings";
 
 export default function Page() {
   const [tabs, setTabs] = useState("company");
