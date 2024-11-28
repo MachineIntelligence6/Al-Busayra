@@ -7,7 +7,7 @@ const handleClick = () => {
   console.log("Button Clicked!");
 };
 
-export const page = () => {
+export const EmptyScreen = () => {
   return (
     <div className="h-full">
       <div className="mb-4 ">Applicants</div>
@@ -25,4 +25,4 @@ export const page = () => {
   );
 };
 
-export default page;
+export default EmptyScreen;
