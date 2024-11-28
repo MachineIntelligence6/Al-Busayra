@@ -12,7 +12,7 @@
 /*       ScrollBar 1        */
 
 #scrollbar1::-webkit-scrollbar {
-  width: 16px;
+  width: 8px;
 }
 
 #scrollbar1::-webkit-scrollbar-track {
@@ -23,9 +23,9 @@
 
 #scrollbar1::-webkit-scrollbar-thumb {
   border-radius: 8px;
-border: 3px solid transparent;
- background-clip: content-box;
-  background-color: #d55959;
+  border: 3px solid transparent;
+  background-clip: content-box;
+  background-color: #264b6e;
 }
 
 /*        ScrollBar 2    */

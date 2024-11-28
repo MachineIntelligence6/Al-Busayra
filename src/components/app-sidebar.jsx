@@ -1,8 +1,38 @@
+
+
+
 'use client'
+
+
+// import { AppSidebar } from "@/components/app-sidebar";
+// import { Sidebar, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+
+
+// export default function Layout({ children }) {
+//   return (
+//     <div className="bg-[#23567F] h-[100vh]">
+//       <SidebarProvider>
+//         <AppSidebar/>
+//         <main className = 'bg-[#23567F] p-2 w-full h-[100vh]'>
+//           <div className = ' w-full h-full bg-[#F8F7FA] rounded-[30px] p-[25px] overflow-auto'> {children}</div>
+//         </main>
+//       </SidebarProvider>
+//     </div>
+//   );
+// }
+// import React from 'react'
+
+// function layout() {
+//   return (
+//     <div>layout</div>
+//   )
+// }
+
+// export default layout
 import * as React from "react";
-import {Ellipsis, GalleryVerticalEnd, Minus, Plus,ChevronRight,ChevronDown } from "lucide-react";
+import { Ellipsis, GalleryVerticalEnd, Minus, Plus, ChevronRight, ChevronDown } from "lucide-react";
 
-
+import Link from 'next/link'
 import { SearchForm } from "@/components/search-form";
 import {
   Collapsible,
@@ -32,196 +62,124 @@ import { usePathname } from "next/navigation";
 
 const data = {
   navMain: [
-    
     {
       title: "Campaigns",
-      img:'/sidebarIcons/campaigns.png',
-      url: "",
+      img: '/sidebarIcons/campaigns.png',
+      url: "/pages/campaigns",
       items: [
         {
-          title: "Routing",
-          url: "#",
+          title: "Campaigns List",
+          url: "/pages/campaigns/lists",
         },
         {
-          title: "Data Fetching",
-          url: "#",
-          isActive: false,
-        },
-        {
-          title: "Rendering",
-          url: "#",
-        },
-        {
-          title: "Caching",
-          url: "#",
-        },
-        {
-          title: "Styling",
-          url: "#",
-        },
-        {
-          title: "Optimizing",
-          url: "#",
-        },
-        {
-          title: "Configuring",
-          url: "#",
-        },
-        {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
-          url: "#",
+          title: "Not Qualitfied",
+          url: "/pages/campaigns/not-qualified",
         },
       ],
     },
     {
       title: "Applicants",
-      img:'/sidebarIcons/users.png',
-      url: "#",
+      img: '/sidebarIcons/users.png',
+      url: "/pages/applicants",
       items: [
         {
-          title: "Routing",
-          url: "#",
+          title: "Short Listed",
+          url: "/pages/applicants/short-listed",
         },
         {
-          title: "Data Fetching",
-          url: "#",
-          isActive: true,
+          title: "Final Interview",
+          url: "/pages/applicants/final-interview",
         },
         {
-          title: "Rendering",
-          url: "#",
+          title: "Hold",
+          url: "/pages/applicants/hold",
         },
         {
-          title: "Caching",
-          url: "#",
-        },
-        {
-          title: "Styling",
-          url: "#",
-        },
-        {
-          title: "Optimizing",
-          url: "#",
-        },
-        {
-          title: "Configuring",
-          url: "#",
-        },
-        {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
-          url: "#",
+          title: "Not Qualified ",
+          url: "/pages/applicants/not-qualified",
         },
       ],
     },
     {
       title: "Employees",
-      img:'/sidebarIcons/employee.png',
-      url: "#",
+      img: '/sidebarIcons/employee.png',
+      url: "/pages/employees",
       items: [
         {
-          title: "Components",
-          url: "#",
+          title: "Incomplete Profile",
+          url: "/pages/employees/incomplete-profile",
         },
         {
-          title: "File Conventions",
-          url: "#",
+          title: "Active Employee",
+          url: "/pages/employees/active-employee",
         },
         {
-          title: "Functions",
-          url: "#",
-        },
-        {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
-        {
-          title: "Edge Runtime",
-          url: "#",
+          title: "Inactive Employee",
+          url: "/pages/employees/inactive-employee",
         },
       ],
     },
     {
       title: "Inventory",
-      img:'/sidebarIcons/inventory.png',
-      url: "#",
+      img: '/sidebarIcons/inventory.png',
+      url: "/pages/inventory",
       items: [
         {
-          title: "Accessibility",
-          url: "#",
+          title: "Dashboard",
+          url: "/pages/inventory/dashboard",
         },
         {
-          title: "Fast Refresh",
-          url: "#",
-        },
-        {
-          title: "Next.js Compiler",
-          url: "#",
-        },
-        {
-          title: "Supported Browsers",
-          url: "#",
-        },
-        {
-          title: "Turbopack",
-          url: "#",
+          title: "Inventory List",
+          url: "/pages/inventory/list",
         },
       ],
     },
     {
       title: "Corporate",
-      img:'/sidebarIcons/corporate.png',
-      url: "#",
+      img: '/sidebarIcons/corporate.png',
+      url: "/pages/corporate",
       items: [
         {
-          title: "Contribution Guide",
-          url: "#",
+          title: "Vendors",
+          url: "/pages/corporate/vendors",
+        },
+        {
+          title: "Platforms",
+          url: "/pages/corporate/platforms",
+        },
+      ],
+    },
+    {
+      title: "Challans",
+      img: '/sidebarIcons/users.png',
+      url: "/pages/challans",
+      items: [
+        {
+          title: "Salik",
+          url: "/pages/challans/salik",
+        },
+        {
+          title: "Traffic",
+          url: "/pages/challans/traffic",
         },
       ],
     },
     {
       title: "Users",
-      img:'/sidebarIcons/users.png',
-      url: "#",
+      img: '/sidebarIcons/users.png',
+      url: "/pages/users",
       items: [
         {
-          title: "Contribution Guide",
-          url: "#",
+          title: "Active Users",
+          url: "/pages/users/active-users",
+        },
+        {
+          title: "Inactive Users",
+          url: "/pages/users/inactive-users",
+        },
+        {
+          title: "Roles Template",
+          url: "/pages/users/roles-template",
         },
       ],
     },
@@ -232,53 +190,62 @@ export function AppSidebar({ ...props }) {
   const pathName = usePathname();
   return (
     <Sidebar {...props} className="border-[#23567F]">
-      <SidebarHeader className="bg-[#23567F]">
+      <SidebarHeader className="bg-[#23567F] ">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
-              <a href="#">
-                <div className="flex ">
-                  <img src="/logowhite.png" className="w-full h-full" />
-                </div>
-              </a>
-            </SidebarMenuButton>
+            {/* <SidebarMenuButton size="lg" asChild className = ''> */}
+            <Link href="/pages/companies">
+              <div className="flex ">
+                <img src="/logowhite.png" className="w-full h-full" />
+              </div>
+            </Link>
+            {/* </SidebarMenuButton> */}
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
       <Separator />
-      <SidebarContent className="bg-[#23567F]">
-        <SidebarGroup>
-          <SidebarMenuButton className = 'text-white' isActive = {pathName === '/companies'}>
+      <SidebarContent className="bg-[#23567F] ">
+        <SidebarGroup className=''>
+          <SidebarMenuButton
+            className='text-white mb-2'
+            isActive={(pathName === '/pages/companies' || pathName === '/pages/companies/view')}>
             Companies
           </SidebarMenuButton>
-          <SidebarMenu>
+          <SidebarMenu className=''>
             {data.navMain.map((item, index) => (
               <Collapsible
                 key={item.title}
-                defaultOpen={index === 1}
-                className="group/collapsible"
+
+                className="group/collapsible "
               >
                 <SidebarMenuItem>
-                  <CollapsibleTrigger asChild>
-                    <SidebarMenuButton className="text-white">
-                      <img src  = {item?.img} />
-                      {item.title}{" "}
+                  <CollapsibleTrigger asChild className='py-[20px]'>
+                    <SidebarMenuButton className="text-white" isActive={pathName === item?.url}>
+
+                      <img src={item?.img} className='hover:invert' />
+                      <Link href={item?.url}>
+                        {item.title}{" "}
+                      </Link>
                       <ChevronDown className="ml-auto group-data-[state=open]/collapsible:hidden" />
                       <ChevronRight className="ml-auto group-data-[state=closed]/collapsible:hidden" />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
                   {item.items?.length ? (
-                    <CollapsibleContent>
-                      <SidebarMenuSub>
+                    <CollapsibleContent className='flex justify-start items-start'>
+                      <SidebarMenuSub className='bg-[#FFFFFF17] rounded-[4px] p-2 w-full'>
                         {item.items.map((item) => (
                           <SidebarMenuSubItem key={item.title}>
                             <SidebarMenuSubButton
                               asChild
-                              isActive={item.isActive}
+                              // isActive={pathName === item.url}
+                              className={`hover:bg-[#104774] hover:text-white ${pathName === item.url ? 'bg-[#104774]' : ''}`}
                             >
-                              <a href={item.url} className="text-white">
-                                {item.title}
-                              </a>
+                              <div>
+                                <div className='w-[10px] h-[10px] rounded-full border-[1px] border-white '></div>
+                                <Link href={item.url} className="text-white ">
+                                  {item.title}
+                                </Link>
+                              </div>
                             </SidebarMenuSubButton>
                           </SidebarMenuSubItem>
                         ))}
@@ -289,32 +256,32 @@ export function AppSidebar({ ...props }) {
               </Collapsible>
             ))}
           </SidebarMenu>
-          <SidebarMenuButton className = 'text-white' isActive = {pathName === '/companies'}>
-            Configuration
+          <SidebarMenuButton className='text-white mt-2' isActive={pathName === '/pages/configuration'} >
+            <Link href={'/pages/configuration'} > Configuration</Link>
           </SidebarMenuButton>
         </SidebarGroup>
       </SidebarContent>
-        <SidebarFooter className="bg-[#23567F]">
-          <div className = 'flex flex-col items-center justify-between py-5 space-y-4'>
-            <div className = 'flex flex-row items-center justify-between w-full gap-2'>
-                <img src = '/bell.png' />
-                <div className = 'bg-[#FF4C51] rounded-md px-2 py-1 text-white font-medium'>5</div>
-            </div>
-            <div className = 'flex flex-row items-center justify-between gap-[8px]'>
-                <div className = 'w-[32px] h-[32px] rounded-full bg-[#3BC5FB] text-[14px] flex items-center justify-center text-white'>
-                ZA
-                </div>
-                <div className = 'flex flex-col'>
-                  <div className = 'font-medium text-[12px] leading-[20px] text-white'>Zaheer Abbas</div>
-                  <div className = 'font-medium text-[12px] leading-[20px]  text-[#FFFFFF99]'>Al busayra delivery services</div>
-                </div>
-                <div className = 'py-[12px] px-[3.8px] rounded-[6px] bg-[#2F2B3D40] '>
-            <Ellipsis className="text-white" />
-            </div>
-            </div>
-            
+      <SidebarFooter className="bg-[#23567F]">
+        <div className='flex flex-col items-center justify-between py-5 space-y-4'>
+          <div className='flex flex-row items-center justify-between w-full gap-2'>
+            <img src='/bell.png' />
+            <div className='bg-[#FF4C51] rounded-md px-2 py-1 text-white font-medium'>5</div>
           </div>
-        </SidebarFooter>
+          <div className='flex flex-row items-center justify-between gap-[8px]'>
+            <div className='w-[32px] h-[32px] rounded-full bg-[#3BC5FB] text-[14px] flex items-center justify-center text-white'>
+              ZA
+            </div>
+            <div className='flex flex-col'>
+              <div className='font-medium text-[12px] leading-[20px] text-white'>Zaheer Abbas</div>
+              <div className='font-medium text-[12px] leading-[20px]  text-[#FFFFFF99]'>Al busayra delivery services</div>
+            </div>
+            <div className='py-[12px] px-[3.8px] rounded-[6px] bg-[#2F2B3D40] '>
+              <Ellipsis className="text-white" />
+            </div>
+          </div>
+
+        </div>
+      </SidebarFooter>
       {/* <SidebarRail /> */}
     </Sidebar>
   );
