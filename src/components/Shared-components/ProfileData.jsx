@@ -1,7 +1,7 @@
 import { Avatar, Typography, Box } from "@mui/material";
 import React from "react";
 
-const ProfileShared = ({ image, name, email }) => {
+const ProfileData = ({ image, name, email }) => {
   console.log(image, name, email);
   return (
     <>
@@ -22,4 +22,4 @@ const ProfileShared = ({ image, name, email }) => {
   );
 };
 
-export default ProfileShared;
+export default ProfileData;

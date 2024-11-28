@@ -1,7 +1,7 @@
 import React from "react";
 // import  page  from "./page";
 
-export const Reusee = ({
+const EmptyScreenView = ({
   image,
   altText,
   title,
@@ -27,3 +27,5 @@ export const Reusee = ({
     </>
   );
 };
+
+export default EmptyScreenView;
