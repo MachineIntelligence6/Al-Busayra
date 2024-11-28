@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import EventCard from "../../../../components/Shared-components/SharedCard"; // Import the reusable EventCard
+import EventCard from "../../../../components/Shared-components/EventCard"; // Import the reusable EventCard
 
 const ExamplePage = () => {
   const handleDelete = () => {
