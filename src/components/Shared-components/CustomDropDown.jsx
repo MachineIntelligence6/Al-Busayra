@@ -9,6 +9,7 @@ const CustomDropdown = ({ label, options, value, onChange, textProps, sx, ...pro
                 value={value}
                 onChange={onChange}
                 size="small"
+
                 {...props}
             >
                 {options.map((option, index) => (

@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Divider, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import CustomDropdown from '../CustomDropDown';
 
@@ -17,7 +17,7 @@ const TableFilters = () => {
 
 
     return (
-        <Box component="div" sx={{ width: "100%", m: 2 }}>
+        <Box component="div" sx={{ width: "100%", m: 2, "& .MuiInputBase-root": { width: "340px" }, }}>
             <Typography variant='caption' sx={{ fontSize: 16 }}>Advance Filters</Typography>
 
             <Box
@@ -33,7 +33,6 @@ const TableFilters = () => {
                 <CustomDropdown
                     sx={{ flex: 1, placeItems: "start" }}
                     label="Campaign Name"
-                    fullWidth
                     placeholder="Please Select"
                     options={options}
                     value={dropdown1Value}
@@ -56,6 +55,7 @@ const TableFilters = () => {
                     onChange={(e) => setDropdown3Value(e.target.value)}
                 />
             </Box>
+            <Divider />
         </Box>
     )
 }
