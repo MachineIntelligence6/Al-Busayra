@@ -1,8 +1,10 @@
-import { Box } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import SidebarMenu from "@/components/SidebarMenu";
 import { menuData } from "@/utils/sidebar-data";
+import Breadcrumb from "@/components/Shared-components/BreadCrumb";
 
 export default function Layout({ children }) {
+
     return (
         <Box sx={{ display: "flex", height: "100vh", bgcolor: "#23567F" }}>
             <SidebarMenu menuData={menuData} />
@@ -28,7 +30,13 @@ export default function Layout({ children }) {
                         flexDirection: "column",
                     }}
                 >
-                    {children}
+                    <>
+                        <Box sx={{ px: 2 }}>
+                            <Breadcrumb />
+                        </Box>
+                        <Divider sx={{ mt: 2 }} />
+                        {children}
+                    </>
                 </Box>
             </Box>
         </Box>

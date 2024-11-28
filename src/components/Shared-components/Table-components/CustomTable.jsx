@@ -9,10 +9,11 @@ import {
     Paper,
     Checkbox,
     IconButton,
+    Box,
 } from "@mui/material";
 import FilterListIcon from "@mui/icons-material/FilterList";
 
-const ReusableTable = ({ columns, data, onRowSelect }) => {
+const CustomTable = ({ columns, data, onRowSelect }) => {
     const [selectedRows, setSelectedRows] = useState([]);
 
     const isAllSelected = selectedRows.length === data.length && data.length > 0;
@@ -49,7 +50,12 @@ const ReusableTable = ({ columns, data, onRowSelect }) => {
         // }}
         >
             <Table stickyHeader>
-                <TableHead>
+                <TableHead sx={{
+                    "& .MuiTableCell-root": {
+                        fontWeight: "500",
+                        bgcolor: "#80839014",
+                    },
+                }}>
                     <TableRow>
                         {/* Checkbox Column Header */}
                         <TableCell padding="checkbox">
@@ -79,7 +85,7 @@ const ReusableTable = ({ columns, data, onRowSelect }) => {
                         ))}
                     </TableRow>
                 </TableHead>
-                <TableBody sx={{}}>
+                <TableBody sx={{ overflowY: "scroll", maxHeight: "100%" }}>
                     {data.map((row) => (
                         <TableRow key={row.id} hover>
                             {/* Checkbox Column */}
@@ -103,8 +109,9 @@ const ReusableTable = ({ columns, data, onRowSelect }) => {
                     ))}
                 </TableBody>
             </Table>
+            <Box component="div" sx={{ width: "100%", height: 40, bgcolor: "ButtonShadow" }}></Box>
         </TableContainer>
     );
 };
 
-export default ReusableTable;
+export default CustomTable;

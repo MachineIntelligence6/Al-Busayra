@@ -1,25 +1,24 @@
 import React from "react";
-import { Box, MenuItem, TextField, Typography } from "@mui/material";
+import { Box, MenuItem, Select, Typography } from "@mui/material";
 
-const ReusableDropdown = ({ label, options, value, onChange, textProps, ...props }) => {
+const CustomDropdown = ({ label, options, value, onChange, textProps, sx, ...props }) => {
     return (
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-            <Typography {...textProps}>{label}</Typography>
-            <TextField
-                select
+        <FormControl sx={{ ...sx }} >
+            <Typography component="label" {...textProps}>{label}</Typography>
+            <Select
                 value={value}
                 onChange={onChange}
                 size="small"
                 {...props}
             >
                 {options.map((option, index) => (
-                    <MenuItem key={index} value={option.value} >
+                    <MenuItem key={index} value={option.value}>
                         {option.label}
                     </MenuItem>
                 ))}
-            </TextField>
-        </Box>
+            </Select>
+        </FormControl>
     );
 };
 
-export default ReusableDropdown;
+export default CustomDropdown;

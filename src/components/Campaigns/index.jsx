@@ -6,6 +6,8 @@ import { Box, Divider } from "@mui/material";
 import { data } from "@/utils/campaigns.data";
 import CustomAvatar from "../Shared-components/CustomAvatar";
 import ActionMenu from "../Shared-components/ActionMenu";
+import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
+import TableFilters from "../Shared-components/Table-components/TableFilters";
 
 const CampaignsWrapper = () => {
     const handleRowSelect = (selectedRowIds) => {
@@ -79,9 +81,12 @@ const CampaignsWrapper = () => {
     }, []);
 
     return (
-        <Box component="div" sx={{ px: 4, }}>
-            <Box>
-                <ReusableTable
+        <Box sx={{ bgcolor: "white", overflow: "hidden", m: 1.5, borderRadius: 6, }}>
+
+            <TableFilters />
+
+            <Box sx={{ height: "100%", }}>
+                <CustomTable
                     columns={columns}
                     data={data}
                     onRowSelect={handleRowSelect}

@@ -12,22 +12,25 @@ import { Box } from "@mui/material";
 import Image from "next/image";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 import BorderColorSharpIcon from "@mui/icons-material/BorderColorSharp";
+import { useRouter } from "next/navigation";
 
 // Reusable EventCard Component
-const EventCard = ({
-  eventName,
-  totalApplied,
-  creationDate,
-  description,
-  startDate,
-  endDate,
-  link,
-  active,
-  onDelete,
-  onEdit,
-  onSwitchChange,
-  bgColor = ["#4F71EA", "#1AA1D1"],
-}) => {
+const EventCard = ({ event }) => {
+  const route = useRouter()
+  const {
+    eventName,
+    totalApplied,
+    creationDate,
+    description,
+    startDate,
+    endDate,
+    link,
+    active,
+    onDelete,
+    onEdit,
+    onSwitchChange,
+    bgColor = ["#4F71EA", "#1AA1D1"],
+  } = event
   const [checked, setChecked] = React.useState(active);
 
   // Handle switch toggle
@@ -38,15 +41,20 @@ const EventCard = ({
 
   return (
     <Card
+      component="div"
       sx={{
-        maxWidth: 380,
+        maxWidth: 480,
         background: `linear-gradient(123deg, ${bgColor[0]}, ${bgColor[1]})`,
         borderRadius: "20px",
         py: "20px",
         px: "10px",
         color: "#FFF",
         width: "100%",
+        flex: '1 1 calc(33.33% - 16px)',
+        cursor: "pointer",
+        "&:active": { background: `linear-gradient(123deg, ${bgColor[1]}, ${bgColor[1]})` }
       }}
+      onClick={() => route.push("/campaigns/campaign-list")}
     >
       {/* Header Section */}
       <Box
