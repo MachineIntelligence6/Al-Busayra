@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, FormControl, MenuItem, Select, Typography } from "@mui/material";
 
-const CustomDropdown = ({ label, options, value, onChange, textProps, sx, ...props }) => {
+const CustomDropdown = ({ label, options, value, onChange,placeholder, textProps, sx, ...props }) => {
     return (
         <FormControl sx={{ ...sx }} >
             <Typography component="label" {...textProps}>{label}</Typography>

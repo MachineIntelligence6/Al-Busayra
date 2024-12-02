@@ -19,8 +19,10 @@ export const menuData = [
         title: "Applicants",
         icon: "/sidebarIcons/svg/users.svg",
         item: [
-            { id: "3-1", label: "Applicant List", url: "/applicants/list" },
-            { id: "3-2", label: "Create Applicant", url: "/applicants/create" },
+            { id: "3-1", label: "Shortlisted", url: "/applicants" },
+            { id: "3-2", label: "Final Review", url: "" },
+            { id: "3-3", label: "Hold", url: "" },
+            { id: "3-4", label: "Not Qualified", url: "" },
         ],
     },
     {

@@ -6,7 +6,13 @@ import Breadcrumb from "@/components/Shared-components/BreadCrumb";
 export default function Layout({ children }) {
 
     return (
-        <Box sx={{ display: "flex", height: "100vh", bgcolor: "#23567F" }}>
+        <Box sx={{
+            display: "flex",
+            minHeight: "100vh",
+            width: "100vw",
+            bgcolor: "#23567F",
+            overflow: "hidden", // Prevent unnecessary scroll
+        }}>
             <SidebarMenu menuData={menuData} />
             <Box
                 component="main"
@@ -17,6 +23,7 @@ export default function Layout({ children }) {
                     display: "flex",
                     flexDirection: "column",
                     height: "100vh",
+                    width: "calc(100vw - 300px)",
                 }}
             >
                 <Box

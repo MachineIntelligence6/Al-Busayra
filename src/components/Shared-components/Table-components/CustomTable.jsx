@@ -14,9 +14,22 @@ import {
   Box,
 } from "@mui/material";
 import FilterListIcon from "@mui/icons-material/FilterList";
-import EntriesDropDown from "../EntriesDropDown";
+import { FilterList } from "@mui/icons-material";
+import Image from "next/image";
 
-const CustomTable = ({ columns, data, onRowSelect }) => {
+const allowedFields = [
+    "date",
+    "residentCountry",
+    "fullName",
+    "status",
+    "remarks",
+    "campaignName",
+    "phoneNumber",
+    "drivingLicense",
+    "residentCity"
+  ];
+
+const CustomTable = ({ columns, data, onRowSelect, handleFilterClick }) => {
   const [selectedRows, setSelectedRows] = useState([]);
 
   const isAllSelected = selectedRows.length === data.length && data.length > 0;
@@ -45,18 +58,15 @@ const CustomTable = ({ columns, data, onRowSelect }) => {
 
   return (
     <TableContainer
-    // component={Paper}
-    // sx={{
-    //     height: "100%",
-    //     overflowX: "scroll",
-    //     overflowY: "scroll",
-
-    // }}
+    sx={{
+        maxWidth: "80vw",
+        overflowX: "auto",
+      }}
     >
-      <Box>
-        <EntriesDropDown />
-      </Box>
-      <Table stickyHeader>
+      <Table stickyHeader    sx={{
+        maxWidth: "80vw",
+        overflowX: "auto",
+      }}>
         <TableHead
           sx={{
             "& .MuiTableCell-root": {
@@ -81,14 +91,20 @@ const CustomTable = ({ columns, data, onRowSelect }) => {
                 align={column.align || "left"}
                 sx={{ fontWeight: "400", whiteSpace: "nowrap" }}
               >
-                <span style={{ display: "flex", alignItems: "center" }}>
+                <span style={{ display: "flex", alignItems: "center", justifyContent:"space-between" }}>
                   {column.headerName}
-                  {/* <IconButton
-                                        size="small"
-                                        onClick={() => column.onFilter && column.onFilter(column.field)}
-                                    >
-                                        <FilterListIcon fontSize="small" />
-                                    </IconButton> */}
+
+                  {/* Conditionally render the filter icon based on column field */}
+                  {allowedFields.includes(column.field)? (
+                    <IconButton
+                      size="small"
+                      onClick={() => handleFilterClick(column.field)}
+                    //   sx={{ marginLeft: "8px", padding: 0 }}
+                    >
+                    <FilterListIcon />
+                    {/* <Image src="/public/applicantIcons/filter.svg" alt="filter" width={50} height={50} /> */}
+                    </IconButton>
+                  ) : null}
                 </span>
               </TableCell>
             ))}
@@ -119,23 +135,8 @@ const CustomTable = ({ columns, data, onRowSelect }) => {
         </TableBody>
       </Table>
       <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: 2,
-        }}
-      >
-        <Box>Showing 1 to 10 of 50 entries</Box>
-        <Box>
-          <Stack spacing={2}>
-            <Pagination count={10} variant="outlined" shape="rounded" />
-          </Stack>
-        </Box>
-      </Box>
-      <Box
         component="div"
-        sx={{ width: "100%", height: 10, bgcolor: "ButtonShadow" }}
+        sx={{ width: "100%", height: 40, bgcolor: "ButtonShadow" }}
       ></Box>
     </TableContainer>
   );
