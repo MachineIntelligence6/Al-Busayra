@@ -11,6 +11,7 @@ import CallIcon from "@mui/icons-material/Call";
 import DvrIcon from "@mui/icons-material/Dvr";
 import { useState } from "react";
 import BasicInfo from "@/components/Shared-components/IncompleteProfileForm/BasicInfo";
+import ContactResidence from "@/components/Shared-components/IncompleteProfileForm/ContactResidence";
 
 // Custom Tab Panel
 function CustomTabPanel(props) {
@@ -45,7 +46,7 @@ const tabs = [
   {
     label: "Contact/Residence",
     icon: <CallIcon />,
-    content: "Contact/Residence Content",
+    content: <ContactResidence />,
   },
   {
     label: "Emirates ID",
@@ -95,7 +96,7 @@ export default function BasicTabs() {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+      <Box sx={{ borderBottom: 1, borderColor: "#2F2B3D40" }}>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -113,6 +114,7 @@ export default function BasicTabs() {
                     justifyContent: "center",
                     alignItems: "center",
                     gap: 1,
+                    fontSize: 15,
                   }}
                 >
                   <Box
@@ -127,7 +129,7 @@ export default function BasicTabs() {
                     <Box
                       sx={{
                         color: value === index ? "white" : "#104774", // Active vs Inactive icon color
-                        fontSize: 20,
+                        fontSize: 5,
                       }}
                     >
                       {tab.icon}
