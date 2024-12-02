@@ -1,11 +1,14 @@
 import React from "react";
 import { Button } from "@mui/material";
+import { AddIcCallOutlined } from "@mui/icons-material";
 
 const CustomButton = ({
     children,
     color,          // Explicit color for text
     bgColor = "primary", // Default bgColor
     variant = "contained", // Default variant
+    startIcon,
+    endIcon,
     sx,             // Custom styles
     ...rest         // Remaining props
 }) => {
@@ -14,6 +17,7 @@ const CustomButton = ({
         primary: "#104774",
         muted: "#808390",
         secondary: "#737682",
+        foreground: "#80839029",
         danger: "#FF4C51",
     };
 
@@ -25,6 +29,8 @@ const CustomButton = ({
     return (
         <Button
             variant={variant}
+            startIcon={startIcon ?? startIcon}
+            endIcon={endIcon ?? endIcon}
             sx={{
                 backgroundColor: variant === "contained" ? backgroundColor : "transparent",
                 color: textColor,

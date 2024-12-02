@@ -8,9 +8,11 @@ import { Box, Button, TextField } from "@mui/material";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import ActionMenu from "../ActionMenu";
 import AddIcon from '@mui/icons-material/Add';
+import CustomButton from "../CustomButton";
 
 
-const TableExportRow = () => {
+
+const TableExportRow = ({ isBtnAdd }) => {
   const [entries, setEntries] = useState(10);
   const [text, setText] = useState("");
 
@@ -62,7 +64,7 @@ const TableExportRow = () => {
               fontSize: 15,
               borderRadius: "6px",
             }}
-            //   label={entries}
+          //   label={entries}
           >
             {/* <MenuItem value="">
             <em>None</em>
@@ -100,39 +102,8 @@ const TableExportRow = () => {
           }}
         />
 
-        <Button
-          component="label"
-          role={undefined}
-          variant="contained"
-          tabIndex={-1}
-          startIcon={<FileUploadIcon />}
-          sx={{
-            backgroundColor: "#80839029", // Set background color
-            "&:hover": {
-              backgroundColor: "#80839029", // Set hover color if needed (slightly darker)
-            },
-            color: "#808390",
-          }}
-        >
-          Export
-        </Button>
-        <Button
-          component="label"
-          role={undefined}
-          variant="contained"
-          tabIndex={-1}
-          onClick={onButtonClick}
-          endIcon={<AddIcon/>}
-          sx={{
-            backgroundColor: "#104774", // Set background color
-            "&:hover": {
-              backgroundColor: "#80839029", // Set hover color if needed (slightly darker)
-            },
-            color: "white",
-          }}
-        >
-          Add New
-        </Button>
+        <CustomButton bgColor="foreground" color={"#000"} endIcon={<FileUploadIcon />}>Export</CustomButton>
+        {true && <CustomButton endIcon={<AddIcon />}>Add New</CustomButton>}
         <Box
           sx={{
             backgroundColor: "#80839029",

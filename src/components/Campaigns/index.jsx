@@ -126,7 +126,7 @@ const CampaignsWrapper = () => {
   return (
     <Box sx={{ bgcolor: "white", overflow: "hidden", m: 1.5, borderRadius: 6 }}>
       <TableFilters />
-     <TableExportRow/>
+      <TableExportRow />
       <Box sx={{ height: "100%" }}>
         <CustomTable
           columns={columns}
