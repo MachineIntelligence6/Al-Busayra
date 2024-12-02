@@ -1,17 +1,39 @@
 import React from "react";
-import { Box, FormControl, MenuItem, Select, Typography } from "@mui/material";
+import { FormControl, MenuItem, Select, Typography } from "@mui/material";
 
-const CustomDropdown = ({ label, options, value, onChange,placeholder, textProps, sx, ...props }) => {
+const CustomDropdown = ({
+    label,
+    options,
+    value,
+    onChange,
+    placeholder,
+    textProps,
+    sx,
+    ...props
+}) => {
     return (
-        <FormControl sx={{ ...sx }} >
-            <Typography component="label" {...textProps}>{label}</Typography>
+        <FormControl sx={{ ...sx }} fullWidth>
+            {label && (
+                <Typography component="label" {...textProps}>
+                    {label}
+                </Typography>
+            )}
             <Select
                 value={value}
                 onChange={onChange}
                 size="small"
-                placeholder={placeholder}
+                displayEmpty
+                renderValue={(selected) => {
+                    if (!selected) {
+                        return <Typography sx={{ color: "gray" }}>{placeholder}</Typography>;
+                    }
+                    return options.find((option) => option.value === selected)?.label;
+                }}
                 {...props}
             >
+                <MenuItem value="" disabled>
+                    {placeholder}
+                </MenuItem>
                 {options.map((option, index) => (
                     <MenuItem key={index} value={option.value}>
                         {option.label}

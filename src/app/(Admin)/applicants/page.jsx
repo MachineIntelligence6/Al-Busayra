@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
 
 const Page = () => {
-    const router = useRouter(); 
+  const router = useRouter();
   const handleClick = () => {
     router.push("applicants/shortlisted-applicants");
   };
@@ -20,6 +20,8 @@ const Page = () => {
         buttonText="Add Applicant"
         onButtonClick={handleClick}
       />
+      {/* <CampaignsWrapper /> */}
+
     </Box>
   );
 };

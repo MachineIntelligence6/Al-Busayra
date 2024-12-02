@@ -10,8 +10,8 @@ export const menuData = [
         title: "Campaigns",
         icon: "/sidebarIcons/svg/ad-2.svg",
         item: [
-            { id: "2-1", label: "Campaign List", url: "/campaigns" },
-            { id: "2-2", label: "Create Campaign", url: "/campaigns/create" },
+            { id: "2-1", label: "Campaign List", url: "/campaigns/campaign-list" },
+            { id: "2-2", label: "Not Qualified", url: "/campaigns/not-qualified" },
         ],
     },
     {
@@ -20,9 +20,9 @@ export const menuData = [
         icon: "/sidebarIcons/svg/users.svg",
         item: [
             { id: "3-1", label: "Shortlisted", url: "/applicants" },
-            { id: "3-2", label: "Final Review", url: "" },
-            { id: "3-3", label: "Hold", url: "" },
-            { id: "3-4", label: "Not Qualified", url: "" },
+            { id: "3-2", label: "Final Review", url: "/applicants/final-review" },
+            { id: "3-3", label: "Hold", url: "/applicants/hold" },
+            { id: "3-4", label: "Not Qualified", url: "/applicants/not-qualified" },
         ],
     },
     {
@@ -30,8 +30,9 @@ export const menuData = [
         title: "Employees",
         icon: "/sidebarIcons/svg/user.svg",
         item: [
-            { id: "4-1", label: "Employee List", url: "/employees/list" },
-            { id: "4-2", label: "Add Employee", url: "/employees/add" },
+            { id: "4-2", label: "Active Employees", url: "/employees" },
+            { id: "4-3", label: "Inactive Employees", url: "/employees/inactive-employee" },
+            { id: "4-1", label: "Incomplete Profile", url: "/employees/incomplete-profile" },
         ],
     },
     {
@@ -39,8 +40,8 @@ export const menuData = [
         title: "Inventory",
         icon: "/sidebarIcons/svg/archive.svg",
         item: [
-            { id: "5-1", label: "Stock List", url: "/inventory/stock" },
-            { id: "5-2", label: "Add Stock", url: "/inventory/add" },
+            { id: "5-1", label: "Dashboard", url: "/inventory" },
+            { id: "5-2", label: "Inventory List", url: "/inventory/inventory-list" },
         ],
     },
     {
@@ -48,8 +49,8 @@ export const menuData = [
         title: "Corporate",
         icon: "/sidebarIcons/svg/user-info.svg",
         item: [
-            { id: "6-1", label: "Corporate List", url: "/corporate/list" },
-            { id: "6-2", label: "Add Corporate", url: "/corporate/add" },
+            { id: "6-1", label: "Vendors", url: "/corporate" },
+            { id: "6-2", label: "Platforms", url: "/corporate/platforms" },
         ],
     },
     {
@@ -57,7 +58,7 @@ export const menuData = [
         title: "Challans",
         icon: "/sidebarIcons/svg/cash.svg",
         item: [
-            { id: "7-1", label: "Salik", url: "/challans/salik" },
+            { id: "7-1", label: "Salik", url: "/challans" },
             { id: "7-2", label: "Traffic", url: "/challans/traffic" },
         ],
     },
@@ -66,8 +67,9 @@ export const menuData = [
         title: "Users",
         icon: "/sidebarIcons/svg/users.svg",
         item: [
-            { id: "8-1", label: "User List", url: "/users/list" },
-            { id: "8-2", label: "Add User", url: "/users/add" },
+            { id: "8-1", label: "Active User", url: "/users" },
+            { id: "8-2", label: "Inactive User", url: "/users/inactive" },
+            { id: "8-3", label: "Roles Template", url: "/users/roles-template" },
         ],
     },
     {
