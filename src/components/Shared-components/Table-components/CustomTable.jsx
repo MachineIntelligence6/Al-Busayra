@@ -16,16 +16,16 @@ import { FilterList } from "@mui/icons-material";
 import Image from "next/image";
 
 const allowedFields = [
-    "date",
-    "residentCountry",
-    "fullName",
-    "status",
-    "remarks",
-    "campaignName",
-    "phoneNumber",
-    "drivingLicense",
-    "residentCity"
-  ];
+  "date",
+  "residentCountry",
+  "fullName",
+  "status",
+  "remarks",
+  "campaignName",
+  "phoneNumber",
+  "drivingLicense",
+  "residentCity"
+];
 
 const CustomTable = ({ columns, data, onRowSelect, handleFilterClick }) => {
   const [selectedRows, setSelectedRows] = useState([]);
@@ -56,12 +56,12 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick }) => {
 
   return (
     <TableContainer
-    sx={{
+      sx={{
         maxWidth: "80vw",
         overflowX: "auto",
       }}
     >
-      <Table stickyHeader    sx={{
+      <Table stickyHeader sx={{
         maxWidth: "80vw",
         overflowX: "auto",
       }}>
@@ -89,18 +89,18 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick }) => {
                 align={column.align || "left"}
                 sx={{ fontWeight: "400", whiteSpace: "nowrap" }}
               >
-                <span style={{ display: "flex", alignItems: "center", justifyContent:"space-between" }}>
+                <span style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                   {column.headerName}
 
                   {/* Conditionally render the filter icon based on column field */}
-                  {allowedFields.includes(column.field)? (
+                  {allowedFields.includes(column.field) ? (
                     <IconButton
                       size="small"
                       onClick={() => handleFilterClick(column.field)}
                     //   sx={{ marginLeft: "8px", padding: 0 }}
                     >
-                    <FilterListIcon />
-                    {/* <Image src="/public/applicantIcons/filter.svg" alt="filter" width={50} height={50} /> */}
+                      <FilterListIcon />
+                      {/* <Image src="/public/applicantIcons/filter.svg" alt="filter" width={50} height={50} /> */}
                     </IconButton>
                   ) : null}
                 </span>
@@ -123,7 +123,7 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick }) => {
                 <TableCell
                   key={column.field}
                   align={column.align || "left"}
-                  sx={{ whiteSpace: "wrap" }}
+                  sx={{ whiteSpace: "nowrap" }}
                 >
                   {column.render ? column.render(row) : row[column.field]}
                 </TableCell>

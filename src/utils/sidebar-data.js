@@ -10,7 +10,7 @@ export const menuData = [
         title: "Campaigns",
         icon: "/sidebarIcons/svg/ad-2.svg",
         item: [
-            { id: "2-1", label: "Campaign List", url: "/campaigns/campaign-list" },
+            { id: "2-1", label: "Campaign List", url: "/campaigns" },
             { id: "2-2", label: "Not Qualified", url: "/campaigns/not-qualified" },
         ],
     },

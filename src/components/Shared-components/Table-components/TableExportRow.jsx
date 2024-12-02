@@ -103,7 +103,7 @@ const TableExportRow = ({ isBtnAdd }) => {
         />
 
         <CustomButton bgColor="foreground" color={"#000"} endIcon={<FileUploadIcon />}>Export</CustomButton>
-        {true && <CustomButton endIcon={<AddIcon />}>Add New</CustomButton>}
+        {isBtnAdd && <CustomButton endIcon={<AddIcon />}>Add New</CustomButton>}
         <Box
           sx={{
             backgroundColor: "#80839029",
