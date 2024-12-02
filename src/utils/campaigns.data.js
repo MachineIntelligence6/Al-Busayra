@@ -41,6 +41,12 @@ export const data = [
         remarks: "--",
         status: "Pending",
         action: "View Details",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Dubai",
+        referBy: "John Smith",
+       
+       
     },
     {
         date: "12/09/2024",
@@ -55,6 +61,11 @@ export const data = [
         remarks: "--",
         status: "Pending",
         action: "View Details",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Sharjah",
+        referBy: "John Smith",
+      
     },
     {
         date: "12/09/2024",
@@ -69,6 +80,10 @@ export const data = [
         remarks: "--",
         status: "Pending",
         action: "View Details",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Dubai",
+        referBy: "John Smith",
     },
     {
         date: "12/09/2024",
@@ -83,6 +98,10 @@ export const data = [
         remarks: "Will be available after 2 days",
         status: "On Hold",
         action: "Edit",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Abu Dhabi",
+        referBy: "John Smith",
     },
     {
         date: "12/09/2024",
@@ -97,6 +116,10 @@ export const data = [
         remarks: "--",
         status: "Pending",
         action: "View Details",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Dubai",
+        referBy: "John Smith",
     },
     {
         date: "12/09/2024",
@@ -111,6 +134,10 @@ export const data = [
         remarks: "Will be available after 2 days",
         status: "On Hold",
         action: "Edit",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Sharjah",
+        referBy: "John Smith",
     },
     {
         date: "12/09/2024",
@@ -125,6 +152,10 @@ export const data = [
         remarks: "--",
         status: "Pending",
         action: "View Details",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Dubai",
+        referBy: "John Smith",
     },
     {
         date: "12/09/2024",
@@ -139,6 +170,10 @@ export const data = [
         remarks: "Will be available after 2 days",
         status: "On Hold",
         action: "Edit",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Dubai",
+        referBy: "John Smith",
     },
     {
         date: "12/09/2024",
@@ -153,6 +188,10 @@ export const data = [
         remarks: "--",
         status: "Pending",
         action: "View Details",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Dubai",
+        referBy: "John Smith",
     },
     {
         date: "12/09/2024",
@@ -167,6 +206,10 @@ export const data = [
         remarks: "Will be available after 2 days",
         status: "On Hold",
         action: "Edit",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Dubai",
+        referBy: "John Smith",
     },
 
     // Add more rows for testing

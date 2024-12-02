@@ -8,15 +8,16 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Switch from "@mui/material/Switch";
 import Link from "@mui/material/Link";
-import { Box } from "@mui/material";
+import { Box, FormControlLabel, FormGroup } from "@mui/material";
 import Image from "next/image";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 import BorderColorSharpIcon from "@mui/icons-material/BorderColorSharp";
 import { useRouter } from "next/navigation";
+import IOSSwitch from "../ui/switch-button";
 
 // Reusable EventCard Component
 const EventCard = ({ event }) => {
-  const route = useRouter()
+  const route = useRouter();
   const {
     eventName,
     totalApplied,
@@ -30,7 +31,7 @@ const EventCard = ({ event }) => {
     onEdit,
     onSwitchChange,
     bgColor = ["#4F71EA", "#1AA1D1"],
-  } = event
+  } = event;
   const [checked, setChecked] = React.useState(active);
 
   // Handle switch toggle
@@ -50,9 +51,11 @@ const EventCard = ({ event }) => {
         px: "10px",
         color: "#FFF",
         width: "100%",
-        flex: '1 1 calc(33.33% - 16px)',
+        flex: "1 1 calc(33.33% - 16px)",
         cursor: "pointer",
-        "&:active": { background: `linear-gradient(123deg, ${bgColor[1]}, ${bgColor[1]})` }
+        "&:active": {
+          background: `linear-gradient(123deg, ${bgColor[1]}, ${bgColor[1]})`,
+        },
       }}
       onClick={() => route.push("/campaigns/campaign-list")}
     >
@@ -196,22 +199,20 @@ const EventCard = ({ event }) => {
           }}
         >
           Active
-          <Switch
-            color="#26BD6C"
-            checked={checked}
-            onChange={handleSwitchChange}
-            sx={{
-              "& .MuiSwitch-thumb": {
-                backgroundColor: "white",
-                border: "2px solid #1B61A2",
-              },
-              "& .MuiSwitch-track": {
-                border: "2px solid #1B61A2",
-                backgroundColor: "#26BD6C",
-              },
-            }}
-          />
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <IOSSwitch
+                  sx={{ m: 2 }}
+                  defaultChecked
+                  onChange={handleSwitchChange}
+                />
+              }
+              // label="Active"
+            />
+          </FormGroup>
         </Box>
+
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <Button
             variant="contained"

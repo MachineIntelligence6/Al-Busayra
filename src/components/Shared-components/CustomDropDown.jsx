@@ -9,6 +9,7 @@ const CustomDropdown = ({ label, options, value, onChange, textProps, sx, ...pro
                 value={value}
                 onChange={onChange}
                 size="small"
+                sx={{borderRadius: '8px' }}
                 
                 
 

@@ -13,6 +13,7 @@ import {
 import Input from "@/app/Components/Input/Input";
 import { useFormik } from "formik";
 import { YuppValSchema } from "./Schemas/YuppValSchema";
+import IOSSwitch from "../ui/switch-button";
 
 const ModalCard = ({ onClose }) => {
   const [isActive, setIsActive] = useState(true);
@@ -160,19 +161,10 @@ const ModalCard = ({ onClose }) => {
             >
               <FormControlLabel
                 control={
-                  <Switch
-                    checked={isActive}
+                  <IOSSwitch
+                    sx={{ m: 1 }}
+                    defaultChecked
                     onChange={() => setIsActive(!isActive)}
-                    color="#26BD6C"
-                    sx={{
-                      "& .MuiSwitch-thumb": {
-                        backgroundColor: "white",
-                        border: "2px solid #26BD6C",
-                      },
-                      "& .MuiSwitch-track": {
-                        backgroundColor: "#26BD6C",
-                      },
-                    }}
                   />
                 }
                 label={`Campaign Status: ${isActive ? "Active" : "Inactive"}`}
