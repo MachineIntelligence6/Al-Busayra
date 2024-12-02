@@ -13,7 +13,7 @@ const Page = () => {
             {/* <CampaignsWrapper /> */}
             <Box component="div" sx={{ display: "flex", justifyContent: "space-evenly", gap: 4.5, alignItems: "center", flexWrap: "wrap", my: 2 }}>
                 {eventData.map(event => <EventCard key={event.id} event={event} />)}
-            </Box >
+            </Box>
         </>
     );
 };

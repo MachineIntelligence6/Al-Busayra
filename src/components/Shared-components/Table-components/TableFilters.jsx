@@ -17,7 +17,7 @@ const TableFilters = () => {
 
 
     return (
-        <Box component="div" sx={{ width: "100%", m: 2, "& .MuiInputBase-root": { width: "340px" }, }}>
+        <Box component="div" sx={{ width: "100%", m: 2, "& .MuiInputBase-root": { width: "80%" }, }}>
             <Typography variant='caption' sx={{ fontSize: 16 }}>Advance Filters</Typography>
 
             <Box
@@ -61,3 +61,64 @@ const TableFilters = () => {
 }
 
 export default TableFilters
+
+
+
+// import { Box, Divider, Typography } from '@mui/material';
+// import React, { useState } from 'react';
+// import CustomDropdown from '../CustomDropDown';
+
+// const TableFilters = ({ filters = [], title = "Advance Filters" }) => {
+//     const [values, setValues] = useState(
+//         filters.reduce((acc, filter) => ({ ...acc, [filter.name]: "" }), {})
+//     );
+
+//     const handleChange = (name, value) => {
+//         setValues((prevValues) => ({
+//             ...prevValues,
+//             [name]: value,
+//         }));
+//     };
+
+//     return (
+//         <Box
+//             component="div"
+//             sx={{
+//                 width: "100%",
+//                 m: 2,
+//                 "& .MuiInputBase-root": { width: "80%" },
+//             }}
+//         >
+//             <Typography variant="caption" sx={{ fontSize: 16 }}>
+//                 {title}
+//             </Typography>
+
+//             <Box
+//                 component="div"
+//                 sx={{
+//                     display: "flex",
+//                     alignItems: "center",
+//                     justifyContent: "space-between",
+//                     flexWrap: "wrap",
+//                     my: 2,
+//                 }}
+//             >
+//                 {filters.map((filter) => (
+//                     <CustomDropdown
+//                         key={filter.name}
+//                         sx={{ flex: 1, placeItems: "start" }}
+//                         label={filter.label}
+//                         placeholder={filter.placeholder}
+//                         options={filter.options}
+//                         value={values[filter.name]}
+//                         onChange={(e) => handleChange(filter.name, e.target.value)}
+//                     />
+//                 ))}
+//             </Box>
+//             <Divider />
+//         </Box>
+//     );
+// };
+
+// export default TableFilters;
+
