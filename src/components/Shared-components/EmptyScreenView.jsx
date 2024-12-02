@@ -1,4 +1,6 @@
+import { Box } from "@mui/material";
 import React from "react";
+import CustomButton from "./CustomButton";
 // import  page  from "./page";
 
 const EmptyScreenView = ({
@@ -10,7 +12,16 @@ const EmptyScreenView = ({
   onButtonClick,
 }) => {
   return (
-    <>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        gap: 5,
+        mt: 5,
+      }}
+    >
       <div className=" w-fit ">
         <img src={image} alt={altText} />
       </div>
@@ -19,12 +30,12 @@ const EmptyScreenView = ({
           {title}
         </h3>
         <p className="text-[#4B465C] text-center">{description}</p>
-        <div className="bg-[#104774] flex gap-2 rounded-[6px] py-[10px] px-[20px] text-[#FFF] font-medium text-[15px]">
+        <CustomButton onClick={onButtonClick} sx={{ px: 4 }}>
           <img src="/resuable/plus.svg" alt="plus" />
-          <button onClick={onButtonClick}>{buttonText}</button>
-        </div>
+          {buttonText}
+        </CustomButton>
       </div>
-    </>
+    </Box>
   );
 };
 
