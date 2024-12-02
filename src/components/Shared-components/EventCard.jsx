@@ -57,7 +57,7 @@ const EventCard = ({ event }) => {
           background: `linear-gradient(123deg, ${bgColor[1]}, ${bgColor[1]})`,
         },
       }}
-      onClick={() => route.push("/campaigns/campaign-list")}
+      onClick={() => route.push("/campaigns/campaign-users")}
     >
       {/* Header Section */}
       <Box

@@ -29,7 +29,7 @@ const ActionMenu = ({ menuItems = [], onMenuItemClick }) => {
                 aria-haspopup="true"
                 onClick={handleOpenMenu}
             >
-                <MoreVertIcon />
+                <MoreVertIcon color="#80839029"/>
             </IconButton>
             <Menu
                 id="more-options-menu"
@@ -39,7 +39,7 @@ const ActionMenu = ({ menuItems = [], onMenuItemClick }) => {
                 PaperProps={{
                     style: {
                         maxHeight: 48 * 4.5, // Limit menu height
-                        width: "200px", // Customize menu width
+                        width: "200px",
                     },
                 }}
             >
