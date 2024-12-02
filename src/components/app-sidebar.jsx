@@ -30,7 +30,7 @@
 
 // export default layout
 import * as React from "react";
-import {Ellipsis, GalleryVerticalEnd, Minus, Plus,ChevronRight,ChevronDown} from "lucide-react";
+import { Ellipsis, GalleryVerticalEnd, Minus, Plus, ChevronRight, ChevronDown } from "lucide-react";
 
 import Link from 'next/link'
 import { SearchForm } from "@/components/search-form";
@@ -64,7 +64,7 @@ const data = {
   navMain: [
     {
       title: "Campaigns",
-      img:'/sidebarIcons/campaigns.png',
+      img: '/sidebarIcons/campaigns.png',
       url: "/pages/campaigns",
       items: [
         {
@@ -79,7 +79,7 @@ const data = {
     },
     {
       title: "Applicants",
-      img:'/sidebarIcons/users.png',
+      img: '/sidebarIcons/users.png',
       url: "/pages/applicants",
       items: [
         {
@@ -102,7 +102,7 @@ const data = {
     },
     {
       title: "Employees",
-      img:'/sidebarIcons/employee.png',
+      img: '/sidebarIcons/employee.png',
       url: "/pages/employees",
       items: [
         {
@@ -121,7 +121,7 @@ const data = {
     },
     {
       title: "Inventory",
-      img:'/sidebarIcons/inventory.png',
+      img: '/sidebarIcons/inventory.png',
       url: "/pages/inventory",
       items: [
         {
@@ -136,7 +136,7 @@ const data = {
     },
     {
       title: "Corporate",
-      img:'/sidebarIcons/corporate.png',
+      img: '/sidebarIcons/corporate.png',
       url: "/pages/corporate",
       items: [
         {
@@ -151,7 +151,7 @@ const data = {
     },
     {
       title: "Challans",
-      img:'/sidebarIcons/users.png',
+      img: '/sidebarIcons/users.png',
       url: "/pages/challans",
       items: [
         {
@@ -166,7 +166,7 @@ const data = {
     },
     {
       title: "Users",
-      img:'/sidebarIcons/users.png',
+      img: '/sidebarIcons/users.png',
       url: "/pages/users",
       items: [
         {
@@ -194,57 +194,57 @@ export function AppSidebar({ ...props }) {
         <SidebarMenu>
           <SidebarMenuItem>
             {/* <SidebarMenuButton size="lg" asChild className = ''> */}
-              <Link href="/pages/companies">
-                <div className="flex ">
-                  <img src="/logowhite.png" className="w-full h-full" />
-                </div>
-              </Link>
+            <Link href="/pages/companies">
+              <div className="flex ">
+                <img src="/logowhite.png" className="w-full h-full" />
+              </div>
+            </Link>
             {/* </SidebarMenuButton> */}
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
       <Separator />
       <SidebarContent className="bg-[#23567F] ">
-        <SidebarGroup className = ''>
-          <SidebarMenuButton 
-          className = 'text-white mb-2' 
-          isActive = {(pathName === '/pages/companies' || pathName === '/pages/companies/view')}>
+        <SidebarGroup className=''>
+          <SidebarMenuButton
+            className='text-white mb-2'
+            isActive={(pathName === '/pages/companies' || pathName === '/pages/companies/view')}>
             Companies
           </SidebarMenuButton>
-          <SidebarMenu  className = ''>
+          <SidebarMenu className=''>
             {data.navMain.map((item, index) => (
               <Collapsible
                 key={item.title}
-                
+
                 className="group/collapsible "
               >
                 <SidebarMenuItem>
-                  <CollapsibleTrigger asChild className = 'py-[20px]'>
-                    <SidebarMenuButton className="text-white" isActive = {pathName === item?.url}>
-                      
-                      <img src  = {item?.img} className = 'hover:invert' />
+                  <CollapsibleTrigger asChild className='py-[20px]'>
+                    <SidebarMenuButton className="text-white" isActive={pathName === item?.url}>
+
+                      <img src={item?.img} className='hover:invert' />
                       <Link href={item?.url}>
-                      {item.title}{" "}
+                        {item.title}{" "}
                       </Link>
                       <ChevronDown className="ml-auto group-data-[state=open]/collapsible:hidden" />
                       <ChevronRight className="ml-auto group-data-[state=closed]/collapsible:hidden" />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
                   {item.items?.length ? (
-                    <CollapsibleContent className = 'flex justify-start items-start'>
-                      <SidebarMenuSub className = 'bg-[#FFFFFF17] rounded-[4px] p-2 w-full'>
+                    <CollapsibleContent className='flex justify-start items-start'>
+                      <SidebarMenuSub className='bg-[#FFFFFF17] rounded-[4px] p-2 w-full'>
                         {item.items.map((item) => (
                           <SidebarMenuSubItem key={item.title}>
                             <SidebarMenuSubButton
                               asChild
                               // isActive={pathName === item.url}
-                              className = {`hover:bg-[#104774] hover:text-white ${pathName === item.url ? 'bg-[#104774]' : ''}`}
+                              className={`hover:bg-[#104774] hover:text-white ${pathName === item.url ? 'bg-[#104774]' : ''}`}
                             >
                               <div>
-                              <div className = 'w-[10px] h-[10px] rounded-full border-[1px] border-white '></div>
-                              <Link href={item.url} className="text-white ">
-                                {item.title}
-                              </Link>
+                                <div className='w-[10px] h-[10px] rounded-full border-[1px] border-white '></div>
+                                <Link href={item.url} className="text-white ">
+                                  {item.title}
+                                </Link>
                               </div>
                             </SidebarMenuSubButton>
                           </SidebarMenuSubItem>
@@ -256,32 +256,32 @@ export function AppSidebar({ ...props }) {
               </Collapsible>
             ))}
           </SidebarMenu>
-          <SidebarMenuButton className = 'text-white mt-2' isActive = {pathName === '/pages/configuration'} >
-            <Link href ={'/pages/configuration'} > Configuration</Link>
+          <SidebarMenuButton className='text-white mt-2' isActive={pathName === '/pages/configuration'} >
+            <Link href={'/pages/configuration'} > Configuration</Link>
           </SidebarMenuButton>
         </SidebarGroup>
       </SidebarContent>
-        <SidebarFooter className="bg-[#23567F]">
-          <div className = 'flex flex-col items-center justify-between py-5 space-y-4'>
-            <div className = 'flex flex-row items-center justify-between w-full gap-2'>
-                <img src = '/bell.png' />
-                <div className = 'bg-[#FF4C51] rounded-md px-2 py-1 text-white font-medium'>5</div>
-            </div>
-            <div className = 'flex flex-row items-center justify-between gap-[8px]'>
-                <div className = 'w-[32px] h-[32px] rounded-full bg-[#3BC5FB] text-[14px] flex items-center justify-center text-white'>
-                ZA
-                </div>
-                <div className = 'flex flex-col'>
-                  <div className = 'font-medium text-[12px] leading-[20px] text-white'>Zaheer Abbas</div>
-                  <div className = 'font-medium text-[12px] leading-[20px]  text-[#FFFFFF99]'>Al busayra delivery services</div>
-                </div>
-                <div className = 'py-[12px] px-[3.8px] rounded-[6px] bg-[#2F2B3D40] '>
-            <Ellipsis className="text-white" />
-            </div>
-            </div>
-            
+      <SidebarFooter className="bg-[#23567F]">
+        <div className='flex flex-col items-center justify-between py-5 space-y-4'>
+          <div className='flex flex-row items-center justify-between w-full gap-2'>
+            <img src='/bell.png' />
+            <div className='bg-[#FF4C51] rounded-md px-2 py-1 text-white font-medium'>5</div>
           </div>
-        </SidebarFooter>
+          <div className='flex flex-row items-center justify-between gap-[8px]'>
+            <div className='w-[32px] h-[32px] rounded-full bg-[#3BC5FB] text-[14px] flex items-center justify-center text-white'>
+              ZA
+            </div>
+            <div className='flex flex-col'>
+              <div className='font-medium text-[12px] leading-[20px] text-white'>Zaheer Abbas</div>
+              <div className='font-medium text-[12px] leading-[20px]  text-[#FFFFFF99]'>Al busayra delivery services</div>
+            </div>
+            <div className='py-[12px] px-[3.8px] rounded-[6px] bg-[#2F2B3D40] '>
+              <Ellipsis className="text-white" />
+            </div>
+          </div>
+
+        </div>
+      </SidebarFooter>
       {/* <SidebarRail /> */}
     </Sidebar>
   );
