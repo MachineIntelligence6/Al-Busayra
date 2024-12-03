@@ -1,8 +1,6 @@
-import Image from "next/image";
-import Auth from "./Components/AuthComponents/Auth";
+'use client'
+import { redirect } from "next/navigation";
 
 export default function Home() {
-
-  return <>{/* <Auth /> */}</>;
-
+  redirect('/auth/login');
 }

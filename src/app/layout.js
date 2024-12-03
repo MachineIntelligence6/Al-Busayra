@@ -1,8 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import { SidebarProvider } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
-import ThemeRegistry from "./ThemeRegistry";
+import { ThemeProvider } from "@emotion/react";
+import { theme } from "./theme/theme";
+import CustomThemeProvider from "./theme/Provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -22,11 +22,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable}   antialiased`}
-      >
-        <ThemeRegistry>{children}</ThemeRegistry>
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable}`} >
+        {/* <CustomTh theme = {theme}> */}
+        <CustomThemeProvider>
+        {children}
+        </CustomThemeProvider>
+        {/* </CustomTh> */}
+        
       </body>
     </html>
   );
