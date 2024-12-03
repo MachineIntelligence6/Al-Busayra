@@ -1,11 +1,12 @@
-import React from 'react'
+import EmployeeFormWrapper from "@/components/employees/incomplete-form";
+import React from "react";
 
 const page = () => {
-    return (
-        <div>
-            inComplete Profile
-        </div>
-    )
-}
+  return (
+    <div>
+      <EmployeeFormWrapper />
+    </div>
+  );
+};
 
-export default page
+export default page;
