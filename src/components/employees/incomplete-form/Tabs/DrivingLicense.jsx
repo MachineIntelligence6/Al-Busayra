@@ -4,14 +4,13 @@ import Dropdown from "@/app/Components/Input/Dropdown";
 import { Box, Button, Divider, Typography } from "@mui/material";
 import CustomButton from "@/components/Shared-components/CustomButton";
 
-const ContactResidence = () => {
+const DrivingLicense = () => {
   const [formData, setFormData] = useState({
-    email: "",
-    contactNo: "",
-    eContactRelation: "",
-    eContactNo: "",
-    country: "",
-    city: "",
+    dlNo: "",
+    dlIssueDate: "",
+    dlExpiryDate: "",
+    dlCopyFront: "",
+    dlCopyBack: "",
   });
 
 
@@ -32,36 +31,29 @@ const ContactResidence = () => {
 
   const inputFields = [
     {
-      label: "Email Address ",
-      name: "email",
+      label: "Driving License No. ",
+      name: "dlNo",
       component: Input,
     },
     {
-      label: "Contact no. (UAE) ",
-      name: "contactNo",
+      label: "Driving License Issue Date ",
+      name: "dlIssueDate",
       component: Input,
     },
     {
-      label: "Emergency Contact Relation (UAE) ",
-      name: "eContactRelation",
+      label: "Driving License Expiry Date ",
+      name: "dlExpiryDate",
       component: Input,
     },
     {
-      label: "Emergency Contact no. (UAE) ",
-      name: "eContactNo",
+      label: "Driving License copy front ",
+      name: "dlCopyFront",
       component: Input,
     },
     {
-      label: "Country ",
-      name: "country",
-      component: Dropdown,
-      options: ["UAE", "India", "USA", "Other"],
-    },
-    {
-      label: "City ",
-      name: "city",
-      component: Dropdown,
-      options: ["Dubai", "Abu Dhabi", "Sharjah"],
+      label: "Driving License copy Back ",
+      name: "dlCopyBack",
+      component: Input,
     },
   ];
 
@@ -105,11 +97,11 @@ const ContactResidence = () => {
           </Box>
 
 
-          
+         
         </Box>
       </form>
     </Box>
   );
 };
 
-export default ContactResidence;
+export default DrivingLicense;

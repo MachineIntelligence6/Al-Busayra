@@ -4,14 +4,16 @@ import Dropdown from "@/app/Components/Input/Dropdown";
 import { Box, Button, Divider, Typography } from "@mui/material";
 import CustomButton from "@/components/Shared-components/CustomButton";
 
-const ContactResidence = () => {
+const Visa = () => {
   const [formData, setFormData] = useState({
-    email: "",
-    contactNo: "",
-    eContactRelation: "",
-    eContactNo: "",
-    country: "",
-    city: "",
+    uaeResidencyIqamaNo: "",
+    visaIssueDate: "",
+    visaExpiryDate: "",
+    uaeResidencyIqama: "",
+    companyName: "",
+    companyLocation: "",
+    visaType: "",
+    visaAppliedVia: "",
   });
 
 
@@ -23,7 +25,7 @@ const ContactResidence = () => {
     });
   };
 
-  
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,36 +34,48 @@ const ContactResidence = () => {
 
   const inputFields = [
     {
-      label: "Email Address ",
-      name: "email",
+      label: "UAE residency / Iqama No. ",
+      name: "uaeResidencyIqamaNo",
       component: Input,
     },
     {
-      label: "Contact no. (UAE) ",
-      name: "contactNo",
+      label: "Visa Issue Date ",
+      name: "visaIssueDate",
       component: Input,
     },
     {
-      label: "Emergency Contact Relation (UAE) ",
-      name: "eContactRelation",
+      label: "Visa Expiry Date ",
+      name: "visaExpiryDate",
       component: Input,
     },
     {
-      label: "Emergency Contact no. (UAE) ",
-      name: "eContactNo",
+      label: "UAE Residency/Iqama ",
+      name: "uaeResidencyIqama",
       component: Input,
     },
     {
-      label: "Country ",
-      name: "country",
+      label: "Company Name ",
+      name: "companyName",
       component: Dropdown,
-      options: ["UAE", "India", "USA", "Other"],
+      options: ["Al-Busayra", "Taj Global", "Bin Xyz"],
     },
     {
-      label: "City ",
-      name: "city",
+      label: "Company Location ",
+      name: "companyLocation",
       component: Dropdown,
       options: ["Dubai", "Abu Dhabi", "Sharjah"],
+    },
+    {
+      label: "VISA Type ",
+      name: "visaType",
+      component: Dropdown,
+      options: ["Own", "Company Visa"],
+    },
+    {
+      label: "VISA Applied Via ",
+      name: "visaAppliedVia",
+      component: Dropdown,
+      options: ["ABDS Dubai", "ABDS Sharjah", "AHDS Dubai"],
     },
   ];
 
@@ -104,6 +118,7 @@ const ContactResidence = () => {
             ))}
           </Box>
 
+          
 
           
         </Box>
@@ -112,4 +127,4 @@ const ContactResidence = () => {
   );
 };
 
-export default ContactResidence;
+export default Visa;

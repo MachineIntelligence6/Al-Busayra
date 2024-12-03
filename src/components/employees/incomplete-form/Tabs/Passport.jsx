@@ -4,14 +4,12 @@ import Dropdown from "@/app/Components/Input/Dropdown";
 import { Box, Button, Divider, Typography } from "@mui/material";
 import CustomButton from "@/components/Shared-components/CustomButton";
 
-const ContactResidence = () => {
+const Passport = () => {
   const [formData, setFormData] = useState({
-    email: "",
-    contactNo: "",
-    eContactRelation: "",
-    eContactNo: "",
-    country: "",
-    city: "",
+    passportNo: "",
+    passportIssueDate: "",
+    passportExpiryDate: "",
+    passportCopy: "",
   });
 
 
@@ -32,36 +30,24 @@ const ContactResidence = () => {
 
   const inputFields = [
     {
-      label: "Email Address ",
-      name: "email",
+      label: "Passport No. ",
+      name: "passportNo",
       component: Input,
     },
     {
-      label: "Contact no. (UAE) ",
-      name: "contactNo",
+      label: "Passport Issue Date ",
+      name: "passportIssueDate",
       component: Input,
     },
     {
-      label: "Emergency Contact Relation (UAE) ",
-      name: "eContactRelation",
+      label: "Passport Expiry Date ",
+      name: "passportExpiryDate",
       component: Input,
     },
     {
-      label: "Emergency Contact no. (UAE) ",
-      name: "eContactNo",
+      label: "Passport Copy ",
+      name: "passportCopy",
       component: Input,
-    },
-    {
-      label: "Country ",
-      name: "country",
-      component: Dropdown,
-      options: ["UAE", "India", "USA", "Other"],
-    },
-    {
-      label: "City ",
-      name: "city",
-      component: Dropdown,
-      options: ["Dubai", "Abu Dhabi", "Sharjah"],
     },
   ];
 
@@ -105,11 +91,11 @@ const ContactResidence = () => {
           </Box>
 
 
-          
+        
         </Box>
       </form>
     </Box>
   );
 };
 
-export default ContactResidence;
+export default Passport;

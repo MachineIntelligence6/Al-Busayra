@@ -4,14 +4,14 @@ import Dropdown from "@/app/Components/Input/Dropdown";
 import { Box, Button, Divider, Typography } from "@mui/material";
 import CustomButton from "@/components/Shared-components/CustomButton";
 
-const ContactResidence = () => {
+const Insurance = () => {
   const [formData, setFormData] = useState({
-    email: "",
-    contactNo: "",
-    eContactRelation: "",
-    eContactNo: "",
-    country: "",
-    city: "",
+    medicalInsurance: "",
+    miStartDate: "",
+    miEndDate: "",
+    accidentalInsurance: "",
+    aiStartDate: "",
+    aiEndDate: "",
   });
 
 
@@ -23,7 +23,7 @@ const ContactResidence = () => {
     });
   };
 
-  
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,36 +32,34 @@ const ContactResidence = () => {
 
   const inputFields = [
     {
-      label: "Email Address ",
-      name: "email",
+      label: "Medical Insurance ",
+      name: "medicalInsurance",
       component: Input,
     },
     {
-      label: "Contact no. (UAE) ",
-      name: "contactNo",
+      label: "Medical Insurance Start Date ",
+      name: "miStartDate",
       component: Input,
     },
     {
-      label: "Emergency Contact Relation (UAE) ",
-      name: "eContactRelation",
+      label: "Medical Insurance End Date ",
+      name: "miEndDate",
       component: Input,
     },
     {
-      label: "Emergency Contact no. (UAE) ",
-      name: "eContactNo",
+      label: "Accidental Insurance ",
+      name: "accidentalInsurance",
       component: Input,
     },
     {
-      label: "Country ",
-      name: "country",
-      component: Dropdown,
-      options: ["UAE", "India", "USA", "Other"],
+      label: "Accidental Insurance Start Date ",
+      name: "aiStartDate",
+      component: Input,
     },
     {
-      label: "City ",
-      name: "city",
-      component: Dropdown,
-      options: ["Dubai", "Abu Dhabi", "Sharjah"],
+      label: "Accidental Insurance End Date ",
+      name: "aiEndDate",
+      component: Input,
     },
   ];
 
@@ -112,4 +110,4 @@ const ContactResidence = () => {
   );
 };
 
-export default ContactResidence;
+export default Insurance;

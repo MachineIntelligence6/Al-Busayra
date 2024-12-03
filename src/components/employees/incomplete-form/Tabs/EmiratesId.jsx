@@ -2,16 +2,14 @@ import React, { useState } from "react";
 import Input from "@/app/Components/Input/Input";
 import Dropdown from "@/app/Components/Input/Dropdown";
 import { Box, Button, Divider, Typography } from "@mui/material";
-import CustomButton from "@/components/Shared-components/CustomButton";
 
-const ContactResidence = () => {
+const EmiratesId = () => {
   const [formData, setFormData] = useState({
-    email: "",
-    contactNo: "",
-    eContactRelation: "",
-    eContactNo: "",
-    country: "",
-    city: "",
+    emiratesId: "",
+    eidIssueDate: "",
+    eidExpiryDate: "",
+    eidCopyFront: "",
+    eidCopyBack: "",
   });
 
 
@@ -32,36 +30,29 @@ const ContactResidence = () => {
 
   const inputFields = [
     {
-      label: "Email Address ",
-      name: "email",
+      label: "Emirates ID No. ",
+      name: "emiratesId",
       component: Input,
     },
     {
-      label: "Contact no. (UAE) ",
-      name: "contactNo",
+      label: "EID Issue Date ",
+      name: "eidIssueDate",
       component: Input,
     },
     {
-      label: "Emergency Contact Relation (UAE) ",
-      name: "eContactRelation",
+      label: "EID Expiry Date ",
+      name: "eidExpiryDate",
       component: Input,
     },
     {
-      label: "Emergency Contact no. (UAE) ",
-      name: "eContactNo",
+      label: "EID copy front ",
+      name: "eidCopyFront",
       component: Input,
     },
     {
-      label: "Country ",
-      name: "country",
-      component: Dropdown,
-      options: ["UAE", "India", "USA", "Other"],
-    },
-    {
-      label: "City ",
-      name: "city",
-      component: Dropdown,
-      options: ["Dubai", "Abu Dhabi", "Sharjah"],
+      label: "EID copy Back ",
+      name: "eidCopyBack",
+      component: Input,
     },
   ];
 
@@ -112,4 +103,4 @@ const ContactResidence = () => {
   );
 };
 
-export default ContactResidence;
+export default EmiratesId;

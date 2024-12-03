@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import Input from "@/app/Components/Input/Input";
 import Dropdown from "@/app/Components/Input/Dropdown";
-import { Box, Button, Divider, Typography } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import CustomButton from "@/components/Shared-components/CustomButton";
 
-const ContactResidence = () => {
+const OtherDetails = () => {
   const [formData, setFormData] = useState({
-    email: "",
-    contactNo: "",
-    eContactRelation: "",
-    eContactNo: "",
-    country: "",
-    city: "",
+    passportHandOver: "",
+    passportTakerName: "",
+    passportPicture: "",
+    rtaTraining: "",
+    empOwnerShip: "",
+    empStatus: "",
   });
-
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -23,8 +22,6 @@ const ContactResidence = () => {
     });
   };
 
-  
-
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form Data Submitted:", formData);
@@ -32,34 +29,40 @@ const ContactResidence = () => {
 
   const inputFields = [
     {
-      label: "Email Address ",
-      name: "email",
+      label: "Passport Handed Over To Representative ",
+      name: "passportHandOver",
       component: Input,
     },
     {
-      label: "Contact no. (UAE) ",
-      name: "contactNo",
+      label: "Name of Representative Passport Taken ",
+      name: "passportTakerName",
       component: Input,
     },
     {
-      label: "Emergency Contact Relation (UAE) ",
-      name: "eContactRelation",
+      label: "Add Picture of Passport ",
+      name: "passportPicture",
       component: Input,
     },
     {
-      label: "Emergency Contact no. (UAE) ",
-      name: "eContactNo",
+      label: "RTA Training ",
+      name: "rtaTraining",
       component: Input,
     },
     {
-      label: "Country ",
-      name: "country",
+      label: "EMP Ownership ",
+      name: "empOwnerShip",
       component: Dropdown,
-      options: ["UAE", "India", "USA", "Other"],
+      options: ["Own", "4PL"],
     },
     {
-      label: "City ",
-      name: "city",
+      label: "Vendor ",
+      name: "vendor",
+      component: Dropdown,
+      options: ["Taj Global", "Bin Abc", "Bin Xyz"],
+    },
+    {
+      label: "EPM Status ",
+      name: "empStatus",
       component: Dropdown,
       options: ["Dubai", "Abu Dhabi", "Sharjah"],
     },
@@ -69,12 +72,10 @@ const ContactResidence = () => {
     <Box>
       <form onSubmit={handleSubmit}>
         <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-          {/* Dynamically render input and dropdown fields */}
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
             {inputFields.map((field, index) => (
               <Box key={index} sx={{ width: "calc(33% - 8px)" }}>
                 {" "}
-                {/* Ensures 3 fields per row */}
                 {field.component === Input ? (
                   <Input
                     labelText={field.label}
@@ -112,4 +113,4 @@ const ContactResidence = () => {
   );
 };
 
-export default ContactResidence;
+export default OtherDetails;

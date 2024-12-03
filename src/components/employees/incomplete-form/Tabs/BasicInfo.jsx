@@ -41,37 +41,37 @@ const BasicInfo = () => {
 
   const inputFields = [
     {
-      label: "Full Name As per Emirates ID",
+      label: "Full Name As per Emirates ID ",
       name: "fullName",
       component: Input,
     },
     {
-      label: "Gender",
+      label: "Gender ",
       name: "gender",
       component: Dropdown,
       options: ["Male", "Female", "Other"],
     },
-    { label: "Date of Birth", name: "dob", component: Input },
+    { label: "Date of Birth ", name: "dob", component: Input },
     {
-      label: "Religion",
+      label: "Religion ",
       name: "religion",
       component: Dropdown,
       options: ["Islam", "Christianity", "Hinduism", "Other"],
     },
     {
-      label: "Nationality",
+      label: "Nationality ",
       name: "nationality",
       component: Dropdown,
       options: ["UAE", "India", "USA", "Other"],
     },
     {
-      label: "Marital Status",
+      label: "Marital Status ",
       name: "maritalStatus",
       component: Dropdown,
       options: ["Single", "Married", "Divorced"],
     },
     {
-      label: "Employment Type",
+      label: "Employment Type ",
       name: "employmentType",
       component: Dropdown,
       options: ["Employed", "Self-Employed", "Unemployed"],
@@ -197,74 +197,6 @@ const BasicInfo = () => {
             ))}
           </Box>
 
-          <Divider sx={{ borderColor: "#2F2B3D40", mt: 2 }} />
-
-          {/* Submit Button */}
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              width: "100%",
-            }}
-          >
-            <CustomButton
-              bgColor="danger"
-              variant="outlined"
-              sx={{
-                padding:
-                  "var(--Padding-padding-2, 8px) var(--Padding-padding-5, 20px)",
-                borderRadius: "6px",
-                fontSize: "15px",
-                fontWeight: 500,
-              }}
-              startIcon={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                >
-                  <path
-                    d="M8.00065 14.6668C4.31875 14.6668 1.33398 11.682 1.33398 8.00016C1.33398 4.31826 4.31875 1.3335 8.00065 1.3335C11.6825 1.3335 14.6673 4.31826 14.6673 8.00016C14.6673 11.682 11.6825 14.6668 8.00065 14.6668ZM8.00065 7.05736L6.11503 5.17174L5.17222 6.11454L7.05785 8.00016L5.17222 9.88576L6.11503 10.8286L8.00065 8.94296L9.88625 10.8286L10.8291 9.88576L8.94345 8.00016L10.8291 6.11454L9.88625 5.17174L8.00065 7.05736Z"
-                    fill="#FF4C51"
-                  />
-                </svg>
-              }
-            >
-              Cancel
-            </CustomButton>
-
-            <CustomButton
-              sx={{
-                padding:
-                  "var(--Padding-padding-2, 8px) var(--Padding-padding-5, 20px)",
-                borderRadius: "6px",
-                fontSize: "15px",
-                fontWeight: 500,
-                boxShadow: "0px 2px 6px 0px rgba(115, 103, 240, 0.30)",
-              }}
-              endIcon={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                >
-                  <path
-                    d="M3.33398 7.99984L6.66732 11.3332L13.334 4.6665"
-                    stroke="white"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              }
-            >
-              Next
-            </CustomButton>
-          </Box>
         </Box>
       </form>
     </Box>
