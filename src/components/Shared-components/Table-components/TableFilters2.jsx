@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import CustomDropdown from "../CustomDropDown";
 
 const options = ["A", "B", "C", "D"];
-const TableFilters = () => {
+const TableFilters2 = () => {
   const [dropdown1Value, setDropdown1Value] = useState("");
   const [dropdown2Value, setDropdown2Value] = useState("");
   const [dropdown3Value, setDropdown3Value] = useState("");
@@ -35,16 +35,16 @@ const TableFilters = () => {
       >
         <CustomDropdown
           sx={{ flex: 1, placeItems: "start" }}
-          label="Campaign Name"
-          placeholder="Please Select"
+          label="Resident"
+          placeholder="Non Resident"
           options={options}
-          value={dropdown1Value}
-          onChange={(e) => setDropdown1Value(e.target.value)}
+          value={dropdown3Value}
+          onChange={(e) => setDropdown3Value(e.target.value)}
         />
         <CustomDropdown
           sx={{ flex: 1, placeItems: "start" }}
-          label="Resident Country"
-          placeholder="Pakistan"
+          label="Country"
+          placeholder="UAE"
           options={options}
           value={dropdown2Value}
           onChange={(e) => setDropdown2Value(e.target.value)}
@@ -57,11 +57,18 @@ const TableFilters = () => {
           value={dropdown3Value}
           onChange={(e) => setDropdown3Value(e.target.value)}
         />
-        
+        <CustomDropdown
+          sx={{ flex: 1, placeItems: "start" }}
+          label="Campaign"
+          placeholder="Please Select"
+          options={options}
+          value={dropdown1Value}
+          onChange={(e) => setDropdown1Value(e.target.value)}
+        />
       </Box>
       <Divider />
     </Box>
   );
 };
 
-export default TableFilters;
+export default TableFilters2;

@@ -41,6 +41,10 @@ export const data = [
         remarks: "--",
         status: "Not Qualified",
         action: "View Details",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Dubai",
+        referBy: "John Smith",
     },
 
     {
@@ -56,6 +60,10 @@ export const data = [
         remarks: "Will be available after 2 days",
         status: "Not Qualified",
         action: "Edit",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Abu Dhabi",
+        referBy: "John Smith",
     },
     {
         date: "12/09/2024",
@@ -70,6 +78,10 @@ export const data = [
         remarks: "--",
         status: "Not Qualified",
         action: "View Details",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Dubai",
+        referBy: "John Smith",
     },
     {
         date: "12/09/2024",
@@ -99,6 +111,10 @@ export const data = [
         remarks: "Will be available after 2 days",
         status: "Not Qualified",
         action: "Edit",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Sharjah",
+        referBy: "John Smith",
     },
     {
         date: "12/09/2024",
@@ -113,6 +129,10 @@ export const data = [
         remarks: "--",
         status: "Not Qualified",
         action: "View Details",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Dubai",
+        referBy: "John Smith",
     },
     {
         date: "12/09/2024",
@@ -142,6 +162,10 @@ export const data = [
         remarks: "Will be available after 2 days",
         status: "Not Qualified",
         action: "Edit",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Dubai",
+        referBy: "John Smith",
     },
     {
         date: "12/09/2024",
@@ -156,6 +180,10 @@ export const data = [
         remarks: "--",
         status: "Not Qualified",
         action: "View Details",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Dubai",
+        referBy: "John Smith",
     },
     {
         date: "12/09/2024",
@@ -185,6 +213,10 @@ export const data = [
         remarks: "Will be available after 2 days",
         status: "Not Qualified",
         action: "Edit",
+        drivingLicenseNo: "35444218797863",
+        passportNo: "TA1822801",
+        preferedWorkingCity: "Dubai",
+        referBy: "John Smith",
     },
     {
         date: "12/09/2024",
