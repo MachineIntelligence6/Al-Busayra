@@ -19,6 +19,5 @@ export const YuppValSchema = () => {
     description: Yup.string()
       .min(10, "Description should be at least 10 characters")
       .required("Description is required"),
-   
   });
 };

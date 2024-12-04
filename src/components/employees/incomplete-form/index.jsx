@@ -1,5 +1,5 @@
 import React from "react";
-import TabIndex from "./Tabs";
+import TabIndex from "./Form/Tabs";
 
 const EmployeeFormWrapper = () => {
   return (

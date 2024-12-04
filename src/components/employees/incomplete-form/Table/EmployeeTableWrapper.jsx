@@ -1,0 +1,183 @@
+"use client";
+import React, { useMemo } from "react";
+import { usePathname } from "next/navigation";
+import { Box } from "@mui/material";
+import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
+import { data } from "@/utils/campaigns.data";
+import ActionMenu from "@/components/Shared-components/ActionMenu";
+import TableExportRow from "@/components/Shared-components/Table-components/TableExportRow";
+// import TablePagination from "../Shared-components/Table-components/TablePagination";
+import TableFilters from "@/components/Shared-components/Table-components/TableFilters";
+import CustomAvatar from "@/components/Shared-components/CustomAvatar";
+
+const columnConfig = {
+  shortlistedApplicants: [
+    "date",
+    "fullName",
+    "residentCountry",
+    "residentCity",
+    "drivingLicense",
+    "phoneNumber",
+    "campaignName",
+    "action",
+  ],
+  campaignList: [
+    "date",
+    "fullName",
+    "residentCountry",
+    "residentCity",
+    "drivingLicense",
+    "phoneNumber",
+    "campaignName",
+    "remarks",
+    "status1",
+    "action",
+    "drivingLicenseNo",
+    "passportNo",
+    "preferedWorkingCity",
+    "referBy",
+  ],
+};
+
+const EmployeeTableWrapper = ({
+  handleOpenModal,
+  setCurrentPage,
+  rowsPerPage,
+  currentPage,
+}) => {
+  const pathname = usePathname();
+  const totalEntries = 20;
+  const totalPages = Math.ceil(totalEntries / rowsPerPage);
+
+  const handleRowSelect = (selectedRowIds) => {
+    console.log("Selected Row IDs:", selectedRowIds);
+  };
+
+  const handleFilterClick = (field) => {
+    console.log(`Filter clicked for: ${field}`);
+    // Add your filter logic here, such as opening a dropdown or modal
+  };
+
+  const handleMenuClick = (value) => {
+    console.log("clicked menu", value);
+  };
+
+  const MenuItems = useMemo(
+    () => [
+      { label: "Proceed", action: "Proceed" },
+      { label: "Not Qualified", action: "Not Qualified" },
+      { label: "On Hold", action: "On Hold" },
+    ],
+    []
+  );
+
+  // Define the full columns configuration
+  const fullColumns = useMemo(
+    () => [
+      { field: "date", headerName: "DATE", align: "left" },
+      {
+        field: "fullName",
+        headerName: "FULL NAME",
+        align: "left",
+        render: (row) => (
+          <CustomAvatar
+            image={row.image}
+            email={row.email}
+            fullName={row.fullName}
+          />
+        ),
+      },
+      {
+        field: "residentCountry",
+        headerName: "RESIDENT COUNTRY",
+        align: "left",
+      },
+      { field: "residentCity", headerName: "RESIDENT CITY", align: "left" },
+      // { field: "drivingLicense", headerName: "DRIVING LICENSE", align: "left" },
+      {
+        field: "drivingLicenseNo",
+        headerName: "DRIVING LICENSE",
+        align: "left",
+      },
+      { field: "passportNo", headerName: "PASSPORT NUMBER", align: "left" },
+      { field: "phoneNumber", headerName: "PHONE NUMBER", align: "left" },
+      {
+        field: "preferedWorkingCity",
+        headerName: "PREFERED WORKING CITY",
+        align: "left",
+      },
+      { field: "referBy", headerName: "REFER BY", align: "left" },
+      { field: "campaignName", headerName: "CAMPAIGN NAME", align: "left" },
+      {
+        field: "status1",
+        headerName: "STATUS",
+        align: "left",
+        render: (row) => (
+          <Box
+            sx={{
+              backgroundColor:
+                row.status1 === "Incomplete Profile"
+                  ? "#7367F029"
+                  : "#FF9F4329",
+              color: row.status1 === "Hold" ? "#FF9F43" : "#7367F0",
+              padding: "4px 8px",
+              borderRadius: "4px",
+              width: "fit-content",
+            }}
+          >
+            {row.status1}
+          </Box>
+        ),
+      },
+      {
+        field: "action",
+        headerName: "Action",
+        align: "left",
+        render: (row) => (
+          <ActionMenu menuItems={MenuItems} onMenuItemClick={handleMenuClick} />
+        ),
+      },
+    ],
+    [MenuItems]
+  );
+
+  // Dynamically set columns based on the current path
+  const columns = useMemo(() => {
+    const key = pathname.includes("shortlisted-applicants")
+      ? "shortlistedApplicants"
+      : "campaignList";
+    return fullColumns.filter((column) =>
+      columnConfig[key]?.includes(column.field)
+    );
+  }, [pathname, fullColumns]);
+
+  const paginatedData = useMemo(() => {
+    const startIndex = (currentPage - 1) * rowsPerPage;
+    const endIndex = startIndex + rowsPerPage;
+    return data.slice(startIndex, endIndex);
+  }, [currentPage, rowsPerPage]);
+
+  return (
+    <Box sx={{ bgcolor: "white", overflow: "hidden", m: 1.5, borderRadius: 6 }}>
+      <TableFilters />
+      <TableExportRow handleOpenModal={handleOpenModal} />
+      <Box sx={{ height: "100%" }}>
+        <CustomTable
+          columns={columns}
+          data={data}
+          onRowSelect={handleRowSelect}
+          handleFilterClick={handleFilterClick}
+        />
+        {/* Pagination Component */}
+        {/* <TablePagination
+          totalEntries={totalEntries}
+          rowsPerPage={rowsPerPage}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        /> */}
+      </Box>
+    </Box>
+  );
+};
+
+export default EmployeeTableWrapper;
