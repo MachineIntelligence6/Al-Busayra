@@ -55,7 +55,7 @@ export default function MultiStepFormModel({handleCloseModal}
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <Paper sx={{ maxWidth: 800, margin: 'auto', p: 2 }}>
+      <Paper sx={{ maxWidth: 800, margin: 'auto', p: 3 }}>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
           <CustomTabs tabs={tabs} activeTab={activeTab} handleTabChange={handleTabChange} />

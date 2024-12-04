@@ -4,6 +4,15 @@ const phoneRegExp = /^(\+?\d{1,4})?\s?-?\s?(\d{3})\s?-?\s?(\d{3})\s?-?\s?(\d{4})
 
 export const formSchema = yup.object({
   // General Info
+  profileImage: yup
+  .mixed()
+  .required("Image is required")
+  .test("fileType", "Only image files are allowed", (value) => {
+    return value && ["image/jpeg", "image/png"].includes(value.type);
+  })
+  .test("fileSize", "Image must be less than 2MB", (value) => {
+    return value && value.size <= 2 * 1024 * 1024;
+  }),
   campaignName: yup.string().required('Campaign name is required'),
   residency: yup.string().required('Residency status is required'),
   fullName: yup.string().required('Full name is required'),
@@ -17,8 +26,8 @@ export const formSchema = yup.object({
   email: yup.string().email('Invalid email').required('Email is required'),
   phoneNumber: yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Phone number is required'),
   whatsappNumber: yup.string().matches(phoneRegExp, 'WhatsApp number is not valid'),
-  currentCountry: yup.string().required('Current country is required'),
-  nationality: yup.string().required('Nationality is required'),
+  currentCountryResidence: yup.string().required('Current country residen is required'),
+  nationality: yup.string(),
 
   // Driving License
   isLicenseHolder: yup.string().required('Please specify if you have a driving license'),
