@@ -20,8 +20,6 @@ const Page = () => {
         buttonText="Add Applicant"
         onButtonClick={handleClick}
       />
-      {/* <CampaignsWrapper /> */}
-
     </Box>
   );
 };

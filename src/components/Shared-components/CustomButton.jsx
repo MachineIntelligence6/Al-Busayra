@@ -4,13 +4,15 @@ import { AddIcCallOutlined } from "@mui/icons-material";
 
 const CustomButton = ({
     children,
-    color,          // Explicit color for text
+    color,              // Explicit color for text
     bgColor = "primary", // Default bgColor
     variant = "contained", // Default variant
     startIcon,
     endIcon,
-    sx,             // Custom styles
-    ...rest         // Remaining props
+    sx,                 // Custom styles
+    onClick, 
+    type,
+    ...rest             // Remaining props
 }) => {
     // Define a centralized color mapping
     const colors = {
@@ -20,6 +22,7 @@ const CustomButton = ({
         foreground: "#80839029",
         danger: "#FF4C51",
     };
+   
 
     // Determine background and text color
     const backgroundColor = colors[bgColor] || colors.primary;
@@ -31,6 +34,7 @@ const CustomButton = ({
             variant={variant}
             startIcon={startIcon ?? startIcon}
             endIcon={endIcon ?? endIcon}
+            type={type}
             sx={{
                 backgroundColor: variant === "contained" ? backgroundColor : "transparent",
                 color: textColor,
@@ -39,6 +43,7 @@ const CustomButton = ({
                 textTransform: "capitalize",
                 ...sx,
             }}
+            onClick={onClick} // Add the onClick handler here
             {...rest}
         >
             {children}
