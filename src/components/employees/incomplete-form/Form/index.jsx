@@ -4,20 +4,19 @@ import * as React from "react";
 import { Box, Tabs, Tab, Divider } from "@mui/material";
 import PropTypes from "prop-types";
 import { useState } from "react";
-
 import InfoIcon from "@mui/icons-material/Info";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import CallIcon from "@mui/icons-material/Call";
 import DvrIcon from "@mui/icons-material/Dvr";
-import BasicInfo from "./BasicInfo";
-import ContactResidence from "./ContactResidence";
-import EmiratesId from "./EmiratesId";
-import DrivingLicense from "./DrivingLicense";
-import Passport from "./Passport";
-import Visa from "./Visa";
-import Insurance from "./Insurance";
-import OtherDetails from "./OtherDetails";
-import Action from "../Action";
+import BasicInfo from "./content/BasicInfo";
+import ContactResidence from "./content/ContactResidence";
+import EmiratesId from "./content/EmiratesId";
+import DrivingLicense from "./content/DrivingLicense";
+import Passport from "./content/Passport";
+import Visa from "./content/Visa";
+import Insurance from "./content/Insurance";
+import OtherDetails from "./content/OtherDetails";
+import Action from "./Action";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;

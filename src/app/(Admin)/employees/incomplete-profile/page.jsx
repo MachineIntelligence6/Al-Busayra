@@ -1,11 +1,9 @@
 import React from "react";
-// import EmployeeFormWrapper from "@/components/employees/incomplete-form";
-import EmployeeTableWrapper from "@/components/employees/incomplete-form/Table/EmployeeTableWrapper";
+import EmployeeTableWrapper from "@/components/employees/incomplete-form/Table";
 
 const page = () => {
   return (
     <div>
-      {/* <EmployeeFormWrapper /> */}
       <EmployeeTableWrapper />
     </div>
   );

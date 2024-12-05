@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import { Box, Button, Divider, Typography } from "@mui/material";
 import CustomButton from "@/components/Shared-components/CustomButton";
-import Input from "@/app/Components/Input/Input";
 import Dropdown from "@/app/Components/Input/Dropdown";
 import { formSchema } from "../../../../Shared-components/Schemas/FormSchema";
+import Input from "@/app/Components/Input/Input";
 
 const BasicInfo = () => {
   const [image, setImage] = useState(null);
