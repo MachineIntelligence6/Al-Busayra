@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import Input from "@/app/Components/Input/Input";
 import Dropdown from "@/app/Components/Input/Dropdown";
-import CustomButton from "@/components/Shared-components/CustomButton";
-import { formSchema } from "../../../../Shared-components/Schemas/FormSchema"; // Import schema
+import { formSchema } from "../../../../Shared-components/Schemas/FormSchema";
+import Action from "../Action";
 
 const ContactResidence = () => {
+  const [currentTab, setCurrentTab] = useState(1);
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -24,33 +26,33 @@ const ContactResidence = () => {
 
   const inputFields = [
     {
-      label: "Email Address ",
+      label: "Email Address",
       name: "email",
       component: Input,
     },
     {
-      label: "Contact no. (UAE) ",
+      label: "Contact no. (UAE)",
       name: "phoneNumber",
       component: Input,
     },
     {
-      label: "Emergency Contact Relation (UAE) ",
+      label: "Emergency Contact Relation (UAE)",
       name: "eContactRelation",
       component: Input,
     },
     {
-      label: "Emergency Contact no. (UAE) ",
+      label: "Emergency Contact no. (UAE)",
       name: "eContactNo",
       component: Input,
     },
     {
-      label: "Country ",
+      label: "Country",
       name: "country",
       component: Dropdown,
       options: ["UAE", "India", "USA", "Other"],
     },
     {
-      label: "City ",
+      label: "City",
       name: "city",
       component: Dropdown,
       options: ["Dubai", "Abu Dhabi", "Sharjah"],
@@ -61,17 +63,14 @@ const ContactResidence = () => {
     <Box>
       <form onSubmit={formik.handleSubmit}>
         <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-          {/* Dynamically render input and dropdown fields */}
+          {/* Render input fields dynamically */}
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
             {inputFields.map((field, index) => (
               <Box key={index} sx={{ width: "calc(33% - 8px)" }}>
-                {/* Ensures 3 fields per row */}
                 {field.component === Input ? (
                   <Input
                     labelText={field.label}
-                    customClass={
-                      "w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
-                    }
+                    customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
                     name={field.name}
                     value={formik.values[field.name]}
                     onChange={formik.handleChange}
@@ -80,9 +79,7 @@ const ContactResidence = () => {
                 ) : (
                   <Dropdown
                     labelText={field.label}
-                    customClass={
-                      "w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
-                    }
+                    customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
                     name={field.name}
                     value={formik.values[field.name]}
                     onChange={formik.handleChange}
@@ -93,7 +90,7 @@ const ContactResidence = () => {
                     }))}
                   />
                 )}
-                {/* Show error messages */}
+                {/* Display error messages */}
                 {formik.touched[field.name] && formik.errors[field.name] && (
                   <Typography color="error" variant="body2">
                     {formik.errors[field.name]}
@@ -102,14 +99,14 @@ const ContactResidence = () => {
               </Box>
             ))}
           </Box>
+          <Divider sx={{ borderColor: "#2F2B3D40", mt: 2, }} />
 
-          {/* Submit Button */}
-          <Button
-            type="submit"
-            sx={{ backgroundColor: "#7A4BFC", color: "white" }}
-          >
-            Submit
-          </Button>
+          {/* Action buttons for navigating */}
+          <Action
+            setValue={setCurrentTab}
+            currentTab={currentTab}
+            formik={formik}
+          />
         </Box>
       </form>
     </Box>

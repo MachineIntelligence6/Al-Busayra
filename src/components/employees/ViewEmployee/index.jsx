@@ -1,6 +1,13 @@
 "use client";
 
-import { Box, Card, Typography, Avatar, IconButton } from "@mui/material";
+import {
+  Box,
+  Card,
+  Typography,
+  Avatar,
+  IconButton,
+  Divider,
+} from "@mui/material";
 // import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import BasicInfo from "./BasicInfo";
 import { ContactDetail } from "./ContactDetails";
@@ -10,56 +17,74 @@ import { PassportInfo } from "./PassportInfo";
 import CustomButton from "@/components/Shared-components/CustomButton";
 import DoneIcon from "@mui/icons-material/Done";
 import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
+import { EmiratesId } from "./EmiratesId";
+import { VisaInfo } from "./VisaInfo";
+import { InsuranceInfo } from "./InsuranceInfo";
+import { OtherInfo } from "./OtherInfo";
 // import CustomColoredDropdown from "@/components/Shared-components/CustomColoredDropDown";
 // import HighlightOffOutlinedIcon from "@mui/icons-material/HighlightOffOutlined";
 // import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
 
-const statusOptions = [
-  {
-    label: "Not Qualified",
-    value: "not_qualified",
-    color: "#EF4444",
-    backgroundColor: "#FEE2E2",
-    icon: "AlertCircle",
-  },
-  { label: "Hold", value: "hold", color: "#F59E0B", icon: "Clock" },
-  {
-    label: "Qualified",
-    value: "qualified",
-    color: "#10B981",
-    backgroundColor: "#D1FAE5",
-    icon: "CheckCircle",
-  },
-];
-
 const profile = {
   fullName: "Saleem Akhtar",
   gender: "Male",
-  campaignName: "Walking 2024",
-  uaeResidentStatus: "Non-UAE Resident",
-  employeeStatus: "Full Time",
-  preferredWorkingCountry: "United Arab Emirates",
-  preferredWorkingCity: "Dubai",
-  howDidYouLearn: "Agent",
+  dob: "29 Sep 1988",
+  religion: "Islam",
+  nationality: "UAE",
+  maritalStatus: "Married",
+  employmentType: "Rider",
+
   contactInfo: {
     email: "saleemakhtar@gmail.com",
     phone: "+971 123 456 7890",
-    whatsapp: "+971 0987 654 321",
-    currentCountry: "Pakistan",
-    nationality: "Pakistan",
+    eContactRelation: "Uncle",
+    eContactNo: "+971 987 654 3210",
+    country: "United Arab Emirates",
+    city: "Dubai",
   },
+  emiratesId: {
+    number: "784-2001-4608152-4",
+    issueDate: "20-10-2020",
+    expiryDate: "20-10-2028",
+    copyFront: "id.pdf",
+    copyBack: "id.pdf",
+  },
+
   drivingLicense: {
-    isHolder: true,
     number: "8793456293",
     issueDate: "20-10-2020",
     expiryDate: "20-10-2028",
+    copyFront: "license.pdf",
+    copyBack: "license.pdf",
   },
   passport: {
     number: "ABC0-234353",
     issueDate: "20-10-2020",
     expiryDate: "20-10-2028",
     copy: "passport.pdf",
-    visaStatus: "Applied",
+  },
+  visa: {
+    number: "ABC0-234353",
+    issueDate: "20-10-2020",
+    expiryDate: "20-10-2028",
+    iqamaCopy: "passport.pdf",
+  },
+  insurance: {
+    medCompany: "Jubliee Insurance",
+    startDate: "20-10-2020",
+    endDate: "20-10-2028",
+    accCompany: "Reliance Insurance",
+    startDate: "20-10-2020",
+    endDate: "20-10-2028",
+  },
+  other: {
+    passportOverTo: "Atif",
+    passportReciever: "Atif",
+    passCopy: "passport.pdf",
+    rtaTraining: "2143221",
+    appliedVia: "4PL",
+    empOwnership: "Own",
+    empStatus: "Active",
   },
 };
 
@@ -79,8 +104,10 @@ export function EmployeeView() {
         <Box
           sx={{
             height: 120,
-            background: "linear-gradient(45deg, #1a237e 30%, #283593 90%)",
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='%23283593' fill-opacity='0.4'/%3E%3C/svg%3E")`,
+            // background: "linear-gradient(45deg, #1a237e 30%, #283593 90%)",
+            // backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='%23283593' fill-opacity='0.4'/%3E%3C/svg%3E")`,
+            background:
+              "url(/icons/banner1.svg) lightgray 50% / cover no-repeat",
           }}
         />
         <Box sx={{ px: 3, pb: 2, mt: -5 }}>
@@ -127,7 +154,7 @@ export function EmployeeView() {
         leftIcon={HighlightOffOutlinedIcon}
         rigthIcon={ExpandMoreOutlinedIcon}
       /> */}
-              <CustomButton
+              {/* <CustomButton
                 variant="contained"
                 endIcon={<DoneIcon sx={{ width: "15px" }} />}
                 sx={{ mt: 2 }}
@@ -135,7 +162,7 @@ export function EmployeeView() {
                 onClick=""
               >
                 Procced
-              </CustomButton>
+              </CustomButton> */}
             </Box>
           </Box>
         </Box>
@@ -148,36 +175,55 @@ export function EmployeeView() {
           gap: 2,
         }}
       >
-        <Box sx={{ width: "calc(50% - 8px)", height: "100%" }}>
+        <Box sx={{ width: "calc(50% - 8px)", height: "full" }}>
           <BasicInfo
             profile={profile}
             onEdit={() => handleEdit("Basic Info")}
           />
         </Box>
-        <Box sx={{ width: "calc(50% - 8px)", height: "100%" }}>
+        <Box sx={{ width: "calc(50% - 8px)", height: "full" }}>
           <ContactDetail
             profile={profile}
             onEdit={() => handleEdit("Contact Info")}
           />
         </Box>
-        <Box sx={{ width: "calc(50% - 8px)", height: "100%" }}>
+        <Box sx={{ width: "calc(50% - 8px)", height: "full" }}>
+          <EmiratesId
+            profile={profile}
+            onEdit={() => handleEdit("Emirates Id")}
+          />
+        </Box>
+        <Box sx={{ width: "calc(50% - 8px)", height: "full" }}>
           <DLInfo
             profile={profile}
             onEdit={() => handleEdit("Driving License")}
           />
         </Box>
-        <Box sx={{ width: "calc(50% - 8px)", height: "100%" }}>
+        <Box sx={{ width: "calc(50% - 8px)", height: "full" }}>
           <PassportInfo
             profile={profile}
             onEdit={() => handleEdit("Passport Details")}
           />
         </Box>
-        {/* <Box sx={{ width: "calc(50% - 8px)", height: "100%" }}>
-          <ReferralView
+        <Box sx={{ width: "calc(50% - 8px)", height: "full" }}>
+          <VisaInfo
             profile={profile}
-            onEdit={() => handleEdit("Referral")}
+            onEdit={() => handleEdit("Visa Details")}
           />
-        </Box> */}
+        </Box>
+        <Box sx={{ width: "calc(50% - 8px)", height: "full" }}>
+          <InsuranceInfo
+            profile={profile}
+            onEdit={() => handleEdit("Visa Details")}
+          />
+        </Box>
+        <Box sx={{ width: "calc(50% - 8px)", height: "full" }}>
+          <OtherInfo
+            profile={profile}
+            onEdit={() => handleEdit("Visa Details")}
+          />
+        </Box>
+        
       </Box>
     </Box>
   );

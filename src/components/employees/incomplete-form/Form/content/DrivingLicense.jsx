@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Divider, Typography } from "@mui/material";
 import Input from "@/app/Components/Input/Input";
 import Dropdown from "@/app/Components/Input/Dropdown";
 import { formSchema } from "../../../../Shared-components/Schemas/FormSchema";
+import Action from "../Action";
 
 const DrivingLicense = () => {
+  const [currentTab, setCurrentTab] = useState(3);
+
   const formik = useFormik({
     initialValues: {
       licenseNumber: "",
@@ -102,13 +105,14 @@ const DrivingLicense = () => {
             ))}
           </Box>
 
-          {/* Submit Button */}
-          <Button
-            type="submit"
-            sx={{ backgroundColor: "#7A4BFC", color: "white" }}
-          >
-            Submit
-          </Button>
+          <Divider sx={{ borderColor: "#2F2B3D40", mt: 2, }} />
+
+          {/* Action buttons for navigating */}
+          <Action
+            setValue={setCurrentTab}
+            currentTab={currentTab}
+            formik={formik}
+          />
         </Box>
       </form>
     </Box>
