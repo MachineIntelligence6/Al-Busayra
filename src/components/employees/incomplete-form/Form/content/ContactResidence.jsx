@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import Input from "@/app/Components/Input/Input";
 import Dropdown from "@/app/Components/Input/Dropdown";
 import { formSchema } from "../../../../Shared-components/Schemas/FormSchema";
+import Action from "../Action";
 
-const DrivingLicense = () => {
+const ContactResidence = () => {
+  const [currentTab, setCurrentTab] = useState(1);
+
   const formik = useFormik({
     initialValues: {
-      licenseNumber: "",
-      licenseIssueDate: "",
-      licenseExpiryDate: "",
-      licenseCopyFront: null,
-      licenseCopyBack: null,
+      email: "",
+      phoneNumber: "",
+      eContactRelation: "",
+      eContactNo: "",
+      country: "",
+      city: "",
     },
     validationSchema: formSchema,
     onSubmit: (values) => {
@@ -22,31 +26,36 @@ const DrivingLicense = () => {
 
   const inputFields = [
     {
-      label: "Driving License No.",
-      name: "licenseNumber",
+      label: "Email Address",
+      name: "email",
       component: Input,
     },
     {
-      label: "Driving License Issue Date",
-      name: "licenseIssueDate",
+      label: "Contact no. (UAE)",
+      name: "phoneNumber",
       component: Input,
     },
     {
-      label: "Driving License Expiry Date",
-      name: "licenseExpiryDate",
+      label: "Emergency Contact Relation (UAE)",
+      name: "eContactRelation",
       component: Input,
     },
     {
-      label: "Driving License Copy Front",
-      name: "licenseCopyFront",
+      label: "Emergency Contact no. (UAE)",
+      name: "eContactNo",
       component: Input,
-      type: "file",
     },
     {
-      label: "Driving License Copy Back",
-      name: "licenseCopyBack",
-      component: Input,
-      type: "file",
+      label: "Country",
+      name: "country",
+      component: Dropdown,
+      options: ["UAE", "India", "USA", "Other"],
+    },
+    {
+      label: "City",
+      name: "city",
+      component: Dropdown,
+      options: ["Dubai", "Abu Dhabi", "Sharjah"],
     },
   ];
 
@@ -54,45 +63,34 @@ const DrivingLicense = () => {
     <Box>
       <form onSubmit={formik.handleSubmit}>
         <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-          {/* Dynamically render input fields */}
+          {/* Render input fields dynamically */}
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
             {inputFields.map((field, index) => (
               <Box key={index} sx={{ width: "calc(33% - 8px)" }}>
-                {/* Render Input components */}
                 {field.component === Input ? (
                   <Input
                     labelText={field.label}
-                    customClass={
-                      "w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
-                    }
+                    customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
                     name={field.name}
                     value={formik.values[field.name]}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    type={field.type || "text"}
                   />
                 ) : (
                   <Dropdown
                     labelText={field.label}
-                    customClass={
-                      "w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
-                    }
+                    customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
                     name={field.name}
                     value={formik.values[field.name]}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    options={
-                      field.options
-                        ? field.options.map((option) => ({
-                            label: option,
-                            value: option.toLowerCase(),
-                          }))
-                        : []
-                    }
+                    options={field.options.map((option) => ({
+                      label: option,
+                      value: option.toLowerCase(),
+                    }))}
                   />
                 )}
-
-                {/* Show error messages */}
+                {/* Display error messages */}
                 {formik.touched[field.name] && formik.errors[field.name] && (
                   <Typography color="error" variant="body2">
                     {formik.errors[field.name]}
@@ -101,18 +99,18 @@ const DrivingLicense = () => {
               </Box>
             ))}
           </Box>
+          <Divider sx={{ borderColor: "#2F2B3D40", mt: 2, }} />
 
-          {/* Submit Button */}
-          <Button
-            type="submit"
-            sx={{ backgroundColor: "#7A4BFC", color: "white" }}
-          >
-            Submit
-          </Button>
+          {/* Action buttons for navigating */}
+          <Action
+            setValue={setCurrentTab}
+            currentTab={currentTab}
+            formik={formik}
+          />
         </Box>
       </form>
     </Box>
   );
 };
 
-export default DrivingLicense;
+export default ContactResidence;

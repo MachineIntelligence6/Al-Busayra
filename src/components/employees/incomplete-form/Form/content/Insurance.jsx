@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Divider, Typography } from "@mui/material";
 import Input from "@/app/Components/Input/Input";
 import Dropdown from "@/app/Components/Input/Dropdown";
 import { formSchema } from "../../../../Shared-components/Schemas/FormSchema";
+import Action from "../Action";
 
-const OtherDetails = () => {
-  // Initialize Formik
+const Insurance = () => {
+  const [currentTab, setCurrentTab] = useState(6);
+
   const formik = useFormik({
     initialValues: {
-      passportHandOver: "",
-      passportTakerName: "",
-      passportPicture: "",
-      rtaTraining: "",
-      empOwnerShip: "",
-      empStatus: "",
-      vendor: "",
+      medicalInsurance: "",
+      miStartDate: "",
+      miEndDate: "",
+      accidentalInsurance: "",
+      aiStartDate: "",
+      aiEndDate: "",
     },
     validationSchema: formSchema,
     onSubmit: (values) => {
@@ -25,42 +26,34 @@ const OtherDetails = () => {
 
   const inputFields = [
     {
-      label: "Passport Handed Over To Representative",
-      name: "passportHandOver",
+      label: "Medical Insurance",
+      name: "medicalInsurance",
       component: Input,
     },
     {
-      label: "Name of Representative Passport Taken",
-      name: "passportTakerName",
+      label: "Medical Insurance Start Date",
+      name: "miStartDate",
       component: Input,
     },
     {
-      label: "Add Picture of Passport",
-      name: "passportPicture",
+      label: "Medical Insurance End Date",
+      name: "miEndDate",
       component: Input,
     },
     {
-      label: "RTA Training",
-      name: "rtaTraining",
+      label: "Accidental Insurance",
+      name: "accidentalInsurance",
       component: Input,
     },
     {
-      label: "EMP Ownership",
-      name: "empOwnerShip",
-      component: Dropdown,
-      options: ["Own", "4PL"],
+      label: "Accidental Insurance Start Date",
+      name: "aiStartDate",
+      component: Input,
     },
     {
-      label: "Vendor",
-      name: "vendor",
-      component: Dropdown,
-      options: ["Taj Global", "Bin Abc", "Bin Xyz"],
-    },
-    {
-      label: "EPM Status",
-      name: "empStatus",
-      component: Dropdown,
-      options: ["Dubai", "Abu Dhabi", "Sharjah"],
+      label: "Accidental Insurance End Date",
+      name: "aiEndDate",
+      component: Input,
     },
   ];
 
@@ -68,15 +61,17 @@ const OtherDetails = () => {
     <Box>
       <form onSubmit={formik.handleSubmit}>
         <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-          {/* Dynamically render input and dropdown fields */}
+          {/* Dynamically render input fields */}
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
             {inputFields.map((field, index) => (
               <Box key={index} sx={{ width: "calc(33% - 8px)" }}>
-                {/* Render Input or Dropdown components */}
+                {/* Render Input components */}
                 {field.component === Input ? (
                   <Input
                     labelText={field.label}
-                    customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
+                    customClass={
+                      "w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
+                    }
                     name={field.name}
                     value={formik.values[field.name]}
                     onChange={formik.handleChange}
@@ -85,19 +80,25 @@ const OtherDetails = () => {
                 ) : (
                   <Dropdown
                     labelText={field.label}
-                    customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
+                    customClass={
+                      "w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
+                    }
                     name={field.name}
                     value={formik.values[field.name]}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    options={field.options.map((option) => ({
-                      label: option,
-                      value: option.toLowerCase(),
-                    }))}
+                    options={
+                      field.options
+                        ? field.options.map((option) => ({
+                            label: option,
+                            value: option.toLowerCase(),
+                          }))
+                        : []
+                    }
                   />
                 )}
 
-                {/* Display error message if field is touched and there's an error */}
+                {/* Show error messages */}
                 {formik.touched[field.name] && formik.errors[field.name] && (
                   <Typography color="error" variant="body2">
                     {formik.errors[field.name]}
@@ -107,17 +108,18 @@ const OtherDetails = () => {
             ))}
           </Box>
 
-          {/* Submit Button */}
-          <Button
-            type="submit"
-            sx={{ backgroundColor: "#7A4BFC", color: "white" }}
-          >
-            Submit
-          </Button>
+          <Divider sx={{ borderColor: "#2F2B3D40", mt: 2 }} />
+
+          {/* Action buttons for navigating */}
+          <Action
+            setValue={setCurrentTab}
+            currentTab={currentTab}
+            formik={formik}
+          />
         </Box>
       </form>
     </Box>
   );
 };
 
-export default OtherDetails;
+export default Insurance;

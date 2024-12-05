@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Divider, Typography } from "@mui/material";
 import Input from "@/app/Components/Input/Input";
 import Dropdown from "@/app/Components/Input/Dropdown";
-import { formSchema } from "../../../../Shared-components/Schemas/FormSchema";
+import { formSchema } from "../../../../Shared-components/Schemas/FormSchema"; // Import schema
+import Action from "../Action";
 
-const Insurance = () => {
+const EmiratesId = () => {
+  const [currentTab, setCurrentTab] = useState(2);
+
   const formik = useFormik({
     initialValues: {
-      medicalInsurance: "",
-      miStartDate: "",
-      miEndDate: "",
-      accidentalInsurance: "",
-      aiStartDate: "",
-      aiEndDate: "",
+      emiratesId: "",
+      eidIssueDate: "",
+      eidExpiryDate: "",
+      eidCopyFront: null,
+      eidCopyBack: null,
     },
     validationSchema: formSchema,
     onSubmit: (values) => {
@@ -23,34 +25,31 @@ const Insurance = () => {
 
   const inputFields = [
     {
-      label: "Medical Insurance",
-      name: "medicalInsurance",
+      label: "Emirates ID No. ",
+      name: "emiratesId",
       component: Input,
     },
     {
-      label: "Medical Insurance Start Date",
-      name: "miStartDate",
+      label: "EID Issue Date ",
+      name: "eidIssueDate",
       component: Input,
     },
     {
-      label: "Medical Insurance End Date",
-      name: "miEndDate",
+      label: "EID Expiry Date ",
+      name: "eidExpiryDate",
       component: Input,
     },
     {
-      label: "Accidental Insurance",
-      name: "accidentalInsurance",
+      label: "EID Copy Front ",
+      name: "eidCopyFront",
       component: Input,
+      type: "file",
     },
     {
-      label: "Accidental Insurance Start Date",
-      name: "aiStartDate",
+      label: "EID Copy Back ",
+      name: "eidCopyBack",
       component: Input,
-    },
-    {
-      label: "Accidental Insurance End Date",
-      name: "aiEndDate",
-      component: Input,
+      type: "file",
     },
   ];
 
@@ -58,11 +57,11 @@ const Insurance = () => {
     <Box>
       <form onSubmit={formik.handleSubmit}>
         <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-          {/* Dynamically render input fields */}
+          {/* Dynamically render input and dropdown fields */}
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
             {inputFields.map((field, index) => (
               <Box key={index} sx={{ width: "calc(33% - 8px)" }}>
-                {/* Render Input components */}
+                {/* Ensures 3 fields per row */}
                 {field.component === Input ? (
                   <Input
                     labelText={field.label}
@@ -73,6 +72,7 @@ const Insurance = () => {
                     value={formik.values[field.name]}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
+                    type={field.type || "text"} // File input type for the file fields
                   />
                 ) : (
                   <Dropdown
@@ -94,7 +94,6 @@ const Insurance = () => {
                     }
                   />
                 )}
-
                 {/* Show error messages */}
                 {formik.touched[field.name] && formik.errors[field.name] && (
                   <Typography color="error" variant="body2">
@@ -104,18 +103,18 @@ const Insurance = () => {
               </Box>
             ))}
           </Box>
+          <Divider sx={{ borderColor: "#2F2B3D40", mt: 2, }} />
 
-          {/* Submit Button */}
-          <Button
-            type="submit"
-            sx={{ backgroundColor: "#7A4BFC", color: "white" }}
-          >
-            Submit
-          </Button>
+          {/* Action buttons for navigating */}
+          <Action
+            setValue={setCurrentTab}
+            currentTab={currentTab}
+            formik={formik}
+          />
         </Box>
       </form>
     </Box>
   );
 };
 
-export default Insurance;
+export default EmiratesId;
