@@ -1,9 +1,15 @@
+'use client'
 import Grid from "@mui/material/Grid2";
 import React from "react";
 import Image from "next/image";
 import { Box, Typography } from "@mui/material";
+import { usePathname } from "next/navigation";
 function layout({ children }) {
+  const pathName = usePathname();
   return (
+    <>
+   {
+    pathName === '/auth/reset-password' ? <div>{children}</div> : 
     <Grid
       container
       padding={2}
@@ -18,6 +24,8 @@ function layout({ children }) {
           position: "relative",
         }}
       >
+       
+       
         <Image
           src="/signupimage.jpeg"
           alt="Signup"
@@ -54,15 +62,14 @@ function layout({ children }) {
               }}
             >
               <Image src="/logo.png" width={211} height={37} alt="" />
-              <Box sx={{ marginTop: "30px", textAlign: "center" }}>
-                <Typography variant="h1">Welcome to AL-BUSAYRA! </Typography>
-              </Box>
+              
             </Box>
             {children}
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </Grid>}
+    </>
   );
 }
 

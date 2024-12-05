@@ -199,12 +199,7 @@ function View() {
             ))}
           </Box>
         </Box>
-        <Card
-          
-          sx={{ borderRadius: "25px" }}
-        >
-          {/* <Filters/> */}
-        </Card>
+        <Card sx={{ borderRadius: "25px" }}>{/* <Filters/> */}</Card>
       </Box>
     </Box>
   );

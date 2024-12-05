@@ -40,7 +40,7 @@ function Otp() {
 </Grid>
           <Box>
         <Button
-          onClick={() => router.push("/dashboard/companies/")}
+          onClick={() => router.push("/auth/forgot-password/")}
           variant="contained"
           color="primary"
           style={{ marginTop: "20px" }}

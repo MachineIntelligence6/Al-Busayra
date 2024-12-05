@@ -5,10 +5,11 @@ import Image from "next/image";
 import React from "react";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
+import Link from "next/link";
 
 function CompaniesCard({ data }) {
   return (
-    <Grid container spacing={1} width="100%">
+    <Grid container spacing={1} width="100%" component={Link} sx = {{textDecoration:'none'}} href={'/dashboard/companies/view'}>
     {data?.map((element, idx) => (
       
         <Card
