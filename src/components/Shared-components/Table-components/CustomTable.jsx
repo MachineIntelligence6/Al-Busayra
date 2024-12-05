@@ -60,8 +60,9 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick }) => {
     <TableContainer
       sx={{
         maxWidth: "80vw",
-        overflowX: "auto",
+        // overflowX: "auto",
       }}
+      className="no-scroll-show"
     >
       <Table stickyHeader sx={{
         maxWidth: "80vw",

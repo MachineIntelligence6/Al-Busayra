@@ -12,7 +12,7 @@ import CustomButton from "../CustomButton";
 
 
 
-const TableExportRow = ({ isBtnAdd }) => {
+const TableExportRow = ({ handleOpenModal,isBtnAdd }) => {
   const [entries, setEntries] = useState(10);
   const [text, setText] = useState("");
 
@@ -35,7 +35,7 @@ const TableExportRow = ({ isBtnAdd }) => {
   };
 
   const onButtonClick = () => {
-    console.log("Button clicked!");
+   console.log("click")
   };
 
   return (
@@ -102,8 +102,8 @@ const TableExportRow = ({ isBtnAdd }) => {
           }}
         />
 
-        <CustomButton bgColor="foreground" color={"#000"} endIcon={<FileUploadIcon />}>Export</CustomButton>
-        {isBtnAdd && <CustomButton endIcon={<AddIcon />}>Add New</CustomButton>}
+        <CustomButton bgColor="foreground" color="#808390" endIcon={<FileUploadIcon />}>Export</CustomButton>
+        {true && <CustomButton endIcon={<AddIcon />} onClick={handleOpenModal}>Add New</CustomButton>}
         <Box
           sx={{
             backgroundColor: "#80839029",
