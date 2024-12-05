@@ -134,10 +134,10 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick }) => {
           ))}
         </TableBody>
       </Table>
-      <Box
+      {/* <Box
         component="div"
         sx={{ width: "100%", height: 40, bgcolor: "ButtonShadow" }}
-      ></Box>
+      ></Box> */}
     </TableContainer>
   );
 };

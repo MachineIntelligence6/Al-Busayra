@@ -1,11 +1,12 @@
-import React from 'react'
+import ViewEmployee from "@/components/employees/ViewEmployee";
+import React from "react";
 
 const page = () => {
-    return (
-        <div>
-            active Profile
-        </div>
-    )
-}
+  return (
+    <div>
+      <ViewEmployee />
+    </div>
+  );
+};
 
-export default page
+export default page;
