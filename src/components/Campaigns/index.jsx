@@ -92,7 +92,7 @@ const CampaignsWrapper = () => {
           <Box
             sx={{
               backgroundColor: row.status === "Pending" ? "#D9F0FF" : "#FFE5E5",
-              color: row.status === "Pending" ? "#007FFF" : "#FF0000",
+              color: row.status === "Pending" ? "#007FFF" : row.status === "Not Qualified" ? "#FF0000" : "#FF0000",
               padding: "4px 8px",
               borderRadius: "4px",
             }}
@@ -126,7 +126,7 @@ const CampaignsWrapper = () => {
   return (
     <Box sx={{ bgcolor: "white", overflow: "hidden", m: 1.5, borderRadius: 6 }}>
       <TableFilters />
-      <TableExportRow />
+      <TableExportRow isBtnAdd={false} />
       <Box sx={{ height: "100%" }}>
         <CustomTable
           columns={columns}

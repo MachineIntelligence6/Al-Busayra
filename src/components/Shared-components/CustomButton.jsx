@@ -22,6 +22,7 @@ const CustomButton = ({
         foreground: "#80839029",
         danger: "#FF4C51",
     };
+   
 
     // Determine background and text color
     const backgroundColor = colors[bgColor] || colors.primary;

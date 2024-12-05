@@ -95,7 +95,7 @@ const SidebarMenu = ({ menuData }) => {
                                                     sx={{
                                                         borderRadius: 2,
                                                         bgcolor: subItem.id === selectedMenu ? "white" : "#37658B",
-                                                        color: subItem.id === selectedMenu ? "#23567F" : "white",
+                                                        color: subItem.id === selectedMenu ? "#37658B" : "white",
                                                         display: "flex",
                                                         alignItems: "center",
                                                         gap: 2,

@@ -18,7 +18,7 @@ function ForgotPassword() {
             labelText={"Email"}
             placeholder={"Enter your email address"}
           />
-          <CustomButton>Login</CustomButton>
+          <CustomButton  >Login</CustomButton>
         </div>
 
         <div className="text-[#20A4D5] text-[13px] leading-[22px] w-full text-start mt-[10px]">
