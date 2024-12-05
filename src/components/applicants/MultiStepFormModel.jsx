@@ -48,6 +48,7 @@ export default function MultiStepFormModel({handleCloseModal}
   };
 
   const onSubmit = (data) => {
+    
     console.log(data)
     // Handle form submission
     handleCloseModal();
