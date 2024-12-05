@@ -277,7 +277,6 @@ body {
   }
 }
 
-
 .no-scroll-show {
   overflow: auto; /* Ensures scrolling works */
   scrollbar-width: none; /* For Firefox */
