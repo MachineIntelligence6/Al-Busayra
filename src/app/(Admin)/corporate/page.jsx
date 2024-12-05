@@ -1,10 +1,12 @@
-import React from 'react'
+import Vendors from '@/components/corporate/vendors'
+
 
 const page = () => {
     return (
-        <div>
-            vendors
-        </div>
+        <>
+
+            <Vendors />
+        </>
     )
 }
 

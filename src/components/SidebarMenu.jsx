@@ -8,32 +8,32 @@ import AppLogo from "./Shared-components/AppLogo";
 import SvgIcon from "./Shared-components/SvgIcon";
 
 const SidebarMenu = ({ menuData }) => {
-    const [openMenu, setOpenMenu] = useState(null); // Tracks the currently open menu
-    const [selectedMenu, setSelectedMenu] = useState(null); // Tracks the selected submenu
-    const pathname = usePathname(); // Get the current route
+    const [openMenu, setOpenMenu] = useState(null);
+    const [selectedMenu, setSelectedMenu] = useState(null);
+    const pathname = usePathname();
 
     useEffect(() => {
-        // Set the selected menu and expand the parent based on the current route
         menuData?.forEach((menu) => {
             if (menu.item) {
                 menu.item.forEach((subItem) => {
                     if (pathname === subItem.url) {
-                        setSelectedMenu(subItem.id); // Mark the current submenu as selected
-                        setOpenMenu(menu.id); // Expand the parent menu
+                        setSelectedMenu(subItem.id);
+                        setOpenMenu(menu.id);
                     }
                 });
             } else if (pathname === menu.url) {
-                setSelectedMenu(menu.id); // Mark the simple menu as selected
+                setSelectedMenu(menu.id);
             }
         });
     }, [pathname, menuData]);
 
     const handleToggle = (id) => {
-        setOpenMenu((prev) => (prev === id ? null : id)); // Toggle the menu; close others
+        setOpenMenu((prev) => (prev === id ? null : id));
     };
 
     return (
         <Box
+            component="aside"
             sx={{
                 minWidth: 300,
                 bgcolor: "#23567F",
