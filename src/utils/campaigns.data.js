@@ -48,6 +48,7 @@ export const data = [
     status1: "Incomplete Profile",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
     
   },
   {
@@ -71,6 +72,7 @@ export const data = [
     status1: "Hold",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "3",
@@ -93,6 +95,7 @@ export const data = [
     status1: "Hold",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "4",
@@ -115,6 +118,7 @@ export const data = [
     status1: "Incomplete Profile",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "5",
@@ -137,6 +141,7 @@ export const data = [
     status1: "Incomplete Profile",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "6",
@@ -159,6 +164,7 @@ export const data = [
     status1: "Hold",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "7",
@@ -181,6 +187,7 @@ export const data = [
     status1: "Hold",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "8",
@@ -203,6 +210,7 @@ export const data = [
     status1: "Hold",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "9",
@@ -225,6 +233,7 @@ export const data = [
     status1: "Hold",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "10",
@@ -247,6 +256,7 @@ export const data = [
     status1: "Incomplete Profile",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "11",
@@ -269,6 +279,7 @@ export const data = [
     status1: "Incomplete Profile",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "12",
@@ -291,6 +302,7 @@ export const data = [
     status1: "Hold",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "13",
@@ -313,6 +325,7 @@ export const data = [
     status1: "Hold",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "14",
@@ -335,6 +348,7 @@ export const data = [
     status1: "Hold",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "15",
@@ -357,6 +371,7 @@ export const data = [
     status1: "Hold",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "16",
@@ -379,6 +394,7 @@ export const data = [
     status1: "Hold",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "17",
@@ -401,6 +417,7 @@ export const data = [
     status1: "Hold",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "18",
@@ -423,6 +440,7 @@ export const data = [
     status1: "Hold",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "19",
@@ -445,6 +463,7 @@ export const data = [
     status1: "Hold",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
   {
     key: "20",
@@ -467,6 +486,7 @@ export const data = [
     status1: "Hold",
     status2: "Active",
     id: 'AB00001',
+    status3: 'InActive',
   },
 ];
 

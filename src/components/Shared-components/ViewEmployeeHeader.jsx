@@ -3,15 +3,22 @@
 import React from "react";
 import { Box, Card, Typography, Avatar, IconButton } from "@mui/material";
 import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
+import CustomButton from "./CustomButton";
 
-const ViewEmployeeHeader = ({ profile1 }) => {
+const ViewEmployeeHeader = ({
+  profileImage,
+  fullName,
+  description,
+  buttons = [],
+  onBackClick,
+  onEditClick,
+}) => {
   return (
     <Box>
       <Card sx={{ mb: 3 }}>
         <Box
           sx={{
             height: 120,
-
             background:
               "url(/icons/banner1.svg) lightgray 50% / cover no-repeat",
           }}
@@ -27,7 +34,7 @@ const ViewEmployeeHeader = ({ profile1 }) => {
             <Box sx={{ display: "flex", gap: 2, alignItems: "baseline" }}>
               <Box sx={{ position: "relative" }}>
                 <Avatar
-                  src="https://example.com/images/profile-aisha.jpg"
+                  src={profileImage} // Dynamic profile image
                   sx={{
                     width: 100,
                     height: 100,
@@ -48,14 +55,38 @@ const ViewEmployeeHeader = ({ profile1 }) => {
                   <CameraAltOutlinedIcon fontSize="small" />
                 </IconButton>
               </Box>
-              <Typography variant="h5">
-                {
-                  profile1[0]?.data.find((item) => item.label === "Full Name")
-                    ?.value
-                }
-              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyItems: "center",
+                  alignSelf: "center",
+                  marginTop: 5,
+                }}
+              >
+                <Typography variant="h5">{fullName}</Typography>
+                <Typography>{description}</Typography>{" "}
+                {/* Dynamic description */}
+              </Box>
             </Box>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}></Box>
+
+            {/* Only render buttons if the 'buttons' prop is passed and has elements */}
+            {buttons.length > 0 && (
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                {buttons.map((button, index) => (
+                  <CustomButton
+                    key={index}
+                    variant="contained"
+                    startIcon={button.startIcon}
+                    endIcon={button.endIcon}
+                    sx={{ mt: 2 }}
+                    onClick={button.onClick}
+                  >
+                    {button.label}
+                  </CustomButton>
+                ))}
+              </Box>
+            )}
           </Box>
         </Box>
       </Card>
