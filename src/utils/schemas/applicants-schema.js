@@ -69,7 +69,7 @@ export const formSchema = yup.object({
 
   // Referral
   referralName: yup.string().required('Referral name is required'),
-  referralPhone: yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Referral phone is required'),
+  // referralPhone: yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Referral phone is required'),
   referralAddress: yup.string().required('Referral address is required'),
 })
 

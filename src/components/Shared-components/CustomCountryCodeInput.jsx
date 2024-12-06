@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, TextField, InputAdornment, MenuItem, Select, FormControl, Typography } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-const CustomCountryCodeInput = ({ countryCodes, value, onChange,error,icon }) => {
+const CustomCountryCodeInput = ({ countryCodes, value, onChange,error,icon, placeholder }) => {
 
   const handleCountryCodeChange = (code) => {
     onChange({ ...value, countryCode: code });
@@ -66,7 +66,7 @@ const CustomCountryCodeInput = ({ countryCodes, value, onChange,error,icon }) =>
         widthFull
           value={value.number}
           onChange={(e) => handleNumberChange(e.target.value)}
-          placeholder="Enter WhatsApp Number"
+          placeholder={placeholder}
           sx={{
             width: '100%',
             '& .MuiOutlinedInput-root': {

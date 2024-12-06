@@ -36,14 +36,14 @@ export const Referral = ({ control }) => {
       label: "Referral By Whom (UAE)",
       name: "referralName",
       required: true, // Mark as required to show the red asterisk
-      placeholder: "Enter referral name",
+      placeholder: "e.g John",
       component: CustomTextField,
     },
     {
       label: "Referral Phone Number (UAE)",
       name: "referralPhone",
       required: true, // Mark as required to show the red asterisk
-      placeholder: "Enter referral phone number",
+      placeholder: "123 456 7890",
       component: CustomCountryCodeInput,
       countryCodes, // Pass country codes for country code input
     },
@@ -51,7 +51,7 @@ export const Referral = ({ control }) => {
       label: "Referral Address (UAE)",
       name: "referralAddress",
       required: true, // Optional field, no red asterisk
-      placeholder: "Enter referral address",
+      placeholder: "Street, 08, Jamal Resident, UAE",
       component: CustomTextField,
     },
   ];

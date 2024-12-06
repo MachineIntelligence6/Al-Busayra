@@ -15,6 +15,7 @@ import { formSchema } from '@/utils/schemas/applicants-schema';
 import CustomTabs from '../Shared-components/CustomTabs';
 import { CustomTabPanel } from '../Shared-components/CustomTabPanel';
 import CustomButton  from '@/components/Shared-components/CustomButton';
+import { useRouter } from 'next/navigation';
 
 const tabs = ["General Info", "Contact & Residence", "Driving License", "Passport Details", "Referral"];
 
@@ -29,6 +30,7 @@ const stepFields = {
 export default function MultiStepFormModel({handleCloseModal}
 ) {
   const [activeTab, setActiveTab] = useState(0)
+  const route = useRouter();
   const methods = useForm({
     resolver: yupResolver(formSchema),
     mode: 'onChange',
@@ -52,6 +54,7 @@ export default function MultiStepFormModel({handleCloseModal}
     console.log(data)
     // Handle form submission
     handleCloseModal();
+    route.push("/applicants/final-review");
   }
 
   return (
@@ -93,7 +96,7 @@ export default function MultiStepFormModel({handleCloseModal}
               </CustomButton>
               {activeTab === 4 ? (
                 <Button type="submit" variant="contained" color="primary">
-                  Submit
+                  Save
                 </Button>
               ) : (
                 <CustomButton 

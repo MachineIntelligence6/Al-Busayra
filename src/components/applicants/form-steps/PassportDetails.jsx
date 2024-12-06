@@ -18,19 +18,21 @@ export const PassportDetails = ({ control }) => {
       label: "Passport Number",
       name: "passportNumber",
       required: true,
-      placeholder: "Enter your passport number",
+      placeholder: "ABCD-234353",
       component: CustomTextField,
     },
     {
       label: "Passport Issue Date",
       name: "passportIssueDate",
       required: true,
+      placeholder: "20-10-2028",
       component: CustomDatePicker,
     },
     {
       label: "Passport Expiry Date",
       name: "passportExpiryDate",
       required: true,
+      placeholder: "20-10-2028",
       component: CustomDatePicker,
     },
     {
