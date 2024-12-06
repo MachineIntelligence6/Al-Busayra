@@ -88,7 +88,7 @@ const profile = {
   },
 };
 
-export function EmployeeView() {
+const EmployeeView = () => {
   const handleEdit = (section) => {
     console.log(`Editing ${section}`);
     // Add your edit logic here
@@ -145,24 +145,7 @@ export function EmployeeView() {
               <Typography variant="h5">{profile.fullName}</Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-              {/* <CustomColoredDropdown
-        options={statusOptions}
-        defaultValue="not_qualified"
-        onChange={handleStatusChange}
-        buttonColor="#ED4545"
-        buttonTextColor="white"
-        leftIcon={HighlightOffOutlinedIcon}
-        rigthIcon={ExpandMoreOutlinedIcon}
-      /> */}
-              {/* <CustomButton
-                variant="contained"
-                endIcon={<DoneIcon sx={{ width: "15px" }} />}
-                sx={{ mt: 2 }}
-                type="button"
-                onClick=""
-              >
-                Procced
-              </CustomButton> */}
+
             </Box>
           </Box>
         </Box>
@@ -223,8 +206,10 @@ export function EmployeeView() {
             onEdit={() => handleEdit("Visa Details")}
           />
         </Box>
-        
+
       </Box>
     </Box>
   );
 }
+
+export default EmployeeView

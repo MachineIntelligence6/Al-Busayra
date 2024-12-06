@@ -1,4 +1,5 @@
-import { EmployeeView } from "@/components/employees/ViewEmployee";
+"use client"
+import EmployeeView from "@/components/employees/ViewEmployee";
 import React from "react";
 
 const page = () => {
