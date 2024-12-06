@@ -10,6 +10,8 @@ import ActionMenu from "../ActionMenu";
 import AddIcon from "@mui/icons-material/Add";
 import CustomButton from "../CustomButton";
 
+
+
 const TableExportRow = ({ handleOpenModal, isBtnAdd }) => {
   const [entries, setEntries] = useState(10);
   const [text, setText] = useState("");
@@ -33,7 +35,7 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd }) => {
   };
 
   const onButtonClick = () => {
-    console.log("click");
+    console.log("click")
   };
 
   return (
@@ -62,7 +64,7 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd }) => {
               fontSize: 15,
               borderRadius: "6px",
             }}
-            //   label={entries}
+          //   label={entries}
           >
             {/* <MenuItem value="">
             <em>None</em>
@@ -100,14 +102,8 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd }) => {
           }}
         />
 
-        <CustomButton
-          bgColor="foreground"
-          color="#808390"
-          endIcon={<FileUploadIcon />}
-        >
-          Export
-        </CustomButton>
-        {/* {true && <CustomButton endIcon={<AddIcon />} onClick={handleOpenModal}>Add New</CustomButton>} */}
+        <CustomButton bgColor="foreground" color="#808390" endIcon={<FileUploadIcon />}>Export</CustomButton>
+        {isBtnAdd && <CustomButton endIcon={<AddIcon />} onClick={handleOpenModal}>Add New</CustomButton>}
         <Box
           sx={{
             backgroundColor: "#80839029",

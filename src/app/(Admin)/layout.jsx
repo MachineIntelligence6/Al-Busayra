@@ -1,18 +1,18 @@
-import { Box, Divider } from "@mui/material";
+import { Box } from "@mui/material";
 import SidebarMenu from "@/components/SidebarMenu";
 import { menuData } from "@/utils/sidebar-data";
-import Breadcrumb from "@/components/Shared-components/BreadCrumb";
 
 export default function Layout({ children }) {
-
     return (
-        <Box sx={{
-            display: "flex",
-            minHeight: "100vh",
-            width: "100vw",
-            bgcolor: "#23567F",
-            overflow: "hidden", // Prevent unnecessary scroll
-        }}>
+        <Box
+            sx={{
+                display: "flex",
+                minHeight: "100vh",
+                width: "100vw",
+                bgcolor: "#23567F",
+                overflow: "hidden",
+            }}
+        >
             <SidebarMenu menuData={menuData} />
             <Box
                 component="main"
@@ -37,13 +37,7 @@ export default function Layout({ children }) {
                         flexDirection: "column",
                     }}
                 >
-                    <>
-                        <Box sx={{ px: 2 }}>
-                            <Breadcrumb />
-                        </Box>
-                        <Divider sx={{ mt: 2 }} />
-                        {children}
-                    </>
+                    {children}
                 </Box>
             </Box>
         </Box>
