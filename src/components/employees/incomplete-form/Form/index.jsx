@@ -4,20 +4,24 @@ import * as React from "react";
 import { Box, Tabs, Tab, Divider } from "@mui/material";
 import PropTypes from "prop-types";
 import { useState } from "react";
-
 import InfoIcon from "@mui/icons-material/Info";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import CallIcon from "@mui/icons-material/Call";
 import DvrIcon from "@mui/icons-material/Dvr";
-import BasicInfo from "./BasicInfo";
-import ContactResidence from "./ContactResidence";
-import EmiratesId from "./EmiratesId";
-import DrivingLicense from "./DrivingLicense";
-import Passport from "./Passport";
-import Visa from "./Visa";
-import Insurance from "./Insurance";
-import OtherDetails from "./OtherDetails";
-import Action from "../Action";
+import BasicInfo from "./content/BasicInfo";
+import ContactResidence from "./content/ContactResidence";
+import EmiratesId from "./content/EmiratesId";
+import DrivingLicense from "./content/DrivingLicense";
+import Passport from "./content/Passport";
+import Visa from "./content/Visa";
+import Insurance from "./content/Insurance";
+import OtherDetails from "./content/OtherDetails";
+import Action from "./Action";
+import ReceiptLongOutlinedIcon from "@mui/icons-material/ReceiptLongOutlined";
+import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
+import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
+import PendingOutlinedIcon from "@mui/icons-material/PendingOutlined";
+import HealthAndSafetyOutlinedIcon from "@mui/icons-material/HealthAndSafetyOutlined";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -59,23 +63,27 @@ const tabs = [
   },
   {
     label: "Driving License",
-    icon: <InfoIcon fontSize="small" />,
+    icon: <ReceiptLongOutlinedIcon fontSize="small" />,
     content: <DrivingLicense />,
   },
   {
     label: "Passport",
-    icon: <CallIcon fontSize="small" />,
+    icon: <ArticleOutlinedIcon fontSize="small" />,
     content: <Passport />,
   },
-  { label: "Visa", icon: <DvrIcon fontSize="small" />, content: <Visa /> },
+  {
+    label: "Visa",
+    icon: <LightbulbOutlinedIcon fontSize="small" />,
+    content: <Visa />,
+  },
   {
     label: "Insurance",
-    icon: <InfoIcon fontSize="small" />,
+    icon: <HealthAndSafetyOutlinedIcon fontSize="small" />,
     content: <Insurance />,
   },
   {
     label: "Other Details",
-    icon: <CallIcon fontSize="small" />,
+    icon: <PendingOutlinedIcon fontSize="small" />,
     content: <OtherDetails />,
   },
 ];
@@ -148,8 +156,8 @@ export default function TabIndex() {
       {tabs.map((tab, index) => (
         <CustomTabPanel value={value} index={index} key={index}>
           <Box>{tab.content}</Box>
-          <Divider sx={{ borderColor: "#2F2B3D40", mt: 6, mb: 3 }} />
-          <Action setValue={setValue} currentTab={value} />{" "}
+          {/* <Divider sx={{ borderColor: "#2F2B3D40", mt: 6, mb: 3 }} /> */}
+          {/* <Action setValue={setValue} currentTab={value} />{" "} */}
         </CustomTabPanel>
       ))}
     </Box>

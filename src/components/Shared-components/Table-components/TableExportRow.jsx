@@ -7,7 +7,7 @@ import Select from "@mui/material/Select";
 import { Box, Button, TextField } from "@mui/material";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import ActionMenu from "../ActionMenu";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
 import CustomButton from "../CustomButton";
 
 

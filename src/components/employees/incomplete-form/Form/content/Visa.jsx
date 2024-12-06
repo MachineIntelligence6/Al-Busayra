@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Divider, Typography } from "@mui/material";
 import Input from "@/app/Components/Input/Input";
 import Dropdown from "@/app/Components/Input/Dropdown";
-import CustomButton from "@/components/Shared-components/CustomButton";
-import { formSchema } from "../../../../Shared-components/Schemas/FormSchema"; // Import schema
+import { formSchema } from "../../../../Shared-components/Schemas/FormSchema";
+import Action from "../Action";
 
-const ContactResidence = () => {
+const Visa = () => {
+  const [currentTab, setCurrentTab] = useState(5);
+
+  // Initialize Formik
   const formik = useFormik({
     initialValues: {
-      email: "",
-      phoneNumber: "",
-      eContactRelation: "",
-      eContactNo: "",
-      country: "",
-      city: "",
+      uaeResidencyIqamaNo: "",
+      visaIssueDate: "",
+      visaExpiryDate: "",
+      uaeResidencyIqama: "",
+      companyName: "",
+      companyLocation: "",
+      visaType: "",
+      visaAppliedVia: "",
     },
     validationSchema: formSchema,
     onSubmit: (values) => {
@@ -22,38 +27,51 @@ const ContactResidence = () => {
     },
   });
 
+  // Fields configuration for inputs and dropdowns
   const inputFields = [
     {
-      label: "Email Address ",
-      name: "email",
+      label: "UAE Residency / Iqama No.",
+      name: "uaeResidencyIqamaNo",
       component: Input,
     },
     {
-      label: "Contact no. (UAE) ",
-      name: "phoneNumber",
+      label: "Visa Issue Date",
+      name: "visaIssueDate",
       component: Input,
     },
     {
-      label: "Emergency Contact Relation (UAE) ",
-      name: "eContactRelation",
+      label: "Visa Expiry Date",
+      name: "visaExpiryDate",
       component: Input,
     },
     {
-      label: "Emergency Contact no. (UAE) ",
-      name: "eContactNo",
+      label: "UAE Residency/Iqama",
+      name: "uaeResidencyIqama",
       component: Input,
     },
     {
-      label: "Country ",
-      name: "country",
+      label: "Company Name",
+      name: "companyName",
       component: Dropdown,
-      options: ["UAE", "India", "USA", "Other"],
+      options: ["Al-Busayra", "Taj Global", "Bin Xyz"],
     },
     {
-      label: "City ",
-      name: "city",
+      label: "Company Location",
+      name: "companyLocation",
       component: Dropdown,
       options: ["Dubai", "Abu Dhabi", "Sharjah"],
+    },
+    {
+      label: "VISA Type",
+      name: "visaType",
+      component: Dropdown,
+      options: ["Own", "Company Visa"],
+    },
+    {
+      label: "VISA Applied Via",
+      name: "visaAppliedVia",
+      component: Dropdown,
+      options: ["ABDS Dubai", "ABDS Sharjah", "AHDS Dubai"],
     },
   ];
 
@@ -65,13 +83,11 @@ const ContactResidence = () => {
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
             {inputFields.map((field, index) => (
               <Box key={index} sx={{ width: "calc(33% - 8px)" }}>
-                {/* Ensures 3 fields per row */}
+                {/* Render Input or Dropdown components */}
                 {field.component === Input ? (
                   <Input
                     labelText={field.label}
-                    customClass={
-                      "w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
-                    }
+                    customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
                     name={field.name}
                     value={formik.values[field.name]}
                     onChange={formik.handleChange}
@@ -80,9 +96,7 @@ const ContactResidence = () => {
                 ) : (
                   <Dropdown
                     labelText={field.label}
-                    customClass={
-                      "w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
-                    }
+                    customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
                     name={field.name}
                     value={formik.values[field.name]}
                     onChange={formik.handleChange}
@@ -93,6 +107,7 @@ const ContactResidence = () => {
                     }))}
                   />
                 )}
+
                 {/* Show error messages */}
                 {formik.touched[field.name] && formik.errors[field.name] && (
                   <Typography color="error" variant="body2">
@@ -103,17 +118,18 @@ const ContactResidence = () => {
             ))}
           </Box>
 
-          {/* Submit Button */}
-          <Button
-            type="submit"
-            sx={{ backgroundColor: "#7A4BFC", color: "white" }}
-          >
-            Submit
-          </Button>
+          <Divider sx={{ borderColor: "#2F2B3D40", mt: 2 }} />
+
+          {/* Action buttons for navigating */}
+          <Action
+            setValue={setCurrentTab}
+            currentTab={currentTab}
+            formik={formik}
+          />
         </Box>
       </form>
     </Box>
   );
 };
 
-export default ContactResidence;
+export default Visa;
