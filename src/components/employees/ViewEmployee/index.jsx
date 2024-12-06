@@ -21,19 +21,14 @@ import { EmiratesId } from "./EmiratesId";
 import { VisaInfo } from "./VisaInfo";
 import { InsuranceInfo } from "./InsuranceInfo";
 import { OtherInfo } from "./OtherInfo";
+import ViewEmployeeHeader from "../../Shared-components/ViewEmployeeHeader";
 // import CustomColoredDropdown from "@/components/Shared-components/CustomColoredDropDown";
 // import HighlightOffOutlinedIcon from "@mui/icons-material/HighlightOffOutlined";
 // import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
+import { ViewEmployeeCardData } from "../../../utils/view-employee-card-data";
+import { useState } from "react";
 
 const profile = {
-  fullName: "Saleem Akhtar",
-  gender: "Male",
-  dob: "29 Sep 1988",
-  religion: "Islam",
-  nationality: "UAE",
-  maritalStatus: "Married",
-  employmentType: "Rider",
-
   contactInfo: {
     email: "saleemakhtar@gmail.com",
     phone: "+971 123 456 7890",
@@ -89,6 +84,8 @@ const profile = {
 };
 
 const EmployeeView = () => {
+  const [profile1, setProfile] = useState(ViewEmployeeCardData);
+
   const handleEdit = (section) => {
     console.log(`Editing ${section}`);
     // Add your edit logic here
@@ -100,56 +97,7 @@ const EmployeeView = () => {
 
   return (
     <Box sx={{ p: 2 }}>
-      <Card sx={{ mb: 3 }}>
-        <Box
-          sx={{
-            height: 120,
-            // background: "linear-gradient(45deg, #1a237e 30%, #283593 90%)",
-            // backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='%23283593' fill-opacity='0.4'/%3E%3C/svg%3E")`,
-            background:
-              "url(/icons/banner1.svg) lightgray 50% / cover no-repeat",
-          }}
-        />
-        <Box sx={{ px: 3, pb: 2, mt: -5 }}>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "baseline",
-              justifyContent: "space-between",
-            }}
-          >
-            <Box sx={{ display: "flex", gap: 2, alignItems: "baseline" }}>
-              <Box sx={{ position: "relative" }}>
-                <Avatar
-                  src="https://example.com/images/profile-aisha.jpg"
-                  sx={{
-                    width: 100,
-                    height: 100,
-                    border: "4px solid white",
-                    borderRadius: "10px",
-                  }}
-                />
-                <IconButton
-                  sx={{
-                    position: "absolute",
-                    top: 15,
-                    right: -10,
-                    backgroundColor: "white",
-                    "&:hover": { backgroundColor: "white" },
-                  }}
-                  size="small"
-                >
-                  <CameraAltOutlinedIcon fontSize="small" />
-                </IconButton>
-              </Box>
-              <Typography variant="h5">{profile.fullName}</Typography>
-            </Box>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-
-            </Box>
-          </Box>
-        </Box>
-      </Card>
+      <ViewEmployeeHeader profile1={profile1} />
 
       <Box
         sx={{
@@ -160,7 +108,7 @@ const EmployeeView = () => {
       >
         <Box sx={{ width: "calc(50% - 8px)", height: "full" }}>
           <BasicInfo
-            profile={profile}
+            profile1={profile1[0]}
             onEdit={() => handleEdit("Basic Info")}
           />
         </Box>
@@ -206,10 +154,9 @@ const EmployeeView = () => {
             onEdit={() => handleEdit("Visa Details")}
           />
         </Box>
-
       </Box>
     </Box>
   );
-}
+};
 
-export default EmployeeView
+export default EmployeeView;
