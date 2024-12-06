@@ -58,7 +58,7 @@ const TableFilters = ({ filters }) => {
               {filter?.options ? (
                 <CustomDropdown
                   label={filter?.filterName}
-                  placeholder={filter?.placeholder}
+                  placeholder={filter?.placeholder ? filter?.placeholder : "please select"}
                   options={filter?.options}
                   value={filter?.value}
                 />
@@ -74,7 +74,7 @@ const TableFilters = ({ filters }) => {
                     {filter?.filterName}
                   </Typography>
                   <CustomTextField
-                    placeholder={filter?.placeholder}
+                    placeholder={filter?.placeholder ? filter?.placeholder : "placeholder"}
                     value={filter?.value}
                   />
                 </>
