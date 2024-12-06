@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
 import {
   Table,
   TableBody,
@@ -8,25 +6,24 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
   Checkbox,
   IconButton,
-  Box,
 } from "@mui/material";
 import FilterListIcon from "@mui/icons-material/FilterList";
-import { FilterList } from "@mui/icons-material";
-import Image from "next/image";
 
 const allowedFields = [
   "date",
-  "residentCountry",
   "fullName",
-  "status",
-  "remarks",
-  "campaignName",
-  "phoneNumber",
+  "residentCountry",
+  "residentCity",
   "drivingLicense",
-  "residentCity"
+  "passportNumber",
+  "phoneNumber",
+  "preferredWorkingCity",
+  "referBy",
+  "campaignName",
+  "remarks",
+  "status",
 ];
 
 const CustomTable = ({ columns, data, onRowSelect, handleFilterClick }) => {
@@ -135,10 +132,6 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick }) => {
           ))}
         </TableBody>
       </Table>
-      {/* <Box
-        component="div"
-        sx={{ width: "100%", height: 40, bgcolor: "ButtonShadow" }}
-      ></Box> */}
     </TableContainer>
   );
 };

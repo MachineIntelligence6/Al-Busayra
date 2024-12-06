@@ -15,6 +15,7 @@ const CustomTextField = ({
   rows,
   icon, // Icon component passed as a prop
   iconPosition = "start", // Icon position: "start" or "end"
+  removeRightBorder = false, // New prop to handle right border removal
   ...rest
 }) => {
   return (
@@ -41,6 +42,11 @@ const CustomTextField = ({
         },
         "& .MuiOutlinedInput-root": {
           borderRadius: "7px",
+          ...(removeRightBorder && {
+            borderRight: "none !important",
+            borderTopRightRadius: "0 !important",
+            borderBottomRightRadius: "0 !important",
+          }),
         },
         ...sx,
       }}
@@ -62,12 +68,14 @@ CustomTextField.propTypes = {
   rows: PropTypes.number,
   icon: PropTypes.node, // The icon component to display
   iconPosition: PropTypes.oneOf(["start", "end"]), // Position of the icon
+  removeRightBorder: PropTypes.bool, // New prop to remove right border and radius
 };
 
 export default CustomTextField;
 
 
 // ==============usage================
+// Default Usage (As-Is)
 
 // {/* <CustomTextField
 // value={fullName}
@@ -76,3 +84,15 @@ export default CustomTextField;
 // placeholder="Enter your full name as per Emirates ID"
 // error={error}
 // /> */}
+
+
+// Removing Right Border and Radius
+
+
+{/* <CustomTextField
+  value={value}
+  onChange={handleChange}
+  placeholder="Enter text"
+  error={error}
+  removeRightBorder={true}
+/> */}

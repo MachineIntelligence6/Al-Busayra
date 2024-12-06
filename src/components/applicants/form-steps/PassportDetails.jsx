@@ -1,95 +1,79 @@
-import React from 'react'
-import {Controller } from 'react-hook-form'
-import { Box, TextField, Switch, FormControlLabel, Button, Typography } from '@mui/material'
-import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import React, { createElement } from "react";
+import { Controller } from "react-hook-form";
+import { Box, Typography, Switch } from "@mui/material";
+import CustomTextField from "@/components/Shared-components/CustomTextField";
+import CustomDatePicker from "@/components/Shared-components/CustomDatePicker";
+import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
 
 export const PassportDetails = ({ control }) => {
+  const renderLabel = (label, required = false) => (
+    <Typography variant="body1" component="span">
+      {label}
+      {required && <Typography component="span" color="error"> *</Typography>}
+    </Typography>
+  );
+
+  const fields = [
+    {
+      label: "Passport Number",
+      name: "passportNumber",
+      required: true,
+      placeholder: "ABCD-234353",
+      component: CustomTextField,
+    },
+    {
+      label: "Passport Issue Date",
+      name: "passportIssueDate",
+      required: true,
+      placeholder: "20-10-2028",
+      component: CustomDatePicker,
+    },
+    {
+      label: "Passport Expiry Date",
+      name: "passportExpiryDate",
+      required: true,
+      placeholder: "20-10-2028",
+      component: CustomDatePicker,
+    },
+    {
+      label: "Passport Copy",
+      name: "passportCopy",
+      required: true,
+      placeholder: "PDF Scanned",
+      component: CustomFileUploadField
+    },
+    {
+      label: "Visa Applied",
+      name: "visaApplied",
+      required: false,
+      component: Switch,
+    },
+  ];
+
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-      <Controller
-        name="passportNumber"
-        control={control}
-        render={({ field, fieldState: { error } }) => (
-          <TextField
-            {...field}
-            fullWidth
-            label="Passport No."
-            error={!!error}
-            helperText={error?.message}
-          />
-        )}
-      />
-
-      <Controller
-        name="passportIssueDate"
-        control={control}
-        render={({ field, fieldState: { error } }) => (
-          <DatePicker
-            label="Passport Issue Date"
-            value={field.value}
-            onChange={(date) => field.onChange(date)}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                fullWidth
-                error={!!error}
-                helperText={error?.message}
-              />
-            )}
-          />
-        )}
-      />
-
-      <Controller
-        name="passportExpiryDate"
-        control={control}
-        render={({ field, fieldState: { error } }) => (
-          <DatePicker
-            label="Passport Expiry Date"
-            value={field.value}
-            onChange={(date) => field.onChange(date)}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                fullWidth
-                error={!!error}
-                helperText={error?.message}
-              />
-            )}
-          />
-        )}
-      />
-
-      <Controller
-        name="passportCopy"
-        control={control}
-        render={({ field, fieldState: { error } }) => (
-          <Box>
-            <Button variant="contained" component="label">
-              Upload Passport Copy
-              <input
-                hidden
-                accept="application/pdf"
-                type="file"
-                onChange={(e) => field.onChange(e.target.files?.[0])}
-              />
-            </Button>
-            {error && <Typography color="error">{error.message}</Typography>}
+    <Box sx={{ display: "flex", flexDirection: "column" }}>
+      {fields.map(({ label, name, required, placeholder, component }, index) => (
+        <Box key={index} sx={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
+          <Box sx={{ flex: "0 0 40%", textAlign: "left", paddingRight: "1rem" }}>
+            {renderLabel(label, required)}
           </Box>
-        )}
-      />
-
-      <Controller
-        name="visaApplied"
-        control={control}
-        render={({ field }) => (
-          <FormControlLabel
-            control={<Switch {...field} checked={field.value} />}
-            label="Visa Applied"
-          />
-        )}
-      />
+          <Box sx={{ flex: "1", width: "80%" }}>
+            <Controller
+              name={name}
+              control={control}
+              defaultValue=""
+              render={({ field, fieldState: { error } }) =>
+                createElement(component, {
+                  value: field.value,
+                  onChange: field.onChange,
+                  placeholder,
+                  error,
+                })
+              }
+            />
+          </Box>
+        </Box>
+      ))}
     </Box>
-  )
-}
-
+  );
+};
