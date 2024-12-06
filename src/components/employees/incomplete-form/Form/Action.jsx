@@ -1,22 +1,31 @@
 import React from "react";
 import CustomButton from "@/components/Shared-components/CustomButton";
 import { Box } from "@mui/material";
+import { useRouter } from "next/navigation";
 
-const Action = ({ setValue, currentTab }) => {
+const Action = ({ setValue, currentTab, formik }) => {
+  const router = useRouter();
   const totalTabs = 8;
+
+  const handleCancel = () => {
+    router.push("/employees/incomplete-profile");
+    console.log("clicked menu");
+  };
 
   const handleBack = () => {
     setValue((prevValue) => Math.max(prevValue - 1, 0));
   };
 
-  const handleNext = () => {
-    // Save data or handle any necessary action before moving to the next tab
-    // Example: form submission, API call, or saving to local storage
+  const handleNext = async () => {
+    const isValid = await formik.validateForm();
 
-    // Example save (adjust according to your actual saving logic):
-    // saveFormData(values);
+    if (isValid) {
+      formik.submitForm();
+    } else {
+      console.log("Form is not valid!");
+    }
 
-    if (currentTab < totalTabs - 1) {
+    if (currentTab < totalTabs - 1 && isValid) {
       setValue((prevValue) => prevValue + 1);
     }
   };
@@ -48,6 +57,7 @@ const Action = ({ setValue, currentTab }) => {
             />
           </svg>
         }
+        onClick={handleCancel}
       >
         Cancel
       </CustomButton>

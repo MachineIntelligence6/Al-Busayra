@@ -1,6 +1,6 @@
 "use client";
 import React, { useMemo } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter, } from "next/navigation";
 import { Box } from "@mui/material";
 import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
 import { data } from "@/utils/campaigns.data";
@@ -46,6 +46,7 @@ const EmployeeTableWrapper = ({
   currentPage,
 }) => {
   const pathname = usePathname();
+  const router=useRouter()
   const totalEntries = 20;
   const totalPages = Math.ceil(totalEntries / rowsPerPage);
 
@@ -58,15 +59,16 @@ const EmployeeTableWrapper = ({
     // Add your filter logic here, such as opening a dropdown or modal
   };
 
-  const handleMenuClick = (value) => {
-    console.log("clicked menu", value);
+  const handleMenuClick = (item) => {
+    if(item.action==="proceed") router.push("/employees/incomplete-profile/form")
+    console.log("clicked menu", item);
   };
 
   const MenuItems = useMemo(
     () => [
-      { label: "Proceed", action: "Proceed" },
-      { label: "Not Qualified", action: "Not Qualified" },
-      { label: "On Hold", action: "On Hold" },
+      { label: "Proceed", action: "proceed" },
+      { label: "Not Qualified", action: "not-qualified" },
+      { label: "On Hold", action: "on-hold" },
     ],
     []
   );

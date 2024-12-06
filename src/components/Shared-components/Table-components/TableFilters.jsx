@@ -35,15 +35,16 @@ const TableFilters = () => {
       >
         <CustomDropdown
           sx={{ flex: 1, placeItems: "start" }}
-          label="Campaign Name"
-          placeholder="Please Select"
+          label="Resident"
+          placeholder="Non Resident"
           options={options}
-          value={dropdown1Value}
-          onChange={(e) => setDropdown1Value(e.target.value)}
+          value={dropdown3Value}
+          onChange={(e) => setDropdown3Value(e.target.value)}
         />
+
         <CustomDropdown
           sx={{ flex: 1, placeItems: "start" }}
-          label="Resident Country"
+          label="Country"
           placeholder="Pakistan"
           options={options}
           value={dropdown2Value}
@@ -51,13 +52,20 @@ const TableFilters = () => {
         />
         <CustomDropdown
           sx={{ flex: 1, placeItems: "start" }}
-          label="Resident City"
+          label="City"
           placeholder="Islamabad"
           options={options}
           value={dropdown3Value}
           onChange={(e) => setDropdown3Value(e.target.value)}
         />
-        
+        <CustomDropdown
+          sx={{ flex: 1, placeItems: "start" }}
+          label="Campaign"
+          placeholder="Please Select"
+          options={options}
+          value={dropdown1Value}
+          onChange={(e) => setDropdown1Value(e.target.value)}
+        />
       </Box>
       <Divider />
     </Box>

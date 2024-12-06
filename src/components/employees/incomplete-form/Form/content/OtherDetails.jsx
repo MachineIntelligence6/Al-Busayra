@@ -1,22 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Divider, Typography } from "@mui/material";
 import Input from "@/app/Components/Input/Input";
 import Dropdown from "@/app/Components/Input/Dropdown";
 import { formSchema } from "../../../../Shared-components/Schemas/FormSchema";
+import Action from "../Action";
 
-const Visa = () => {
+const OtherDetails = () => {
+  const [currentTab, setCurrentTab] = useState(7);
+
   // Initialize Formik
   const formik = useFormik({
     initialValues: {
-      uaeResidencyIqamaNo: "",
-      visaIssueDate: "",
-      visaExpiryDate: "",
-      uaeResidencyIqama: "",
-      companyName: "",
-      companyLocation: "",
-      visaType: "",
-      visaAppliedVia: "",
+      passportHandOver: "",
+      passportTakerName: "",
+      passportPicture: "",
+      rtaTraining: "",
+      empOwnerShip: "",
+      empStatus: "",
+      vendor: "",
     },
     validationSchema: formSchema,
     onSubmit: (values) => {
@@ -24,51 +26,44 @@ const Visa = () => {
     },
   });
 
-  // Fields configuration for inputs and dropdowns
   const inputFields = [
     {
-      label: "UAE Residency / Iqama No.",
-      name: "uaeResidencyIqamaNo",
+      label: "Passport Handed Over To Representative",
+      name: "passportHandOver",
       component: Input,
     },
     {
-      label: "Visa Issue Date",
-      name: "visaIssueDate",
+      label: "Name of Representative Passport Taken",
+      name: "passportTakerName",
       component: Input,
     },
     {
-      label: "Visa Expiry Date",
-      name: "visaExpiryDate",
+      label: "Add Picture of Passport",
+      name: "passportPicture",
       component: Input,
     },
     {
-      label: "UAE Residency/Iqama",
-      name: "uaeResidencyIqama",
+      label: "RTA Training",
+      name: "rtaTraining",
       component: Input,
     },
     {
-      label: "Company Name",
-      name: "companyName",
+      label: "EMP Ownership",
+      name: "empOwnerShip",
       component: Dropdown,
-      options: ["Al-Busayra", "Taj Global", "Bin Xyz"],
+      options: ["Own", "4PL"],
     },
     {
-      label: "Company Location",
-      name: "companyLocation",
+      label: "Vendor",
+      name: "vendor",
+      component: Dropdown,
+      options: ["Taj Global", "Bin Abc", "Bin Xyz"],
+    },
+    {
+      label: "EPM Status",
+      name: "empStatus",
       component: Dropdown,
       options: ["Dubai", "Abu Dhabi", "Sharjah"],
-    },
-    {
-      label: "VISA Type",
-      name: "visaType",
-      component: Dropdown,
-      options: ["Own", "Company Visa"],
-    },
-    {
-      label: "VISA Applied Via",
-      name: "visaAppliedVia",
-      component: Dropdown,
-      options: ["ABDS Dubai", "ABDS Sharjah", "AHDS Dubai"],
     },
   ];
 
@@ -105,7 +100,7 @@ const Visa = () => {
                   />
                 )}
 
-                {/* Show error messages */}
+                {/* Display error message if field is touched and there's an error */}
                 {formik.touched[field.name] && formik.errors[field.name] && (
                   <Typography color="error" variant="body2">
                     {formik.errors[field.name]}
@@ -115,17 +110,18 @@ const Visa = () => {
             ))}
           </Box>
 
-          {/* Submit Button */}
-          <Button
-            type="submit"
-            sx={{ backgroundColor: "#7A4BFC", color: "white" }}
-          >
-            Submit
-          </Button>
+          <Divider sx={{ borderColor: "#2F2B3D40", mt: 2, }} />
+
+          {/* Action buttons for navigating */}
+          <Action
+            setValue={setCurrentTab}
+            currentTab={currentTab}
+            formik={formik}
+          />
         </Box>
       </form>
     </Box>
   );
 };
 
-export default Visa;
+export default OtherDetails;

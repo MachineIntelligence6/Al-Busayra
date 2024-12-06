@@ -50,7 +50,12 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntri
         text: isFinalReview ? "Add Applicant" : "Add New", // Conditional text
       };
     }
-    return { text: "Add New" }; // Default text
+    return { text: "Add New" };
+   } 
+   
+   // Default text
+  const onButtonClick = () => {
+    console.log("click");
   };
 
   const buttonProps = getButtonProps(pathname);
@@ -80,6 +85,7 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntri
               fontSize: 15,
               borderRadius: "6px",
             }}
+            //   label={entries}
           >
             <MenuItem value={10} defaultChecked>
               10
@@ -121,7 +127,7 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntri
         <CustomButton onClick={handleOpenModal} sx={buttonProps.sx} {...buttonProps}>
           {buttonProps.text}
         </CustomButton>
-
+        {/* {true && <CustomButton endIcon={<AddIcon />} onClick={handleOpenModal}>Add New</CustomButton>} */}
         <Box
           sx={{
             backgroundColor: "#80839029",
