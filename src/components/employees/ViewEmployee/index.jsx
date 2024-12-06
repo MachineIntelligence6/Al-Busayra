@@ -22,10 +22,13 @@ import { VisaInfo } from "./VisaInfo";
 import { InsuranceInfo } from "./InsuranceInfo";
 import { OtherInfo } from "./OtherInfo";
 import ViewEmployeeHeader from "../../Shared-components/ViewEmployeeHeader";
-// import CustomColoredDropdown from "@/components/Shared-components/CustomColoredDropDown";
-// import HighlightOffOutlinedIcon from "@mui/icons-material/HighlightOffOutlined";
-// import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
+import CustomColoredDropdown from "@/components/Shared-components/CustomColoredDropDown";
+import HighlightOffOutlinedIcon from "@mui/icons-material/HighlightOffOutlined";
+import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
 import { ViewEmployeeCardData } from "../../../utils/view-employee-card-data";
+import KeyboardBackspaceSharpIcon from "@mui/icons-material/KeyboardBackspaceSharp";
+import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
+
 import { useState } from "react";
 
 const profile = {
@@ -97,7 +100,7 @@ const EmployeeView = () => {
 
   return (
     <Box sx={{ p: 2 }}>
-      <ViewEmployeeHeader profile1={profile1} />
+      <ViewEmployeeHeader fullName="Saleem Akhtar" />
 
       <Box
         sx={{
