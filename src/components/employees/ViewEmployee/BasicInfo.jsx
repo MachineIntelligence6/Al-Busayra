@@ -1,36 +1,31 @@
+"use client";
+
 import { ViewCard, ViewItem } from "@/components/Shared-components/ViewCard";
-import { Box, Divider, IconButton } from "@mui/material";
-import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
+import { Box, Divider } from "@mui/material";
 
-export default function BasicInfo({ profile, onEdit }) {
+export default function BasicInfo({ profile1, onEdit }) {
   return (
-    <ViewCard title="BASIC INFORMATION" onEdit={onEdit}>
-      <ViewItem
-        value={profile.fullName}
-        label={
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            {/* <IconButton size="small">
-              <Person2OutlinedIcon />
-            </IconButton> */}
-            <span>Full Name</span>
-          </Box>
-        }
-      />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-
-      <ViewItem label="Gender" value={profile.gender} />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-
-      <ViewItem label="Date of Birth" value={profile.dob} />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-
-      <ViewItem label="Religion" value={profile.religion} />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-      <ViewItem label="Nationality" value={profile.nationality} />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-      <ViewItem label="Marital Status" value={profile.maritalStatus} />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-      <ViewItem label="Employment Type" value={profile.employmentType} />
+    <ViewCard title={profile1.title} onEdit={onEdit}>
+      {profile1.data.map((item, index) => (
+        <Box key={item.id}>
+          <ViewItem
+            label={
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                {/* Uncomment if you want to show icon */}
+                {/* <IconButton size="small">
+                  <Person3OutlinedIcon />
+                </IconButton> */}
+                {item.icon}
+                <span>{item.label}</span>
+              </Box>
+            }
+            value={item.value}
+          />
+          {index < profile1.data.length - 1 && (
+            <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
+          )}
+        </Box>
+      ))}
     </ViewCard>
   );
 }
