@@ -24,25 +24,41 @@ export const formSchema = yup.object({
 
   // Contact & Residence
   email: yup.string().email('Invalid email').required('Email is required'),
-  phoneNumber: yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Phone number is required'),
-  whatsappNumber: yup.string().matches(phoneRegExp, 'WhatsApp number is not valid'),
+  // phoneNumber: yup.object().shape({
+  //   countryCode: yup.string()
+  //     .matches(/^\+\d{1,3}$/, 'Country code must be in the format +XX or +XXX')
+  //     .required('Country code is required'),
+  //   number: yup.string()
+  //     .matches(/^\d{3} \d{3} \d{4}$/, 'Number must be in the format XXX XXX XXXX')
+  //     .required('Phone number is required'),
+  // }),
+  // whatsappNumber: yup.object().shape({
+  //   countryCode: yup.string()
+  //     .matches(/^\+\d{1,3}$/, 'Country code must be in the format +XX or +XXX')
+  //     .required('Country code is required'),
+  //   number: yup.string()
+  //     .matches(/^\d{6,15}$/, 'Number must contain 6 to 15 digits without spaces')
+  //     .required('WhatsApp number is required'),
+  // }),
+  // phoneNumber: yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Phone number is required'),
+  // whatsappNumber: yup.string().matches(phoneRegExp, 'WhatsApp number is not valid'),
   currentCountryResidence: yup.string().required('Current country residen is required'),
   nationality: yup.string(),
 
   // Driving License
   isLicenseHolder: yup.string().required('Please specify if you have a driving license'),
-  licenseNumber: yup.string().when('isLicenseHolder', {
-    is: 'yes',
-    then: yup.string().required('License number is required'),
-  }),
-  licenseIssueDate: yup.date().when('isLicenseHolder', {
-    is: 'yes',
-    then: yup.date().required('Issue date is required'),
-  }),
-  licenseExpiryDate: yup.date().when('isLicenseHolder', {
-    is: 'yes',
-    then: yup.date().required('Expiry date is required'),
-  }),
+  // licenseNumber: yup.string().when('isLicenseHolder', {
+  //   is: 'yes',
+  //   then: yup.string().required('License number is required'),
+  // }),
+  // licenseIssueDate: yup.date().when('isLicenseHolder', {
+  //   is: 'yes',
+  //   then: yup.date().required('Issue date is required'),
+  // }),
+  // licenseExpiryDate: yup.date().when('isLicenseHolder', {
+  //   is: 'yes',
+  //   then: yup.date().required('Expiry date is required'),
+  // }),
 
   // Passport Details
   passportNumber: yup.string().required('Passport number is required'),
@@ -53,7 +69,7 @@ export const formSchema = yup.object({
 
   // Referral
   referralName: yup.string().required('Referral name is required'),
-  referralPhone: yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Referral phone is required'),
+  // referralPhone: yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Referral phone is required'),
   referralAddress: yup.string().required('Referral address is required'),
 })
 

@@ -1,80 +1,79 @@
-import React from 'react'
-import { Controller } from 'react-hook-form'
-import { Box, TextField, Select, MenuItem, FormControl, InputLabel, Typography } from '@mui/material'
-import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import React, { createElement } from "react";
+import { Controller, useFormContext } from "react-hook-form";
+import { Box, Typography } from "@mui/material";
+import CustomTextField from "@/components/Shared-components/CustomTextField";
+import CustomSelect from "@/components/Shared-components/CustomSelect";
+import CustomDatePicker from "@/components/Shared-components/CustomDatePicker";
 
 export const DrivingLicense = ({ control }) => {
+  const { setValue } = useFormContext();
+
+  const renderLabel = (label, required = false) => (
+    <Typography variant="body1" component="span">
+      {label}
+      {required && <Typography component="span" color="error"> *</Typography>}
+    </Typography>
+  );
+
+  const fields = [
+    {
+      label: "Are You a Local Driving License Holder?",
+      name: "isLicenseHolder",
+      required: true,
+      options: [
+        { value: "yes", label: "Yes" },
+        { value: "no", label: "No" },
+      ],
+      component: CustomSelect,
+    },
+    {
+      label: "Local Driving License Number",
+      name: "licenseNumber",
+      required: true,
+      placeholder: "Enter your driving license number",
+      component: CustomTextField,
+    },
+    {
+      label: "License Issue Date",
+      name: "licenseIssueDate",
+      required: true,
+      component: CustomDatePicker,
+    },
+    {
+      label: "License Expiry Date",
+      name: "licenseExpiryDate",
+      required: true,
+      component: CustomDatePicker,
+    },
+  ];
+
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-      <Controller
-        name="isLicenseHolder"
-        control={control}
-        render={({ field, fieldState: { error } }) => (
-          <FormControl fullWidth error={!!error}>
-            <InputLabel>Local Driving License Holder</InputLabel>
-            <Select {...field} label="Local Driving License Holder">
-              <MenuItem value="yes">Yes</MenuItem>
-              <MenuItem value="no">No</MenuItem>
-            </Select>
-            {error && <Typography color="error">{error.message}</Typography>}
-          </FormControl>
-        )}
-      />
-
-      <Controller
-        name="licenseNumber"
-        control={control}
-        render={({ field, fieldState: { error } }) => (
-          <TextField
-            {...field}
-            fullWidth
-            label="Local Driving License Number"
-            error={!!error}
-            helperText={error?.message}
-          />
-        )}
-      />
-
-      <Controller
-        name="licenseIssueDate"
-        control={control}
-        render={({ field, fieldState: { error } }) => (
-          <DatePicker
-            label="Driving License Issue Date"
-            value={field.value}
-            onChange={(date) => field.onChange(date)}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                fullWidth
-                error={!!error}
-                helperText={error?.message}
-              />
-            )}
-          />
-        )}
-      />
-
-      <Controller
-        name="licenseExpiryDate"
-        control={control}
-        render={({ field, fieldState: { error } }) => (
-          <DatePicker
-            label="Driving License Expiry Date"
-            value={field.value}
-            onChange={(date) => field.onChange(date)}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                fullWidth
-                error={!!error}
-                helperText={error?.message}
-              />
-            )}
-          />
-        )}
-      />
+    <Box sx={{ display: "flex", flexDirection: "column" }}>
+      {fields.map(({ label, name, required, placeholder, options, component }, index) => (
+        <Box key={index} sx={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
+          <Box sx={{ flex: "0 0 40%", textAlign: "left", paddingRight: "1rem" }}>
+            {renderLabel(label, required)}
+          </Box>
+          <Box sx={{ flex: "1", width: "80%" }}>
+            <Controller
+              name={name}
+              control={control}
+              defaultValue=""
+              render={({ field, fieldState: { error } }) =>
+                createElement(component, {
+                  value: field.value,
+                  onChange: field.onChange,
+                  placeholder,
+                  options,
+                  error,
+                })
+              }
+            />
+          </Box>
+        </Box>
+      ))}
     </Box>
-  )
-}
+  );
+};
+
 

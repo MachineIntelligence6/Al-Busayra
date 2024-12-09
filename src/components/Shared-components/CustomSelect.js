@@ -89,6 +89,6 @@ export default CustomSelect;
     { value: "non-resident", label: "Non UAE Resident" },
   ]}
   placeholder="Non UAE Resident"
-  error={error.message}
+  error={error}
 />; 
 */}

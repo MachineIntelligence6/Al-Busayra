@@ -8,12 +8,12 @@ import MultiStepFormModel from "@/components/applicants/MultiStepFormModel";
 const Page = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const rowsPerPage = 5; 
+  const rowsPerPage = 5;
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
     console.log("cl");
-}
+  }
   const handleCloseModal = () => setIsModalOpen(false);
 
   return (
@@ -23,9 +23,9 @@ const Page = () => {
         onClose={handleCloseModal}
         title="Applicants Modal"
       >
-        <MultiStepFormModel  handleCloseModal={handleCloseModal} />
+        <MultiStepFormModel handleCloseModal={handleCloseModal} />
       </GenericModal>
-      <ApplicantsTableWrapper handleOpenModal={handleOpenModal} rowsPerPage={rowsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+      <ApplicantsTableWrapper handleOpenModal={handleOpenModal} rowsPerPage={rowsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
     </Box>
   );
 };
