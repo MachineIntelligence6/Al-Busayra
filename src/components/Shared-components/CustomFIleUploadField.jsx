@@ -4,7 +4,7 @@ import CustomTextField from "@/components/Shared-components/CustomTextField";
 
 const CustomFileUploadField = ({ value, onChange, error }) => {
   return (
-    <Box sx={{ display: "flex", alignItems: "start", marginBottom: "1rem", flexDirection:"column" }}>
+    <Box sx={{ display: "flex", alignItems: "start", flexDirection:"column" }}>
       <Box
         sx={{ flex: "1", width: "100%", display: "flex", alignItems: "center" }}
       >

@@ -266,7 +266,12 @@ export default function ProfileView({isModalRemarkOpen,status,setStatus,handleCh
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          // gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gridTemplateColumns: {
+    xs: "1fr", // For extra-small and small screens
+    sm: "1fr", // Optionally specify for small screens (e.g., tablets)
+    md: "1fr 1fr", // For medium and larger screens
+  },
           gap: 2,
         }}
       >

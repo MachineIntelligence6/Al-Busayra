@@ -32,6 +32,14 @@ export function StatusIndicator({ status, pathname }) {
         backgroundColor = '#FFE5E5';
         textColor = '#FF0000';
         break;
+      case 'Paid':
+        backgroundColor = '#E5F8E5';
+        textColor = '#00A000';
+        break;
+      case 'Unpaid':
+        backgroundColor = '#FFECEC';
+        textColor = '#FF0000';
+        break;
       default:
         break;
     }
