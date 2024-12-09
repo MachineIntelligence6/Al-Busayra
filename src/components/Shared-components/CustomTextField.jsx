@@ -1,62 +1,144 @@
+// import React from "react";
+// import PropTypes from "prop-types";
+// import { TextField, InputAdornment} from "@mui/material";
+
+// const CustomTextField = ({
+//   label,
+//   placeholder = "",
+//   value,
+//   onChange,
+//   error,
+//   helperText,
+//   fullWidth = true,
+//   startAdornment, // Start adornment (icon, etc.)
+//   endAdornment, // End adornment (icon, etc.)
+//   textProps, // Props for label typography
+//   sx, // Additional styles
+//   type = "text",
+//   multiline = false,
+//   rows,
+//   required = false, // Indicate if the field is required
+//   ...props
+// }) => {
+//   return (
+//     <TextField
+//       value={value}
+//       onChange={onChange}
+//       placeholder={placeholder}
+//       error={!!error}
+//       helperText={error ? error.message || helperText : helperText}
+//       fullWidth={fullWidth}
+//       type={type}
+//       multiline={multiline}
+//       rows={multiline ? rows : undefined}
+//       variant="outlined"
+//       backgroundColor="#FCFCFC"
+//       InputProps={{
+//         [`${iconPosition}Adornment`]: icon ? (
+//           <InputAdornment position={iconPosition}>{icon}</InputAdornment>
+//         ) : null,
+//       }}
+//       sx={{
+//         "& .MuiInputBase-input": {
+//           padding: "10px 12px",
+//         },
+//         "& .MuiOutlinedInput-root": {
+//           borderRadius: "7px",
+//           ...(removeRightBorder && {
+//             borderRight: "none !important",
+//             borderTopRightRadius: "0 !important",
+//             borderBottomRightRadius: "0 !important",
+//             backgroundColor: "#FCFCFC !important",
+//           }),
+//         },
+//         ...sx,
+//       }}
+//       {...rest}
+//     />
+//   );
+// };
+
+// CustomTextField.propTypes = {
+//   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+//   onChange: PropTypes.func,
+//   placeholder: PropTypes.string,
+//   error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+//   helperText: PropTypes.string,
+//   fullWidth: PropTypes.bool,
+//   sx: PropTypes.object,
+//   type: PropTypes.string,
+//   multiline: PropTypes.bool,
+//   rows: PropTypes.number,
+//   startAdornment: PropTypes.node,
+//   endAdornment: PropTypes.node,
+//   label: PropTypes.string,
+//   required: PropTypes.bool,
+//   textProps: PropTypes.object,
+// };
+
+// export default CustomTextField;
+
 import React from "react";
 import PropTypes from "prop-types";
-import { TextField, InputAdornment, Typography, FormControl, FormHelperText } from "@mui/material";
+import { TextField, InputAdornment } from "@mui/material";
 
 const CustomTextField = ({
-  label,
-  placeholder = "",
   value,
   onChange,
+  placeholder = "",
   error,
   helperText,
   fullWidth = true,
-  startAdornment, // Start adornment (icon, etc.)
-  endAdornment, // End adornment (icon, etc.)
-  textProps, // Props for label typography
-  sx, // Additional styles
+  sx,
   type = "text",
   multiline = false,
   rows,
-  required = false, // Indicate if the field is required
-  ...props
+  icon, // Icon component passed as a prop
+  iconPosition = "start", // Icon position: "start" or "end"
+  removeRightBorder = false, // New prop to handle right border removal
+  ...rest
 }) => {
   return (
-    <FormControl sx={{ ...sx }} fullWidth={fullWidth} error={!!error}>
-      {label && (
-        <Typography component="label" {...textProps}>
-          {label}
-          {required && <span style={{ color: "red" }}> *</span>}
-        </Typography>
-      )}
-      <TextField
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        type={type}
-        multiline={multiline}
-        size="small"
-        rows={multiline ? rows : undefined}
-        variant="outlined"
-        InputProps={{
-          startAdornment: startAdornment ? (
-            <InputAdornment position="start">{startAdornment}</InputAdornment>
-          ) : null,
-          endAdornment: endAdornment ? (
-            <InputAdornment position="end">{endAdornment}</InputAdornment>
-          ) : null,
-        }}
-        {...props}
-      />
-      {helperText && (
-        <FormHelperText sx={{ marginTop: "4px" }}>{helperText}</FormHelperText>
-      )}
-    </FormControl>
+    <TextField
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      error={!!error}
+      helperText={error ? error.message || helperText : helperText}
+      fullWidth={fullWidth}
+      type={type}
+      multiline={multiline}
+      rows={multiline ? rows : undefined}
+      variant="outlined"
+      backgroundColor="#FCFCFC"
+      InputProps={{
+        [`${iconPosition}Adornment`]: icon ? (
+          <InputAdornment position={iconPosition}>{icon}</InputAdornment>
+        ) : null,
+      }}
+      sx={{
+        "& .MuiInputBase-input": {
+          padding: "10px 12px",
+        },
+        "& .MuiOutlinedInput-root": {
+          borderRadius: "7px",
+          ...(removeRightBorder && {
+            borderRight: "none !important",
+            borderTopRightRadius: "0 !important",
+            borderBottomRightRadius: "0 !important",
+            backgroundColor: "#FCFCFC !important",
+          }),
+        },
+        ...sx,
+      }}
+      {...rest}
+    />
   );
 };
 
 CustomTextField.propTypes = {
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  onChange: PropTypes.func,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   helperText: PropTypes.string,
@@ -65,11 +147,31 @@ CustomTextField.propTypes = {
   type: PropTypes.string,
   multiline: PropTypes.bool,
   rows: PropTypes.number,
-  startAdornment: PropTypes.node,
-  endAdornment: PropTypes.node,
-  label: PropTypes.string,
-  required: PropTypes.bool,
-  textProps: PropTypes.object,
+  icon: PropTypes.node, // The icon component to display
+  iconPosition: PropTypes.oneOf(["start", "end"]), // Position of the icon
+  removeRightBorder: PropTypes.bool, // New prop to remove right border and radius
 };
 
 export default CustomTextField;
+
+
+// ==============usage================
+// Default Usage (As-Is)
+
+// {/* <CustomTextField
+// value={fullName}
+// onChange={handleChange}
+// label="Full Name"
+// placeholder="Enter your full name as per Emirates ID"
+// error={error}
+// /> */}
+
+// Removing Right Border and Radius
+
+{/* <CustomTextField
+  value={value}
+  onChange={handleChange}
+  placeholder="Enter text"
+  error={error}
+  removeRightBorder={true}
+/> */}

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box, TextField, InputAdornment, MenuItem, Select, FormControl, Typography } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 const CustomCountryCodeInput = ({ countryCodes, value, onChange,error,icon, placeholder }) => {
@@ -83,7 +82,11 @@ const CustomCountryCodeInput = ({ countryCodes, value, onChange,error,icon, plac
         />
       </FormControl>
     </Box>
- {/* <Typography color="error">{error && {error.message}}</Typography> */}
+    {error && (
+        <Typography color="error" variant="caption" sx={{ marginTop: "4px" }}>
+          {error.message}
+        </Typography>
+      )}
  </>
   );
 };

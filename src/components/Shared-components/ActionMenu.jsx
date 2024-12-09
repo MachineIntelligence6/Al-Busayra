@@ -40,6 +40,8 @@ const ActionMenu = ({ menuItems = [], onMenuItemClick }) => {
                     style: {
                         maxHeight: 48 * 4.5, // Limit menu height
                         width: "200px",
+                        padding: "px" ,
+                        borderRadius:"7px"
                     },
                 }}
             >
@@ -47,7 +49,7 @@ const ActionMenu = ({ menuItems = [], onMenuItemClick }) => {
                     <MenuItem
                         key={index}
                         onClick={() => handleMenuItemClick(item)}
-                        sx={{ "&:hover": { color: "#23567f" } }}
+                        sx={{ "&:hover": { color: "#23567f", borderRadius:"7px", background: "#1047741A"} }}
                     >
                         {item.label}
                     </MenuItem>

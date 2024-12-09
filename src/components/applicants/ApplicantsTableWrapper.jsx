@@ -1,7 +1,8 @@
 "use client";
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Box,  } from "@mui/material";
+import { Box } from "@mui/material";
+import { useRouter } from "next/navigation"; // Import useRouter
 import TableFilters from "../Shared-components/Table-components/TableFilters";
 import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
 import { data } from "@/utils/campaigns.data";
@@ -9,7 +10,7 @@ import CustomAvatar from "../Shared-components/CustomAvatar";
 import ActionMenu from "../Shared-components/ActionMenu";
 import TableExportRow from "../Shared-components/Table-components/TableExportRow";
 import TablePagination from "../Shared-components/Table-components/TablePagination";
-import { useRouter } from "next/navigation"; // Import useRouter
+import { StatusIndicator } from "./StatusIndicator";
 
 const columnConfig = {
   shortlistedApplicants: [
@@ -40,15 +41,47 @@ const columnConfig = {
     "residentCountry",
     "residentCity",
     "drivingLicense",
-    "passportNumber",
+    "passportNo",
     "phoneNumber",
-    "preferredWorkingCity",
+    "preferedWorkingCity",
     "referBy",
     "campaignName",
     "remarks",
     "status",
     "action",
   ],
+  hold: [
+    "date",
+    "fullName",
+    "residentCountry",
+    "residentCity",
+    "drivingLicense",
+    "passportNo",
+    "phoneNumber",
+    "preferedWorkingCity",
+    "referBy",
+    "campaignName",
+    "remarks",
+    "reasonToHold",
+    "status",
+    "action",
+  ],
+  notQualified: [
+    "date",
+    "fullName",
+    "residentCountry",
+    "residentCity",
+    "drivingLicense",
+    "passportNo",
+    "phoneNumber",
+    "preferedWorkingCity",
+    "referBy",
+    "campaignName",
+    "remarks",
+    "reasonToHold",
+    "status",
+    "action",
+  ]
 };
 
 const ApplicantsTableWrapper = ({
@@ -58,9 +91,10 @@ const ApplicantsTableWrapper = ({
   currentPage,
 }) => {
   const [totalEntries, setTotalEntries] = useState(10);
+  const router = useRouter();
   const pathname = usePathname();
   const totalPages = Math.ceil(totalEntries / rowsPerPage);
-const router = useRouter();
+  const [isBtnAdd, setIsBtnAdd] = useState(false);
 
   const handleRowSelect = (selectedRowIds) => {
     console.log("Selected Row IDs:", selectedRowIds);
@@ -75,27 +109,36 @@ const router = useRouter();
     // Add your filter logic here, such as opening a dropdown or modal
   };
 
+  useEffect(() => {
+    if (pathname === "/applicants/shortlisted-applicants") {
+      setIsBtnAdd(true);
+    }
+  }, [pathname]);
 
-  const menuConfigurations = useMemo(() => ({
-    home: {
-      menuItems: [
-        { label: "Edit Details", route: "/edit" },
-        { label: "Change Status", route: "/change-status" },
-      ],
-    },
-    finalReview: {
-      menuItems: [
-        { label: "View Details", route: "/applicants/view-details" },
-        { label: "Proceed", route: "/proceed" },
-        { label: "Hold", route: "/applicants/hold" },
-        { label: "Not Qualified", route: "/applicants/not-qualified" },
-      ],
-    },
-    // Add more configurations for other pages as needed
-  }), []);
+  const menuConfigurations = useMemo(
+    () => ({
+      home: {
+        menuItems: [
+          { label: "Procced", route: "/applicants/proceed" },
+          { label: "Not qualified", route: "/applicants/not-qualified" },
+        ],
+      },
+      finalReview: {
+        menuItems: [
+          { label: "View Details", route: "/applicants/view-details" },
+          { label: "Proceed", route: "/applicants/hold" },
+          { label: "Hold", route: "/applicants/hold" },
+          { label: "Not Qualified", route: "/applicants/not-qualified" },
+        ],
+      },
+      // Add more configurations for other pages as needed
+    }),
+    []
+  );
 
   const currentMenuConfig = useMemo(() => {
-    if (pathname.includes("final-review")) return menuConfigurations.finalReview;
+    if (pathname.includes("final-review"))
+      return menuConfigurations.finalReview;
     return menuConfigurations.home; // Default configuration
   }, [menuConfigurations, pathname]);
 
@@ -115,32 +158,33 @@ const router = useRouter();
           />
         ),
       },
-      { field: "residentCountry", headerName: "RESIDENT COUNTRY", align: "left" },
+      {
+        field: "residentCountry",
+        headerName: "RESIDENT COUNTRY",
+        align: "left",
+      },
       { field: "residentCity", headerName: "RESIDENT CITY", align: "left" },
       { field: "drivingLicense", headerName: "DRIVING LICENSE", align: "left" },
-      { field: "passportNumber", headerName: "PASSPORT NUMBER", align: "left" },
+      { field: "passportNo", headerName: "PASSPORT NUMBER", align: "left" },
       { field: "phoneNumber", headerName: "PHONE NUMBER", align: "left" },
-      { field: "preferredWorkingCity", headerName: "PREFERRED WORKING CITY", align: "left" },
+      {
+        field: "preferedWorkingCity",
+        headerName: "PREFERRED WORKING CITY",
+        align: "left",
+      },
       { field: "referBy", headerName: "REFER BY", align: "left" },
       { field: "campaignName", headerName: "CAMPAIGN NAME", align: "left" },
       { field: "remarks", headerName: "REMARKS", align: "left" },
+      { field: "reasonToHold", headerName: "REASON TO HOLD", align: "left" },
       {
         field: "status",
         headerName: "STATUS",
         align: "left",
         render: (row) => (
-          <Box
-          sx={{
-            backgroundColor: pathname.includes("final-review") || row.status === "Pending" ? "#D9F0FF" : "#FFE5E5",
-            color: pathname.includes("final-review") || row.status === "Pending" ? "#00BAD1" : "#FF0000",
-            padding: "4px 8px",
-            borderRadius: "4px",
-            textAlign: "center",
-            fontWeight: "bold",
-          }}
-        >
-          {pathname.includes("final-review") ? "Final Review" : row.status}
-        </Box>
+          <StatusIndicator 
+            status={row.status}
+            pathname={pathname}
+          />
         ),
       },
       {
@@ -149,9 +193,9 @@ const router = useRouter();
         align: "left",
         render: (row) => (
           <ActionMenu
-          menuItems={currentMenuConfig.menuItems}
-          onMenuItemClick={(item) => router.push(item.route)} 
-        />
+            menuItems={currentMenuConfig.menuItems}
+            onMenuItemClick={(item) => router.push(item.route)}
+          />
         ),
       },
     ],
@@ -165,10 +209,15 @@ const router = useRouter();
       key = "shortlistedApplicants";
     } else if (pathname.includes("final-review")) {
       key = "finalReview";
+    } else if (pathname.includes("hold")) {
+      key = "hold";
+    } else if (pathname.includes("not-qualified")) {
+      key = "notQualified";
     }
-    return fullColumns.filter((column) => columnConfig[key]?.includes(column.field));
+    return fullColumns.filter((column) =>
+      columnConfig[key]?.includes(column.field)
+    );
   }, [pathname, fullColumns]);
-  
 
   const paginatedData = useMemo(() => {
     const startIndex = (currentPage - 1) * rowsPerPage;
@@ -179,7 +228,25 @@ const router = useRouter();
   return (
     <Box sx={{ bgcolor: "white", overflow: "hidden", m: 1.5, borderRadius: 6 }}>
       <TableFilters />
-      <TableExportRow handleOpenModal={handleOpenModal} setTotalEntries={setTotalEntries} totalEntries={totalEntries} pathname={pathname}/>
+      {/* <CustomSelect
+        value={selectedValue}
+        onChange={onChange}
+        labelId="residency-label" //---- optional
+        id="residency" //----- optional
+        options={[
+          { value: "resident", label: "UAE Resident" },
+          { value: "non-resident", label: "Non UAE Resident" },
+        ]}
+        placeholder="Non UAE Resident"
+        error={error}
+      /> */}
+      <TableExportRow
+        handleOpenModal={handleOpenModal}
+        setTotalEntries={setTotalEntries}
+        totalEntries={totalEntries}
+        pathname={pathname}
+        isBtnAdd={isBtnAdd}
+      />
       <Box sx={{ height: "100%" }}>
         <CustomTable
           columns={columns}
