@@ -1,5 +1,5 @@
 import CustomAvatar from "@/components/Shared-components/CustomAvatar";
-import { Box, Divider, Typography } from "@mui/material";
+import { Avatar, Box, Divider, Typography } from "@mui/material";
 import React from "react";
 import { addContractData } from "@/utils/vendor-detail";
 import ContractForm from "./ContractForm";
@@ -31,13 +31,13 @@ const AddContract = () => {
               padding: "18px",
             }}
           >
-            <CustomAvatar
-              src="https://example.com/images/profile-aisha.jpg"
+            <Avatar
+              src="/images/profile-m.jpg"
               sx={{
-                width: 100,
-                height: 100,
-                border: "4px solid white",
-                borderRadius: "10px",
+                width: 70,
+                height: 70,
+                border: "2px solid white",
+                borderRadius: "50%",
               }}
             />
             <Box>
@@ -85,14 +85,14 @@ const AddContract = () => {
             </React.Fragment>
           ))}
         </Box>
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2,  width: '100%', }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '100%', }}>
 
-        <Box sx={{ backgroundColor: '#FFF', boxShadow: '0px 2px 8px 0px rgba(47, 43, 61, 0.12)', borderRadius: '30px', p: 3,   }} >
+          <Box sx={{ backgroundColor: '#FFF', boxShadow: '0px 2px 8px 0px rgba(47, 43, 61, 0.12)', borderRadius: '30px', p: 3, }} >
             <ContractForm />
-        </Box>
-        <Box sx={{ backgroundColor: '#FFF', boxShadow: '0px 2px 8px 0px rgba(47, 43, 61, 0.12)', borderRadius: '30px',    }}>
+          </Box>
+          <Box sx={{ backgroundColor: '#FFF', boxShadow: '0px 2px 8px 0px rgba(47, 43, 61, 0.12)', borderRadius: '30px', }}>
             <OtherContracts />
-        </Box>
+          </Box>
         </Box>
       </Box>
     </Box>
