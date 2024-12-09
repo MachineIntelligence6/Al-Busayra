@@ -30,7 +30,7 @@ const AddInventorForm = ({ formtabs, onClickTab, selectedTab }) => {
         <Box>
             <Box component="div" sx={{ display: "flex", gap: 2, borderBottom: "1px solid #2F2B3D40", pb: 2, pt: 4 }}>
                 {formtabs?.length &&
-                    formtabs.map((tab) => <FormTab tab={tab} onClickTab={onClickTab} />)}
+                    formtabs.map((tab) => <FormTab key={tab.id} tab={tab} onClickTab={onClickTab} />)}
             </Box>
             {/* *****************************(Forms view)***************************************************************************************** */}
             <Box sx={{ width: "100%", my: 5 }}>
