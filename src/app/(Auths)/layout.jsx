@@ -20,8 +20,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="">
-      <body className={` antialiased`}>
+    <html lang="en" className="" >
+      <body className={` antialiased`} >
         <AuthLayout>{children}</AuthLayout>
       </body>
     </html>

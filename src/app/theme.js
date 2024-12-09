@@ -14,7 +14,7 @@ const theme = createTheme({
     },
 
     background: {
-      default: "#23567F", // Default background color for the app
+      // default: "#23567F", // Default background color for the app
       // paper: "#ffffff", // Background color for paper components
     },
     // background: {

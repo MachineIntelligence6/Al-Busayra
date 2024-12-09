@@ -25,7 +25,7 @@ const CustomDropdown = ({
                 displayEmpty
                 renderValue={(selected) => {
                     if (!selected) {
-                        return <Typography sx={{ color: "gray" }}>{placeholder}</Typography>;
+                        return <Typography sx={{ color: "gray" }}>{placeholder ? placeholder : "Pease Select"}</Typography>;
                     }
                     return options.find((option) => option.value === selected)?.label;
                 }}
@@ -34,7 +34,7 @@ const CustomDropdown = ({
                 <MenuItem value="" disabled>
                     {placeholder}
                 </MenuItem>
-                {options.map((option, index) => (
+                {options?.map((option, index) => (
                     <MenuItem key={index} value={option.value}>
                         {option.label}
                     </MenuItem>
