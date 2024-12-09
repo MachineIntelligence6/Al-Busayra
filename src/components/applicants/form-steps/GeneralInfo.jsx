@@ -5,9 +5,8 @@ import CustomSelect from "@/components/Shared-components/CustomSelect";
 import ImageUpload from "../ImageUpload";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 
-export const GeneralInfo = ({ control }) => {
+export const GeneralInfo = ({ control,isUaeResident }) => {
   const { setValue } = useFormContext();
-
   const renderLabel = (label, required = false) => (
     <Typography variant="body1" component="span">
       {label}
@@ -35,7 +34,7 @@ export const GeneralInfo = ({ control }) => {
       ],
     },
     {
-      label: "Full Name",
+      label: `Full Name ${isUaeResident ? "as per emirates iD" : ""}`,
       name: "fullName",
       required: true,
       placeholder: "Enter your full name as per Emirates ID",
@@ -76,6 +75,15 @@ export const GeneralInfo = ({ control }) => {
       required: true,
       options: [
         { value: "dubai", label: "Dubai" },
+        { value: "other", label: "Other" },
+      ],
+    },
+    {
+      label: "Interested platform",
+      name: "interestedplatform",
+      required: isUaeResident ? true : false,
+      options: [
+        { value: "dubai", label: "Dubai" },
         { value: "abuDhabi", label: "Abu Dhabi" },
         { value: "sharjah", label: "Sharjah" },
       ],
@@ -84,6 +92,16 @@ export const GeneralInfo = ({ control }) => {
       label: "How Did You Learn About This Form?",
       name: "learnedFrom",
       required: true,
+      options: [
+        { value: "social", label: "Social Media" },
+        { value: "friend", label: "Friend" },
+        { value: "other", label: "Other" },
+      ],
+    },
+    {
+      label: "Will your company provide NOC",
+      name: "companyprovideNOC",
+      required:  isUaeResident ? true : false,
       options: [
         { value: "social", label: "Social Media" },
         { value: "friend", label: "Friend" },

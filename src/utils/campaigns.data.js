@@ -70,7 +70,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Hold",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB000012',
   },
   {
     key: "3",
@@ -92,7 +92,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Hold",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB000013',
   },
   {
     key: "4",
@@ -114,7 +114,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Incomplete Profile",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB000014',
   },
   {
     key: "5",
@@ -136,7 +136,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Incomplete Profile",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB000015',
   },
   {
     key: "6",
@@ -158,7 +158,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Hold",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB000016',
   },
   {
     key: "7",
@@ -180,7 +180,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Hold",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB000017',
   },
   {
     key: "8",
@@ -202,7 +202,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Hold",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB000018',
   },
   {
     key: "9",
@@ -224,7 +224,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Hold",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB000019',
   },
   {
     key: "10",
@@ -246,7 +246,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Incomplete Profile",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB0000110',
   },
   {
     key: "11",
@@ -268,7 +268,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Incomplete Profile",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB0000111',
   },
   {
     key: "12",
@@ -290,7 +290,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Hold",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB0000112',
   },
   {
     key: "13",
@@ -312,7 +312,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Hold",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB0000113',
   },
   {
     key: "14",
@@ -334,7 +334,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Hold",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB0000114',
   },
   {
     key: "15",
@@ -356,7 +356,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Hold",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB0000115',
   },
   {
     key: "16",
@@ -378,7 +378,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Hold",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB0000116',
   },
   {
     key: "17",
@@ -400,7 +400,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Hold",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB0000117',
   },
   {
     key: "18",
@@ -422,7 +422,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Hold",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB0000118',
   },
   {
     key: "19",
@@ -444,7 +444,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Hold",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB0000119',
   },
   {
     key: "20",
@@ -466,7 +466,7 @@ export const data = [
     referBy: "John Smith",
     status1: "Hold",
     status2: "Active",
-    id: 'AB00001',
+    id: 'AB0000120',
   },
 ];
 

@@ -1,13 +1,11 @@
 import React, { createElement } from "react";
-import { Controller, useFormContext } from "react-hook-form";
+import { Controller } from "react-hook-form";
 import { Box, Typography } from "@mui/material";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
+import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
 import CustomSelect from "@/components/Shared-components/CustomSelect";
-import CustomDatePicker from "@/components/Shared-components/CustomDatePicker";
 
-export const DrivingLicense = ({ control }) => {
-  const { setValue } = useFormContext();
-
+export const EmiratesID = ({ control }) => {
   const renderLabel = (label, required = false) => (
     <Typography variant="body1" component="span">
       {label}
@@ -16,42 +14,65 @@ export const DrivingLicense = ({ control }) => {
   );
 
   const fields = [
+   // Nationality will be removed when residency in uae select
     {
-      label: "Are You a Local Driving License Holder?",
-      name: "isLicenseHolder",
-      required: true,
+      label: "Nationality",
+      name: "nationality",
+      required: false,
       options: [
-        { value: "yes", label: "Yes" },
-        { value: "no", label: "No" },
+        { value: "pakistani", label: "Pakistani" },
+        { value: "indian", label: "Indian" },
       ],
+      placeholder:"UAE",
       component: CustomSelect,
     },
     {
-      label: "Local Driving License Number",
-      name: "licenseNumber",
+      label: "Emirates ID No.",
+      name: "emiratesIDNumber",
       required: true,
-      placeholder: "Enter your driving license number",
+      placeholder: "784-2003-1389613-4",
       component: CustomTextField,
     },
     {
-      label: "License Issue Date",
-      name: "licenseIssueDate",
+      label: "Emirates ID Issue Date",
+      name: "emiratesIDIssueDate",
       required: true,
-      
-      component: CustomDatePicker,
+      placeholder: "10-09-2018",
+      component: CustomTextField,
     },
     {
-      label: "License Expiry Date",
-      name: "licenseExpiryDate",
+      label: "Emirates ID Expiry Date",
+      name: "emiratesIDExpiryDate",
       required: true,
-      placeholder: "20-10-2028",
-      component: CustomDatePicker,
+      placeholder: "10-09-2026",
+      component: CustomTextField,
+    },
+    {
+      label: "Emirates ID (Front)",
+      name: "emiratesIDFront",
+      required: true,
+      placeholder: "PDF Scanned",
+      component: CustomFileUploadField,
+    },
+    {
+      label: "Emirates ID (Back)",
+      name: "emiratesIDBack",
+      required: true,
+      placeholder: "PDF Scanned",
+      component: CustomFileUploadField,
+    },
+    {
+      label: "Upload Residency/Iqama",
+      name: "residencyIqama",
+      required: true,
+      placeholder: "PDF Scanned",
+      component: CustomFileUploadField,
     },
   ];
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
-      {fields.map(({ label, name, required, placeholder, options, component }, index) => (
+      {fields.map(({ label, name, required, placeholder, component }, index) => (
         <Box key={index} sx={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
           <Box sx={{ flex: "0 0 40%", textAlign: "left", paddingRight: "1rem" }}>
             {renderLabel(label, required)}
@@ -66,7 +87,6 @@ export const DrivingLicense = ({ control }) => {
                   value: field.value,
                   onChange: field.onChange,
                   placeholder,
-                  options,
                   error,
                 })
               }
@@ -77,5 +97,3 @@ export const DrivingLicense = ({ control }) => {
     </Box>
   );
 };
-
-

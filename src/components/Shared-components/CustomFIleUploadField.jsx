@@ -1,19 +1,18 @@
 import React from "react";
-import { Box, Button, Input } from "@mui/material";
+import { Box, Button, Input, Typography } from "@mui/material";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 
 const CustomFileUploadField = ({ value, onChange, error }) => {
   return (
-    <Box sx={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
+    <Box sx={{ display: "flex", alignItems: "start", marginBottom: "1rem", flexDirection:"column" }}>
       <Box
-        sx={{ flex: "1", width: "80%", display: "flex", alignItems: "center" }}
+        sx={{ flex: "1", width: "100%", display: "flex", alignItems: "center" }}
       >
         <CustomTextField
           value={value?.name || ""}
           placeholder="PDF Scanned"
           disabled
           error={!!error}
-          helperText={error?.message}
           removeRightBorder={true}
         />
         <Button
@@ -40,6 +39,7 @@ const CustomFileUploadField = ({ value, onChange, error }) => {
           />
         </Button>
       </Box>
+      {error && <Typography color="error">{error.message}</Typography>}
     </Box>
   );
 };

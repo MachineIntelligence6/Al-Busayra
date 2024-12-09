@@ -10,7 +10,7 @@ import ActionMenu from "../ActionMenu";
 import AddIcon from "@mui/icons-material/Add";
 import CustomButton from "../CustomButton";
 
-const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntries, pathname }) => {
+const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntries }) => {
   const [text, setText] = useState("");
 
   const handleInputChange = (e) => {
@@ -32,33 +32,10 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntri
     console.log("clicked menu", value);
   };
 
-  // const getButtonProps = (path) => {
-  //   if (path.startsWith("/applicants")) {
-  //     const isFinalReview = path === "/applicants/final-review";
-  //     return {
-  //       sx: isFinalReview
-  //         ? {
-  //             position: "fixed", // Fixed position for sticky behavior
-  //             top: "2rem",
-  //             right: "4rem",
-  //             zIndex: 1000, // Ensure it stays above other content
-  //           }
-  //         : {},
-  //       ...(isFinalReview
-  //         ? { startIcon: <AddIcon /> }
-  //         : { endIcon: <AddIcon /> }),
-  //       text: isFinalReview ? "Add Applicant" : "Add New", // Conditional text
-  //     };
-  //   }
-  //   return { text: "Add New" };
-  //  } 
-   
    // Default text
   const onButtonClick = () => {
     console.log("click")
   };
-
-  // const buttonProps = getButtonProps(pathname);
 
   return (
     <Box
@@ -119,14 +96,6 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntri
             },
           }}
         />
-
-        {/* <CustomButton bgColor="foreground" color="#808390" endIcon={<FileUploadIcon />}>
-          Export
-        </CustomButton>
-
-        <CustomButton onClick={handleOpenModal} sx={buttonProps.sx} {...buttonProps}>
-          {buttonProps.text}
-        </CustomButton> */}
 
         <CustomButton bgColor="foreground" color="#808390" endIcon={<FileUploadIcon />}>Export</CustomButton>
         {isBtnAdd && <CustomButton endIcon={<AddIcon />} onClick={handleOpenModal}>Add New</CustomButton>}

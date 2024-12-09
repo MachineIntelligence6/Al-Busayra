@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, Button, Box, Paper } from '@mui/material';
-
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 export function InfoCard({ title, children, onEdit }) {
   return (
     <Paper sx={{
@@ -10,7 +10,7 @@ export function InfoCard({ title, children, onEdit }) {
       display: 'flex',
       flexDirection: 'column',
       borderTop: (theme) => `4px solid ${theme.palette.main.darkBlue}`,
-      borderRadius:"10px"
+      borderRadius:"10px",
     }}>
       <Box sx={{
         display: 'flex',
@@ -28,17 +28,19 @@ export function InfoCard({ title, children, onEdit }) {
   );
 }
 
-export function InfoItem({ label, value }) {
+export function InfoItem({ label, value, icon }) {
   return (
     <Box sx={{
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
       mb: 1.5,
+      borderBottom: "1px dashed lightgray"
     }}>
-      <Typography variant="body2" color="text.secondary">{label}</Typography>
+      <Typography variant="body2" color="text.secondary">{<MailOutlineIcon sx={{fontSize:"17px"}}/>} {label}</Typography>
       <Box sx={{ color: 'text.primary', fontWeight: 500 }}>{value}</Box>
     </Box>
   );
 }
+
 

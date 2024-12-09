@@ -23,6 +23,7 @@ const allowedFields = [
   "referBy",
   "campaignName",
   "remarks",
+  "reasonToHold",
   "status",
 ];
 

@@ -65,16 +65,16 @@ const TableFilters = ({ filters }) => {
           />
           <CustomDropdown
             sx={{ flex: 1, placeItems: "start" }}
-            label="Resident Country"
-            placeholder="Pakistan"
+            label="Country"
+            placeholder="UAE"
             options={options}
             value={dropdown2Value}
             onChange={(e) => setDropdown2Value(e.target.value)}
           />
           <CustomDropdown
             sx={{ flex: 1, placeItems: "start" }}
-            label="Resident City"
-            placeholder="Islamabad"
+            label="City"
+            placeholder="Dubai"
             options={options}
             value={dropdown3Value}
             onChange={(e) => setDropdown3Value(e.target.value)}

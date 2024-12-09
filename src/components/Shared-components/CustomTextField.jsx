@@ -46,6 +46,7 @@ const CustomTextField = ({
             borderRight: "none !important",
             borderTopRightRadius: "0 !important",
             borderBottomRightRadius: "0 !important",
+            backgroundColor: "#FCFCFC !important",
           }),
         },
         ...sx,
