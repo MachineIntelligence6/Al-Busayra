@@ -8,6 +8,7 @@ import { data } from "@/utils/campaigns.data";
 import { Box, Typography } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
 import { platformListing, vendorListing } from "@/utils/schemas/vendor.data";
+import VendorDetailModal from "./VendorDetailModal";
 
 const platformFilters = [
   { id: 1, filterName: "Vendor ID", placeholder: "CA1" },
@@ -36,7 +37,7 @@ const platformFilters = [
 
 const VendorTableWrapper = () => {
   const [filters, setFilters] = useState(platformFilters);
-  const router = useRouter();
+  // const router = useRouter();
 
   const pathname = usePathname();
 
@@ -45,7 +46,8 @@ const VendorTableWrapper = () => {
   };
 
   const handleMenuClick = (value) => {
-    if (value.action === "view") router.push("employees/view-employee");
+    // if (value.action === "view") router.push("employees/view-employee");
+    if (value.action === "view") setShowPopup(true);
     console.log("clicked menu", value);
   };
 
@@ -61,6 +63,12 @@ const VendorTableWrapper = () => {
     ],
     []
   );
+
+  const [showPopup, setShowPopup] = React.useState(false);
+
+  const onClose = () => {
+    setShowPopup(false);
+  };
 
   const fullColumns = useMemo(
     () => [
@@ -140,6 +148,7 @@ const VendorTableWrapper = () => {
           handleFilterClick={handleFilterClick}
         />
       </Box>
+      {showPopup && <VendorDetailModal onClose={onClose} />}
     </Box>
   );
 };

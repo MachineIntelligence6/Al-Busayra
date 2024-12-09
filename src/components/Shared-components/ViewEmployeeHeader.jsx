@@ -15,7 +15,13 @@ const ViewEmployeeHeader = ({
 }) => {
   return (
     <Box>
-      <Card sx={{ mb: 3 }}>
+      <Card
+        sx={{
+          borderRadius: "10px",
+          border: "1.5px solid rgba(47, 43, 61, 0.15)",
+          boxShadow: "0px 4px 10px 0px rgba(0, 0, 0, 0.15) ",
+        }}
+      >
         <Box
           sx={{
             height: 120,
@@ -65,7 +71,9 @@ const ViewEmployeeHeader = ({
                 }}
               >
                 <Typography variant="h5">{fullName}</Typography>
-                <Typography>{description}</Typography>{" "}
+                <Typography sx={{ color: "#2F2B3D99" }}>
+                  {description}
+                </Typography>{" "}
                 {/* Dynamic description */}
               </Box>
             </Box>
