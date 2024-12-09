@@ -54,7 +54,7 @@ const AddInventorForm = ({ formtabs, onClickTab, selectedTab }) => {
                 <CustomButton variant="outlined" bgColor="danger" startIcon={<CircleX size={20} />}>Cancel</CustomButton>
                 <Box component="div" sx={{ display: 'flex', alignItems: 'center', gap: 1 }} >
                     {selectedTab?.text !== "Bike Info" && <CustomButton startIcon={<ArrowBack size={20} />} bgColor="muted" onClick={handleBackClick}>Back</CustomButton>}
-                    <CustomButton endIcon={<Check size={20} />} onClick={handleNextClick} disabled={Boolean(selectedTab?.text === "Other Details")}>Next</CustomButton>
+                    <CustomButton endIcon={<Check size={20} />} onClick={handleNextClick}>{Boolean(selectedTab?.text === "Other Details") ? "Save" : "Next"}</CustomButton>
                 </Box>
             </Box>
 

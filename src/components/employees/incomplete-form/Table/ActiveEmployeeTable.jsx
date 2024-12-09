@@ -62,15 +62,16 @@ const ActiveEmployeeTable = ({
   };
 
   const handleMenuClick = (item) => {
-    if (item.action === "proceed") router.push("employees/view-employee");
-    console.log("clicked menu", item);
+    if (item.action === "View_details") router.push("employees/view-employee");
+    if (item.action === "inactive_profiles") router.push("employees/inactive-employee");
+    if (item.action === "incomplete_profiles") router.push("employees/incomplete-profile");
   };
 
   const MenuItems = useMemo(
     () => [
-      { label: "Proceed", action: "proceed" },
-      { label: "Not Qualified", action: "not-qualified" },
-      { label: "On Hold", action: "on-hold" },
+      { label: "View Details", action: "View_details" },
+      { label: "Inactive Profiles", action: "inactive_profiles" },
+      { label: "Incomplete Profiles", action: "incomplete_profiles" },
     ],
     []
   );

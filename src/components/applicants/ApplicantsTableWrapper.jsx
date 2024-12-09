@@ -119,7 +119,8 @@ const ApplicantsTableWrapper = ({
     () => ({
       home: {
         menuItems: [
-          { label: "Procced", route: "/applicants/proceed" },
+          { label: "Procced", route: "#" },
+          { label: "View Details", route: "/applicants/1234/view-details" },
           { label: "Not qualified", route: "/applicants/not-qualified" },
         ],
       },
@@ -181,7 +182,7 @@ const ApplicantsTableWrapper = ({
         headerName: "STATUS",
         align: "left",
         render: (row) => (
-          <StatusIndicator 
+          <StatusIndicator
             status={row.status}
             pathname={pathname}
           />
