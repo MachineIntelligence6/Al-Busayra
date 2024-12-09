@@ -1,23 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { TextField, InputAdornment, Typography, FormControl, FormHelperText } from "@mui/material";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday"; // Import the calendar icon
+import { TextField, InputAdornment, Typography, FormControl, FormHelperText, Box } from "@mui/material";
+import { Percent, PercentCircle, PercentDiamond, PercentSquare } from "lucide-react";
 
-const CustomDateField = ({
+const PercentageTextField = ({
     label,
-    placeholder = "Select date",
+    placeholder = "",
     value,
     onChange,
     error,
     helperText,
     fullWidth = true,
-    textProps, // Props for label typography
-    sx, // Additional styles
-    required = false, // Indicate if the field is required
+    textProps,
+    sx,
+    type = "text",
+    required = false,
     ...props
 }) => {
     return (
-        <FormControl sx={{ ...sx, borderRadius: 8 }} fullWidth={fullWidth} error={!!error}>
+        <FormControl sx={{ ...sx, }} fullWidth={fullWidth} error={!!error}>
             {label && (
                 <Typography component="label" {...textProps}>
                     {label}
@@ -28,9 +29,19 @@ const CustomDateField = ({
                 value={value}
                 onChange={onChange}
                 placeholder={placeholder}
-                type="date" // Set type to date
+                type={type}
                 size="small"
                 variant="outlined"
+                sx={{ "& .MuiInputBase-root": { pr: 0 } }}
+                InputProps={{
+                    endAdornment: (
+                        <InputAdornment position="end">
+                            <Box component="div" sx={{ bgcolor: "#e0e0e0", py: 0.9, px: 1.5, border: "1px solid gray", borderTopRightRadius: 4, borderTopLeftRadius: 4 }}>
+                                <Percent />
+                            </Box>
+                        </InputAdornment>
+                    ),
+                }}
                 {...props}
             />
             {helperText && (
@@ -40,17 +51,18 @@ const CustomDateField = ({
     );
 };
 
-CustomDateField.propTypes = {
-    value: PropTypes.string,
+PercentageTextField.propTypes = {
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     onChange: PropTypes.func,
     placeholder: PropTypes.string,
     error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     helperText: PropTypes.string,
     fullWidth: PropTypes.bool,
     sx: PropTypes.object,
+    type: PropTypes.string,
     label: PropTypes.string,
     required: PropTypes.bool,
     textProps: PropTypes.object,
 };
 
-export default CustomDateField;
+export default PercentageTextField;

@@ -1,9 +1,11 @@
 import React from "react";
 import { FormControl, MenuItem, Select, Typography } from "@mui/material";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+
+const defaultOption = [{ label: "Option-1", value: "option_1" }, { label: "Option-2", value: "option_2" }, { label: "Option-3", value: "option_3" },]
 const CustomDropdown = ({
     label,
-    options,
+    options = defaultOption,
     value,
     onChange,
     placeholder,
@@ -30,7 +32,7 @@ const CustomDropdown = ({
                     return options.find((option) => option.value === selected)?.label;
                 }}
                 {...props}
-                sx={{borderRadius: "7px"}}
+                sx={{ borderRadius: "7px" }}
                 IconComponent={KeyboardArrowDownIcon}
             >
                 <MenuItem value="" disabled>
