@@ -1,13 +1,11 @@
-import Vendors from '@/components/corporate/vendors'
-
+import Vendors from "@/components/corporate/vendors";
 
 const page = () => {
-    return (
-        <>
+  return (
+    <>
+      <Vendors />
+    </>
+  );
+};
 
-            <Vendors />
-        </>
-    )
-}
-
-export default page
+export default page;

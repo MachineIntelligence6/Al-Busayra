@@ -8,6 +8,7 @@ import { data } from "@/utils/campaigns.data";
 import { Box } from "@mui/material";
 import { usePathname } from "next/navigation";
 import { platformListing } from "@/utils/schemas/vendor.data";
+import PlatformDetailModal from "./PlatformDetailModal";
 
 const platformFilters = [
     { id: 1, filterName: "Platform ID", placeholder: "CA1" },
@@ -43,7 +44,14 @@ const PlatformTableWrapper = () => {
         console.log("Selected Row IDs:", selectedRowIds);
     };
 
+    const [showPopup, setShowPopup] = React.useState(false);
+
+  const onClose = () => {
+    setShowPopup(false);
+  };
+
     const handleMenuClick = (value) => {
+        if (value.action === "view") setShowPopup(true);
         console.log("clicked menu", value);
     };
 
@@ -130,6 +138,7 @@ const PlatformTableWrapper = () => {
                     handleFilterClick={handleFilterClick}
                 />
             </Box>
+            {showPopup && <PlatformDetailModal onClose={onClose} />}
         </Box>
     );
 };
