@@ -1,33 +1,32 @@
 import React from "react";
-import { Box, Button, Input } from "@mui/material";
+import { Box, Button, Input, Typography } from "@mui/material";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 
-const CustomFileUploadField = ({ value, onChange, error }) => {
+const CustomFileUploadField = ({ value, onChange, error, placeholder, label }) => {
   return (
-    <Box sx={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
+    <Box sx={{ display: "flex", alignItems: "start", flexDirection: "column" }}>
+      <Typography>{label}</Typography>
       <Box
-        sx={{ flex: "1", width: "80%", display: "flex", alignItems: "center" }}
+        sx={{ flex: "1", width: "100%", display: "flex", alignItems: "center" }}
       >
         <CustomTextField
           value={value?.name || ""}
-          placeholder="PDF Scanned"
+          placeholder={placeholder ? placeholder : "PDF Scanned"}
           disabled
           error={!!error}
-          helperText={error?.message}
           removeRightBorder={true}
+          sx={{ "& .MuiInputBase-root": { borderTopRightRadius: 0, borderBottomRightRadius: 0, height: 38.7 } }}
         />
         <Button
           variant="outlined"
           component="label"
           sx={{
-            paddingY: "8px",
+            py: 0.8,
             borderLeft: "none",
-            borderRadius: "7px",
-            borderTopLeftRadius: "0",
-            borderBottomLeftRadius: "0",
+            borderTopLeftRadius: "0px",
+            borderBottomLeftRadius: "0px",
             color: "#2F2B3DE5",
             backgroundColor: "#E6E6E9",
-            border: "1px solid #2F2B3DE5",
             textTransform: "capitalize",
           }}
         >
@@ -40,6 +39,7 @@ const CustomFileUploadField = ({ value, onChange, error }) => {
           />
         </Button>
       </Box>
+      {error && <Typography color="error">{error.message}</Typography>}
     </Box>
   );
 };

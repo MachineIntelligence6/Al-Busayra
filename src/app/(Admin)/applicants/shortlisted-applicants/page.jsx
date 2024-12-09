@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
 import ApplicantsTableWrapper from "@/components/applicants/ApplicantsTableWrapper";
-import { Box } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import GenericModal from "@/components/applicants/GenericModel";
 import MultiStepFormModel from "@/components/applicants/MultiStepFormModel";
+import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
 
 const Page = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,6 +18,11 @@ const Page = () => {
   const handleCloseModal = () => setIsModalOpen(false);
 
   return (
+    <>
+    <Box sx={{ px: 2 }}>
+    <DynamicBreadcrumb />
+  </Box>
+  <Divider sx={{ mt: 2 }} />
     <Box component="div">
       <GenericModal
         open={isModalOpen}
@@ -27,6 +33,7 @@ const Page = () => {
       </GenericModal>
       <ApplicantsTableWrapper handleOpenModal={handleOpenModal} rowsPerPage={rowsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
     </Box>
+    </>
   );
 };
 

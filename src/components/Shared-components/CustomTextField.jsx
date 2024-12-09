@@ -1,31 +1,37 @@
+
+
 import React from "react";
 import PropTypes from "prop-types";
-import { TextField, InputAdornment, Typography, FormControl, FormHelperText } from "@mui/material";
+import { TextField, InputAdornment, FormControl, Typography } from "@mui/material";
 
-const CustomTextField = ({
-  label,
-  placeholder = "",
-  value,
-  onChange,
-  error,
-  helperText,
-  fullWidth = true,
-  startAdornment, // Start adornment (icon, etc.)
-  endAdornment, // End adornment (icon, etc.)
-  textProps, // Props for label typography
-  sx, // Additional styles
-  type = "text",
-  multiline = false,
-  rows,
-  required = false, // Indicate if the field is required
-  ...props
-}) => {
+const CustomTextField = (props) => {
+  const {
+    value,
+    onChange,
+    label,
+    placeholder = "",
+    error,
+    helperText,
+    fullWidth = true,
+    sx,
+    type = "text",
+    multiline = false,
+    required,
+    startAdornment,
+    endAdornment,
+    rows,
+    icon,
+    iconPosition = "start",
+    removeRightBorder = false,
+    textProps,
+    ...rest
+  } = props
   return (
     <FormControl sx={{ ...sx }} fullWidth={fullWidth} error={!!error}>
       {label && (
         <Typography component="label" {...textProps}>
           {label}
-          {required && <span style={{ color: "red" }}> *</span>}
+          {required && <span style={{ color: "red", }}> *</span>}
         </Typography>
       )}
       <TextField
@@ -35,8 +41,8 @@ const CustomTextField = ({
         type={type}
         multiline={multiline}
         size="small"
-        rows={multiline ? rows : undefined}
         variant="outlined"
+        rows={multiline ? rows : undefined}
         InputProps={{
           startAdornment: startAdornment ? (
             <InputAdornment position="start">{startAdornment}</InputAdornment>
@@ -47,16 +53,15 @@ const CustomTextField = ({
         }}
         {...props}
       />
-      {helperText && (
-        <FormHelperText sx={{ marginTop: "4px" }}>{helperText}</FormHelperText>
-      )}
+
     </FormControl>
+
   );
 };
 
 CustomTextField.propTypes = {
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  onChange: PropTypes.func,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   helperText: PropTypes.string,
@@ -65,11 +70,31 @@ CustomTextField.propTypes = {
   type: PropTypes.string,
   multiline: PropTypes.bool,
   rows: PropTypes.number,
-  startAdornment: PropTypes.node,
-  endAdornment: PropTypes.node,
-  label: PropTypes.string,
-  required: PropTypes.bool,
-  textProps: PropTypes.object,
+  icon: PropTypes.node, // The icon component to display
+  iconPosition: PropTypes.oneOf(["start", "end"]), // Position of the icon
+  removeRightBorder: PropTypes.bool, // New prop to remove right border and radius
 };
 
 export default CustomTextField;
+
+
+// ==============usage================
+// Default Usage (As-Is)
+
+// {/* <CustomTextField
+// value={fullName}
+// onChange={handleChange}
+// label="Full Name"
+// placeholder="Enter your full name as per Emirates ID"
+// error={error}
+// /> */}
+
+// Removing Right Border and Radius
+
+{/* <CustomTextField
+  value={value}
+  onChange={handleChange}
+  placeholder="Enter text"
+  error={error}
+  removeRightBorder={true}
+/> */}

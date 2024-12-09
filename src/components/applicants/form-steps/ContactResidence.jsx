@@ -4,11 +4,11 @@ import { Box, Typography, InputAdornment } from "@mui/material";
 import CustomSelect from "@/components/Shared-components/CustomSelect";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import CustomCountryCodeInput from "@/components/Shared-components/CustomCountryCodeInput";
-import EmailIcon from "@mui/icons-material/Email";
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
-export const ContactResidence = ({ control }) => {
+export const ContactResidence = ({ control,isUaeResident }) => {
   const renderLabel = (label, required = false) => (
     <Typography variant="body1" component="span">
       {label}
@@ -35,12 +35,15 @@ export const ContactResidence = ({ control }) => {
       required: true,
       placeholder: "Enter your email address",
       component: CustomTextField,
-      adornment: <EmailIcon />,
+      adornment: <MailOutlineIcon />,
     },
     {
       label: "Phone Number",
       name: "phoneNumber",
       required: true,
+      placeholder: "123 456 7890",
+      component: CustomTextField,
+      adornment: <PhoneIcon />,
       component: CustomCountryCodeInput,
       countryCodes,
       icon: <PhoneIcon />, // Pass PhoneIcon here
@@ -49,20 +52,23 @@ export const ContactResidence = ({ control }) => {
       label: "WhatsApp Number",
       name: "whatsappNumber",
       required: false,
+      placeholder: "1234567890",
       component: CustomCountryCodeInput,
       countryCodes,
       icon: <WhatsAppIcon />, // Pass WhatsAppIcon here
     },
+    // currentCountryResidence will be removed when residency in uae select
     {
       label: "Current Country Residence",
       name: "currentCountryResidence",
-      required: true,
+      required: !isUaeResident ? false : true,
       options: [
         { value: "pakistan", label: "Pakistan" },
         { value: "uae", label: "UAE" },
       ],
       component: CustomSelect,
     },
+    // Nationality will be removed when residency in uae select
     {
       label: "Nationality",
       name: "nationality",
