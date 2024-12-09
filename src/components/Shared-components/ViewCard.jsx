@@ -6,7 +6,7 @@ export function ViewCard({ title, children, onEdit }) {
     <Paper
       sx={{
         p: 3,
-        minHeight: "18rem",
+        minHeight: "10rem",
         height: "100%",
         display: "flex",
         flexDirection: "column",
@@ -45,7 +45,7 @@ export function ViewItem({ label, value }) {
       <Typography variant="body2" color="text.secondary">
         {label}
       </Typography>
-      <Box sx={{ color: "text.primary", fontWeight: 500 }}>{value}</Box>
+      <Box sx={{ color: "text.primary", fontSize: 14, fontWeight: 500 }}>{value}</Box>
     </Box>
   );
 }

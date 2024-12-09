@@ -1,4 +1,5 @@
 "use client"
+import ActionMenu from '@/components/Shared-components/ActionMenu';
 import CustomAvatar from '@/components/Shared-components/CustomAvatar';
 import CustomTable from '@/components/Shared-components/Table-components/CustomTable';
 import TableExportRow from '@/components/Shared-components/Table-components/TableExportRow';
@@ -44,9 +45,21 @@ const inventoryListFilters = [
     },
 ];
 
+const MenuItems = [
+    { label: "View Details", action: "view" },
+    { label: "Edit Details", action: "edit" },
+]
 const InventoryTableWrapper = () => {
     const [filters, setFilters] = useState(inventoryListFilters);
-    const router = useRouter()
+    const router = useRouter();
+
+
+    const handleMenuClick = (value) => {
+        console.log("clicked menu", value);
+        router.push(`/inventory/${1234}/bike-details`)
+    };
+
+
 
 
     const fullColumns = useMemo(() => {
@@ -140,15 +153,14 @@ const InventoryTableWrapper = () => {
                     </>
                 ),
             },
-            // Uncomment and implement if required
-            // {
-            //     field: "action",
-            //     headerName: "Action",
-            //     align: "left",
-            //     render: (row) => (
-            //         <ActionMenu menuItems={MenuItems} onMenuItemClick={handleMenuClick} />
-            //     ),
-            // },
+            {
+                field: "action",
+                headerName: "Action",
+                align: "left",
+                render: (row) => (
+                    <ActionMenu menuItems={MenuItems} onMenuItemClick={handleMenuClick} />
+                ),
+            },
         ];
     }, [InventoryListData]);
 
