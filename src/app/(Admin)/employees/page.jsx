@@ -1,4 +1,5 @@
-import ViewEmployee from "@/components/employees/ViewEmployee";
+import ActiveEmployeeTable from "@/components/employees/incomplete-form/Table/ActiveEmployeeTable";
+import EmployeeView from "@/components/employees/ViewEmployee";
 import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
 import { Box, Divider } from "@mui/material";
 import React from "react";
@@ -11,7 +12,7 @@ const page = () => {
       </Box>
       <Divider sx={{ mt: 2 }} />
       <Box>
-        <ViewEmployee />
+        <ActiveEmployeeTable />
       </Box>
     </>
   );

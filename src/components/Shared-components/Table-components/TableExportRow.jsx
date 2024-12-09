@@ -10,7 +10,7 @@ import ActionMenu from "../ActionMenu";
 import AddIcon from "@mui/icons-material/Add";
 import CustomButton from "../CustomButton";
 
-const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntries }) => {
+const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntries, btnText="Add New" }) => {
   const [text, setText] = useState("");
 
   const handleInputChange = (e) => {
@@ -98,7 +98,7 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntri
         />
 
         <CustomButton bgColor="foreground" color="#808390" endIcon={<FileUploadIcon />}>Export</CustomButton>
-        {isBtnAdd && <CustomButton endIcon={<AddIcon />} onClick={handleOpenModal}>Add New</CustomButton>}
+        {isBtnAdd && <CustomButton endIcon={<AddIcon />} onClick={handleOpenModal}>{btnText}</CustomButton>}
         <Box
           sx={{
             backgroundColor: "#80839029",

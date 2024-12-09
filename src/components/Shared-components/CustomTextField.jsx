@@ -1,22 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { TextField, InputAdornment } from "@mui/material";
+import { TextField, InputAdornment} from "@mui/material";
 
 const CustomTextField = ({
+  label,
+  placeholder = "",
   value,
   onChange,
-  placeholder = "",
   error,
   helperText,
   fullWidth = true,
-  sx,
+  startAdornment, // Start adornment (icon, etc.)
+  endAdornment, // End adornment (icon, etc.)
+  textProps, // Props for label typography
+  sx, // Additional styles
   type = "text",
   multiline = false,
   rows,
-  icon, // Icon component passed as a prop
-  iconPosition = "start", // Icon position: "start" or "end"
-  removeRightBorder = false, // New prop to handle right border removal
-  ...rest
+  required = false, // Indicate if the field is required
+  ...props
 }) => {
   return (
     <TextField
@@ -57,8 +59,8 @@ const CustomTextField = ({
 };
 
 CustomTextField.propTypes = {
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  onChange: PropTypes.func.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  onChange: PropTypes.func,
   placeholder: PropTypes.string,
   error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   helperText: PropTypes.string,
@@ -67,33 +69,11 @@ CustomTextField.propTypes = {
   type: PropTypes.string,
   multiline: PropTypes.bool,
   rows: PropTypes.number,
-  icon: PropTypes.node, // The icon component to display
-  iconPosition: PropTypes.oneOf(["start", "end"]), // Position of the icon
-  removeRightBorder: PropTypes.bool, // New prop to remove right border and radius
+  startAdornment: PropTypes.node,
+  endAdornment: PropTypes.node,
+  label: PropTypes.string,
+  required: PropTypes.bool,
+  textProps: PropTypes.object,
 };
 
 export default CustomTextField;
-
-
-// ==============usage================
-// Default Usage (As-Is)
-
-// {/* <CustomTextField
-// value={fullName}
-// onChange={handleChange}
-// label="Full Name"
-// placeholder="Enter your full name as per Emirates ID"
-// error={error}
-// /> */}
-
-
-// Removing Right Border and Radius
-
-
-{/* <CustomTextField
-  value={value}
-  onChange={handleChange}
-  placeholder="Enter text"
-  error={error}
-  removeRightBorder={true}
-/> */}

@@ -18,7 +18,7 @@ const TableFilters = ({ filters }) => {
   return (
     <Box
       component="div"
-      sx={{ width: "100%", m: 2, "& .MuiInputBase-root": { width: "95%" } }}
+      sx={{  m: 2,}}
     >
       <Typography variant="caption" sx={{ fontSize: 16 }}>
         Advance Filters
@@ -30,7 +30,8 @@ const TableFilters = ({ filters }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          flexWrap: "wrap",
+          // flexWrap: "wrap",
+          gap:"1rem",
           my: 2,
         }}
       >
