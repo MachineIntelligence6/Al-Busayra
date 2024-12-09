@@ -1,10 +1,9 @@
+import InventoryDashboard from '@/components/inventory/dashboard'
 import React from 'react'
 
 const page = () => {
     return (
-        <div>
-            Inventory Dashboard
-        </div>
+        <InventoryDashboard />
     )
 }
 
