@@ -1,125 +1,112 @@
-import React, { useState } from "react";
-import { useFormik } from "formik";
-import { Box, Button, Divider, Typography } from "@mui/material";
-import Input from "@/app/Components/Input/Input";
 import Dropdown from "@/app/Components/Input/Dropdown";
-import { formSchema } from "../../../../Shared-components/Schemas/FormSchema";
-import Action from "../Action";
+import Input from "@/app/Components/Input/Input";
+import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
+import { Box, Divider } from "@mui/material";
+import React from "react";
 
-const OtherDetails = () => {
-  const [currentTab, setCurrentTab] = useState(7);
+const OtherDetails = ({ formData, setFormData }) => {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-  // Initialize Formik
-  const formik = useFormik({
-    initialValues: {
-      passportHandOver: "",
-      passportTakerName: "",
-      passportPicture: "",
-      rtaTraining: "",
-      empOwnerShip: "",
-      empStatus: "",
-      vendor: "",
-    },
-    validationSchema: formSchema,
-    onSubmit: (values) => {
-      console.log("Form Data Submitted:", values);
-    },
-  });
+  const handleFileChange = (file, fieldName) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [fieldName]: file,
+    }));
+  };
 
   const inputFields = [
     {
-      label: "Passport Handed Over To Representative",
+      label: "Passport Handed Over To Representative ",
       name: "passportHandOver",
-      component: Input,
+      component: Dropdown,
+      options: ["Yes", "No"],
     },
     {
-      label: "Name of Representative Passport Taken",
+      label: "Name of Representative Passport Taken ",
       name: "passportTakerName",
       component: Input,
     },
     {
-      label: "Add Picture of Passport",
+      label: "Add Picture of Passport ",
       name: "passportPicture",
-      component: Input,
+      component: CustomFileUploadField,
     },
     {
-      label: "RTA Training",
+      label: "RTA Training ",
       name: "rtaTraining",
-      component: Input,
+      component: Dropdown,
+      options: ["Yes", "No"],
     },
     {
-      label: "EMP Ownership",
+      label: "EMP Ownership ",
       name: "empOwnerShip",
       component: Dropdown,
       options: ["Own", "4PL"],
     },
     {
-      label: "Vendor",
+      label: "Vendor ",
       name: "vendor",
       component: Dropdown,
       options: ["Taj Global", "Bin Abc", "Bin Xyz"],
     },
     {
-      label: "EPM Status",
+      label: "EPM Status ",
       name: "empStatus",
       component: Dropdown,
-      options: ["Dubai", "Abu Dhabi", "Sharjah"],
+      options: ["Active", "Inactive"],
     },
   ];
 
   return (
     <Box>
-      <form onSubmit={formik.handleSubmit}>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-          {/* Dynamically render input and dropdown fields */}
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
-            {inputFields.map((field, index) => (
-              <Box key={index} sx={{ width: "calc(33% - 8px)" }}>
-                {/* Render Input or Dropdown components */}
-                {field.component === Input ? (
-                  <Input
-                    labelText={field.label}
-                    customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
-                    name={field.name}
-                    value={formik.values[field.name]}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                  />
-                ) : (
-                  <Dropdown
-                    labelText={field.label}
-                    customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
-                    name={field.name}
-                    value={formik.values[field.name]}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    options={field.options.map((option) => ({
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+        {/* Dynamically render input and dropdown fields */}
+        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+          {inputFields.map((field, index) => (
+            <Box key={index} sx={{ width: "calc(33% - 8px)" }}>
+              {/* Render Input or Dropdown components */}
+              {field.component === Input && (
+                <Input
+                  labelText={field.label}
+                  customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
+                  name={field.name}
+                  value={formData[field.name]}
+                  onChange={handleInputChange}
+                />
+              )}
+              {field.component === Dropdown && (
+                <Dropdown
+                  labelText={field.label}
+                  customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
+                  name={field.name}
+                  value={formData[field.name]}
+                  onChange={handleInputChange}
+                  options={[
+                    { label: "Select an option", value: "" },
+                    ...field.options.map((option) => ({
                       label: option,
-                      value: option.toLowerCase(),
-                    }))}
-                  />
-                )}
+                      value: option,
+                    })),
+                  ]}
+                />
+              )}
 
-                {/* Display error message if field is touched and there's an error */}
-                {formik.touched[field.name] && formik.errors[field.name] && (
-                  <Typography color="error" variant="body2">
-                    {formik.errors[field.name]}
-                  </Typography>
-                )}
-              </Box>
-            ))}
-          </Box>
-
-          <Divider sx={{ borderColor: "#2F2B3D40", mt: 2, }} />
-
-          {/* Action buttons for navigating */}
-          <Action
-            setValue={setCurrentTab}
-            currentTab={currentTab}
-            formik={formik}
-          />
+              {field.component === CustomFileUploadField && (
+                <CustomFileUploadField
+                  label={field.label}
+                  value={formData[field.name]}
+                  onChange={(e) => handleFileChange(e, field.name)}
+                />
+              )}
+            </Box>
+          ))}
         </Box>
-      </form>
+
+        <Divider sx={{ borderColor: "#2F2B3D40", mt: 2 }} />
+      </Box>
     </Box>
   );
 };

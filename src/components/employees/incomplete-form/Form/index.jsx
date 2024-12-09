@@ -1,165 +1,166 @@
 "use client";
-
-import * as React from "react";
-import { Box, Tabs, Tab, Divider } from "@mui/material";
-import PropTypes from "prop-types";
-import { useState } from "react";
+import React, { useState } from "react";
+import { Box, Divider } from "@mui/material";
+import TabsComponent from "./Tabs";
+import Actions from "./Actions";
 import InfoIcon from "@mui/icons-material/Info";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import CallIcon from "@mui/icons-material/Call";
-import DvrIcon from "@mui/icons-material/Dvr";
-import BasicInfo from "./content/BasicInfo";
-import ContactResidence from "./content/ContactResidence";
-import EmiratesId from "./content/EmiratesId";
-import DrivingLicense from "./content/DrivingLicense";
-import Passport from "./content/Passport";
-import Visa from "./content/Visa";
-import Insurance from "./content/Insurance";
-import OtherDetails from "./content/OtherDetails";
-import Action from "./Action";
+import { useRouter } from "next/navigation";
 import ReceiptLongOutlinedIcon from "@mui/icons-material/ReceiptLongOutlined";
 import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
 import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 import PendingOutlinedIcon from "@mui/icons-material/PendingOutlined";
 import HealthAndSafetyOutlinedIcon from "@mui/icons-material/HealthAndSafetyOutlined";
+import CallIcon from "@mui/icons-material/Call";
+import DvrIcon from "@mui/icons-material/Dvr";
+import ContentComponent from "./content";
 
-function CustomTabPanel(props) {
-  const { children, value, index, ...other } = props;
+const MultiStepForm = () => {
+  const [activeStep, setActiveStep] = useState(0);
+  const router = useRouter();
+
+  const [formData, setFormData] = useState({
+    BasicInfo: {
+      fullName: "",
+      gender: "",
+      dob: "",
+      religion: "",
+      nationality: "",
+      maritalStatus: "",
+      employeeStatus: "",
+      image: null,
+    },
+    ContactResidence: {
+      email: "",
+      phoneNumber: "",
+      eContactRelation: "",
+      eContactNo: "",
+      country: "",
+      city: "",
+    },
+    EmiratesId: {
+      emiratesId: "",
+      eidIssueDate: "",
+      eidExpiryDate: "",
+      eidCopyFront: null,
+      eidCopyBack: null,
+    },
+    DrivingLicense: {
+      licenseNumber: "",
+      licenseIssueDate: "",
+      licenseExpiryDate: "",
+      licenseCopyFront: null,
+      licenseCopyBack: null,
+    },
+    Passport: {
+      passportNumber: "",
+      passportIssueDate: "",
+      passportExpiryDate: "",
+      passportCopy: null,
+    },
+    Visa: {
+      uaeResidencyIqamaNo: "",
+      visaIssueDate: "",
+      visaExpiryDate: "",
+      uaeResidencyIqama: "",
+      companyName: "",
+      companyLocation: "",
+      visaType: "",
+      visaAppliedVia: "",
+    },
+    Insurance: {
+      medicalInsurance: "",
+      miStartDate: "",
+      miEndDate: "",
+      accidentalInsurance: "",
+      aiStartDate: "",
+      aiEndDate: "",
+    },
+    OtherDetails: {
+      passportHandOver: "",
+      passportTakerName: "",
+      passportPicture: null,
+      rtaTraining: "",
+      empOwnerShip: "",
+      empStatus: "",
+      vendor: "",
+    },
+  });
+
+  const steps = [
+    {
+      label: "Basic Info",
+      icon1: <InfoIcon fontSize="small" />,
+      icon: <ChevronRightIcon fontSize="small" />,
+    },
+    {
+      label: "Contact/Residence",
+      icon1: <CallIcon fontSize="small" />,
+      icon: <ChevronRightIcon fontSize="small" />,
+    },
+    {
+      label: "Emirates ID",
+      icon1: <DvrIcon fontSize="small" />,
+      icon: <ChevronRightIcon fontSize="small" />,
+    },
+    {
+      label: "Driving License",
+      icon1: <ReceiptLongOutlinedIcon fontSize="small" />,
+      icon: <ChevronRightIcon fontSize="small" />,
+    },
+    {
+      label: "Passport",
+      icon1: <ArticleOutlinedIcon fontSize="small" />,
+      icon: <ChevronRightIcon fontSize="small" />,
+    },
+    {
+      label: "Visa",
+      icon1: <LightbulbOutlinedIcon fontSize="small" />,
+      icon: <ChevronRightIcon fontSize="small" />,
+    },
+    {
+      label: "Insurance",
+      icon1: <HealthAndSafetyOutlinedIcon fontSize="small" />,
+      icon: <ChevronRightIcon fontSize="small" />,
+    },
+    {
+      label: "Other Details",
+      icon1: <PendingOutlinedIcon fontSize="small" />,
+      icon: <ChevronRightIcon fontSize="small" />,
+    },
+  ];
+
+  const handleNext = () =>
+    setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
+  const handleBack = () => setActiveStep((prev) => Math.max(prev - 1, 0));
+  const handleSave = () => {
+    console.log("Form Data:", formData);
+    alert("Form Saved!");
+  };
+  const handleCancel = () => {
+    router.push("/employees/incomplete-profile");
+    console.log("clicked menu");
+  };
 
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
-    </div>
-  );
-}
-
-CustomTabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-const tabs = [
-  {
-    label: "Basic Info",
-    icon: <InfoIcon fontSize="small" />,
-    content: <BasicInfo />,
-  },
-  {
-    label: "Contact/Residence",
-    icon: <CallIcon fontSize="small" />,
-    content: <ContactResidence />,
-  },
-  {
-    label: "Emirates ID",
-    icon: <DvrIcon fontSize="small" />,
-    content: <EmiratesId />,
-  },
-  {
-    label: "Driving License",
-    icon: <ReceiptLongOutlinedIcon fontSize="small" />,
-    content: <DrivingLicense />,
-  },
-  {
-    label: "Passport",
-    icon: <ArticleOutlinedIcon fontSize="small" />,
-    content: <Passport />,
-  },
-  {
-    label: "Visa",
-    icon: <LightbulbOutlinedIcon fontSize="small" />,
-    content: <Visa />,
-  },
-  {
-    label: "Insurance",
-    icon: <HealthAndSafetyOutlinedIcon fontSize="small" />,
-    content: <Insurance />,
-  },
-  {
-    label: "Other Details",
-    icon: <PendingOutlinedIcon fontSize="small" />,
-    content: <OtherDetails />,
-  },
-];
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
-}
-
-export default function TabIndex() {
-  const [value, setValue] = useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  return (
-    <Box sx={{ width: "100%", marginTop: 1 }}>
-      <Box sx={{ borderBottom: 1, borderColor: "#2F2B3D40" }}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="custom tabs example"
-          indicatorColor="transparent"
-          textColor="#2F2B3DE5"
-          sx={{ marginBottom: 2 }}
-        >
-          {tabs.map((tab, index) => (
-            <Tab
-              key={index}
-              label={
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: 1,
-                  }}
-                >
-                  <Box
-                    sx={{
-                      backgroundColor:
-                        value === index ? "#104774" : "#1047741A",
-                      padding: "5px",
-                      borderRadius: "6px",
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        color: value === index ? "white" : "#104774",
-                        fontSize: 5,
-                      }}
-                    >
-                      {tab.icon}
-                    </Box>
-                  </Box>
-                  {tab.label}
-                  <ChevronRightIcon fontSize="small" />
-                </Box>
-              }
-              {...a11yProps(index)}
-              sx={{ textTransform: "none" }}
-            />
-          ))}
-        </Tabs>
-      </Box>
-
-      {tabs.map((tab, index) => (
-        <CustomTabPanel value={value} index={index} key={index}>
-          <Box>{tab.content}</Box>
-          {/* <Divider sx={{ borderColor: "#2F2B3D40", mt: 6, mb: 3 }} /> */}
-          {/* <Action setValue={setValue} currentTab={value} />{" "} */}
-        </CustomTabPanel>
-      ))}
+    <Box sx={{ width: "100%", p: 0.5 }}>
+      <TabsComponent steps={steps} activeStep={activeStep} />
+      <Divider sx={{ borderColor: "#2F2B3D40", mb: 4 }} />
+      <ContentComponent
+        activeStep={activeStep}
+        formData={formData}
+        setFormData={setFormData}
+      />
+      <Actions
+        activeStep={activeStep}
+        steps={steps}
+        handleNext={handleNext}
+        handleBack={handleBack}
+        handleSave={handleSave}
+        handleCancel={handleCancel}
+      />
     </Box>
   );
-}
+};
+
+export default MultiStepForm;

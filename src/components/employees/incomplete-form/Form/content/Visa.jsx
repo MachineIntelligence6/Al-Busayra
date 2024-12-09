@@ -1,33 +1,14 @@
-import React, { useState } from "react";
-import { useFormik } from "formik";
-import { Box, Button, Divider, Typography } from "@mui/material";
-import Input from "@/app/Components/Input/Input";
 import Dropdown from "@/app/Components/Input/Dropdown";
-import { formSchema } from "../../../../Shared-components/Schemas/FormSchema";
-import Action from "../Action";
+import Input from "@/app/Components/Input/Input";
+import { Box, Divider } from "@mui/material";
+import React from "react";
 
-const Visa = () => {
-  const [currentTab, setCurrentTab] = useState(5);
+const Visa = ({ formData, setFormData }) => {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-  // Initialize Formik
-  const formik = useFormik({
-    initialValues: {
-      uaeResidencyIqamaNo: "",
-      visaIssueDate: "",
-      visaExpiryDate: "",
-      uaeResidencyIqama: "",
-      companyName: "",
-      companyLocation: "",
-      visaType: "",
-      visaAppliedVia: "",
-    },
-    validationSchema: formSchema,
-    onSubmit: (values) => {
-      console.log("Form Data Submitted:", values);
-    },
-  });
-
-  // Fields configuration for inputs and dropdowns
   const inputFields = [
     {
       label: "UAE Residency / Iqama No.",
@@ -77,57 +58,42 @@ const Visa = () => {
 
   return (
     <Box>
-      <form onSubmit={formik.handleSubmit}>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-          {/* Dynamically render input and dropdown fields */}
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
-            {inputFields.map((field, index) => (
-              <Box key={index} sx={{ width: "calc(33% - 8px)" }}>
-                {/* Render Input or Dropdown components */}
-                {field.component === Input ? (
-                  <Input
-                    labelText={field.label}
-                    customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
-                    name={field.name}
-                    value={formik.values[field.name]}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                  />
-                ) : (
-                  <Dropdown
-                    labelText={field.label}
-                    customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
-                    name={field.name}
-                    value={formik.values[field.name]}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    options={field.options.map((option) => ({
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+        {/* Dynamically render input and dropdown fields */}
+        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+          {inputFields.map((field, index) => (
+            <Box key={index} sx={{ width: "calc(33% - 8px)" }}>
+              {/* Render Input or Dropdown components */}
+              {field.component === Input ? (
+                <Input
+                  labelText={field.label}
+                  customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
+                  name={field.name}
+                  value={formData[field.name]}
+                  onChange={handleInputChange}
+                />
+              ) : (
+                <Dropdown
+                  labelText={field.label}
+                  customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
+                  name={field.name}
+                  value={formData[field.name]}
+                  onChange={handleInputChange}
+                  options={[
+                    { label: "Select an option", value: "" },
+                    ...field.options.map((option) => ({
                       label: option,
-                      value: option.toLowerCase(),
-                    }))}
-                  />
-                )}
-
-                {/* Show error messages */}
-                {formik.touched[field.name] && formik.errors[field.name] && (
-                  <Typography color="error" variant="body2">
-                    {formik.errors[field.name]}
-                  </Typography>
-                )}
-              </Box>
-            ))}
-          </Box>
-
-          <Divider sx={{ borderColor: "#2F2B3D40", mt: 2 }} />
-
-          {/* Action buttons for navigating */}
-          <Action
-            setValue={setCurrentTab}
-            currentTab={currentTab}
-            formik={formik}
-          />
+                      value: option,
+                    })),
+                  ]}
+                />
+              )}
+            </Box>
+          ))}
         </Box>
-      </form>
+
+        <Divider sx={{ borderColor: "#2F2B3D40", mt: 2 }} />
+      </Box>
     </Box>
   );
 };
