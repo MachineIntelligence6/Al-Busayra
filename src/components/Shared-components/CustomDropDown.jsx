@@ -8,11 +8,11 @@ const CustomDropdown = ({
     onChange,
     placeholder,
     textProps,
-    sx,
+    formControlProps,
     ...props
 }) => {
     return (
-        <FormControl sx={{ ...sx }} fullWidth>
+        <FormControl fullWidth {...formControlProps}>
             {label && (
                 <Typography component="label" {...textProps}>
                     {label}

@@ -12,13 +12,14 @@ const theme = createTheme({
     main: {
       darkBlue: "#104774",
     },
+
     background: {
       default: "#23567F", // Default background color for the app
       // paper: "#ffffff", // Background color for paper components
     },
     // background: {
-      // default: "#23567F", // Default background color for the app
-      // paper: "#ffffff", // Background color for paper components
+    // default: "#23567F", // Default background color for the app
+    // paper: "#ffffff", // Background color for paper components
     // },
   },
   // Add more customizations as needed
