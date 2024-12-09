@@ -20,10 +20,10 @@ const AuthLayout = ({ children }) => {
       >
         <div className="flex flex-col items-center mt-44 gap-6 z-10">
           <div className="font-bold text-[40px] leading-[22px] text-[#FFFFFF]">
-            We Leverage Our "SMART" Strength
+            We Leverage Our SMART Strength
           </div>
           <div className="font-normal text-[25px] leading-[22px] text-[#FFFFFF]">
-            of monitoring riders to our clients & partners
+            of monitoring riders to our clients and partners
           </div>
         </div>
       </Box>

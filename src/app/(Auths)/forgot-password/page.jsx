@@ -5,9 +5,7 @@ import AuthLayout from "@/Layouts/AuthLayout";
 
 const page = () => {
   return (
-    // <AuthLayout>
     <ForgotPassword />
-    // </AuthLayout>
   );
 };
 

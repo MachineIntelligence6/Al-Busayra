@@ -7,14 +7,10 @@ export default function BasicInfo({ profile1, onEdit }) {
   return (
     <ViewCard title={profile1.title} onEdit={onEdit}>
       {profile1.data.map((item, index) => (
-        <Box key={item.id}>
+        <Box key={item.id} sx={{}}>
           <ViewItem
             label={
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                {/* Uncomment if you want to show icon */}
-                {/* <IconButton size="small">
-                  <Person3OutlinedIcon />
-                </IconButton> */}
+              <Box component="label" sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                 {item.icon}
                 <span>{item.label}</span>
               </Box>

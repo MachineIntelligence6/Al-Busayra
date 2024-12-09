@@ -9,9 +9,9 @@ import DoneIcon from "@mui/icons-material/Done";
 import CustomButton from "@/components/Shared-components/CustomButton";
 import CustomSelect from "@/components/Shared-components/CustomSelect";
 import CustomDatePicker from "@/components/Shared-components/CustomDatePicker";
-import CustomFileUploadField from "@/components/Shared-components/CustomFileUploadField";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import { PassportDetailsSchema } from "@/utils/schemas/PassportDetailsEditSchema";
+import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
 
 const renderLabel = (label, required = false) => (
   <Typography variant="body1" component="span">

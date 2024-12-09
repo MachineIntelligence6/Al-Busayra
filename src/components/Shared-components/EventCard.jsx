@@ -8,12 +8,13 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Switch from "@mui/material/Switch";
 import Link from "@mui/material/Link";
-import { Box, FormControlLabel, FormGroup } from "@mui/material";
+import { Box, Divider, FormControlLabel, FormGroup } from "@mui/material";
 import Image from "next/image";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 import BorderColorSharpIcon from "@mui/icons-material/BorderColorSharp";
 import { useRouter } from "next/navigation";
 import IOSSwitch from "../ui/switch-button";
+
 
 // Reusable EventCard Component
 const EventCard = ({ event }) => {
@@ -41,6 +42,8 @@ const EventCard = ({ event }) => {
   };
 
   return (
+
+
     <Card
       component="div"
       sx={{
@@ -208,7 +211,7 @@ const EventCard = ({ event }) => {
                   onChange={handleSwitchChange}
                 />
               }
-              // label="Active"
+            // label="Active"
             />
           </FormGroup>
         </Box>

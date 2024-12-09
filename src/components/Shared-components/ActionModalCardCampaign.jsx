@@ -14,7 +14,7 @@ const statusOptions = [
   { label: "Not Qualified", value: "notQualified" },
 ];
 
-const ActionModalCard = ({ onClose }) => {
+const ActionModalCardCampaign = ({ onClose }) => {
   const formik = useFormik({
     initialValues: {
       status: "",
@@ -111,4 +111,4 @@ const ActionModalCard = ({ onClose }) => {
   );
 };
 
-export default ActionModalCard;
+export default ActionModalCardCampaign;

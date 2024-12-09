@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Box } from "@mui/material";
 import TableFilters from "../Shared-components/Table-components/TableFilters";
@@ -8,6 +8,7 @@ import { data } from "@/utils/campaigns.data";
 import CustomAvatar from "../Shared-components/CustomAvatar";
 import ActionMenu from "../Shared-components/ActionMenu";
 import TableExportRow from "../Shared-components/Table-components/TableExportRow";
+import ActionModalCardCampaign from "../Shared-components/ActionModalCardCampaign";
 
 const columnConfig = {
   shortlistedApplicants: [
@@ -36,13 +37,15 @@ const columnConfig = {
 
 const CampaignsWrapper = () => {
   const pathname = usePathname();
+  const [showModal, setShowModal] = useState(false);
 
   const handleRowSelect = (selectedRowIds) => {
     console.log("Selected Row IDs:", selectedRowIds);
   };
 
-  const handleMenuClick = (value) => {
-    console.log("clicked menu", value);
+  const handleMenuClick = (item) => {
+    console.log("clicked menu", item);
+    if (item?.action === "change_status") setShowModal(true)
   };
 
   const handleFilterClick = (field) => {
@@ -53,7 +56,7 @@ const CampaignsWrapper = () => {
   const MenuItems = useMemo(
     () => [
       { label: "Edit Details", action: "edit" },
-      { label: "Change Status", action: "change status" },
+      { label: "Change Status", action: "change_status" },
     ],
     []
   );
@@ -135,6 +138,7 @@ const CampaignsWrapper = () => {
           handleFilterClick={handleFilterClick}
         />
       </Box>
+      {showModal && <ActionModalCardCampaign onClose={() => setShowModal(false)} />}
     </Box>
   );
 };

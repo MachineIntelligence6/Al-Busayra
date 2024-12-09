@@ -1,3 +1,5 @@
+import CustomTextField from "@/components/Shared-components/CustomTextField";
+import { Box } from "@mui/material";
 import React from "react";
 
 function Input({
@@ -12,16 +14,18 @@ function Input({
   customClass = "",
 }) {
   return (
-    <div
-      className={`flex ${layout === "row" ? "flex-row" : "flex-col"} gap-[5px] ${customClass}`}
+    <Box
+      sx={{
+        display: 'flex', justifyContent: 'space-between'
+      }}
     >
       {labelText && (
-        <label htmlFor={name}>
+        <Box component="label" htmlFor={name} sx={{ flex: 1 }}>
           {labelText}
           <span className="text-red-500">*</span>
-        </label>
+        </Box>
       )}
-      <input
+      <CustomTextField
         onChange={onChange}
         className="w-full h-[38px] border-[1px] border-[#2F2B3D40] rounded-[6px] !outline-none px-3"
         placeholder={placeholder}
@@ -30,7 +34,7 @@ function Input({
         value={value}
         onBlur={onBlur}
       />
-    </div>
+    </Box>
   );
 }
 

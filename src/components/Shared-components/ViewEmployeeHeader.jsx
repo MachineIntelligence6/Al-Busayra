@@ -12,10 +12,16 @@ const ViewEmployeeHeader = ({
   buttons = [],
   onBackClick,
   onEditClick,
+  sx,
 }) => {
   return (
     <Box>
-      <Card sx={{ mb: 3 }}>
+      <Card
+        sx={{
+          ...sx,
+          marginBottom: 2,
+        }}
+      >
         <Box
           sx={{
             height: 120,
@@ -65,7 +71,9 @@ const ViewEmployeeHeader = ({
                 }}
               >
                 <Typography variant="h5">{fullName}</Typography>
-                <Typography>{description}</Typography>{" "}
+                <Typography sx={{ color: "#2F2B3D99" }}>
+                  {description}
+                </Typography>{" "}
                 {/* Dynamic description */}
               </Box>
             </Box>

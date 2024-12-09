@@ -4,38 +4,16 @@ import { Box, Card, Typography, Avatar, IconButton } from "@mui/material";
 import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
 import DoneIcon from "@mui/icons-material/Done";
 import CustomButton from "@/components/Shared-components/CustomButton";
-import {
-  StatusDropdown,
-} from "@/components/Shared-components/CustomColoredDropDown";
+
 import { GeneralInfoView } from "./General-info";
 import { ContactInfoView } from "./Contact-info";
 import { DrivingLicenseView } from "./Driving-license";
 import { PassportDetailsView } from "./Passport-details";
 import { ReferralView } from "./Referral";
 import StatusAlert from "./StatusAlert";
+import { StatusDropdown } from "@/components/Shared-components/CustomColoredDropdown";
 
-// const statusOptions = [
-//   {
-//     label: "Not Qualified",
-//     value: "not_qualified",
-//     color: "#EF4444",
-//     backgroundColor: "#FEE2E2",
-//     icon: <HighlightOffOutlinedIcon />,
-//   },
-//   {
-//     label: "Hold",
-//     value: "hold",
-//     color: "#F59E0B",
-//     icon: <CameraAltOutlinedIcon />,
-//   },
-//   {
-//     label: "Qualified",
-//     value: "qualified",
-//     color: "#10B981",
-//     backgroundColor: "#D1FAE5",
-//     icon: <DoneIcon />,
-//   },
-// ];
+
 const profile = {
   fullName: "Saleem Akhtar",
   gender: "Male",
@@ -72,119 +50,10 @@ const profile = {
   },
 };
 
-// const profile = {
-//   fullName: {
-//     value: "Saleem Akhtar",
-//     icon: "🧑‍💼"
-//   },
-//   gender: {
-//     value: "Male",
-//     icon: "🚹"
-//   },
-//   campaignName: {
-//     value: "Walking 2024",
-//     icon: "🎯"
-//   },
-//   uaeResidentStatus: {
-//     value: "Non-UAE Resident",
-//     icon: "🌍"
-//   },
-//   employeeStatus: {
-//     value: "Full Time",
-//     icon: "👔"
-//   },
-//   preferredWorkingCountry: {
-//     value: "United Arab Emirates",
-//     icon: "🏙️"
-//   },
-//   preferredWorkingCity: {
-//     value: "Dubai",
-//     icon: "🏢"
-//   },
-//   howDidYouLearn: {
-//     value: "Agent",
-//     icon: "🕵️"
-//   },
-//   contactInfo: {
-//     email: {
-//       value: "saleemakhtar@gmail.com",
-//       icon: "📧"
-//     },
-//     phone: {
-//       value: "+971 123 456 7890",
-//       icon: "📞"
-//     },
-//     whatsapp: {
-//       value: "+971 0987 654 321",
-//       icon: "💬"
-//     },
-//     currentCountry: {
-//       value: "Pakistan",
-//       icon: "🇵🇰"
-//     },
-//     nationality: {
-//       value: "Pakistan",
-//       icon: "🌏"
-//     }
-//   },
-//   drivingLicense: {
-//     isHolder: {
-//       value: true,
-//       icon: "🪪"
-//     },
-//     number: {
-//       value: "8793456293",
-//       icon: "🔢"
-//     },
-//     issueDate: {
-//       value: "20-10-2020",
-//       icon: "📅"
-//     },
-//     expiryDate: {
-//       value: "20-10-2028",
-//       icon: "⏳"
-//     }
-//   },
-//   passport: {
-//     number: {
-//       value: "ABC0-234353",
-//       icon: "🛂"
-//     },
-//     issueDate: {
-//       value: "20-10-2020",
-//       icon: "📆"
-//     },
-//     expiryDate: {
-//       value: "20-10-2028",
-//       icon: "⏳"
-//     },
-//     copy: {
-//       value: "passport.pdf",
-//       icon: "📄"
-//     },
-//     visaStatus: {
-//       value: "Applied",
-//       icon: "✅"
-//     }
-//   },
-//   referral: {
-//     referredBy: {
-//       value: "John Smith",
-//       icon: "🙋‍♂️"
-//     },
-//     referralPhone: {
-//       value: "+971 123 456 7890",
-//       icon: "📞"
-//     },
-//     referralAddress: {
-//       value: "Street, 08, Jamal Resident, UAE",
-//       icon: "🏡"
-//     }
-//   }
-// };
 
 
-export default function ProfileView({isModalRemarkOpen,status,setStatus,handleChange,handleEdit,handleOptionClick,handleProceed }) {
+
+export default function ProfileView({ isModalRemarkOpen, status, setStatus, handleChange, handleEdit, handleOptionClick, handleProceed }) {
 
   return (
     <Box sx={{ p: 2 }}>
@@ -238,7 +107,7 @@ export default function ProfileView({isModalRemarkOpen,status,setStatus,handleCh
                 error={false}
                 onOptionClick={handleOptionClick}
                 placeholder="status"
-                // ... any other Select props
+              // ... any other Select props
               />
               <CustomButton
                 variant="contained"
@@ -255,14 +124,14 @@ export default function ProfileView({isModalRemarkOpen,status,setStatus,handleCh
       </Card>
 
       <StatusAlert
-  message={
-    status === 'not_Qualified' 
-      ? "Reason: Your reason will appear here" 
-      : "Application is on hold"
-  }
-  status="status"
-  type={status === 'not_qualified' ? 'not_Qualified' : 'hold'}
-/>
+        message={
+          status === 'not_Qualified'
+            ? "Reason: Your reason will appear here"
+            : "Application is on hold"
+        }
+        status="status"
+        type={status === 'not_qualified' ? 'not_Qualified' : 'hold'}
+      />
       <Box
         sx={{
           display: "grid",

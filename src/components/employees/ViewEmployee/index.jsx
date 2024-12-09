@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   Box,
   Card,
@@ -8,12 +9,10 @@ import {
   IconButton,
   Divider,
 } from "@mui/material";
-// import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import BasicInfo from "./BasicInfo";
 import { ContactDetail } from "./ContactDetails";
 import { DLInfo } from "./DLInfo";
 import { PassportInfo } from "./PassportInfo";
-// import { ReferralView } from "./Referral";
 import CustomButton from "@/components/Shared-components/CustomButton";
 import DoneIcon from "@mui/icons-material/Done";
 import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
@@ -22,14 +21,12 @@ import { VisaInfo } from "./VisaInfo";
 import { InsuranceInfo } from "./InsuranceInfo";
 import { OtherInfo } from "./OtherInfo";
 import ViewEmployeeHeader from "../../Shared-components/ViewEmployeeHeader";
-import CustomColoredDropdown from "@/components/Shared-components/CustomColoredDropDown";
 import HighlightOffOutlinedIcon from "@mui/icons-material/HighlightOffOutlined";
 import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
 import { ViewEmployeeCardData } from "../../../utils/view-employee-card-data";
 import KeyboardBackspaceSharpIcon from "@mui/icons-material/KeyboardBackspaceSharp";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 
-import { useState } from "react";
 
 const profile = {
   contactInfo: {

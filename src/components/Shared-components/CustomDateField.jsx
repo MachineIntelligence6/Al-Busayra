@@ -17,7 +17,7 @@ const CustomDateField = ({
     ...props
 }) => {
     return (
-        <FormControl sx={{ ...sx }} fullWidth={fullWidth} error={!!error}>
+        <FormControl sx={{ ...sx, borderRadius: 8 }} fullWidth={fullWidth} error={!!error}>
             {label && (
                 <Typography component="label" {...textProps}>
                     {label}
@@ -28,16 +28,9 @@ const CustomDateField = ({
                 value={value}
                 onChange={onChange}
                 placeholder={placeholder}
-                // type="date" // Set type to date
+                type="date" // Set type to date
                 size="small"
                 variant="outlined"
-                InputProps={{
-                    endAdornment: (
-                        <InputAdornment position="end">
-                            <CalendarTodayIcon style={{ cursor: "pointer" }} /> {/* Calendar Icon */}
-                        </InputAdornment>
-                    ),
-                }}
                 {...props}
             />
             {helperText && (
