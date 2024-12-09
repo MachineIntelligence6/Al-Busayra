@@ -48,7 +48,7 @@ const allowedFields = [
   "createdOn",
 ];
 
-const CustomTable = ({ columns, data, onRowSelect, handleFilterClick }) => {
+const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelectedOption = true }) => {
   const [selectedRows, setSelectedRows] = useState([]);
 
   const isAllSelected = selectedRows.length === data.length && data.length > 0;
@@ -92,13 +92,13 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick }) => {
           }}
         >
           <TableRow>
-            <TableCell padding="checkbox">
+            {isSelectedOption && <TableCell padding="checkbox">
               <Checkbox
                 indeterminate={isIndeterminate}
                 checked={isAllSelected}
                 onChange={handleSelectAll}
               />
-            </TableCell>
+            </TableCell>}
             {columns.map((column) => (
               <TableCell
                 key={column.field}
@@ -129,12 +129,12 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick }) => {
         <TableBody>
           {data?.map((row) => (
             <TableRow key={row.id} hover>
-              <TableCell padding="checkbox">
+              {isSelectedOption && <TableCell padding="checkbox">
                 <Checkbox
                   checked={selectedRows.includes(row.id)}
                   onChange={() => handleSelectRow(row.id)}
                 />
-              </TableCell>
+              </TableCell>}
               {columns?.map((column) => (
                 <TableCell
                   key={column.field}

@@ -6,6 +6,7 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import MyLocationOutlinedIcon from "@mui/icons-material/MyLocationOutlined";
 import AllInclusiveOutlinedIcon from "@mui/icons-material/AllInclusiveOutlined";
 import TwoWheelerOutlinedIcon from "@mui/icons-material/TwoWheelerOutlined";
+import { uuid } from "../cmmon";
 
 
 export const InventoryListData = [
@@ -248,4 +249,11 @@ export const inventoryViewDetails = [
 
         ],
     },
+]
+
+
+export const FoodPermitTable = [
+
+    { id: uuid(), noPlate: "1713", city: "Sharjah", ownerShip: { id: uuid(), name: "ABDS", logo: "" }, dateOfIssue: "10/09/2024", picture: "IMG-001", cost: "100 AED", installmentPlan: "3 Months", status: "active" },
+    { id: uuid(), noPlate: "2255", city: "Sharjah", ownerShip: { id: uuid(), name: "ABDS", logo: "" }, dateOfIssue: "10/09/2024", picture: "IMG-001", cost: "100 AED", installmentPlan: "2 Months", status: "expired" },
 ]

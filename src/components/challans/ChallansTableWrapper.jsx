@@ -1,7 +1,7 @@
 "use client";
 import React, { useMemo, useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Box, Chip, Divider, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import { useRouter } from "next/navigation"; // Import useRou
 import ActionMenu from "../Shared-components/ActionMenu";
 import TableExportRow from "../Shared-components/Table-components/TableExportRow";
@@ -17,23 +17,23 @@ import { StatusIndicator } from './../applicants/StatusIndicator';
 
 const challanSalikFilters = [
   { id: 1, filterName: "Invoice Month", placeholder: "Please Select", options: [
-    { id: 1, label: "UAE", value: "uae" },
-    { id: 2, label: "Pakistan", value: "pakistan" },
-    { id: 3, label: "India", value: "india" },
+    { id: 19, label: "UAE", value: "uae" },
+    { id: 29, label: "Pakistan", value: "pakistan" },
+    { id: 39, label: "India", value: "india" },
 ], },
   { id: 2, filterName: "Vendor", placeholder: "Please Select", options: [
-    { id: 1, label: "UAE", value: "uae" },
-    { id: 2, label: "Pakistan", value: "pakistan" },
-    { id: 3, label: "India", value: "india" },
+    { id: 71, label: "UAE", value: "uae" },
+    { id: 72, label: "Pakistan", value: "pakistan" },
+    { id: 73, label: "India", value: "india" },
 ], },
   {
       id: 3,
       filterName: "Vehicle Registration No",
       placeholder: "e.g 3242",
       options: [
-          { id: 1, label: "UAE", value: "uae" },
-          { id: 2, label: "Pakistan", value: "pakistan" },
-          { id: 3, label: "India", value: "india" },
+          { id: 61, label: "UAE", value: "uae" },
+          { id: 62, label: "Pakistan", value: "pakistan" },
+          { id: 63, label: "India", value: "india" },
       ],
   },
   {
@@ -41,9 +41,9 @@ const challanSalikFilters = [
       filterName: "Direction",
       placeholder: "please",
       options: [
-          { id: 1, label: "Islamabad", value: "islamabad" },
-          { id: 2, label: "Rawalpindi", value: "rawalpindi" },
-          { id: 3, label: "Peshawar", value: "peshawar" },
+          { id: 51, label: "Islamabad", value: "islamabad" },
+          { id: 52, label: "Rawalpindi", value: "rawalpindi" },
+          { id: 53, label: "Peshawar", value: "peshawar" },
       ],
   },
 ];
@@ -56,9 +56,9 @@ const challanTrafficFilters = [
     inputType: "dropdown",
     // inputType: "text", // Indicates a text input field
     options: [
-      { id: 1, label: "2332", value: "2332" },
-      { id: 2, label: "4343", value: "4343" },
-      { id: 3, label: "4545", value: "4545" },
+      { id: 14, label: "2332", value: "2332" },
+      { id: 24, label: "4343", value: "4343" },
+      { id: 34, label: "4545", value: "4545" },
   ],
   },
   {
@@ -67,9 +67,9 @@ const challanTrafficFilters = [
     placeholder: "Please Select",
     inputType: "dropdown", // Indicates a dropdown field
     options: [
-      { id: 1, label: "John Doe", value: "john_doe" },
-      { id: 2, label: "Jane Smith", value: "jane_smith" },
-      { id: 3, label: "Michael Brown", value: "michael_brown" },
+      { id: 13, label: "John Doe", value: "john_doe" },
+      { id: 23, label: "Jane Smith", value: "jane_smith" },
+      { id: 33, label: "Michael Brown", value: "michael_brown" },
     ],
   },
   {
@@ -78,9 +78,9 @@ const challanTrafficFilters = [
     placeholder: "e.g. XYZ 1234",
     inputType: "dropdown",
     options: [
-      { id: 1, label: "XYZ 1234", value: "xyz_1234" },
-      { id: 2, label: "ABC 5678", value: "abc_5678" },
-      { id: 3, label: "LMN 9101", value: "lmn_9101" },
+      { id: 12, label: "XYZ 1234", value: "xyz_1234" },
+      { id: 22, label: "ABC 5678", value: "abc_5678" },
+      { id: 32, label: "LMN 9101", value: "lmn_9101" },
     ],
   },
   {
@@ -89,9 +89,9 @@ const challanTrafficFilters = [
     placeholder: "e.g. 1001",
     inputType: "dropdown",
     options: [
-      { id: 1, label: "1001", value: "1001" },
-      { id: 2, label: "1002", value: "1002" },
-      { id: 3, label: "1003", value: "1003" },
+      { id: 11, label: "1001", value: "1001" },
+      { id: 21, label: "1002", value: "1002" },
+      { id: 31, label: "1003", value: "1003" },
     ],
   },
 ];
