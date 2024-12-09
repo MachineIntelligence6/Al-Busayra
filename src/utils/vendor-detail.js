@@ -161,3 +161,90 @@ export const addContractData = [
     value: "Active",
   },
 ];
+
+export const platformDetail = [
+  {
+    label: "Platform ID",
+    value: "589642",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+      <circle cx="12.4997" cy="7.29167" r="4.16667" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M6.25 21.875V19.7917C6.25 17.4905 8.11548 15.625 10.4167 15.625H14.5833C16.8845 15.625 18.75 17.4905 18.75 19.7917V21.875" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+  },
+  {
+    label: "Platform Type",
+    value: "Bike Maintenance",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.5002 18.4891L6.07103 21.8693L7.29915 14.71L2.09082 9.64017L9.27832 8.5985L12.4929 2.08496L15.7075 8.5985L22.895 9.64017L17.6867 14.71L18.9148 21.8693L12.5002 18.4891Z" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`,
+  },
+
+  {
+    label: "Country",
+    value: "UAE",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+      <circle cx="12.4997" cy="10.4167" r="4.16667" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M7.03125 16.6667C9.42908 18.7494 12.801 19.2913 15.7306 18.0646C18.6602 16.838 20.6402 14.0554 20.8388 10.8856C21.0374 7.71572 19.4203 4.70771 16.6667 3.125" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12.5003 18.75V22.9167" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M8.33301 22.9163H16.6663" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+  },
+  {
+    label: "Address",
+    value: "Street 08, Al Jamal Resident",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+      <path d="M5.20833 12.5H3.125L12.5 3.125L21.875 12.5H19.7917" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M5.20801 12.5V19.7917C5.20801 20.9423 6.14075 21.875 7.29134 21.875H17.708C18.8586 21.875 19.7913 20.9423 19.7913 19.7917V12.5" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M9.375 21.8753V15.6253C9.375 14.4747 10.3077 13.542 11.4583 13.542H13.5417C14.6923 13.542 15.625 14.4747 15.625 15.6253V21.8753" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+  },
+  {
+    label: "POC Phone Number",
+    value: "+971 123 456 7890",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+      <path d="M5.20833 4.16699H9.375L11.4583 9.37533L8.85417 10.9378C9.96975 13.1998 11.8005 15.0306 14.0625 16.1462L15.625 13.542L20.8333 15.6253V19.792C20.8333 20.9426 19.9006 21.8753 18.75 21.8753C10.3413 21.3643 3.636 14.659 3.125 6.25033C3.125 5.09973 4.05774 4.16699 5.20833 4.16699" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+  },
+
+  {
+    label: "Platform Name",
+    value: "Careem",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+      <circle cx="12.4997" cy="7.29167" r="4.16667" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M6.25 21.875V19.7917C6.25 17.4905 8.11548 15.625 10.4167 15.625H14.5833C16.8845 15.625 18.75 17.4905 18.75 19.7917V21.875" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+  },
+  {
+    label: "Email Address",
+    value: "abidali@gmail.com",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+<rect x="3.125" y="5.20801" width="18.75" height="14.5833" rx="2" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3.125 7.29199L12.5 13.542L21.875 7.29199" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`,
+  },
+
+  {
+    label: "City",
+    value: "Dubai",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+      <circle cx="12.5" cy="11.458" r="3.125" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M18.393 17.3507L13.9732 21.7705C13.1598 22.5831 11.8419 22.5831 11.0285 21.7705L6.60762 17.3507C3.35337 14.0963 3.35346 8.82003 6.60782 5.56573C9.86218 2.31142 15.1385 2.31142 18.3928 5.56573C21.6472 8.82003 21.6473 14.0963 18.393 17.3507V17.3507Z" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+  },
+  {
+    label: "POC Name",
+    value: "Abdul Rehman",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+      <circle cx="12.4997" cy="7.29167" r="4.16667" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M6.25 21.875V19.7917C6.25 17.4905 8.11548 15.625 10.4167 15.625H14.5833C16.8845 15.625 18.75 17.4905 18.75 19.7917V21.875" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+  },
+  {
+    label: "Status",
+    value: "Active",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+      <path d="M9.375 12.5003L11.4583 14.5837L15.625 10.417" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M19.7917 19.7916V5.20825C19.7917 4.05765 18.8589 3.125 17.7083 3.125H7.29167C6.14108 3.125 5.20833 4.05765 5.20833 5.20825V19.7916L8.33333 17.7083L10.4167 19.7916L12.4997 17.7083L14.583 19.7916L16.6663 17.7083L19.7917 19.7916" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+  },
+];

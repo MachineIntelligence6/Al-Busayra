@@ -8,6 +8,7 @@ const page = () => {
     <>
       <Box sx={{ px: 2 }}>
         <DynamicBreadcrumb />
+        
       </Box>
       <Divider sx={{ mt: 2 }} />
       <Box><AddContract /></Box>

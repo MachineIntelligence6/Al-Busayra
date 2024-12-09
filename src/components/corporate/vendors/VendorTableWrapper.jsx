@@ -37,7 +37,7 @@ const platformFilters = [
 
 const VendorTableWrapper = () => {
   const [filters, setFilters] = useState(platformFilters);
-  // const router = useRouter();
+  const router = useRouter();
 
   const pathname = usePathname();
 
@@ -46,7 +46,7 @@ const VendorTableWrapper = () => {
   };
 
   const handleMenuClick = (value) => {
-    // if (value.action === "view") router.push("employees/view-employee");
+    if (value.action === "add-contract") router.push("corporate/add-contract");
     if (value.action === "view") setShowPopup(true);
     console.log("clicked menu", value);
   };

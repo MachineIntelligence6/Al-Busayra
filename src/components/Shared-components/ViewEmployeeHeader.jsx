@@ -12,14 +12,14 @@ const ViewEmployeeHeader = ({
   buttons = [],
   onBackClick,
   onEditClick,
+  sx,
 }) => {
   return (
     <Box>
       <Card
         sx={{
-          borderRadius: "10px",
-          border: "1.5px solid rgba(47, 43, 61, 0.15)",
-          boxShadow: "0px 4px 10px 0px rgba(0, 0, 0, 0.15) ",
+          ...sx,
+          marginBottom: 2,
         }}
       >
         <Box

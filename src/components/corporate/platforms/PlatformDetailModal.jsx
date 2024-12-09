@@ -1,11 +1,11 @@
 import ViewEmployeeHeader from "@/components/Shared-components/ViewEmployeeHeader";
 import { Box } from "@mui/material";
 import React, { useRef } from "react";
-import VendorDetailCard from "./VendorDetailCard";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import PlatformDetailCard from "./PlatformDetailCard";
 
-const VendorDetailModal = ({ onClose }) => {
+const PlatformDetailModal = ({ onClose }) => {
   const PopUpRef = useRef(null);
   const closePopUp = (e) => {
     if (PopUpRef.current === e.target) {
@@ -55,7 +55,7 @@ const VendorDetailModal = ({ onClose }) => {
       <Box sx={{ backgroundColor: "#FFF", borderRadius: "15px" }}>
         <Box sx={{}}>
           <ViewEmployeeHeader
-            fullName="Careem"
+            fullName="Abid Ali"
             description="Vendor"
             buttons={buttons}
             onBackClick={handleBackClick}
@@ -69,7 +69,7 @@ const VendorDetailModal = ({ onClose }) => {
         </Box>
         <Box>
           <Box sx={{ width: "1188px" }}>
-            <VendorDetailCard />
+            <PlatformDetailCard />
           </Box>
         </Box>
       </Box>
@@ -77,4 +77,4 @@ const VendorDetailModal = ({ onClose }) => {
   );
 };
 
-export default VendorDetailModal;
+export default PlatformDetailModal;
