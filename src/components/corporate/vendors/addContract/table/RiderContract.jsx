@@ -86,8 +86,16 @@ const RiderContract = () => {
               <TableCell>
                 <Chip
                   label={row.status}
-                  color={row.status === "Active" ? "success" : "error"}
-                  variant="outlined"
+                  // color={row.status === "Active" ? "success" : "error"}
+                  // variant="outlined"
+                  sx={{
+                    backgroundColor:
+                      row.status === "Active" ? "#28C76F29" : "#FF4C5129",
+                    color: row.status === "Active" ? "#28C76F" : "#FF4C51",
+                    fontWeight: 500,
+                    borderRadius: "6px",
+                    padding: "1px 10px",
+                  }}
                 />
               </TableCell>
               <TableCell>

@@ -1,39 +1,30 @@
-import { Box, IconButton, Divider } from "@mui/material";
-import VisibilityIcon from "@mui/icons-material/Visibility";
+"use client";
+
 import { ViewCard, ViewItem } from "@/components/Shared-components/ViewCard";
+import { Box, Divider } from "@mui/material";
 
-export function InsuranceInfo({ profile, onEdit }) {
+export default function InsuranceInfo({ profile, onEdit }) {
   return (
-    <ViewCard title="Medical/Accidental insurance" onEdit={onEdit}>
-      <ViewItem
-        label="Medical Insurance"
-        value={profile.insurance.medCompany}
-      />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-
-      <ViewItem
-        label="Medical Insurance Start Date"
-        value={profile.insurance.startDate}
-      />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-
-      <ViewItem
-        label="Medical Insurance End Date"
-        value={profile.insurance.endDate}
-      />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-      <ViewItem
-        label="Accidental Insurance"
-        value={profile.insurance.accCompany}
-      />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-      <ViewItem
-        label="Accidental Start Date"
-        value={profile.insurance.startDate}
-      />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-      <ViewItem label="Accidental End Date" value={profile.insurance.endDate} />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
+    <ViewCard title={profile.title} onEdit={onEdit}>
+      {profile.data.map((item, index) => (
+        <Box key={item.id}>
+          <ViewItem
+            label={
+              <Box
+                component="label"
+                sx={{ display: "flex", alignItems: "center", gap: 1 }}
+              >
+                {item.icon}
+                <span>{item.label}</span>
+              </Box>
+            }
+            value={item.value}
+          />
+          {index < profile.data.length - 1 && (
+            <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
+          )}
+        </Box>
+      ))}
     </ViewCard>
   );
 }
