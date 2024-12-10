@@ -6,6 +6,7 @@ import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import DoneIcon from "@mui/icons-material/Done";
 import { useFormik } from "formik";
 import { Schema } from "@/components/Shared-components/Schemas/Schema";
+import CustomButton from "./CustomButton";
 
 const statusOptions = [
   { label: "Shortlist", value: "shortlist" },
@@ -89,22 +90,22 @@ const ActionModalCardCampaign = ({ onClose }) => {
         </div>
         <div className="border-t-2 w-full border-[rgba(47,43,61,0.25)]"></div>
         <div className="flex justify-between items-center">
-          <Button
+          <CustomButton
             variant="outlined"
-            color="error"
+            bgColor="danger"
             startIcon={<HighlightOffIcon />}
             onClick={handleClick}
           >
             Cancel
-          </Button>
-          <Button
+          </CustomButton>
+          <CustomButton
             variant="contained"
             endIcon={<DoneIcon />}
             onClick={formik.handleSubmit}
             disabled={!(formik.isValid && formik.dirty)}
           >
             Save
-          </Button>
+          </CustomButton>
         </div>
       </div>
     </div>

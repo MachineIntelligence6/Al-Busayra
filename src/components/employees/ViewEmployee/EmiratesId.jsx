@@ -1,22 +1,30 @@
+"use client";
+
 import { ViewCard, ViewItem } from "@/components/Shared-components/ViewCard";
-import { Divider } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 
-export function EmiratesId({ profile, onEdit }) {
+export default function EmiratesId({ profile, onEdit }) {
   return (
-    <ViewCard title="Emirates ID" onEdit={onEdit}>
-      <ViewItem label="Emirates ID" value={profile.emiratesId.number} />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-
-      <ViewItem label="EID Issue Date" value={profile.emiratesId.issueDate} />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-
-      <ViewItem label="EID Expiry Date" value={profile.emiratesId.expiryDate} />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-
-      <ViewItem label="EID Copy Front" value={profile.emiratesId.copyFront} />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-
-      <ViewItem label="EID Copy Back" value={profile.emiratesId.copyBack} />
+    <ViewCard title={profile.title} onEdit={onEdit}>
+      {profile.data.map((item, index) => (
+        <Box key={item.id}>
+          <ViewItem
+            label={
+              <Box
+                component="label"
+                sx={{ display: "flex", alignItems: "center", gap: 1 }}
+              >
+                {item.icon}
+                <span>{item.label}</span>
+              </Box>
+            }
+            value={item.value}
+          />
+          {index < profile.data.length - 1 && (
+            <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
+          )}
+        </Box>
+      ))}
     </ViewCard>
   );
 }
