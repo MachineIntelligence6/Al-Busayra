@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Input, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 
 const CustomFileUploadField = ({ value, onChange, error, placeholder, label }) => {

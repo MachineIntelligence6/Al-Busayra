@@ -25,6 +25,27 @@ const allowedFields = [
   "remarks",
   "reasonToHold",
   "status",
+  // salik
+  "invoiceMonth",
+  "vendorName",
+  "dateOfSalik",
+  "transactionID",
+  "registrationNo.",
+  "salikAmount",
+  "tollGate",
+  "direction",
+  // traffic
+  "id",
+  "bikePlateNo",
+  "challanAmount",
+  "challanNumber",
+  "city",
+  "location",
+  "reason",
+  "dateAndTimeOfTrafficChallan",
+  "challanAttachments",
+  "bikeOwner",
+  "createdOn",
 ];
 
 const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelectedOption = true }) => {
@@ -106,7 +127,7 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((row) => (
+          {data?.map((row) => (
             <TableRow key={row.id} hover>
               {isSelectedOption && <TableCell padding="checkbox">
                 <Checkbox
@@ -114,7 +135,7 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
                   onChange={() => handleSelectRow(row.id)}
                 />
               </TableCell>}
-              {columns.map((column) => (
+              {columns?.map((column) => (
                 <TableCell
                   key={column.field}
                   align={column.align || "left"}
