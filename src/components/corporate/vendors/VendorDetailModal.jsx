@@ -55,11 +55,12 @@ const VendorDetailModal = ({ onClose }) => {
       <Box sx={{ backgroundColor: "#FFF", borderRadius: "15px" }}>
         <Box sx={{}}>
           <ViewEmployeeHeader
-            fullName="Careem"
+            fullName="Abid Ali"
             description="Vendor"
             buttons={buttons}
             onBackClick={handleBackClick}
             onEditClick={handleEditClick}
+            profileImage={"/icons/pic.svg"}
             sx={{
               borderRadius: "15px",
               // border: "2px solid rgba(0, 0, 0, 0.1)",

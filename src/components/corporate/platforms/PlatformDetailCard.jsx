@@ -43,7 +43,7 @@ export default function PlatformDetailCard() {
                     <span>{label}</span>
                   </Box>
                 }
-                value={value}
+                value={<Box>{value}</Box>}
               />
               {index < firstPart.length - 1 && (
                 <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
@@ -76,7 +76,23 @@ export default function PlatformDetailCard() {
                     <span>{label}</span>
                   </Box>
                 }
-                value={value}
+                value={
+                  <Box
+                    sx={{
+                      // Apply the styles conditionally based on the "Status" label
+                      ...(label === "Status" && {
+                        backgroundColor: "#28C76F29", // Light green background
+                        color: "#28C76F", // Dark green text color
+                        padding: "2px 10px", // Padding around the text
+                        borderRadius: "4px", // Optional: rounded corners for styling
+                        fontWeight: 500, // Optional: make the text bold
+                        fontSize: "13px",
+                      }),
+                    }}
+                  >
+                    {value}
+                  </Box>
+                }
               />
               {index < secondPart.length - 1 && (
                 <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
