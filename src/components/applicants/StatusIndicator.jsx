@@ -40,6 +40,18 @@ export function StatusIndicator({ status, pathname }) {
         backgroundColor = '#FFECEC';
         textColor = '#FF0000';
         break;
+      case 'Support':
+        backgroundColor = '#FFF4D9';
+        textColor = '#FFA500';
+        break;
+      case 'Administrator':
+        backgroundColor = '#E5F8E5';
+        textColor = '#00A000';
+        break;
+      case 'Restricted':
+        backgroundColor = '#FFECEC';
+        textColor = '#FF0000';
+        break;
       default:
         break;
     }

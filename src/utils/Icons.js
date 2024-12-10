@@ -17,3 +17,10 @@ export const FIleIcon= ()=> {
       </svg>
     )
 }
+export const FilterIcon= ()=> {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<path d="M5.50011 5H18.5001C18.792 5.10236 19.02 5.33401 19.1178 5.62742C19.2157 5.92084 19.1722 6.243 19.0001 6.5L14.0001 12V19L10.0001 16V12L5.00011 6.5C4.82804 6.243 4.78457 5.92084 4.88238 5.62742C4.98018 5.33401 5.20825 5.10236 5.50011 5" stroke="#2F2B3D" strokeOpacity="0.9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+</svg>
+    )
+}
