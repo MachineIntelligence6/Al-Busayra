@@ -1,30 +1,30 @@
-import { Box, IconButton, Divider } from "@mui/material";
-import VisibilityIcon from "@mui/icons-material/Visibility";
+"use client";
+
 import { ViewCard, ViewItem } from "@/components/Shared-components/ViewCard";
+import { Box, Divider } from "@mui/material";
 
-export function VisaInfo({ profile, onEdit }) {
+export default function VisaInfo({ profile, onEdit }) {
   return (
-    <ViewCard title="Visa Details" onEdit={onEdit}>
-      <ViewItem label="UAE residency / Iqama No." value={profile.visa.number} />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-
-      <ViewItem label="Visa Issue Date" value={profile.visa.issueDate} />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-
-      <ViewItem label="Visa Expiry Date" value={profile.visa.expiryDate} />
-      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-
-      <ViewItem
-        label="UAE residency / Iqama Copy "
-        value={
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <span>{profile.visa.iqamaCopy}</span>
-            {/* <IconButton size="small">
-              <VisibilityIcon />
-            </IconButton> */}
-          </Box>
-        }
-      />
+    <ViewCard title={profile.title} onEdit={onEdit}>
+      {profile.data.map((item, index) => (
+        <Box key={item.id}>
+          <ViewItem
+            label={
+              <Box
+                component="label"
+                sx={{ display: "flex", alignItems: "center", gap: 1 }}
+              >
+                {item.icon}
+                <span>{item.label}</span>
+              </Box>
+            }
+            value={item.value}
+          />
+          {index < profile.data.length - 1 && (
+            <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
+          )}
+        </Box>
+      ))}
     </ViewCard>
   );
 }
