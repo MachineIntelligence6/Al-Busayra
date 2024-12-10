@@ -1,10 +1,11 @@
+"use client"
 import { Box, Divider, Typography } from "@mui/material";
 import React, { useState } from "react";
 import CustomDropdown from "../CustomDropDown";
 import CustomTextField from "../CustomTextField";
 
 const options = ["A", "B", "C", "D"];
-const TableFilters = ({ filters }) => {
+const TableFilters = ({ filters, bottomBorder = true, textFieldWidth = 350 }) => {
   const [dropdown1Value, setDropdown1Value] = useState("");
   const [dropdown2Value, setDropdown2Value] = useState("");
   const [dropdown3Value, setDropdown3Value] = useState("");
@@ -18,7 +19,7 @@ const TableFilters = ({ filters }) => {
   return (
     <Box
       component="div"
-      sx={{  m: 2,}}
+      sx={{ m: 2, }}
     >
       <Typography variant="caption" sx={{ fontSize: 16 }}>
         Advance Filters
@@ -31,7 +32,7 @@ const TableFilters = ({ filters }) => {
           alignItems: "center",
           justifyContent: "space-between",
           // flexWrap: "wrap",
-          gap:"1rem",
+          gap: "1rem",
           my: 2,
         }}
       >
@@ -49,7 +50,7 @@ const TableFilters = ({ filters }) => {
               // onChange={(e) => setDropdown1Value(e.target.value)}
               />) : <Box key={filter?.id} sx={{ display: "flex", flexDirection: "column" }}>
                 <Typography>{filter?.filterName}</Typography>
-                <CustomTextField placeholder={filter?.placeholder} sx={{ width: 350, }} />
+                <CustomTextField placeholder={filter?.placeholder} sx={{ width: textFieldWidth, }} />
               </Box>}
 
             </>
@@ -83,7 +84,7 @@ const TableFilters = ({ filters }) => {
         </>}
 
       </Box>
-      <Divider />
+      {bottomBorder && <Divider />}
     </Box>
   );
 };

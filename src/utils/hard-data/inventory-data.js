@@ -257,3 +257,72 @@ export const FoodPermitTable = [
     { id: uuid(), noPlate: "1713", city: "Sharjah", ownerShip: { id: uuid(), name: "ABDS", logo: "" }, dateOfIssue: "10/09/2024", picture: "IMG-001", cost: "100 AED", installmentPlan: "3 Months", status: "active" },
     { id: uuid(), noPlate: "2255", city: "Sharjah", ownerShip: { id: uuid(), name: "ABDS", logo: "" }, dateOfIssue: "10/09/2024", picture: "IMG-001", cost: "100 AED", installmentPlan: "2 Months", status: "expired" },
 ]
+
+export const dashboardTableData = [
+    { id: 1, companyName: "Al-Busayra", companyEmail: "albusayra@gmail.com", icon: "", totalBikes: "539", allocatedBikes: "500", inactiveInventory: "02", availableInventory: "38", },
+    { id: 2, companyName: "Al-Hamama", companyEmail: "alhamama@gmail.com", icon: "", totalBikes: "647", allocatedBikes: "63", inactiveInventory: "01", availableInventory: "03", },
+]
+
+export const albusayraVendors = [
+    { id: uuid(), vendorName: "ABDS", vendorEmail: "abds@gmail.com", icon: "", totalBikes: "86", allocatedBikes: "83", inactiveInventory: "01", availableInventory: "02" },
+    { id: uuid(), vendorName: "Auto Rent", vendorEmail: "autoorent@gmail.com", icon: "", totalBikes: "40", allocatedBikes: "66", inactiveInventory: "05", availableInventory: "10" },
+    { id: uuid(), vendorName: "Easy Lease", vendorEmail: "lease@gmail.com", icon: "", totalBikes: "70", allocatedBikes: "45", inactiveInventory: "04", availableInventory: "14" },
+    { id: uuid(), vendorName: "GM Rent", vendorEmail: "gmrent@gmail.com", icon: "", totalBikes: "45", allocatedBikes: "75", inactiveInventory: "14", availableInventory: "55" },
+]
+export const alhamama = [
+    { id: uuid(), vendorName: "Emirate Transport", vendorEmail: "emiratetrans@gmail.com", icon: "", totalBikes: "44", allocatedBikes: "100", inactiveInventory: "07", availableInventory: "19" },
+
+]
+
+export const childData = {
+    1: albusayraVendors,
+    2: alhamama
+}
+
+
+export const DashboardDetailTable = [
+    {
+        id: uuid(),
+        bike_plate: "1245",
+        bike_picture: "img.jpg",
+        bike_ownership: "Yes",
+        bike_insurance: "Yes",
+        bike_cost: "$1200",
+        status: "Allocated",
+        allocated_company: {
+            name: "Al Hamams",
+            email: "alhamam@gmail.com",
+            icon: ""
+        },
+        allocated_rider: {
+            name: "Majid",
+            email: "majid@gmail.com",
+            icon: ""
+        },
+        employee_id: "2311",
+        bike_city: "Dubai",
+        working_city: "Dubai",
+    },
+    {
+        id: uuid(),
+        bike_plate: "4541",
+        bike_picture: "img.jpg",
+        bike_ownership: "Yes",
+        bike_insurance: "Yes",
+        bike_cost: "$1200",
+        status: "Allocated",
+        allocated_company: {
+            name: "Al Busayra",
+            email: "albusayra@gmail.com",
+            icon: ""
+        },
+        allocated_rider: {
+            name: "Bilal",
+            email: "bilal@gmail.com",
+            icon: ""
+        },
+        employee_id: "2311",
+        bike_city: "Dubai",
+        working_city: "Dubai",
+    }
+]

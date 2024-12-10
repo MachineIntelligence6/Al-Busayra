@@ -39,7 +39,6 @@ const CustomTextField = (props) => {
         type={type}
         multiline={multiline}
         size="small"
-        variant="outlined"
         rows={multiline ? rows : undefined}
         InputProps={{
           startAdornment: startAdornment ? (
