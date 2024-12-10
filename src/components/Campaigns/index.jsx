@@ -9,6 +9,7 @@ import CustomAvatar from "../Shared-components/CustomAvatar";
 import ActionMenu from "../Shared-components/ActionMenu";
 import TableExportRow from "../Shared-components/Table-components/TableExportRow";
 import ActionModalCardCampaign from "../Shared-components/ActionModalCardCampaign";
+import TablePagination from "../Shared-components/Table-components/TablePagination";
 
 const columnConfig = {
   shortlistedApplicants: [
@@ -137,6 +138,7 @@ const CampaignsWrapper = () => {
           onRowSelect={handleRowSelect}
           handleFilterClick={handleFilterClick}
         />
+        <TablePagination />
       </Box>
       {showModal && <ActionModalCardCampaign onClose={() => setShowModal(false)} />}
     </Box>
