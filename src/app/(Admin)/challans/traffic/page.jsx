@@ -6,8 +6,7 @@ import DynamicBreadcrumb from '@/components/Shared-components/BreadCrumb';
 import { Box, Divider } from '@mui/material';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import { usePathname } from 'next/navigation';
-import ChallansForm from '@/components/challans/challansForm';
-
+import ChallansForm from '@/components/challans/ChallansForm';
 const Page = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
