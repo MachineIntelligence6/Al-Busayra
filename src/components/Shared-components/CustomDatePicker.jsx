@@ -48,7 +48,7 @@ const CustomDatePicker = ({ value, onChange, label, error, helperText, ...props 
               ...params.InputProps,
               // endAdornment: (
               //       <InputAdornment position="end">
-              // <CalenderIcon/>
+              // <CalendarIcon/>
               //   </InputAdornment>
               // ),
             }}

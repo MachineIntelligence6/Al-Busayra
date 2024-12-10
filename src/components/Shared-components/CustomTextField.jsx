@@ -39,7 +39,6 @@ const CustomTextField = (props) => {
         type={type}
         multiline={multiline}
         size="small"
-        variant="outlined"
         rows={multiline ? rows : undefined}
         InputProps={{
           startAdornment: startAdornment ? (
@@ -49,7 +48,18 @@ const CustomTextField = (props) => {
             <InputAdornment position="end">{endAdornment}</InputAdornment>
           ) : null,
         }}
-        {...props}
+        sx={{
+          "& .MuiOutlinedInput-root": {
+            borderRadius: "7px", // Add border radius here
+          },
+          ...(removeRightBorder && {
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderTopRightRadius: 0,
+              borderBottomRightRadius: 0,
+            },
+          }),
+        }}
+        {...rest}
       />
 
     </FormControl>

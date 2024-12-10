@@ -10,6 +10,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { platformListing, vendorListing } from "@/utils/schemas/vendor.data";
 import VendorDetailModal from "./VendorDetailModal";
 
+
 const platformFilters = [
   { id: 1, filterName: "Vendor ID", placeholder: "CA1" },
   { id: 2, filterName: "Vendor Type", placeholder: "4PL" },

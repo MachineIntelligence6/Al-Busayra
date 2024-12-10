@@ -1,10 +1,27 @@
-import Person3OutlinedIcon from "@mui/icons-material/Person3Outlined";
-import FemaleOutlinedIcon from "@mui/icons-material/FemaleOutlined";
-import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import MyLocationOutlinedIcon from "@mui/icons-material/MyLocationOutlined";
-import AllInclusiveOutlinedIcon from "@mui/icons-material/AllInclusiveOutlined";
-import TwoWheelerOutlinedIcon from "@mui/icons-material/TwoWheelerOutlined";
+import {
+  MailIcon,
+  GenderIcon,
+  CalendarIcon,
+  HomeIcon,
+  CheckIcon,
+  RingIcon,
+  MotorbikeIcon,
+  PhoneIcon,
+  UserIcon,
+  FlagIcon,
+  FramePhonePlusIcon,
+  GlobeIcon,
+  MapIcon,
+  IdIcon,
+  LicenseIcon,
+  PassportBookIcon,
+  ResidencyIqamaFrameIcon,
+  MedicalReportIcon,
+  UserExclamationIcon,
+  BulbIcon,
+  CircleCheckIcon,
+  BuildingIcon,
+} from "@/utils/Icons";
 
 export const ViewEmployeeCardData = [
   {
@@ -13,80 +30,311 @@ export const ViewEmployeeCardData = [
     data: [
       {
         id: "001",
-        icon: <Person3OutlinedIcon />,
+        icon: <UserIcon />,
         label: "Full Name",
         value: "Saleem Akhtar",
       },
       {
         id: "002",
-        icon: <FemaleOutlinedIcon />,
+        icon: <GenderIcon />,
+
         label: "Gender",
         value: "Male",
       },
       {
         id: "003",
-        icon: <CalendarMonthOutlinedIcon />,
+        icon: <CalendarIcon />,
         label: "Date of Birth",
         value: "29 Sep 1988",
       },
       {
         id: "004",
-        icon: <HomeOutlinedIcon />,
+        icon: <HomeIcon />,
         label: "Religion",
         value: "Islam",
       },
       {
         id: "005",
-        icon: <MyLocationOutlinedIcon />,
+        icon: <CheckIcon />,
         label: "Nationality",
         value: "UAE",
       },
       {
         id: "006",
-        icon: <AllInclusiveOutlinedIcon />,
+        icon: <RingIcon />,
         label: "Marital Status",
         value: "Married",
       },
       {
         id: "007",
-        icon: <TwoWheelerOutlinedIcon />,
+        icon: <MotorbikeIcon />,
         label: "Employment Type",
         value: "Rider",
       },
     ],
   },
+  {
+    id: "002",
+    title: "Residence/Contact Details",
+    data: [
+      {
+        id: "001",
+        icon: <MailIcon />,
+        label: "Email Address",
+        value: "saleemakhtar@gmail.com",
+      },
+      {
+        id: "002",
+        icon: <PhoneIcon />,
+        label: "Emergency Contact Number (UAE)",
+        value: "+971 123 456 7890",
+      },
+      {
+        id: "003",
+        icon: <FlagIcon />,
+        label: "Emergency Contact Relation (UAE)",
+        value: "Uncle",
+      },
+      {
+        id: "004",
+        icon: <FramePhonePlusIcon />,
+        label: "Emergency Contact Number (UAE)",
+        value: "+971 987 654 3210",
+      },
+      {
+        id: "005",
+        icon: <GlobeIcon />,
+        label: "Country",
+        value: "United Arab Emirates",
+      },
+      {
+        id: "006",
+        icon: <MapIcon />,
+        label: "City",
+        value: "Dubai",
+      },
+    ],
+  },
+  {
+    id: "003",
+    title: "Emirates ID",
+    data: [
+      {
+        id: "001",
+        icon: <IdIcon />,
+        label: "Emirates ID",
+        value: "784-2001-4608152-4",
+      },
+      {
+        id: "002",
+        icon: <CalendarIcon />,
+        label: "EID Issue Date",
+        value: "Jan 01, 2020",
+      },
+      {
+        id: "003",
+        icon: <CalendarIcon />,
+        label: "EID Expiry Date",
+        value: "Dec 31, 2028",
+      },
+      {
+        id: "004",
+        icon: <IdIcon />,
+        label: "EID Copy Front",
+        value: "PDF File",
+      },
+      {
+        id: "005",
+        icon: <IdIcon />,
+        label: "EID Copy Back",
+        value: "PDF File",
+      },
+    ],
+  },
+  {
+    id: "004",
+    title: "Driving License",
+    data: [
+      {
+        id: "001",
+        icon: <LicenseIcon />,
+        label: "Driving license No.",
+        value: "123-456-789-000",
+      },
+      {
+        id: "002",
+        icon: <CalendarIcon />,
+        label: "Driving license Issue Date",
+        value: "Jan 01, 2020",
+      },
+      {
+        id: "003",
+        icon: <CalendarIcon />,
+        label: "Driving license Expiry Date",
+        value: "Dec 31, 2028",
+      },
+      {
+        id: "004",
+        icon: <LicenseIcon />,
+        label: "Driving license Copy Front",
+        value: "PDF File",
+      },
+      {
+        id: "005",
+        icon: <LicenseIcon />,
+        label: "Driving license Copy Back",
+        value: "PDF File",
+      },
+    ],
+  },
+  {
+    id: "005",
+    title: "Passport Details",
+    data: [
+      {
+        id: "001",
+        icon: <PassportBookIcon />,
+        label: "Passport No.",
+        value: "12345869778",
+      },
+      {
+        id: "002",
+        icon: <CalendarIcon />,
+        label: "Passport Issue Date",
+        value: "Jan 01, 2020",
+      },
+      {
+        id: "003",
+        icon: <CalendarIcon />,
+        label: "Passport Expiry Date",
+        value: "Dec 31, 2028",
+      },
+      {
+        id: "004",
+        icon: <PassportBookIcon />,
+        label: "Passport Copy ",
+        value: "PDF File",
+      },
+    ],
+  },
+  {
+    id: "006",
+    title: "VISA Details",
+    data: [
+      {
+        id: "001",
+        icon: <ResidencyIqamaFrameIcon />,
+        label: "UAE residency / Iqama No.",
+        value: "12345869778",
+      },
+      {
+        id: "002",
+        icon: <CalendarIcon />,
+        label: "Visa Issue Date",
+        value: "Jan 01, 2020",
+      },
+      {
+        id: "003",
+        icon: <CalendarIcon />,
+        label: "Visa Expiry Date",
+        value: "Dec 31, 2028",
+      },
+      {
+        id: "004",
+        icon: <ResidencyIqamaFrameIcon />,
+        label: "UAE residency / Iqama Copy",
+        value: "PDF File",
+      },
+    ],
+  },
+  {
+    id: "007",
+    title: "Medical/Accidental insurance",
+    data: [
+      {
+        id: "001",
+        icon: <MedicalReportIcon />,
+        label: "Medical Insurance",
+        value: "Jubliee Insurance",
+      },
+      {
+        id: "002",
+        icon: <CalendarIcon />,
+        label: "Medical Insurance Start Date",
+        value: "Jan 01, 2020",
+      },
+      {
+        id: "003",
+        icon: <CalendarIcon />,
+        label: "Medical Insurance End Date",
+        value: "Dec 31, 2028",
+      },
+      {
+        id: "001",
+        icon: <MedicalReportIcon />,
+        label: "Accidental Insurance",
+        value: "Reliance Insurance",
+      },
+      {
+        id: "002",
+        icon: <CalendarIcon />,
+        label: "Accidental Start Date",
+        value: "Jan 01, 2020",
+      },
+      {
+        id: "003",
+        icon: <CalendarIcon />,
+        label: "Accidental End Date",
+        value: "Dec 31, 2028",
+      },
+    ],
+  },
+  {
+    id: "008",
+    title: "Other Details",
+    data: [
+      {
+        id: "001",
+        icon: <PassportBookIcon />,
+        label: "Passport Handed Over To Representive",
+        value: "Atif",
+      },
+      {
+        id: "002",
+        icon: <UserExclamationIcon />,
+        label: "Name of Representative Passport Taken",
+        value: "Atif",
+      },
+      {
+        id: "003",
+        icon: <PhoneIcon />,
+        label: "Picture of Passport Once We Received From Rider",
+        value: "PDF File",
+      },
+      {
+        id: "001",
+        icon: <BulbIcon />,
+        label: "RTA Training",
+        value: "2143221",
+      },
+      {
+        id: "002",
+        icon: <CircleCheckIcon />,
+        label: "Applied Via",
+        value: "4PL",
+      },
+      {
+        id: "003",
+        icon: <BuildingIcon />,
+        label: "EMP Ownership",
+        value: "Own",
+      },
+      {
+        id: "003",
+        icon: <UserIcon />,
+        label: "EMP Status",
+        value: "Active",
+      },
+    ],
+  },
 ];
-
-// export const ViewEmployeeFormData = [
-//   {
-//     basicInformation: {
-//       fullName: "Saleem Akhtar",
-//       gender: "Male",
-//       dob: "29 Sep 1998",
-//       religion: "Islam",
-//       Nationality: "UAE",
-//       maritalStatus: "Married",
-//       employmentType: "Rider",
-//     },
-//   },
-//   {
-//     abc: {
-//       date: "12/09/2024",
-//       email: "Kulem@gmail.com",
-//       image: "/images/profile-m.jpg",
-//       residentCountry: "India",
-//       residentCity: "Mumbai",
-//       drivingLicense: "No",
-//       phoneNumber: "+91 456 576 5460",
-//       campaignName: "Winter Fair",
-//       remarks: "Will be available after 2 days",
-//       status: "Not Qualified",
-//       action: "Edit",
-//       status1: "Hold",
-//       drivingLicenseNo: "35444218797863",
-//       passportNo: "TA1822801",
-//       preferedWorkingCity: "Dubai",
-//       referBy: "John Smith",
-//     },
-//   },
-// ];
