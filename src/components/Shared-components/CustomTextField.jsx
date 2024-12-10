@@ -48,7 +48,18 @@ const CustomTextField = (props) => {
             <InputAdornment position="end">{endAdornment}</InputAdornment>
           ) : null,
         }}
-        {...props}
+        sx={{
+          "& .MuiOutlinedInput-root": {
+            borderRadius: "7px", // Add border radius here
+          },
+          ...(removeRightBorder && {
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderTopRightRadius: 0,
+              borderBottomRightRadius: 0,
+            },
+          }),
+        }}
+        {...rest}
       />
 
     </FormControl>

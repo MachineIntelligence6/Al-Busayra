@@ -15,9 +15,8 @@ export default function VendorDetailCard() {
 
   return (
     <ModalViewCard>
-      {" "}
       {/* Display Vendor ID as title */}
-      <Grid container spacing={6} sx={{}}>
+      <Grid container spacing={6}>
         {/* First column: Contains fields before and including 'Status' */}
         <Grid item xs={12} sm={6}>
           {firstPart.map(({ label, value, icon }, index) => (
@@ -42,7 +41,24 @@ export default function VendorDetailCard() {
                     <span>{label}</span>
                   </Box>
                 }
-                value={value}
+                value={
+                  <Box
+                    sx={{
+                      
+                      ...(label === "Status" && {
+                        backgroundColor: "#28C76F29", 
+                        color: "#28C76F", 
+                        padding: "2px 10px", 
+                        borderRadius: "4px", 
+                        fontWeight: 500, 
+                        fontSize: '13px',
+                        
+                      }),
+                    }}
+                  >
+                    {value}
+                  </Box>
+                }
               />
               {index < firstPart.length - 1 && (
                 <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
@@ -75,7 +91,13 @@ export default function VendorDetailCard() {
                     <span>{label}</span>
                   </Box>
                 }
-                value={value}
+                value={
+                  <Box
+                    
+                  >
+                    {value}
+                  </Box>
+                }
               />
               {index < secondPart.length - 1 && (
                 <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />

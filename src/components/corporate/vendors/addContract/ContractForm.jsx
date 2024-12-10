@@ -2,6 +2,8 @@
 import Dropdown from "@/app/Components/Input/Dropdown";
 import Input from "@/app/Components/Input/Input";
 import CustomButton from "@/components/Shared-components/CustomButton";
+import CustomDateField from "@/components/Shared-components/CustomDateField";
+import CustomDatePicker from "@/components/Shared-components/CustomDatePicker";
 import CustomDropdown from "@/components/Shared-components/CustomDropDown";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import { Box, Typography } from "@mui/material";
@@ -11,34 +13,30 @@ import React from "react";
 const ContractForm = () => {
   const inputFields = [
     {
-      label: "Full Name As per Emirates ID",
+      label: "Contract Name",
       name: "fullName",
       type: "input",
+    },
+
+    {
+      label: "Contract Signing Date",
+      name: "contractSigningDate",
+      type: "calendarInput",
+    },
+    {
+      label: "Contract Start date",
+      name: "contractStartDate",
+      type: "calendarInput",
+    },
+    {
+      label: "Contract End date",
+      name: "contractEndDate",
+      type: "calendarInput",
     },
     {
       label: "Contract Type",
       name: "contract",
       type: "dropdown",
-    },
-    {
-      label: "Contract name",
-      name: "contractName",
-      type: "input",
-    },
-    {
-      label: "Contract Signing Date",
-      name: "contractSigningDate",
-      type: "input",
-    },
-    {
-      label: "Contract Start date",
-      name: "contractStartDate",
-      type: "input",
-    },
-    {
-      label: "Contract End date",
-      name: "contractEndDate",
-      type: "input",
     },
     {
       label: "Fixed Amount (Rider)",
@@ -74,15 +72,22 @@ const ContractForm = () => {
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, flex: 1 }}>
           {inputFields?.map((field, index) => {
             return (
-              <Box key={field.name} sx={{ width: "calc(33% - 8px)" }}>
+              <Box
+                key={field.name}
+                sx={{ width: "calc(50% - 8px)", fontSize: "13px" }}
+              >
                 {field.type === "input" && (
                   <CustomTextField
                     placeholder={field.name}
                     label={field.label}
+                    required
                   />
                 )}
                 {field.type === "dropdown" && (
                   <CustomDropdown label={field.label} />
+                )}
+                {field.type === "calendarInput" && (
+                  <CustomDateField label={field.label} />
                 )}
               </Box>
             );
@@ -100,10 +105,7 @@ const ContractForm = () => {
         >
           Back
         </CustomButton>
-        <CustomButton
-          endIcon={<Check />}
-          sx={buttonStyle}
-        >
+        <CustomButton endIcon={<Check />} sx={buttonStyle}>
           Add
         </CustomButton>
       </Box>
@@ -119,4 +121,4 @@ const buttonStyle = {
   fontSize: "15px",
   fontWeight: 500,
   boxShadow: "0px 2px 6px 0px rgba(115, 103, 240, 0.30)",
-}
+};

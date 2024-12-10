@@ -9,10 +9,11 @@ import FileUploadIcon from "@mui/icons-material/FileUpload";
 import ActionMenu from "../ActionMenu";
 import AddIcon from "@mui/icons-material/Add";
 import CustomButton from "../CustomButton";
+import { usePathname } from "next/navigation";
 
-const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntries, btnText = "Add New" }) => {
+const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntries, btnText="Add New" }) => {
+  const pathaname = usePathname();
   const [text, setText] = useState("");
-
   const handleInputChange = (e) => {
     setText(e.target.value);
   };

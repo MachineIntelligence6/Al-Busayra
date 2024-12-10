@@ -10,6 +10,7 @@ function Input({
   fieldName,
   layout = "col",
   customClass = "",
+  customInputClass ="",
 }) {
   return (
     <div
@@ -23,7 +24,7 @@ function Input({
       )}
       <input
         onChange={onChange}
-        className="w-full h-[38px] border-[1px] border-[#2F2B3D40] rounded-[6px] !outline-none px-3"
+        className={`w-full h-[38px] border-[1px] border-[#2F2B3D40]   rounded-[6px] !outline-none px-3 ${customInputClass} `}
         placeholder={placeholder}
         id={name}
         name={name}

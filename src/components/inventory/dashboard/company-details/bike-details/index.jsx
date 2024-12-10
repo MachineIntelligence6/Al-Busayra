@@ -17,7 +17,7 @@ const BikeDetails = () => {
             <Box component="div">
                 <MasonryGrid>
                     {inventoryViewDetails?.map((details) => (
-                        <Box key={details.id} sx={{ width: "100%", m: 2 }}>
+                        <Box key={details?.id} sx={{ width: "100%", m: 2 }}>
                             <BasicInfo profile1={details} onEdit={() => { }} />
                         </Box>
                     ))}
