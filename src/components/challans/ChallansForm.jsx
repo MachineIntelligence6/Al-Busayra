@@ -9,9 +9,9 @@ import DoneIcon from "@mui/icons-material/Done";
 import CustomButton from "@/components/Shared-components/CustomButton";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import CustomDatePicker from "@/components/Shared-components/CustomDatePicker";
-import CustomFileUploadField from "@/components/Shared-components/CustomFileUploadField";
 import { ChallansSchema } from "@/utils/schemas/ChallanFormSchema";
 import CustomSelect from "../Shared-components/CustomSelect";
+import CustomFileUploadField from "../Shared-components/CustomFIleUploadField";
 
 const renderLabel = (label, required = false) => (
   <Typography variant="body1" component="span">
