@@ -4,20 +4,26 @@ import { Box, Button, Typography } from "@mui/material";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import { CircleX, FileBarChart2 } from "lucide-react";
 
-const CustomFileUploadField = ({
-  value,
-  onChange,
-  error,
-  placeholder,
-  label,
-}) => {
+const CustomFileUploadField = (props) => {
+  const {
+    value,
+    onChange,
+    error,
+    placeholder,
+    label,
+    height = 38.7,
+    borderRadius = 0,
+    textSize = "body1",
+    buttonText = "Upload",
+    bgColor,
+  } = props
+
   const [fileValue, setFileValue] = useState(value);
 
   const handleChange = (file) => {
     if (file) {
-      console.log(file);
       setFileValue(file);
-      onChange && onChange(file);
+      onChange?.(file);
     }
   };
 
@@ -32,10 +38,8 @@ const CustomFileUploadField = ({
           alignItems: "center",
           border: "1px solid #D5D4D7",
           borderRadius: 1.5,
-
         }}
       >
-        {/* Display file name */}
         <CustomTextField
           value={fileValue?.name || ""}
           startAdornment={fileValue?.name ? <FileBarChart2 size={22} color="#E6483D" /> : null}
@@ -47,14 +51,16 @@ const CustomFileUploadField = ({
             "& .MuiInputBase-root": {
               borderTopRightRadius: 0,
               borderBottomRightRadius: 0,
-              height: 38.7,
+              borderTopLeftRadius: borderRadius,
+              borderBottomLeftRadius: borderRadius,
+              height: height,
+              backgroundColor: bgColor,
             },
             "& .MuiOutlinedInput-notchedOutline": {
               border: "none"
             }
           }}
         />
-        {/* Upload button */}
         {!fileValue?.name ? (
           <Button
             variant="outlined"
@@ -62,14 +68,10 @@ const CustomFileUploadField = ({
             sx={{
               py: 0.6,
               mx: 0.2,
-              borderLeft: "none",
-              borderTopLeftRadius: "0px",
-              borderBottomLeftRadius: "0px",
               color: "#2F2B3DE5",
-              border: "none",
               backgroundColor: "#E6E6E9",
               textTransform: "capitalize",
-              border: "1px solid #bcbcbce4"
+              border: "1px solid #bcbcbce4",
             }}
           >
             Upload
@@ -86,7 +88,6 @@ const CustomFileUploadField = ({
           </Box>
         )}
       </Box>
-      {/* Error message */}
       {error && <Typography color="error">{error.message}</Typography>}
     </Box>
   );
