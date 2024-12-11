@@ -8,57 +8,63 @@ import CustomDropdown from "@/components/Shared-components/CustomDropDown";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import { Box, Typography } from "@mui/material";
 import { Check, MoveLeft } from "lucide-react";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useMemo } from "react";
 
 const ContractForm = () => {
-  const inputFields = [
-    {
-      label: "Contract Name",
-      name: "fullName",
-      type: "input",
-    },
 
-    {
-      label: "Contract Signing Date",
-      name: "contractSigningDate",
-      type: "calendarInput",
-    },
-    {
-      label: "Contract Start date",
-      name: "contractStartDate",
-      type: "calendarInput",
-    },
-    {
-      label: "Contract End date",
-      name: "contractEndDate",
-      type: "calendarInput",
-    },
-    {
-      label: "Contract Type",
-      name: "contract",
-      type: "dropdown",
-    },
-    {
-      label: "Fixed Amount (Rider)",
-      name: "fixedAmount",
-      type: "input",
-    },
-    {
-      label: "Commission Amount",
-      name: "commissionAmount",
-      type: "input",
-    },
-    {
-      label: "Charges",
-      name: "charges",
-      type: "input",
-    },
-    {
-      label: "Active/Close",
-      name: "Active/Close",
-      type: "dropdown",
-    },
-  ];
+  const router = useRouter()
+
+  const inputFields = useMemo(() => {
+    return [
+      {
+        label: "Contract Name",
+        name: "fullName",
+        type: "input",
+      },
+
+      {
+        label: "Contract Signing Date",
+        name: "contractSigningDate",
+        type: "calendarInput",
+      },
+      {
+        label: "Contract Start date",
+        name: "contractStartDate",
+        type: "calendarInput",
+      },
+      {
+        label: "Contract End date",
+        name: "contractEndDate",
+        type: "calendarInput",
+      },
+      {
+        label: "Contract Type",
+        name: "contract",
+        type: "dropdown",
+      },
+      {
+        label: "Fixed Amount (Rider)",
+        name: "fixedAmount",
+        type: "input",
+      },
+      {
+        label: "Commission Amount",
+        name: "commissionAmount",
+        type: "input",
+      },
+      {
+        label: "Charges",
+        name: "charges",
+        type: "input",
+      },
+      {
+        label: "Active/Close",
+        name: "Active/Close",
+        type: "dropdown",
+      },
+    ];
+  }, [])
 
   return (
     <Box>
@@ -102,6 +108,7 @@ const ContractForm = () => {
           bgColor="secondary"
           sx={buttonStyle}
           startIcon={<MoveLeft />}
+          onClick={() => router.push("/corporate")}
         >
           Back
         </CustomButton>

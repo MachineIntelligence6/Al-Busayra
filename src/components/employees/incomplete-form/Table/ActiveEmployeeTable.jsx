@@ -9,6 +9,7 @@ import TableExportRow from "@/components/Shared-components/Table-components/Tabl
 // import TablePagination from "../Shared-components/Table-components/TablePagination";
 import TableFilters from "@/components/Shared-components/Table-components/TableFilters";
 import CustomAvatar from "@/components/Shared-components/CustomAvatar";
+import TablePagination from "@/components/Shared-components/Table-components/TablePagination";
 
 const columnConfig = {
   shortlistedApplicants: [
@@ -189,12 +190,7 @@ const ActiveEmployeeTable = ({
           handleFilterClick={handleFilterClick}
         />
         {/* Pagination Component */}
-        {/* <TablePagination
-          totalEntries={totalEntries}
-          rowsPerPage={rowsPerPage}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        /> */}
+        <TablePagination />
       </Box>
     </Box>
   );

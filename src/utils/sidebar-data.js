@@ -1,10 +1,10 @@
 export const menuData = [
-    // {
-    //     id: "1",
-    //     title: "Companies",
-    //     url: "/companies", // Simple route
-    // icon: "/sidebarIcons/svg/office.svg",
-    // },
+    {
+        id: "1",
+        title: "Companies",
+        url: "/companies", // Simple route
+        icon: "/sidebarIcons/svg/office.svg",
+    },
     {
         id: "2",
         title: "Campaigns",

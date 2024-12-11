@@ -9,6 +9,7 @@ import { Box } from "@mui/material";
 import { usePathname } from "next/navigation";
 import { platformListing } from "@/utils/schemas/vendor.data";
 import PlatformDetailModal from "./PlatformDetailModal";
+import TablePagination from "@/components/Shared-components/Table-components/TablePagination";
 
 const platformFilters = [
     { id: 1, filterName: "Platform ID", placeholder: "CA1" },
@@ -46,9 +47,9 @@ const PlatformTableWrapper = () => {
 
     const [showPopup, setShowPopup] = React.useState(false);
 
-  const onClose = () => {
-    setShowPopup(false);
-  };
+    const onClose = () => {
+        setShowPopup(false);
+    };
 
     const handleMenuClick = (value) => {
         if (value.action === "view") setShowPopup(true);
@@ -137,6 +138,7 @@ const PlatformTableWrapper = () => {
                     onRowSelect={handleRowSelect}
                     handleFilterClick={handleFilterClick}
                 />
+                {platformListing.length > 10 && <TablePagination />}
             </Box>
             {showPopup && <PlatformDetailModal onClose={onClose} />}
         </Box>

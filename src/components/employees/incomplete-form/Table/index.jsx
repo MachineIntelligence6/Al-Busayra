@@ -9,6 +9,7 @@ import TableExportRow from "@/components/Shared-components/Table-components/Tabl
 // import TablePagination from "../Shared-components/Table-components/TablePagination";
 import TableFilters from "@/components/Shared-components/Table-components/TableFilters";
 import CustomAvatar from "@/components/Shared-components/CustomAvatar";
+import TablePagination from "@/components/Shared-components/Table-components/TablePagination";
 
 const columnConfig = {
   shortlistedApplicants: [
@@ -46,7 +47,7 @@ const EmployeeTableWrapper = ({
   currentPage,
 }) => {
   const pathname = usePathname();
-  const router=useRouter()
+  const router = useRouter()
   const totalEntries = 20;
   const totalPages = Math.ceil(totalEntries / rowsPerPage);
 
@@ -60,7 +61,7 @@ const EmployeeTableWrapper = ({
   };
 
   const handleMenuClick = (item) => {
-    if(item.action==="proceed") router.push("/employees/incomplete-profile/form")
+    if (item.action === "proceed") router.push("/employees/incomplete-profile/form")
     console.log("clicked menu", item);
   };
 
@@ -170,13 +171,7 @@ const EmployeeTableWrapper = ({
           onRowSelect={handleRowSelect}
           handleFilterClick={handleFilterClick}
         />
-        {/* Pagination Component */}
-        {/* <TablePagination
-          totalEntries={totalEntries}
-          rowsPerPage={rowsPerPage}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        /> */}
+        <TablePagination />
       </Box>
     </Box>
   );
