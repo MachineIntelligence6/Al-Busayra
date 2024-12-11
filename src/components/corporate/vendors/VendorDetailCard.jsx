@@ -1,9 +1,8 @@
 "use client";
 
 import { ViewCard, ViewItem } from "@/components/Shared-components/ViewCard";
-import { Box, Divider, Grid, Typography } from "@mui/material";
+import { Box, Divider,  } from "@mui/material";
 import { vendorDetail } from "@/utils/vendor-detail";
-import ModalViewCard from "./ModalViewCard";
 
 export default function VendorDetailCard() {
   // Find the index of the object with the "Status" label
@@ -14,29 +13,26 @@ export default function VendorDetailCard() {
   const secondPart = vendorDetail.slice(statusIndex + 1); // Excludes "Status"
 
   return (
-    <ModalViewCard>
+    <ViewCard borderTop={false} onEdit={false}>
       {/* Display Vendor ID as title */}
-      <Grid container spacing={6}>
+      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
         {/* First column: Contains fields before and including 'Status' */}
-        <Grid item xs={12} sm={6}>
+        <Box sx={{ flex: 1, minWidth: "300px" }}>
           {firstPart.map(({ label, value, icon }, index) => (
             <Box key={label}>
               <ViewItem
                 label={
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    {/* Render SVG icon if it exists */}
+                    {/* Render icon if it exists */}
                     {icon && (
                       <Box
                         sx={{
                           width: "25px",
                           height: "25px",
-                          "& svg": {
-                            width: "100%",
-                            height: "100%",
-                          },
                         }}
-                        dangerouslySetInnerHTML={{ __html: icon }}
-                      />
+                      >
+                        {icon} {/* Render the icon directly if it's a valid JSX component */}
+                      </Box>
                     )}
                     <span>{label}</span>
                   </Box>
@@ -44,15 +40,13 @@ export default function VendorDetailCard() {
                 value={
                   <Box
                     sx={{
-                      
                       ...(label === "Status" && {
-                        backgroundColor: "#28C76F29", 
-                        color: "#28C76F", 
-                        padding: "2px 10px", 
-                        borderRadius: "4px", 
-                        fontWeight: 500, 
+                        backgroundColor: "#28C76F29",
+                        color: "#28C76F",
+                        padding: "2px 10px",
+                        borderRadius: "4px",
+                        fontWeight: 500,
                         fontSize: '13px',
-                        
                       }),
                     }}
                   >
@@ -65,47 +59,38 @@ export default function VendorDetailCard() {
               )}
             </Box>
           ))}
-        </Grid>
+        </Box>
 
         {/* Second column: Contains fields after 'Status' */}
-        <Grid item xs={12} sm={6}>
+        <Box sx={{ flex: 1, minWidth: "300px" }}>
           {secondPart.map(({ label, value, icon }, index) => (
             <Box key={label}>
               <ViewItem
                 label={
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    {/* Render SVG icon if it exists */}
+                    {/* Render icon if it exists */}
                     {icon && (
                       <Box
                         sx={{
                           width: "25px",
                           height: "25px",
-                          "& svg": {
-                            width: "100%",
-                            height: "100%",
-                          },
                         }}
-                        dangerouslySetInnerHTML={{ __html: icon }}
-                      />
+                      >
+                        {icon} {/* Render the icon directly if it's a valid JSX component */}
+                      </Box>
                     )}
                     <span>{label}</span>
                   </Box>
                 }
-                value={
-                  <Box
-                    
-                  >
-                    {value}
-                  </Box>
-                }
+                value={<Box>{value}</Box>}
               />
               {index < secondPart.length - 1 && (
                 <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
               )}
             </Box>
           ))}
-        </Grid>
-      </Grid>
-    </ModalViewCard>
+        </Box>
+      </Box>
+    </ViewCard>
   );
 }

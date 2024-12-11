@@ -1,18 +1,21 @@
 import React from "react";
 import { Typography, Button, Box, Paper } from "@mui/material";
 
-export function ViewCard({ title, children, onEdit }) {
+export function ViewCard({ title, children, onEdit, borderTop }) {
   return (
     <Paper
-      sx={{
+      sx={(theme) => ({
         p: 3,
         minHeight: "10rem",
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        borderTop: (theme) => `4px solid ${theme.palette.main.darkBlue}`,
+        borderTop:
+          borderTop !== false
+            ? borderTop || `4px solid ${theme.palette.main.darkBlue}` // Default or custom
+            : "none", // Disable border
         borderRadius: "10px",
-      }}
+      })}
     >
       <Box
         sx={{
@@ -23,9 +26,15 @@ export function ViewCard({ title, children, onEdit }) {
         }}
       >
         <Typography variant="h6">{title}</Typography>
-        <Button variant="outlined" size="small" onClick={onEdit}>
-          Edit
-        </Button>
+        {onEdit !== false && (
+          <Button
+            variant="outlined"
+            size="small"
+            onClick={onEdit || (() => console.log("Default Edit Action"))} // Default or custom action
+          >
+            Edit
+          </Button>
+        )}
       </Box>
       <Box sx={{ flexGrow: 1 }}>{children}</Box>
     </Paper>
@@ -45,7 +54,9 @@ export function ViewItem({ label, value }) {
       <Typography variant="body2" color="text.secondary">
         {label}
       </Typography>
-      <Box sx={{ color: "text.primary", fontSize: 14, fontWeight: 500 }}>{value}</Box>
+      <Box sx={{ color: "text.primary", fontSize: 14, fontWeight: 500 }}>
+        {value}
+      </Box>
     </Box>
   );
 }

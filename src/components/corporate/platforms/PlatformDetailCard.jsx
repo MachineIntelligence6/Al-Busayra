@@ -1,9 +1,8 @@
 "use client";
 
 import { ViewCard, ViewItem } from "@/components/Shared-components/ViewCard";
-import { Box, Divider, Grid, Typography } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import { platformDetail } from "@/utils/vendor-detail";
-import ModalViewCard from "./ModalViewCard";
 
 export default function PlatformDetailCard() {
   // Find the index of the object with the "POC Phone Number" label
@@ -16,29 +15,27 @@ export default function PlatformDetailCard() {
   const secondPart = platformDetail.slice(pocPhoneNumberIndex + 1); // After "POC Phone Number"
 
   return (
-    <ModalViewCard>
+    <ViewCard borderTop={false} onEdit={false}>
       {/* Display Vendor ID as title */}
-      <Grid container spacing={6}>
+      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
         {/* First column: Contains fields before and including 'POC Phone Number' */}
-        <Grid item xs={12} sm={6}>
+        <Box sx={{ flex: 1, minWidth: "300px" }}>
           {firstPart.map(({ label, value, icon }, index) => (
             <Box key={label}>
               <ViewItem
                 label={
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    {/* Render SVG icon if it exists */}
+                    {/* Render icon if it exists */}
                     {icon && (
                       <Box
                         sx={{
                           width: "25px",
                           height: "25px",
-                          "& svg": {
-                            width: "100%",
-                            height: "100%",
-                          },
                         }}
-                        dangerouslySetInnerHTML={{ __html: icon }}
-                      />
+                      >
+                        {icon}{" "}
+                        {/* Render the icon directly if it's a valid JSX component */}
+                      </Box>
                     )}
                     <span>{label}</span>
                   </Box>
@@ -50,28 +47,26 @@ export default function PlatformDetailCard() {
               )}
             </Box>
           ))}
-        </Grid>
+        </Box>
 
         {/* Second column: Contains fields after 'POC Phone Number' */}
-        <Grid item xs={12} sm={6}>
+        <Box sx={{ flex: 1, minWidth: "300px" }}>
           {secondPart.map(({ label, value, icon }, index) => (
             <Box key={label}>
               <ViewItem
                 label={
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    {/* Render SVG icon if it exists */}
+                    {/* Render icon if it exists */}
                     {icon && (
                       <Box
                         sx={{
                           width: "25px",
                           height: "25px",
-                          "& svg": {
-                            width: "100%",
-                            height: "100%",
-                          },
                         }}
-                        dangerouslySetInnerHTML={{ __html: icon }}
-                      />
+                      >
+                        {icon}{" "}
+                        {/* Render the icon directly if it's a valid JSX component */}
+                      </Box>
                     )}
                     <span>{label}</span>
                   </Box>
@@ -99,8 +94,8 @@ export default function PlatformDetailCard() {
               )}
             </Box>
           ))}
-        </Grid>
-      </Grid>
-    </ModalViewCard>
+        </Box>
+      </Box>
+    </ViewCard>
   );
 }
