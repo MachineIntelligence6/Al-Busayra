@@ -11,6 +11,7 @@ import { rolesTemplateListData } from "@/utils/templateListData";
 import CustomDropdown from "../Shared-components/CustomDropDown";
 import { StatusIndicator } from "../applicants/StatusIndicator";
 import CustomTextField from "../Shared-components/CustomTextField";
+import IOSSwitch from "../ui/switch-button";
 
 const roleFilters = [
     { id: 1, filterName: "Role", placeholder: "Type", options: [
@@ -105,12 +106,12 @@ const RolesTemplateListTableWrapper = ({
         headerName: "STATUS",
         align: "left",
         render: (row) => (
-          <Switch
-            //    checked={checked}
-            //    onChange={handleToggle}
-            color="success" // Green color for active status
-            inputProps={{ "aria-label": "Status toggle" }}
-          />
+          <IOSSwitch
+          //    checked={checked}
+          //    onChange={handleToggle}
+          color="success" // Green color for active status
+          inputProps={{ "aria-label": "Status toggle" }}
+        />
         ),
       },
       {

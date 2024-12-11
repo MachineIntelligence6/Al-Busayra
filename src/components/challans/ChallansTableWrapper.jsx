@@ -3,17 +3,16 @@ import React, { useMemo, useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Box, Divider, Typography } from "@mui/material";
 import { useRouter } from "next/navigation"; // Import useRou
-import ActionMenu from "../Shared-components/ActionMenu";
-import TableExportRow from "../Shared-components/Table-components/TableExportRow";
-import CustomTable from "../Shared-components/Table-components/CustomTable";
-import TablePagination from "../Shared-components/Table-components/TablePagination";
 import { challanData } from "@/utils/challans-data";
-import CustomDropdown from "../Shared-components/CustomDropDown";
 import { Download } from 'lucide-react';
 import { FIleIcon } from "@/utils/Icons";
 import Image from "next/image";
-// import ChallanAttachments from "./Challan-attachment";
-import { StatusIndicator } from './../applicants/StatusIndicator';
+import { ActionMenu } from '@/components/Shared-components/ActionMenu';
+import { StatusIndicator } from "../applicants/StatusIndicator";
+import { CustomDropdown } from '@/components/Shared-components/CustomDropDown';
+import { TableExportRow } from '@/components/Shared-components/Table-components/TableExportRow';
+import TablePagination from "../Shared-components/Table-components/TablePagination";
+import { CustomTable } from '@/components/Shared-components/Table-components/CustomTable';
 
 const challanSalikFilters = [
   { id: 1, filterName: "Invoice Month", placeholder: "Please Select", options: [
@@ -306,7 +305,7 @@ const ChallansTableWrapper = ({
       { field: "createdOn", headerName: "CREATED ON", align: "left" },
       { field: "status", headerName: "STATUS", align: "left",
           render: (row) => (
-            <StatusIndicator 
+            <StatusIndicator
               status={row.status}
               pathname={pathname}
             />

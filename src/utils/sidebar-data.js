@@ -68,7 +68,7 @@ export const menuData = [
         icon: "/sidebarIcons/svg/users.svg",
         item: [
             { id: "8-1", label: "Active User", url: "/users" },
-            { id: "8-2", label: "Inactive User", url: "/users/inactive" },
+            { id: "8-2", label: "Inactive User", url: "/users/inactive-users" },
             { id: "8-3", label: "Roles Template", url: "/users/roles-template" },
         ],
     },
