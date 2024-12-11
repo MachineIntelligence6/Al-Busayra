@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import AppLogo from "./Shared-components/AppLogo";
 import SvgIcon from "./Shared-components/SvgIcon";
+import Link from "next/link";
 
 const SidebarMenu = ({ menuData }) => {
     const [openMenu, setOpenMenu] = useState(null);
@@ -51,18 +52,19 @@ const SidebarMenu = ({ menuData }) => {
                         {/* Simple Route */}
                         {!menu.item && (
                             <ListItem disablePadding>
-                                <ListItemButton
-                                    href={menu.url}
-                                    sx={styleProp(menu, openMenu)}
-                                >
-                                    <SvgIcon src={menu.icon} />
-                                    <ListItemText
-                                        primary={menu.title}
-                                        primaryTypographyProps={{
-                                            fontWeight: selectedMenu === menu.id ? "500" : "normal",
-                                        }}
-                                    />
-                                </ListItemButton>
+                                <Link href={menu.url} style={{ width: "100%" }}>
+                                    <ListItemButton
+                                        sx={styleProp(menu, openMenu)}
+                                    >
+                                        <SvgIcon src={menu.icon} />
+                                        <ListItemText
+                                            primary={menu.title}
+                                            primaryTypographyProps={{
+                                                fontWeight: selectedMenu === menu.id ? "500" : "normal",
+                                            }}
+                                        />
+                                    </ListItemButton>
+                                </Link>
                             </ListItem>
                         )}
 
@@ -90,26 +92,27 @@ const SidebarMenu = ({ menuData }) => {
                                     <List component="div" sx={{ bgcolor: "#37658B", mt: 1, borderRadius: 2, p: 2 }}>
                                         {menu.item.map((subItem) => (
                                             <ListItem key={subItem.id} disablePadding sx={{ pb: 1 }}>
-                                                <ListItemButton
-                                                    href={subItem.url}
-                                                    sx={{
-                                                        borderRadius: 2,
-                                                        bgcolor: subItem.id === selectedMenu ? "white" : "#37658B",
-                                                        color: subItem.id === selectedMenu ? "#37658B" : "white",
-                                                        display: "flex",
-                                                        alignItems: "center",
-                                                        gap: 2,
-                                                        "&:hover": { bgcolor: "#1E4568", color: "white" },
-                                                    }}
-                                                >
-                                                    <RadioButtonUncheckedIcon fontSize="small" />
-                                                    <ListItemText
-                                                        primary={subItem.label}
-                                                        primaryTypographyProps={{
-                                                            fontWeight: subItem.id === selectedMenu ? "400" : "normal",
+                                                <Link href={subItem.url} style={{ width: "100%" }}>
+                                                    <ListItemButton
+                                                        sx={{
+                                                            borderRadius: 2,
+                                                            bgcolor: subItem.id === selectedMenu ? "white" : "#37658B",
+                                                            color: subItem.id === selectedMenu ? "#37658B" : "white",
+                                                            display: "flex",
+                                                            alignItems: "center",
+                                                            gap: 2,
+                                                            "&:hover": { bgcolor: "#1E4568", color: "white" },
                                                         }}
-                                                    />
-                                                </ListItemButton>
+                                                    >
+                                                        <RadioButtonUncheckedIcon fontSize="small" />
+                                                        <ListItemText
+                                                            primary={subItem.label}
+                                                            primaryTypographyProps={{
+                                                                fontWeight: subItem.id === selectedMenu ? "400" : "normal",
+                                                            }}
+                                                        />
+                                                    </ListItemButton>
+                                                </Link>
                                             </ListItem>
                                         ))}
                                     </List>

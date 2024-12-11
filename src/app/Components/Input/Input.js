@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import React from "react";
 
 function Input({
@@ -10,17 +11,17 @@ function Input({
   fieldName,
   layout = "col",
   customClass = "",
-  customInputClass ="",
+  customInputClass = "",
 }) {
   return (
     <div
       className={`flex ${layout === "row" ? "flex-row" : "flex-col"} gap-[5px] ${customClass}`}
     >
       {labelText && (
-        <label htmlFor={name}>
+        <Box component="label" htmlFor={name} sx={{ display: "flex", gap: 0.5 }}>
           {labelText}
-          <span className="text-red-500">*</span>
-        </label>
+          <p className="text-red-500">*</p>
+        </Box>
       )}
       <input
         onChange={onChange}

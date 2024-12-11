@@ -152,7 +152,7 @@ const EventCard = ({ event }) => {
               Link
             </Box>
             <Link
-              href={link}
+              href={"/campaigns/registration-form"}
               sx={{
                 color: "#104774",
                 backgroundColor: "#FFF",

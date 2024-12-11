@@ -109,7 +109,6 @@ const Visa = ({ formData, setFormData }) => {
                 <CustomFileUploadField
                   label={field.label}
                   value={formData[field.name]}
-                  onChange={(e) => handleFileChange(e, field.name)}
                   height={36.5}
                   borderRadius={5}
                   bgColor="#FFFFFF"

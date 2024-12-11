@@ -1,6 +1,8 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
+import { CircleX, FileBarChart2 } from "lucide-react";
 
 const CustomFileUploadField = ({
   value,
@@ -17,10 +19,17 @@ const CustomFileUploadField = ({
 }) => {
   return (
     <Box sx={{ display: "flex", alignItems: "start", flexDirection: "column" }}>
-      {/* Label with dynamic text size */}
-      <Typography  sx={{ fontSize: textSize, marginBottom: marginBottom, }} >{label}</Typography>
-      <Box sx={{ flex: "1", width: "100%", display: "flex", alignItems: "center" }}>
-        {/* CustomTextField with dynamic height, borderRadius, and background color */}
+      <Typography>{label}</Typography>
+      <Box
+        sx={{
+          flex: "1",
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          border: "1px solid #D5D4D7",
+          borderRadius: 1.5,
+        }}
+      >
         <CustomTextField
           value={value?.name || ""}
           placeholder={placeholder ? placeholder : "PDF Scanned"}
@@ -28,7 +37,6 @@ const CustomFileUploadField = ({
           error={!!error}
           removeRightBorder={true}
           sx={{
-            
             "& .MuiInputBase-root": {
               borderTopRightRadius: 0,
               borderBottomRightRadius: 0,
@@ -37,9 +45,9 @@ const CustomFileUploadField = ({
               height: height ? height : 42.5,
               backgroundColor: bgColor, // Apply dynamic background color
             },
-            "& .MuiTypography-root": {
-              fontSize: textSize === "body1" ? "1rem" : "0.875rem", // Adjust text size
-            },
+            "& .MuiOutlinedInput-notchedOutline": {
+              border: "none"
+            }
           }}
         />
         
@@ -70,8 +78,6 @@ const CustomFileUploadField = ({
           />
         </Button>
       </Box>
-      
-      {/* Error message */}
       {error && <Typography color="error">{error.message}</Typography>}
     </Box>
   );
