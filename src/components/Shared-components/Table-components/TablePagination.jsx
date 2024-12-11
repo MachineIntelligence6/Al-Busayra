@@ -2,9 +2,9 @@ import React, { useMemo } from "react";
 import { Box, Typography, Pagination } from "@mui/material";
 
 const TablePagination = ({
-  totalEntries,
-  rowsPerPage,
-  currentPage,
+  totalEntries = 100,
+  rowsPerPage = 10,
+  currentPage = 1,
   setCurrentPage,
 }) => {
   const totalPages = Math.ceil(totalEntries / rowsPerPage);

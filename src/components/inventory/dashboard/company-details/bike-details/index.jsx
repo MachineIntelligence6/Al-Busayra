@@ -5,9 +5,11 @@ import CustomButton from '@/components/Shared-components/CustomButton'
 import MasonryGrid from '@/components/Shared-components/masonry-grid'
 import { inventoryViewDetails } from '@/utils/hard-data/inventory-data'
 import { Box, Divider } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 
 const BikeDetails = () => {
+    const [profileData, setProfileData] = useState(inventoryViewDetails)
+
     return (
         <Box>
             <Box sx={{ px: 2, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -16,11 +18,21 @@ const BikeDetails = () => {
             <Divider sx={{ mt: 2 }} />
             <Box component="div">
                 <MasonryGrid>
+<<<<<<< HEAD
                     {inventoryViewDetails?.map((details) => (
                         <Box key={details?.id} sx={{ width: "100%", m: 2 }}>
                             <BasicInfo profile={details} onEdit={() => { }} />
                         </Box>
                     ))}
+=======
+                    {profileData.map((details) => {
+                        return (
+                            <Box key={details?.id} sx={{ width: "100%", m: 2 }}>
+                                <BasicInfo profile={details} onEdit={() => { }} />
+                            </Box>
+                        )
+                    })}
+>>>>>>> develop_next
                 </MasonryGrid>
 
             </Box>

@@ -9,6 +9,7 @@ import { Box, Typography } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
 import { platformListing, vendorListing } from "@/utils/schemas/vendor.data";
 import VendorDetailModal from "./VendorDetailModal";
+import TablePagination from "@/components/Shared-components/Table-components/TablePagination";
 
 
 const platformFilters = [
@@ -148,6 +149,7 @@ const VendorTableWrapper = () => {
           onRowSelect={handleRowSelect}
           handleFilterClick={handleFilterClick}
         />
+        <TablePagination />
       </Box>
       {showPopup && <VendorDetailModal onClose={onClose} />}
     </Box>

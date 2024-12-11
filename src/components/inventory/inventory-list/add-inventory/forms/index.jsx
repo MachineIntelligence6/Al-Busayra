@@ -1,3 +1,4 @@
+"use client"
 import { Box } from "@mui/material";
 import React from "react";
 import FormTab from "./FormTab";
@@ -11,8 +12,10 @@ import BikeInsuranceForm from "./BikeInsuranceForm";
 import BikeContract from "./BikeContract";
 import BikeFoodPermitForm from "./BikeFoodPermitForm";
 import OtherDetailsForm from "./OtherDetailsForm";
+import { useRouter } from "next/navigation";
 
 const AddInventorForm = ({ formtabs, onClickTab, selectedTab }) => {
+    const router = useRouter()
     console.log(selectedTab)
 
     const handleNextClick = () => {
@@ -51,7 +54,7 @@ const AddInventorForm = ({ formtabs, onClickTab, selectedTab }) => {
             {/* *************************************************(Actions)************************************************************************************ */}
 
             <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: 'center', borderTop: "1px solid #2F2B3D40", pt: 2, pb: 4 }}>
-                <CustomButton variant="outlined" bgColor="danger" startIcon={<CircleX size={20} />}>Cancel</CustomButton>
+                <CustomButton variant="outlined" bgColor="danger" startIcon={<CircleX size={20} />} onClick={() => router.push("/inventory/inventory-list")}>Cancel</CustomButton>
                 <Box component="div" sx={{ display: 'flex', alignItems: 'center', gap: 1 }} >
                     {selectedTab?.text !== "Bike Info" && <CustomButton startIcon={<ArrowBack size={20} />} bgColor="muted" onClick={handleBackClick}>Back</CustomButton>}
                     <CustomButton endIcon={<Check size={20} />} onClick={handleNextClick}>{Boolean(selectedTab?.text === "Other Details") ? "Save" : "Next"}</CustomButton>

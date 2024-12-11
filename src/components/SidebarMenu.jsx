@@ -129,7 +129,7 @@ const styleProp = (menu, openMenu) => {
     return {
 
         borderRadius: 2,
-        bgcolor: openMenu === menu.id ? "white" : "#23567F",
+        bgcolor: openMenu === menu.id ? "#fff" : "#23567F",
         color: openMenu === menu.id ? "#23567F" : "white",
         display: "flex", alignItems: "center", gap: 2,
         "&:hover": { bgcolor: "#1E4568", color: "white" },

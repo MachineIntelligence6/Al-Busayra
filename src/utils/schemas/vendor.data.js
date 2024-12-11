@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 export const platformListing = [
     {
         id: 1, platform_ID: "5422160", platform_Name: "Careem", email: "careem@gmail.com", platform_type: "Bike Rent", image: "/images/careem-logo.png", country: "UAE", city: "Sharjah", status: "active"
-    }
+    },
 ]
 
 export const vendorListing = [
