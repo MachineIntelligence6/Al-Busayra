@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   TextField,
   Select,
@@ -9,12 +9,29 @@ import {
 } from "@mui/material";
 import Input from "@/app/Components/Input/Input";
 import Dropdown from "@/app/Components/Input/Dropdown";
+import CustomCountryCodeInput from "@/components/Shared-components/CustomCountryCodeInput";
 
 const ContactResidence = ({ formData, setFormData }) => {
-  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const countryCodes = [
+    { code: "+971" }, // USA
+    { code: "+44" }, // UK
+    { code: "+91" }, // India
+  ];
+
+  // State to store phone number
+  const [phoneNumber, setPhoneNumber] = useState({
+    countryCode: "+971",
+    number: "",
+  });
+
+  // Function to handle changes in the phone number
+  const handlePhoneNumberChange = (newValue) => {
+    setPhoneNumber(newValue);
   };
 
   const inputFields = [
@@ -26,7 +43,7 @@ const ContactResidence = ({ formData, setFormData }) => {
     {
       label: "Contact no. (UAE)",
       name: "phoneNumber",
-      component: Input,
+      component: CustomCountryCodeInput,
     },
     {
       label: "Emergency Contact Relation (UAE)",
@@ -36,7 +53,7 @@ const ContactResidence = ({ formData, setFormData }) => {
     {
       label: "Emergency Contact no. (UAE)",
       name: "eContactNo",
-      component: Input,
+      component: CustomCountryCodeInput,
     },
     {
       label: "Country",
@@ -59,15 +76,7 @@ const ContactResidence = ({ formData, setFormData }) => {
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
           {inputFields.map((field, index) => (
             <Box key={index} sx={{ width: "calc(33% - 8px)" }}>
-              {field.component === Input ? (
-                <Input
-                  labelText={field.label}
-                  customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
-                  name={field.name}
-                  value={formData[field.name]}
-                  onChange={handleInputChange}
-                />
-              ) : (
+              {field.component === Dropdown && (
                 <Dropdown
                   labelText={field.label}
                   customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
@@ -81,6 +90,27 @@ const ContactResidence = ({ formData, setFormData }) => {
                       value: option,
                     })),
                   ]}
+                />
+              )}
+              {field.component === Input && (
+                <Input
+                  labelText={field.label}
+                  customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
+                  name={field.name}
+                  value={formData[field.name]}
+                  onChange={handleInputChange}
+                />
+              )}
+              {field.component === CustomCountryCodeInput && (
+                <CustomCountryCodeInput
+                  countryCodes={countryCodes}
+                  value={phoneNumber}
+                  onChange={handlePhoneNumberChange}
+                  placeholder="Enter phone number"
+                  label={field.label}
+                  bgcolor="#FFF"
+                  height="40px"
+                  required
                 />
               )}
             </Box>

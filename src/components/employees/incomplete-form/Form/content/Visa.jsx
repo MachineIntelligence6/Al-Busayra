@@ -1,5 +1,7 @@
 import Dropdown from "@/app/Components/Input/Dropdown";
 import Input from "@/app/Components/Input/Input";
+import CustomDateField from "@/components/Shared-components/CustomDateField";
+import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
 import { Box, Divider } from "@mui/material";
 import React from "react";
 
@@ -18,17 +20,17 @@ const Visa = ({ formData, setFormData }) => {
     {
       label: "Visa Issue Date",
       name: "visaIssueDate",
-      component: Input,
+      component: CustomDateField,
     },
     {
       label: "Visa Expiry Date",
       name: "visaExpiryDate",
-      component: Input,
+      component: CustomDateField,
     },
     {
       label: "UAE Residency/Iqama",
       name: "uaeResidencyIqama",
-      component: Input,
+      component: CustomFileUploadField,
     },
     {
       label: "Company Name",
@@ -64,7 +66,7 @@ const Visa = ({ formData, setFormData }) => {
           {inputFields.map((field, index) => (
             <Box key={index} sx={{ width: "calc(33% - 8px)" }}>
               {/* Render Input or Dropdown components */}
-              {field.component === Input ? (
+              {field.component === Input && (
                 <Input
                   labelText={field.label}
                   customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
@@ -72,7 +74,8 @@ const Visa = ({ formData, setFormData }) => {
                   value={formData[field.name]}
                   onChange={handleInputChange}
                 />
-              ) : (
+              )}
+              {field.component === Dropdown && (
                 <Dropdown
                   labelText={field.label}
                   customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
@@ -86,6 +89,32 @@ const Visa = ({ formData, setFormData }) => {
                       value: option,
                     })),
                   ]}
+                />
+              )}
+              {field.component === CustomDateField && (
+                <CustomDateField
+                  label={field.label}
+                  required
+                  borderRadius={2}
+                  height={36.5}
+                  bgcolor="#FFF"
+                  textProps={{
+                    fontSize: "13px",
+                    marginBottom: 0.5,
+                  }}
+                />
+              )}
+
+              {field.component === CustomFileUploadField && (
+                <CustomFileUploadField
+                  label={field.label}
+                  value={formData[field.name]}
+                  onChange={(e) => handleFileChange(e, field.name)}
+                  height={36.5}
+                  borderRadius={5}
+                  bgColor="#FFFFFF"
+                  textSize="13px"
+                  marginBottom="4px"
                 />
               )}
             </Box>

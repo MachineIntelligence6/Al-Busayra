@@ -3,6 +3,7 @@ import { Box, Divider, Typography } from "@mui/material";
 import Input from "@/app/Components/Input/Input";
 import Dropdown from "@/app/Components/Input/Dropdown";
 import CustomButton from "@/components/Shared-components/CustomButton";
+import CustomDateField from "@/components/Shared-components/CustomDateField";
 
 const BasicInfo = ({ formData, setFormData }) => {
   const handleImageChange = (e) => {
@@ -32,7 +33,7 @@ const BasicInfo = ({ formData, setFormData }) => {
       component: Dropdown,
       options: ["Male", "Female", "Other"],
     },
-    { label: "Date of Birth", name: "dob", component: Input },
+    { label: "Date of Birth", name: "dob", component: CustomDateField },
     {
       label: "Religion",
       name: "religion",
@@ -126,7 +127,7 @@ const BasicInfo = ({ formData, setFormData }) => {
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
           {inputFields.map((field, index) => (
             <Box key={index} sx={{ width: "calc(33% - 8px)" }}>
-              {field.component === Input ? (
+              {field.component === Input && (
                 <Input
                   labelText={field.label}
                   customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
@@ -134,12 +135,28 @@ const BasicInfo = ({ formData, setFormData }) => {
                   value={formData[field.name]}
                   onChange={handleInputChange}
                 />
-              ) : (
+              )}
+
+              {field.component === CustomDateField && (
+                <CustomDateField
+                  label={field.label}
+                  required
+                  borderRadius={1.5}
+                  height={37.5}
+                  bgcolor="#FFF"
+                  textProps={{
+                    fontSize: "13px",
+                    marginBottom: 0.5,
+                  }}
+                />
+              )}
+
+              {field.component === Dropdown && (
                 <Dropdown
                   labelText={field.label}
                   customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
                   name={field.name}
-                  value={formData[field.name] || ""}
+                  value={formData[field.name]}
                   onChange={handleInputChange}
                   options={[
                     { label: "Select an option", value: "" },

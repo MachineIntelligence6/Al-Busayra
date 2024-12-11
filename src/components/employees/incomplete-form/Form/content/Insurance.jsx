@@ -1,5 +1,6 @@
 import Dropdown from "@/app/Components/Input/Dropdown";
 import Input from "@/app/Components/Input/Input";
+import CustomDateField from "@/components/Shared-components/CustomDateField";
 import { Box, Divider } from "@mui/material";
 import React from "react";
 
@@ -17,12 +18,12 @@ const Insurance = ({ formData, setFormData }) => {
     {
       label: "Medical Insurance Start Date",
       name: "miStartDate",
-      component: Input,
+      component: CustomDateField,
     },
     {
       label: "Medical Insurance End Date",
       name: "miEndDate",
-      component: Input,
+      component: CustomDateField,
     },
     {
       label: "Accidental Insurance",
@@ -32,12 +33,12 @@ const Insurance = ({ formData, setFormData }) => {
     {
       label: "Accidental Insurance Start Date",
       name: "aiStartDate",
-      component: Input,
+      component: CustomDateField,
     },
     {
       label: "Accidental Insurance End Date",
       name: "aiEndDate",
-      component: Input,
+      component: CustomDateField,
     },
   ];
 
@@ -49,18 +50,19 @@ const Insurance = ({ formData, setFormData }) => {
           {inputFields.map((field, index) => (
             <Box key={index} sx={{ width: "calc(33% - 8px)" }}>
               {/* Render Input components */}
-              {field.component === Input ? (
+              {field.component === Input && (
                 <Input
                   labelText={field.label}
-                  customClass={"w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"}
+                  customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
                   name={field.name}
                   value={formData[field.name]}
                   onChange={handleInputChange}
                 />
-              ) : (
+              )}
+              {field.component === Dropdown && (
                 <Dropdown
                   labelText={field.label}
-                  customClass={"w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"}
+                  customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
                   name={field.name}
                   value={formData[field.name]}
                   onChange={handleInputChange}
@@ -71,6 +73,19 @@ const Insurance = ({ formData, setFormData }) => {
                       value: option,
                     })),
                   ]}
+                />
+              )}
+              {field.component === CustomDateField && (
+                <CustomDateField
+                  label={field.label}
+                  required
+                  borderRadius={2}
+                  height={36.5}
+                  bgcolor="#FFF"
+                  textProps={{
+                    fontSize: "13px",
+                    marginBottom: 0.5,
+                  }}
                 />
               )}
             </Box>
