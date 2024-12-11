@@ -21,7 +21,7 @@ import {
   BulbIcon,
   CircleCheckIcon,
   BuildingIcon,
-} from "@/utils/Icons";
+} from "./Icons";
 
 export const ViewEmployeeCardData = [
   {
