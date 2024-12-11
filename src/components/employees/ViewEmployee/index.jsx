@@ -17,29 +17,25 @@ import CustomButton from "@/components/Shared-components/CustomButton";
 import DoneIcon from "@mui/icons-material/Done";
 import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
 import EmiratesId from "./EmiratesId";
-import  VisaInfo  from "./VisaInfo";
-import  InsuranceInfo  from "./InsuranceInfo";
-import  OtherInfo  from "./OtherInfo";
+import VisaInfo from "./VisaInfo";
+import InsuranceInfo from "./InsuranceInfo";
+import OtherInfo from "./OtherInfo";
 import ViewEmployeeHeader from "../../Shared-components/ViewEmployeeHeader";
 import HighlightOffOutlinedIcon from "@mui/icons-material/HighlightOffOutlined";
 import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
 import { ViewEmployeeCardData } from "../../../utils/view-employee-card-data";
 import KeyboardBackspaceSharpIcon from "@mui/icons-material/KeyboardBackspaceSharp";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
-
-
+import { useRouter } from "next/navigation";
 
 const EmployeeView = () => {
   const [profile, setProfile] = useState(ViewEmployeeCardData);
+  const router = useRouter();
 
   const handleEdit = (section) => {
     console.log(`Editing ${section}`);
-    // Add your edit logic here
+    router.push("/employees/incomplete-profile/form");
   };
-
-  // const handleStatusChange = (value) => {
-  //   console.log("Status changed to:", value);
-  // };
 
   return (
     <Box sx={{ p: 2 }}>

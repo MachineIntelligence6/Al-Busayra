@@ -10,11 +10,13 @@ function Input({
   fieldName,
   layout = "col",
   customClass = "",
-  customInputClass ="",
+  customInputClass = "",
 }) {
   return (
     <div
-      className={`flex ${layout === "row" ? "flex-row" : "flex-col"} gap-[5px] ${customClass}`}
+      className={`flex ${
+        layout === "row" ? "flex-row" : "flex-col"
+      } gap-[5px] ${customClass}`}
     >
       {labelText && (
         <label htmlFor={name}>
@@ -36,7 +38,3 @@ function Input({
 }
 
 export default Input;
-
-
-
-

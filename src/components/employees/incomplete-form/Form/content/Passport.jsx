@@ -77,6 +77,7 @@ const Passport = ({ formData, setFormData }) => {
                   bgColor="#FFFFFF"
                   textSize="13px"
                   marginBottom="4px"
+                  required
                 />
               )}
             </Box>

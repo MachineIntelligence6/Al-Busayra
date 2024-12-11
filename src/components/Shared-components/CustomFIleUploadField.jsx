@@ -8,18 +8,24 @@ const CustomFileUploadField = ({
   error,
   placeholder,
   label,
-  height = 38.7,  // Default height
-  borderRadius = 0,  // Default border radius (can be adjusted as needed)
+  height = 38.7, // Default height
+  borderRadius = 0, // Default border radius (can be adjusted as needed)
   textSize = "body1", // Default text size, you can use MUI's typography variants
   buttonText = "Upload", // Button text
   bgColor, // Default background color for the text field
   marginBottom,
+  required = false,
 }) => {
   return (
     <Box sx={{ display: "flex", alignItems: "start", flexDirection: "column" }}>
       {/* Label with dynamic text size */}
-      <Typography  sx={{ fontSize: textSize, marginBottom: marginBottom, }} >{label}</Typography>
-      <Box sx={{ flex: "1", width: "100%", display: "flex", alignItems: "center" }}>
+      <Typography sx={{ fontSize: textSize, marginBottom: marginBottom }}>
+        {label}
+        {required && <span className="text-[red]"> *</span>}
+      </Typography>
+      <Box
+        sx={{ flex: "1", width: "100%", display: "flex", alignItems: "center" }}
+      >
         {/* CustomTextField with dynamic height, borderRadius, and background color */}
         <CustomTextField
           value={value?.name || ""}
@@ -28,7 +34,6 @@ const CustomFileUploadField = ({
           error={!!error}
           removeRightBorder={true}
           sx={{
-            
             "& .MuiInputBase-root": {
               borderTopRightRadius: 0,
               borderBottomRightRadius: 0,
@@ -42,7 +47,7 @@ const CustomFileUploadField = ({
             },
           }}
         />
-        
+
         {/* Button with dynamic height, border radius, and text size */}
         <Button
           variant="outlined"
@@ -55,7 +60,7 @@ const CustomFileUploadField = ({
             color: "#2F2B3DE5",
             backgroundColor: "#E6E6E9",
             textTransform: "capitalize",
-            height: height,  // Ensuring the button's height matches the text field
+            height: height, // Ensuring the button's height matches the text field
             fontSize: textSize === "body1" ? "1rem" : "0.875rem", // Adjust button text size
           }}
         >
@@ -68,7 +73,7 @@ const CustomFileUploadField = ({
           />
         </Button>
       </Box>
-      
+
       {/* Error message */}
       {error && <Typography color="error">{error.message}</Typography>}
     </Box>
