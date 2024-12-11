@@ -2,7 +2,6 @@ import { Avatar, Typography, Box } from "@mui/material";
 import React from "react";
 
 const ProfileData = ({ image, name, email }) => {
-  console.log(image, name, email);
   return (
     <>
       <Box display="flex" gap={1} alignItems="center">

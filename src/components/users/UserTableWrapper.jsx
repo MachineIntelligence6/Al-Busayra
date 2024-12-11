@@ -124,7 +124,6 @@ const UserTableWrapper = ({
         headerName: "USER NAME",
         align: "left",
         render: (row) => {
-          console.log(row);
           return (
             <CustomAvatar
               image={row.image}

@@ -13,7 +13,7 @@ import {
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 export const CustomMultiSelect = ({ options, value, onChange, placeholder, fullWidth, ...sx }) => {
-    console.log(options,"options")
+
   return (
     <FormControl sx={{ minWidth: "100%", ...sx }}
     // error={!!error}

@@ -16,7 +16,6 @@ import { useRouter } from "next/navigation";
 
 const AddInventorForm = ({ formtabs, onClickTab, selectedTab }) => {
     const router = useRouter()
-    console.log(selectedTab)
 
     const handleNextClick = () => {
         const index = formtabs.findLastIndex(item => item.isActive);

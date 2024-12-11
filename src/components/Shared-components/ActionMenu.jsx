@@ -3,7 +3,6 @@ import { Menu, MenuItem, IconButton } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 const ActionMenu = ({ menuItems = [], onMenuItemClick }) => {
-    console.log(menuItems,"menuItems");
     
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
