@@ -12,8 +12,7 @@ import { useRouter } from "next/navigation";
 import React, { useMemo } from "react";
 
 const ContractForm = () => {
-
-  const router = useRouter()
+  const router = useRouter();
 
   const inputFields = useMemo(() => {
     return [
@@ -64,7 +63,7 @@ const ContractForm = () => {
         type: "dropdown",
       },
     ];
-  }, [])
+  }, []);
 
   return (
     <Box>
@@ -93,7 +92,17 @@ const ContractForm = () => {
                   <CustomDropdown label={field.label} />
                 )}
                 {field.type === "calendarInput" && (
-                  <CustomDateField label={field.label} />
+                  <CustomDateField
+                    label={field.label}
+                    required
+                    borderRadius={1.5}
+                    height={37.5}
+                    bgcolor="#FFF"
+                    textProps={{
+                      fontSize: "13px",
+                      marginBottom: 0.5,
+                    }}
+                  />
                 )}
               </Box>
             );
