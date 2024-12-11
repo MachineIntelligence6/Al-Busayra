@@ -14,11 +14,7 @@ import {
   IconButton,
 } from "@mui/material"
 import { styled } from "@mui/material/styles"
-import VisibilityIcon from "@mui/icons-material/Visibility"
-import AddIcon from "@mui/icons-material/Add"
-import EditIcon from "@mui/icons-material/Edit"
-import DeleteIcon from "@mui/icons-material/Delete"
-import LockIcon from "@mui/icons-material/Lock"
+import { AddIcon, DeleteIcon, EditIcon, EyeIcon,PermissionIcon, PermissionNameIcon } from "@/utils/Icons"
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   borderRight: "1px solid rgba(224, 224, 224, 1)",
@@ -56,7 +52,7 @@ const IndentedCell = styled(StyledTableCell)(({ indent = 0 }) => ({
 }))
 
 const iconMap = {
-  View: <VisibilityIcon fontSize="5px"/>,
+  View: <EyeIcon fontSize="5px"/>,
   Add: <AddIcon fontSize="5px"/>,
   Edit: <EditIcon fontSize="5px"/>,
   Delete: <DeleteIcon fontSize="5px"/>,
@@ -108,7 +104,7 @@ export default function CustomizablePermissionsTable({
           <TableRow>
             <StyledTableCell className="header">
             <IconButton size="small" style={{ color: "white" }}>
-                <LockIcon fontSize="5px" />
+                <PermissionNameIcon />
               <Typography variant="subtitle2" marginLeft="10px">Name</Typography>
               </IconButton>
             </StyledTableCell>
@@ -122,7 +118,7 @@ export default function CustomizablePermissionsTable({
             ))}
             <StyledTableCell className="header">
               <IconButton size="small" style={{ color: "white" }}>
-                <LockIcon fontSize="px" />
+              <PermissionIcon />
               <Typography variant="subtitle2" marginLeft="10px">{customPermissionsLabel}</Typography>
               </IconButton>
             </StyledTableCell>
