@@ -25,7 +25,7 @@ function OTp() {
                 <div className="flex flex-col w-full mb-6">
                     <OTPInput />
                 </div>
-                <CustomButton fullWidth onClick={() => router.push("/companies")} sx={{ display: "flex", gap: 1 }}>
+                <CustomButton fullWidth onClick={() => router.push("/campaigns")} sx={{ display: "flex", gap: 1 }}>
                     Continue <FaArrowRight className="text-white" />
                 </CustomButton>
             </div>
