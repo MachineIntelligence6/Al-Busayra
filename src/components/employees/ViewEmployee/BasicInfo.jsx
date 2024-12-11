@@ -4,7 +4,6 @@ import { ViewCard, ViewItem } from "@/components/Shared-components/ViewCard";
 import { Box, Divider } from "@mui/material";
 
 export default function BasicInfo({ profile, onEdit }) {
-  console.log("view card", profile)
   return (
     <ViewCard title={profile?.title} onEdit={onEdit}>
       {profile?.data?.map((item, index) => (

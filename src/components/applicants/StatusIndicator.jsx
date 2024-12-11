@@ -52,6 +52,14 @@ export function StatusIndicator({ status, pathname }) {
         backgroundColor = '#FFECEC';
         textColor = '#FF0000';
         break;
+      case 'Manager':
+        backgroundColor = '#FFF4D9';
+        textColor = '#FFA500';
+        break;
+      case 'Admin':
+        backgroundColor = '#D9F0FF';
+        textColor = '#00BAD1';
+        break;
       default:
         break;
     }

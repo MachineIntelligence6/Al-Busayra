@@ -10,6 +10,7 @@ const DynamicBreadcrumb = ({
   onClick,
   icon,
   isChallan,
+  isRole,
 }) => {
   const pathname = usePathname();
 
@@ -54,6 +55,11 @@ const DynamicBreadcrumb = ({
       {isChallan && (
         <CustomButton onClick={onClick} sx={{marginLeft:"14px"}}>
           Add Challan
+        </CustomButton>
+      )}
+      {isRole && (
+        <CustomButton startIcon={icon} onClick={onClick} sx={{marginLeft:"14px"}}>
+          {btnName}
         </CustomButton>
       )}
       </Box>
