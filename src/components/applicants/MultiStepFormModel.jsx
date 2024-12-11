@@ -100,7 +100,7 @@ export default function MultiStepFormModel({ handleCloseModal }) {
   const onSubmit = (data) => {
     console.log(data)
     handleCloseModal()
-    route.push("/applicants/final-review")
+    route.push("/admin/applicants/final-review")
   }
 
   return (

@@ -63,7 +63,7 @@ const Page = () => {
 
   const handleProceed = (section) => {
     console.log(`handleProceed ${section}`);
-    route.push("/applicants/final-review");
+    route.push("/admin/applicants/final-review");
   };
 
   const handleStatusChange = (value) => {
@@ -71,7 +71,7 @@ const Page = () => {
   };
 
   const handleOptionClick = (option) => {
-    console.log("Option clicked:",isModalRemarkOpen, option);
+    console.log("Option clicked:", isModalRemarkOpen, option);
     setIsModalRemarkOpen(true); // Set state to open modal
 
     // if (option.value === "not_qualified" || option.value === "hold") {
