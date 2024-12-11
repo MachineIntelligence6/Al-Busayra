@@ -56,7 +56,7 @@ const InventoryTableWrapper = () => {
 
     const handleMenuClick = (value) => {
         console.log("clicked menu", value);
-        router.push(`/inventory/${1234}/bike-details`)
+        router.push(`/admin/inventory/${1234}/bike-details`)
     };
 
 
@@ -171,8 +171,8 @@ const InventoryTableWrapper = () => {
     return (
         <Box sx={{ bgcolor: "white", overflow: "hidden", m: 1.5, borderRadius: 6 }}>
             <TableFilters filters={filters} />
-            <TableExportRow isBtnAdd btnText='Add Inventory' handleOpenModal={() => router.push("/inventory/inventory-list/add-inventory")} />
-            <Box sx={{ height: "100%" }}>
+            <TableExportRow isBtnAdd btnText='Add Inventory' handleOpenModal={() => router.push("/admin/inventory / inventory - list / add - inventory")} />
+            <Box Box sx={{ height: "100%" }}>
                 <CustomTable
                     columns={fullColumns}
                     data={InventoryListData}
@@ -180,7 +180,7 @@ const InventoryTableWrapper = () => {
                     handleFilterClick={() => { }}
                 />
             </Box>
-        </Box>
+        </Box >
     )
 }
 

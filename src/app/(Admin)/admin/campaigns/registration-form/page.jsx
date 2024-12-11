@@ -174,7 +174,7 @@ const Page = () => {
               marginTop: 4,
             }}
           >
-            <Link href="/campaigns">
+            <Link href="/admin/campaigns">
               <CustomButton
                 variant="outlined"
                 bgColor="danger"
@@ -184,7 +184,7 @@ const Page = () => {
                 Cancel
               </CustomButton>
             </Link>
-            <Link href={'/campaigns/campaign-users'}>
+            <Link href={'/admin/campaigns/campaign-users'}>
               <CustomButton
                 variant="contained"
                 type="submit"

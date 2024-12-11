@@ -18,7 +18,7 @@ const Page = () => {
   // }
 
   // const handleCloseModal = () => setIsModalOpen(false);
-  
+
   const handleClick = () => {
     router.push("applicants/shortlisted-applicants");
   };
@@ -31,7 +31,7 @@ const Page = () => {
       <Divider sx={{ mt: 2 }} />
 
       <Box component="div" display="flex" justifyContent="center" flexDirection="column" alignItems="center" height="80vh">
-      {/* <GenericModal
+        {/* <GenericModal
         open={isModalOpen}
         onClose={handleCloseModal}
         title="Applicants Modal"
@@ -39,13 +39,13 @@ const Page = () => {
         <MultiStepFormModel handleCloseModal={handleCloseModal} />
       </GenericModal> */}
         <EmptyScreenView
-          image="./applicantIcons/ApplicantsLogo.svg"
+          image="/applicantIcons/ApplicantsLogo.svg"
           altText="campaign"
           title="No Applicant Added"
           description="Please click the button below to add a new Employee"
           buttonText="Add Applicant"
           onButtonClick={handleClick}
-          // onButtonClick={handleOpenModal}
+        // onButtonClick={handleOpenModal}
         />
       </Box>
     </>

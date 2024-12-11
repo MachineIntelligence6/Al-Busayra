@@ -117,7 +117,7 @@ const ContractForm = () => {
           bgColor="secondary"
           sx={buttonStyle}
           startIcon={<MoveLeft />}
-          onClick={() => router.push("/corporate")}
+          onClick={() => router.push("/admin/corporate")}
         >
           Back
         </CustomButton>

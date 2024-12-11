@@ -60,7 +60,7 @@ const EventCard = ({ event }) => {
           background: `linear-gradient(123deg, ${bgColor[1]}, ${bgColor[1]})`,
         },
       }}
-      onClick={() => route.push("/campaigns/campaign-users")}
+      onClick={() => route.push("/admin/campaigns/campaign-users")}
     >
       {/* Header Section */}
       <Box
@@ -152,7 +152,7 @@ const EventCard = ({ event }) => {
               Link
             </Box>
             <Link
-              href={"/campaigns/registration-form"}
+              href={"/admin/campaigns/registration-form"}
               sx={{
                 color: "#104774",
                 backgroundColor: "#FFF",

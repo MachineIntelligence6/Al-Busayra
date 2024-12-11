@@ -18,9 +18,9 @@ const Page = () => {
   // }
 
   // const handleCloseModal = () => setIsModalOpen(false);
-  
+
   const handleClick = () => {
-    router.push("/users/roles-template/add-new-roles");
+    router.push("/admin/users/roles-template/add-new-roles");
   };
 
   return (
@@ -31,7 +31,7 @@ const Page = () => {
       <Divider sx={{ mt: 2 }} />
 
       <Box component="div" display="flex" justifyContent="center" flexDirection="column" alignItems="center" height="80vh">
-      {/* <GenericModal
+        {/* <GenericModal
         open={isModalOpen}
         onClose={handleCloseModal}
         title="Applicants Modal"
@@ -45,7 +45,7 @@ const Page = () => {
           description="Please click the button below to add new roles."
           buttonText="Add Roles"
           onButtonClick={handleClick}
-          // onButtonClick={handleOpenModal}
+        // onButtonClick={handleOpenModal}
         />
       </Box>
     </>

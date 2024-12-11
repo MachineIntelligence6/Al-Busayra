@@ -27,7 +27,7 @@ const DetailsCard = () => {
                     }}
                 >
                     <Avatar
-                        src="/images/profile-m.jpg"
+                        src="/icon1.png"
                         sx={{
                             width: 70,
                             height: 70,

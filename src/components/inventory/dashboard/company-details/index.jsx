@@ -57,12 +57,12 @@ const CompanyDetails = () => {
     const router = useRouter()
 
     const handleAction = (obj) => {
-        if (obj.action === "view_details") router.push("/inventory/company/bike-details")
+        if (obj.action === "view_details") router.push("/admin/inventory/company/bike-details")
     }
 
 
     const handleAddInventory = () => {
-        router.push("/inventory/add-inventory")
+        router.push("/admin/inventory/add-inventory")
     }
 
     const columns = useMemo(() => {

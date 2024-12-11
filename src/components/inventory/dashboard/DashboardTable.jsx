@@ -45,7 +45,7 @@ const DashboardTable = () => {
 
     const handleActionClick = (obj) => {
         console.log(obj)
-        if (obj.action === "company_status") router.push("/inventory/company")
+        if (obj.action === "company_status") router.push("/admin/inventory/company")
     }
 
     const MenuItems = useMemo(

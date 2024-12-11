@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 const AuthLayout = ({ children }) => {
   const pathname = usePathname();
 
-  if (pathname.startsWith("/campaigns/registration-form") || pathname.startsWith("/login")) {
+  if (pathname.startsWith("/admin/campaigns/registration-form") || pathname.startsWith("/login")) {
 
     return (
       <div key={"auth-layout"} className="grid grid-cols-12 gap-4 p-5 h-screen">
