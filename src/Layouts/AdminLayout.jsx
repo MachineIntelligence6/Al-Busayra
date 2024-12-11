@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box } from '@mui/material'
-import { menuData } from '@/utils/sidebar-data'
+import { adminMenuData } from '@/utils/sidebar-data'
 import SidebarMenu from '@/components/SidebarMenu'
 
 const AdminLayout = ({ children }) => {
@@ -15,7 +15,7 @@ const AdminLayout = ({ children }) => {
             }}
             key={"admin-layout"}
         >
-            <SidebarMenu menuData={menuData} />
+            <SidebarMenu adminMenuData={adminMenuData} />
             <Box
                 component="main"
                 sx={{

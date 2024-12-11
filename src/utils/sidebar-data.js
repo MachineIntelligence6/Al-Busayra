@@ -1,4 +1,6 @@
-export const menuData = [
+import { AssetMenuIcon, AssetMenuIcon2, DashboardMenuIcon, EmployeesMenuIcon } from "./Icons";
+
+export const adminMenuData = [
     {
         id: "1",
         title: "Companies",
@@ -79,3 +81,48 @@ export const menuData = [
         icon: "/sidebarIcons/svg/settings.svg"
     },
 ];
+
+
+export const companyMenuData = [
+    {
+        id: "1",
+        title: "Dashboard",
+        url: "/dashboard", // Simple route
+        icon: "/sidebarIcons/company/dashboard.svg",
+    },
+    {
+        id: "2",
+        title: "Employees",
+        icon: "/sidebarIcons/company/user.svg",
+        item: [
+            { id: "2-1", label: "Employees", url: "/employees" },
+            { id: "2-2", label: "Advance Salary", url: "/advance-salary" },
+            { id: "2-3", label: "Driving License Request", url: "/driving-license-request" },
+            { id: "2-4", label: "EMP Ledger", url: "/emp-ledger" },
+            { id: "2-5", label: "Employee Clearance", url: "/employee-clearance" },
+            { id: "2-6", label: "Employee Information Base", url: "/employee-information-base" },
+            { id: "2-7", label: "Employee Transfer", url: "/employee-transfer" },
+            { id: "2-8", label: "Food Permit Deduction", url: "/food-permit-deduction" },
+            { id: "2-9", label: "General Deduction", url: "/general-deduction" },
+            { id: "2-10", label: "Passport Return", url: "/passport-return" },
+            { id: "2-11", label: "Passport Acceptance", url: "/passport-acceptance" },
+            { id: "2-12", label: "Payroll", url: "/payroll" },
+            { id: "2-13", label: "Special Allowance", url: "/special-allowance" },
+            { id: "2-14", label: "Loan", url: "/loan" },
+        ],
+    },
+    {
+        id: "3",
+        title: "Asset Allocation",
+        url: "/asset-allocation",
+        icon: "/sidebarIcons/company/clearance.svg",
+    },
+    {
+        id: "4",
+        title: "Asset Clearance",
+        url: "/asset-clearance",
+        icon: "/sidebarIcons/company/allocation.svg",
+
+    },
+
+]
