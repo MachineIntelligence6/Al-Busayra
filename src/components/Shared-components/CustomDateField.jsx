@@ -17,30 +17,47 @@ const CustomDateField = ({
   error,
   helperText,
   fullWidth = true,
-  textProps, // Props for label typography
-  sx, // Additional styles
+  textProps = {}, // Props for label typography
+  sx = {}, // Additional styles for the field wrapper
   required = false, // Indicate if the field is required
+  borderRadius = 8, // Custom border radius for the date field
+  height = 40, // Custom height for the date field
+  bgcolor = "transparent", // Set default background color to white for the text field
   ...props
 }) => {
   return (
     <FormControl
-      sx={{ ...sx, borderRadius: 8 }}
+      sx={{
+        ...sx,
+        borderRadius: borderRadius,
+        width: fullWidth ? "100%" : "auto",
+      }}
       fullWidth={fullWidth}
       error={!!error}
     >
       {label && (
-        <Typography component="label" {...textProps}>
+        <Typography component="label" sx={{ fontSize: textProps.fontSize, marginBottom: textProps.marginBottom }} {...textProps}>
           {label}
           {required && <span style={{ color: "red" }}> *</span>}
         </Typography>
       )}
+
       <TextField
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        type="date" // Set type to date
+        type="date"
         size="small"
         variant="outlined"
+        sx={{
+          height: height, // Set custom height
+          borderRadius: borderRadius, // Apply custom border radius
+          "& .MuiOutlinedInput-root": {
+            height: height, // Ensure the height is consistent for the input
+            borderRadius: borderRadius, // Border radius for the input
+            backgroundColor: bgcolor, // Apply the background color (white by default)
+          },
+        }}
         {...props}
       />
       {helperText && (
@@ -61,6 +78,9 @@ CustomDateField.propTypes = {
   label: PropTypes.string,
   required: PropTypes.bool,
   textProps: PropTypes.object,
+  borderRadius: PropTypes.number, // Custom border radius for the date field
+  height: PropTypes.number, // Custom height for the date field
+  bgcolor: PropTypes.string, // Custom background color for the date field
 };
 
 export default CustomDateField;

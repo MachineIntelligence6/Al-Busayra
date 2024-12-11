@@ -290,6 +290,13 @@ export const ShieldIcon = () => {
         </svg>
     )
 }
+export const StarIcon = () => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.5002 18.4891L6.07103 21.8693L7.29915 14.71L2.09082 9.64017L9.27832 8.5985L12.4929 2.08496L15.7075 8.5985L22.895 9.64017L17.6867 14.71L18.9148 21.8693L12.5002 18.4891Z" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+    )
+}
 export const ThreeDotsCircularFrame = () => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">

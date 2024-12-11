@@ -10,14 +10,12 @@ const AddContract = () => {
   return (
     <Box sx={{ mt: 2 }}>
       <Box sx={{ display: "flex", gap: 2, flex: "1 1 0" }}>
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <SideCard
-            avatarSrc="/icons/pic.svg"
-            name="Saleem Akhtar Muhammad Miskeen"
-            email="saleemakhtar@gmail.com"
-            contractData={addContractData}
-          />
-        </Box>
+        <SideCard
+          avatarSrc="/icons/pic.svg"
+          name="Saleem Akhtar Muhammad Miskeen"
+          email="saleemakhtar@gmail.com"
+          contractData={addContractData}
+        />
 
         <Box
           sx={{
