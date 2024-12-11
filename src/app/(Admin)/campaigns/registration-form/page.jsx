@@ -8,6 +8,9 @@ import Input from "@/app/Components/Input/Input";
 import AppLogo from "@/components/Shared-components/AppLogo";
 import CustomDropdown from "@/components/Shared-components/CustomDropDown";
 import CustomButton from "@/components/Shared-components/CustomButton";
+import { Check, CircleX } from "lucide-react";
+import { redirect } from "next/navigation";
+import Link from "next/link";
 
 const Page = () => {
   const [cityOptions, setCityOptions] = useState([]);
@@ -171,50 +174,25 @@ const Page = () => {
               marginTop: 4,
             }}
           >
-            <CustomButton
-              variant="outlined"
-              bgColor="danger"
-              onClick={() => formik.resetForm()}
-              startIcon={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                >
-                  <path
-                    d="M7.99967 14.6668C4.31777 14.6668 1.33301 11.682 1.33301 8.00016C1.33301 4.31826 4.31777 1.3335 7.99967 1.3335C11.6815 1.3335 14.6663 4.31826 14.6663 8.00016C14.6663 11.682 11.6815 14.6668 7.99967 14.6668ZM7.99967 7.05736L6.11405 5.17174L5.17125 6.11454L7.05687 8.00016L5.17125 9.88576L6.11405 10.8286L7.99967 8.94296L9.88527 10.8286L10.8281 9.88576L8.94247 8.00016L10.8281 6.11454L9.88527 5.17174L7.99967 7.05736Z"
-                    fill="#FF4C51"
-                  />
-                </svg>
-              }
-            >
-              Cancel
-            </CustomButton>
-            <CustomButton
-              variant="contained"
-              type="submit"
-              endIcon={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                >
-                  <path
-                    d="M3.33301 7.99984L6.66634 11.3332L13.333 4.6665"
-                    stroke="white"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              }
-            >
-              Save
-            </CustomButton>
+            <Link href="/campaigns">
+              <CustomButton
+                variant="outlined"
+                bgColor="danger"
+                // onClick={() => formik.resetForm()}
+                startIcon={<CircleX size={16} />}
+              >
+                Cancel
+              </CustomButton>
+            </Link>
+            <Link href={'/campaigns/campaign-users'}>
+              <CustomButton
+                variant="contained"
+                type="submit"
+                endIcon={<Check size={16} />}
+              >
+                Save
+              </CustomButton>
+            </Link>
           </Box>
         </Box>
       </Box>
