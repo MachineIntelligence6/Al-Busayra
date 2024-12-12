@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Box } from "@mui/material";
 import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
@@ -10,6 +10,48 @@ import TableExportRow from "@/components/Shared-components/Table-components/Tabl
 import TableFilters from "@/components/Shared-components/Table-components/TableFilters";
 import CustomAvatar from "@/components/Shared-components/CustomAvatar";
 import TablePagination from "@/components/Shared-components/Table-components/TablePagination";
+
+const platformFilters = [
+  {
+    id: 1,
+    filterName: "Resident",
+    placeholder: "Non Resident",
+    options: [
+      { id: 1, label: "Non Resident", value: "non resident" },
+      { id: 2, label: "Resident", value: "resident" },
+    ],
+  },
+  {
+    id: 3,
+    filterName: "Country",
+    placeholder: "UAE",
+    options: [
+      { id: 1, label: "UAE", value: "uae" },
+      { id: 2, label: "Pakistan", value: "pakistan" },
+      { id: 3, label: "India", value: "india" },
+    ],
+  },
+
+  {
+    id: 4,
+    filterName: "City",
+    placeholder: "Islamabad",
+    options: [
+      { id: 1, label: "Islamabad", value: "islamabad" },
+      { id: 2, label: "Rawalpindi", value: "rawalpindi" },
+      { id: 3, label: "Peshawar", value: "peshawar" },
+    ],
+  },
+  {
+    id: 2,
+    filterName: "Campaign",
+    placeholder: "Please Select",
+    options: [
+      { id: 1, label: "Option 1", value: "option 1" },
+      { id: 2, label: "Option 2", value: "option 2" },
+    ],
+  },
+];
 
 const columnConfig = {
   shortlistedApplicants: [
@@ -50,6 +92,7 @@ const EmployeeTableWrapper = ({
   const router = useRouter();
   const totalEntries = 20;
   const totalPages = Math.ceil(totalEntries / rowsPerPage);
+  const [filters, setFilters] = useState(platformFilters);
 
   const handleRowSelect = (selectedRowIds) => {
     console.log("Selected Row IDs:", selectedRowIds);
@@ -61,7 +104,8 @@ const EmployeeTableWrapper = ({
   };
 
   const handleMenuClick = (item) => {
-    if (item.action === "proceed") router.push("/admin/employees/incomplete-profile/form")
+    if (item.action === "proceed")
+      router.push("/admin/employees/incomplete-profile/form");
     console.log("clicked menu", item);
   };
 
@@ -162,7 +206,7 @@ const EmployeeTableWrapper = ({
 
   return (
     <Box sx={{ bgcolor: "white", overflow: "hidden", m: 1.5, borderRadius: 6 }}>
-      <TableFilters />
+      <TableFilters filters={filters} />
       <TableExportRow handleOpenModal={handleOpenModal} />
       <Box sx={{ height: "100%" }}>
         <CustomTable
