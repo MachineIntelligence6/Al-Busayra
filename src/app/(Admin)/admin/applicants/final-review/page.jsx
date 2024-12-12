@@ -22,7 +22,7 @@ const Page = () => {
   const handleCloseModal = () => setIsModalOpen(false);
 
   useEffect(()=> {
-    if (pathname === "/applicants/final-review") {
+    if (pathname.includes("/applicants/final-review")) {
       setIsBtnShow(true);
     }
       },[pathname])
@@ -30,7 +30,7 @@ const Page = () => {
   return (
     <>
     <Box sx={{ px: 2 }}>
-    <DynamicBreadcrumb isBtnShow={isBtnShow} icon={<AddIcon/>}/>
+    <DynamicBreadcrumb isBtnShow={isBtnShow} icon={<AddIcon/>} setIsModalOpen={setIsModalOpen} onClick={handleOpenModal}/>
   </Box>
   <Divider sx={{ mt: 2 }} />
     <Box component="div">

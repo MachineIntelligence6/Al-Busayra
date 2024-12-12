@@ -147,7 +147,7 @@ export default function MultiStepFormModel({ handleCloseModal }) {
                 Cancel
               </CustomButton>
               {activeTab === tabs.length - 1 ? (
-                <Button type="submit" variant="contained" color="primary">
+                <Button type="submit" variant="contained">
                   Save
                 </Button>
               ) : (
