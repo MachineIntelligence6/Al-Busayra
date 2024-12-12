@@ -139,7 +139,7 @@ const MultiStepForm = () => {
     router.push("/employees");
   };
   const handleCancel = () => {
-    router.push("/employees/incomplete-profile");
+    router.push("/admin/employees/incomplete-profile");
     console.log("clicked menu");
   };
 

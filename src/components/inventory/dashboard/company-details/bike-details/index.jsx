@@ -18,13 +18,6 @@ const BikeDetails = () => {
             <Divider sx={{ mt: 2 }} />
             <Box component="div">
                 <MasonryGrid>
-<<<<<<< HEAD
-                    {inventoryViewDetails?.map((details) => (
-                        <Box key={details?.id} sx={{ width: "100%", m: 2 }}>
-                            <BasicInfo profile={details} onEdit={() => { }} />
-                        </Box>
-                    ))}
-=======
                     {profileData.map((details) => {
                         return (
                             <Box key={details?.id} sx={{ width: "100%", m: 2 }}>
@@ -32,7 +25,6 @@ const BikeDetails = () => {
                             </Box>
                         )
                     })}
->>>>>>> develop_next
                 </MasonryGrid>
 
             </Box>

@@ -20,13 +20,13 @@ export const InventoryListData = [
         status: true,
         allocated_company: {
             name: "Al Hamama",
-            icon: "",
+            icon: "/icon2.png",
             email: "alhamama@gmail.com",
         },
         allocated_rider: {
             name: "Mujtaba",
             email: "mujtaba@gmail.com",
-            icon: ""
+            icon: "/images/profile-m.jpg"
         }
     },
     {
@@ -50,13 +50,13 @@ export const InventoryListData = [
         status: true,
         allocated_company: {
             name: "Al Dobya",
-            icon: "",
+            icon: "/icon3.png",
             email: "aldobya@gmail.com",
         },
         allocated_rider: {
             name: "Majid",
             email: "majid@gmail.com",
-            icon: ""
+            icon: "/images/profile-f.jpg"
         }
     },
 
@@ -259,18 +259,18 @@ export const FoodPermitTable = [
 ]
 
 export const dashboardTableData = [
-    { id: 1, companyName: "Al-Busayra", companyEmail: "albusayra@gmail.com", icon: "", totalBikes: "539", allocatedBikes: "500", inactiveInventory: "02", availableInventory: "38", },
-    { id: 2, companyName: "Al-Hamama", companyEmail: "alhamama@gmail.com", icon: "", totalBikes: "647", allocatedBikes: "63", inactiveInventory: "01", availableInventory: "03", },
+    { id: 1, companyName: "Al-Busayra", companyEmail: "albusayra@gmail.com", icon: "/icon1.png", totalBikes: "539", allocatedBikes: "500", inactiveInventory: "02", availableInventory: "38", },
+    { id: 2, companyName: "Al-Hamama", companyEmail: "alhamama@gmail.com", icon: "/icon2.png", totalBikes: "647", allocatedBikes: "63", inactiveInventory: "01", availableInventory: "03", },
 ]
 
 export const albusayraVendors = [
-    { id: uuid(), vendorName: "ABDS", vendorEmail: "abds@gmail.com", icon: "", totalBikes: "86", allocatedBikes: "83", inactiveInventory: "01", availableInventory: "02" },
-    { id: uuid(), vendorName: "Auto Rent", vendorEmail: "autoorent@gmail.com", icon: "", totalBikes: "40", allocatedBikes: "66", inactiveInventory: "05", availableInventory: "10" },
-    { id: uuid(), vendorName: "Easy Lease", vendorEmail: "lease@gmail.com", icon: "", totalBikes: "70", allocatedBikes: "45", inactiveInventory: "04", availableInventory: "14" },
-    { id: uuid(), vendorName: "GM Rent", vendorEmail: "gmrent@gmail.com", icon: "", totalBikes: "45", allocatedBikes: "75", inactiveInventory: "14", availableInventory: "55" },
+    { id: uuid(), vendorName: "ABDS", vendorEmail: "abds@gmail.com", icon: "/images/profile-m.jpg", totalBikes: "86", allocatedBikes: "83", inactiveInventory: "01", availableInventory: "02" },
+    { id: uuid(), vendorName: "Auto Rent", vendorEmail: "autoorent@gmail.com", icon: "/images/profile-f.jpg", totalBikes: "40", allocatedBikes: "66", inactiveInventory: "05", availableInventory: "10" },
+    { id: uuid(), vendorName: "Easy Lease", vendorEmail: "lease@gmail.com", icon: "/images/profile-m.jpg", totalBikes: "70", allocatedBikes: "45", inactiveInventory: "04", availableInventory: "14" },
+    { id: uuid(), vendorName: "GM Rent", vendorEmail: "gmrent@gmail.com", icon: "/images/profile-f.jpg", totalBikes: "45", allocatedBikes: "75", inactiveInventory: "14", availableInventory: "55" },
 ]
 export const alhamama = [
-    { id: uuid(), vendorName: "Emirate Transport", vendorEmail: "emiratetrans@gmail.com", icon: "", totalBikes: "44", allocatedBikes: "100", inactiveInventory: "07", availableInventory: "19" },
+    { id: uuid(), vendorName: "Emirate Transport", vendorEmail: "emiratetrans@gmail.com", icon: "/icon3.png", totalBikes: "44", allocatedBikes: "100", inactiveInventory: "07", availableInventory: "19" },
 
 ]
 
@@ -292,12 +292,12 @@ export const DashboardDetailTable = [
         allocated_company: {
             name: "Al Hamams",
             email: "alhamam@gmail.com",
-            icon: ""
+            icon: "/icon2.png"
         },
         allocated_rider: {
             name: "Majid",
             email: "majid@gmail.com",
-            icon: ""
+            icon: "/images/profile-f.jpg"
         },
         employee_id: "2311",
         bike_city: "Dubai",
@@ -314,12 +314,12 @@ export const DashboardDetailTable = [
         allocated_company: {
             name: "Al Busayra",
             email: "albusayra@gmail.com",
-            icon: ""
+            icon: "/icon1.png"
         },
         allocated_rider: {
             name: "Bilal",
             email: "bilal@gmail.com",
-            icon: ""
+            icon: "/images/profile-m.jpg"
         },
         employee_id: "2311",
         bike_city: "Dubai",

@@ -61,8 +61,7 @@ const EmployeeTableWrapper = ({
   };
 
   const handleMenuClick = (item) => {
-    if (item.action === "proceed")
-      router.push("/employees/incomplete-profile/form");
+    if (item.action === "proceed") router.push("/admin/employees/incomplete-profile/form")
     console.log("clicked menu", item);
   };
 

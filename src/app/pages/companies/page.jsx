@@ -27,7 +27,6 @@ export default function Page() {
   const [tabs, setTabs] = useState("company");
   const [open,setOpen] = useState(false);
   const [listing,setListing] = useState(false)
-  console.log(tabs, "iamtabsnew");
   return (
     <div className="">
       <div className="flex flex-row items-center justify-between">

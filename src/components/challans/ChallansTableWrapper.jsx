@@ -3,48 +3,51 @@ import React, { useMemo, useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Box, Divider, Typography } from "@mui/material";
 import { useRouter } from "next/navigation"; // Import useRou
-import ActionMenu from "../Shared-components/ActionMenu";
-import TableExportRow from "../Shared-components/Table-components/TableExportRow";
-import CustomTable from "../Shared-components/Table-components/CustomTable";
-import TablePagination from "../Shared-components/Table-components/TablePagination";
 import { challanData } from "@/utils/challans-data";
-import CustomDropdown from "../Shared-components/CustomDropDown";
 import { Download } from 'lucide-react';
 import { FIleIcon } from "@/utils/Icons";
 import Image from "next/image";
-// import ChallanAttachments from "./Challan-attachment";
-import { StatusIndicator } from './../applicants/StatusIndicator';
+import { StatusIndicator } from "../applicants/StatusIndicator";
+import TablePagination from "../Shared-components/Table-components/TablePagination";
+import ActionMenu from "../Shared-components/ActionMenu";
+import CustomDropdown from "../Shared-components/CustomDropDown";
+import TableExportRow from "../Shared-components/Table-components/TableExportRow";
+import CustomTable from "../Shared-components/Table-components/CustomTable";
 
 const challanSalikFilters = [
-  { id: 1, filterName: "Invoice Month", placeholder: "Please Select", options: [
-    { id: 19, label: "UAE", value: "uae" },
-    { id: 29, label: "Pakistan", value: "pakistan" },
-    { id: 39, label: "India", value: "india" },
-], },
-  { id: 2, filterName: "Vendor", placeholder: "Please Select", options: [
-    { id: 71, label: "UAE", value: "uae" },
-    { id: 72, label: "Pakistan", value: "pakistan" },
-    { id: 73, label: "India", value: "india" },
-], },
   {
-      id: 3,
-      filterName: "Vehicle Registration No",
-      placeholder: "e.g 3242",
-      options: [
-          { id: 61, label: "UAE", value: "uae" },
-          { id: 62, label: "Pakistan", value: "pakistan" },
-          { id: 63, label: "India", value: "india" },
-      ],
+    id: 1, filterName: "Invoice Month", placeholder: "Please Select", options: [
+      { id: 19, label: "UAE", value: "uae" },
+      { id: 29, label: "Pakistan", value: "pakistan" },
+      { id: 39, label: "India", value: "india" },
+    ],
   },
   {
-      id: 4,
-      filterName: "Direction",
-      placeholder: "please",
-      options: [
-          { id: 51, label: "Islamabad", value: "islamabad" },
-          { id: 52, label: "Rawalpindi", value: "rawalpindi" },
-          { id: 53, label: "Peshawar", value: "peshawar" },
-      ],
+    id: 2, filterName: "Vendor", placeholder: "Please Select", options: [
+      { id: 71, label: "UAE", value: "uae" },
+      { id: 72, label: "Pakistan", value: "pakistan" },
+      { id: 73, label: "India", value: "india" },
+    ],
+  },
+  {
+    id: 3,
+    filterName: "Vehicle Registration No",
+    placeholder: "e.g 3242",
+    options: [
+      { id: 61, label: "UAE", value: "uae" },
+      { id: 62, label: "Pakistan", value: "pakistan" },
+      { id: 63, label: "India", value: "india" },
+    ],
+  },
+  {
+    id: 4,
+    filterName: "Direction",
+    placeholder: "please",
+    options: [
+      { id: 51, label: "Islamabad", value: "islamabad" },
+      { id: 52, label: "Rawalpindi", value: "rawalpindi" },
+      { id: 53, label: "Peshawar", value: "peshawar" },
+    ],
   },
 ];
 
@@ -59,7 +62,7 @@ const challanTrafficFilters = [
       { id: 14, label: "2332", value: "2332" },
       { id: 24, label: "4343", value: "4343" },
       { id: 34, label: "4545", value: "4545" },
-  ],
+    ],
   },
   {
     id: 2,
@@ -170,16 +173,16 @@ const ChallansTableWrapper = ({
     () => ({
       home: {
         menuItems: [
-          { label: "Procced", route: "/applicants/proceed" },
-          { label: "Not qualified", route: "/applicants/not-qualified" },
+          { label: "Procced", route: "/admin/applicants/proceed" },
+          { label: "Not qualified", route: "/admin/applicants/not-qualified" },
         ],
       },
       finalReview: {
         menuItems: [
-          { label: "View Details", route: "/applicants/view-details" },
-          { label: "Proceed", route: "/applicants/hold" },
-          { label: "Hold", route: "/applicants/hold" },
-          { label: "Not Qualified", route: "/applicants/not-qualified" },
+          { label: "View Details", route: "/admin/applicants/view-details" },
+          { label: "Proceed", route: "/admin/applicants/hold" },
+          { label: "Hold", route: "/admin/applicants/hold" },
+          { label: "Not Qualified", route: "/admin/applicants/not-qualified" },
         ],
       },
       // Add more configurations for other pages as needed
@@ -202,117 +205,122 @@ const ChallansTableWrapper = ({
       { field: "dateOfSalik", headerName: "DATE OF SALIK", align: "left" },
       { field: "transactionId", headerName: "TRANSACTION ID", align: "left" },
       { field: "registrationNo", headerName: "REGISTRATION NO.", align: "left" },
-      { field: "salikAmount", headerName: "SALIK AMOUNT", align: "left",
+      {
+        field: "salikAmount", headerName: "SALIK AMOUNT", align: "left",
         render: (row) => {
-       return (
-        <>
-      <Typography
-          variant="caption"
-          sx={{
-            padding: "4px 10px",
-            borderRadius: "3px",
-          }}
-        >
-           {row.salikAmount.amount}
-        </Typography>
-          <Typography
-          variant="caption"
-          sx={{
-            backgroundColor: "#80839029", // Light gray background
-            padding: "4px 10px",
-            borderRadius: "3px",
-            color:"secondary-main"
-          }}
-        >
-           {row.salikAmount.currency}
-        </Typography>
-        </>
-        )
-             
+          return (
+            <>
+              <Typography
+                variant="caption"
+                sx={{
+                  padding: "4px 10px",
+                  borderRadius: "3px",
+                }}
+              >
+                {row.salikAmount.amount}
+              </Typography>
+              <Typography
+                variant="caption"
+                sx={{
+                  backgroundColor: "#80839029", // Light gray background
+                  padding: "4px 10px",
+                  borderRadius: "3px",
+                  color: "secondary-main"
+                }}
+              >
+                {row.salikAmount.currency}
+              </Typography>
+            </>
+          )
+
         },
-       },
+      },
       { field: "tollGate", headerName: "TOLL GATE", align: "left" },
       { field: "direction", headerName: "DIRECTION", align: "left" },
-  
+
       // Columns from the second image
-      { field: "id", headerName: "ID", align: "left" ,
+      {
+        field: "id", headerName: "ID", align: "left",
         render: (row) => (
-             <Typography
-        variant="body2"
-        sx={{
-          borderBottom: "1px solid #20A4D5E5",
-         color:"#20A4D5E5"
-        }}
-      >
-        {row.id}
-      </Typography>
-      )
+          <Typography
+            variant="body2"
+            sx={{
+              borderBottom: "1px solid #20A4D5E5",
+              color: "#20A4D5E5"
+            }}
+          >
+            {row.id}
+          </Typography>
+        )
       },
       { field: "bikePlateNo", headerName: "BIKE PLATE NO", align: "left" },
-      { field: "challanAmount", headerName: "CHALLAN AMOUNT", align: "left",
+      {
+        field: "challanAmount", headerName: "CHALLAN AMOUNT", align: "left",
         render: (row) => {
-       return (
-        <>
-      <Typography
-          variant="caption"
-          sx={{
-            padding: "4px 10px",
-            borderRadius: "3px",
-          }}
-        >
-           {row.challanAmount.amount}
-        </Typography>
-          <Typography
-          variant="caption"
-          sx={{
-            backgroundColor: "#80839029", // Light gray background
-            padding: "4px 10px",
-            borderRadius: "3px",
-            color:"secondary-main"
-          }}
-        >
-           {row.challanAmount.currency}
-        </Typography>
-        </>
-        )
-             
+          return (
+            <>
+              <Typography
+                variant="caption"
+                sx={{
+                  padding: "4px 10px",
+                  borderRadius: "3px",
+                }}
+              >
+                {row.challanAmount.amount}
+              </Typography>
+              <Typography
+                variant="caption"
+                sx={{
+                  backgroundColor: "#80839029", // Light gray background
+                  padding: "4px 10px",
+                  borderRadius: "3px",
+                  color: "secondary-main"
+                }}
+              >
+                {row.challanAmount.currency}
+              </Typography>
+            </>
+          )
+
         },
-       },
+      },
       { field: "challanNumber", headerName: "CHALLAN NUMBER", align: "left" },
       { field: "city", headerName: "CITY", align: "left" },
       { field: "location", headerName: "LOCATION", align: "left" },
       { field: "reason", headerName: "REASON", align: "left" },
       { field: "dateTimeTrafficChallan", headerName: "DATE AND TIME OF TRAFFIC CHALLAN", align: "left" },
-      { field: "challanAttachments",
-         headerName: "CHALLAN ATTACHMENTS",
-          align: "left",
-          render: (row) => (
-            <Box component="div" sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                <FIleIcon/>
-                <Typography variant="caption">{row?.name || "Challan"}</Typography>
-                <Download size={20} />
-            </Box>
+      {
+        field: "challanAttachments",
+        headerName: "CHALLAN ATTACHMENTS",
+        align: "left",
+        render: (row) => (
+          <Box component="div" sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <FIleIcon />
+            <Typography variant="caption">{row?.name || "Challan"}</Typography>
+            <Download size={20} />
+          </Box>
         ),
       },
       { field: "remarks", headerName: "REMARKS", align: "left" },
-      { field: "bikeOwner", headerName: "BIKE OWNER", align: "left",
+      {
+        field: "bikeOwner", headerName: "BIKE OWNER", align: "left",
         render: (row) => (
           <Box component="div" sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-        <Image src="/challans/Avatar.png" width={20} height={20} alt="" />
-              <Typography variant="caption">ABDS</Typography>
+            <Image src="/challans/Avatar.png" width={20} height={20} alt="" />
+            <Typography variant="caption">ABDS</Typography>
           </Box>
-      )
-       },
+        )
+      },
       { field: "createdOn", headerName: "CREATED ON", align: "left" },
       { field: "status", headerName: "STATUS", align: "left",
           render: (row) => (
-            <StatusIndicator 
+            <StatusIndicator
               status={row.status}
               pathname={pathname}
             />
         ),
-       },
-  
+      },
+
       // Action column (shared functionality)
       {
         field: "action",
@@ -328,7 +336,7 @@ const ChallansTableWrapper = ({
     ],
     [currentMenuConfig?.menuItems, pathname, router]
   );
-  
+
   // Dynamically set columns based on the current path
   const columns = useMemo(() => {
     // Determine the key based on the pathname
@@ -338,14 +346,14 @@ const ChallansTableWrapper = ({
     } else if (pathname.includes("/challans")) {
       key = "salik";
     }
-  
+
     // Ensure key matches an entry in columnConfig
     if (key && columnConfig[key]) {
       return fullColumns.filter((column) =>
         columnConfig[key].includes(column.field)
       );
     }
-  
+
     // Default to an empty array if no match is found
     return [];
   }, [pathname, fullColumns]);
@@ -358,46 +366,46 @@ const ChallansTableWrapper = ({
 
   return (
     <Box sx={{ bgcolor: "white", overflow: "hidden", m: 1.5, borderRadius: 6 }}>
-       <Box
-      component="div"
-      sx={{  m: 2,}}
-    >
-      <Typography variant="caption" sx={{ fontSize: 16 }}>
-        Advance Filters
-      </Typography>
-
       <Box
         component="div"
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          // flexWrap: "wrap",
-          gap:"1rem",
-          my: 2,
-        }}
+        sx={{ m: 2, }}
       >
-        {filters?.length ? filters?.map(filter => {
-          return (
-            <>
-              {filter?.options ? (
-                <CustomDropdown key={filter?.id}
-                sx={{ flex: 1, placeItems: "start" }}
-                label={filter?.filterName}
-                placeholder={filter?.placeholder}
-                options={filter?.options}
-              />) : <Box key={filter?.id} sx={{ display: "flex", flexDirection: "column" }}>
-                <Typography>{filter?.filterName}</Typography>
-              </Box>}
+        <Typography variant="caption" sx={{ fontSize: 16 }}>
+          Advance Filters
+        </Typography>
 
-            </>
-          )
-        }) : <>
-        </>}
+        <Box
+          component="div"
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            // flexWrap: "wrap",
+            gap: "1rem",
+            my: 2,
+          }}
+        >
+          {filters?.length ? filters?.map(filter => {
+            return (
+              <>
+                {filter?.options ? (
+                  <CustomDropdown key={filter?.id}
+                    sx={{ flex: 1, placeItems: "start" }}
+                    label={filter?.filterName}
+                    placeholder={filter?.placeholder}
+                    options={filter?.options}
+                  />) : <Box key={filter?.id} sx={{ display: "flex", flexDirection: "column" }}>
+                  <Typography>{filter?.filterName}</Typography>
+                </Box>}
 
+              </>
+            )
+          }) : <>
+          </>}
+
+        </Box>
+        <Divider />
       </Box>
-      <Divider />
-    </Box>
       <TableExportRow
         handleOpenModal={handleOpenModal}
         setTotalEntries={setTotalEntries}

@@ -120,16 +120,16 @@ const ApplicantsTableWrapper = ({
       home: {
         menuItems: [
           { label: "Procced", route: "#" },
-          { label: "View Details", route: "/applicants/1234/view-details" },
-          { label: "Not qualified", route: "/applicants/not-qualified" },
+          { label: "View Details", route: "/admin/applicants/1234/view-details" },
+          { label: "Not qualified", route: "/admin/applicants/not-qualified" },
         ],
       },
       finalReview: {
         menuItems: [
-          { label: "View Details", route: "/applicants/view-details" },
-          { label: "Proceed", route: "/applicants/hold" },
-          { label: "Hold", route: "/applicants/hold" },
-          { label: "Not Qualified", route: "/applicants/not-qualified" },
+          { label: "View Details", route: "/admin/applicants/view-details" },
+          { label: "Proceed", route: "/admin/applicants/hold" },
+          { label: "Hold", route: "/admin/applicants/hold" },
+          { label: "Not Qualified", route: "/admin/applicants/not-qualified" },
         ],
       },
       // Add more configurations for other pages as needed

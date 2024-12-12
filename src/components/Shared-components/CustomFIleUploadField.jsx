@@ -1,6 +1,8 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
+import { CircleX, FileBarChart2 } from "lucide-react";
 
 const CustomFileUploadField = ({
   value,
@@ -8,8 +10,8 @@ const CustomFileUploadField = ({
   error,
   placeholder,
   label,
-  height = 38.7, // Default height
-  borderRadius = 0, // Default border radius (can be adjusted as needed)
+  height,  // Default height
+  borderRadius = 0,  // Default border radius (can be adjusted as needed)
   textSize = "body1", // Default text size, you can use MUI's typography variants
   buttonText = "Upload", // Button text
   bgColor, // Default background color for the text field
@@ -18,18 +20,20 @@ const CustomFileUploadField = ({
 }) => {
   return (
     <Box sx={{ display: "flex", alignItems: "start", flexDirection: "column" }}>
-      {/* Label with dynamic text size */}
-      <Typography sx={{ fontSize: textSize, marginBottom: marginBottom }}>
-        {label}
-        {required && <span className="text-[red]"> *</span>}
-      </Typography>
+      <Typography>{label}</Typography>
       <Box
-        sx={{ flex: "1", width: "100%", display: "flex", alignItems: "center" }}
+        sx={{
+          flex: "1",
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          border: "1px solid #D5D4D7",
+          borderRadius: 1.5,
+        }}
       >
-        {/* CustomTextField with dynamic height, borderRadius, and background color */}
         <CustomTextField
           value={value?.name || ""}
-          placeholder={placeholder || "PDF Scanned"}
+          placeholder={placeholder ? placeholder : "PDF Scanned"}
           disabled
           error={!!error}
           removeRightBorder={true}
@@ -37,14 +41,14 @@ const CustomFileUploadField = ({
             "& .MuiInputBase-root": {
               borderTopRightRadius: 0,
               borderBottomRightRadius: 0,
-              borderTopLeftRadius: borderRadius,
-              borderBottomLeftRadius: borderRadius,
-              height: height,
+              borderTopLeftRadius: borderRadius ? borderRadius : "7px",
+              borderBottomLeftRadius: borderRadius ? borderRadius : "7px",
+              height: height ? height : 42.5,
               backgroundColor: bgColor, // Apply dynamic background color
             },
-            "& .MuiTypography-root": {
-              fontSize: textSize === "body1" ? "1rem" : "0.875rem", // Adjust text size
-            },
+            "& .MuiOutlinedInput-notchedOutline": {
+              border: "none"
+            }
           }}
         />
 
@@ -55,8 +59,10 @@ const CustomFileUploadField = ({
           sx={{
             py: 0.8,
             borderLeft: "none",
-            borderTopRightRadius: borderRadius,
-            borderBottomRightRadius: borderRadius,
+            borderTopLeftRadius: "0px",
+            borderBottomLeftRadius: "0px",
+            borderTopRightRadius: borderRadius ? borderRadius : "7px",
+            borderBottomRightRadius: borderRadius ? borderRadius : "7px",
             color: "#2F2B3DE5",
             backgroundColor: "#E6E6E9",
             textTransform: "capitalize",
@@ -73,8 +79,6 @@ const CustomFileUploadField = ({
           />
         </Button>
       </Box>
-
-      {/* Error message */}
       {error && <Typography color="error">{error.message}</Typography>}
     </Box>
   );
