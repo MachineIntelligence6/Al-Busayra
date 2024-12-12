@@ -8,6 +8,8 @@ import {
   TableRow,
   Checkbox,
   IconButton,
+  Box,
+  Typography,
 } from "@mui/material";
 import FilterListIcon from "@mui/icons-material/FilterList";
 
@@ -91,52 +93,53 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
             },
           }}
         >
-          <TableRow>
-            {isSelectedOption && <TableCell padding="checkbox">
+          <TableRow sx={{ "& .MuiTableCell-root": { pt: 0.5, pb: 0.2 } }}>
+            {isSelectedOption && <TableCell padding="checkbox" >
               <Checkbox
                 indeterminate={isIndeterminate}
                 checked={isAllSelected}
                 onChange={handleSelectAll}
+                size="small"
               />
             </TableCell>}
             {columns.map((column) => (
               <TableCell
+
                 key={column.field}
                 align={column.align || "left"}
-                sx={{ fontWeight: "400", whiteSpace: "nowrap" }}
+                sx={{ fontWeight: "400", whiteSpace: "nowrap", }}
               >
-                <span
-                  style={{
+                <Box
+                  component="div"
+                  sx={{
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "space-between",
+                    justifyContent: 'space-between',
+                    gap: 1
                   }}
                 >
-                  {column.headerName}
+                  <Typography variant="caption">{column.headerName}</Typography>
                   {allowedFields.includes(column.field) && (
-                    <IconButton
-                      size="small"
-                      onClick={() => handleFilterClick(column.field)}
-                    >
-                      <FilterListIcon />
-                    </IconButton>
+                    <Box component="img" src="/icons/filter.svg" sx={{ width: 20, height: 20 }} onClick={() => handleFilterClick(column.field)}></Box>
                   )}
-                </span>
+                </Box>
               </TableCell>
             ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {data?.map((row) => (
-            <TableRow key={row.id} hover>
+            <TableRow key={row.id} hover sx={{ "& .MuiTableCell-root": { pt: 1, pb: 1 } }}>
               {isSelectedOption && <TableCell padding="checkbox">
                 <Checkbox
+                  size="small"
                   checked={selectedRows.includes(row.id)}
                   onChange={() => handleSelectRow(row.id)}
                 />
               </TableCell>}
               {columns?.map((column) => (
                 <TableCell
+
                   key={column.field}
                   align={column.align || "left"}
                   sx={{ whiteSpace: "nowrap" }}

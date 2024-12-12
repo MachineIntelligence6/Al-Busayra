@@ -28,11 +28,18 @@ const ContactResidence = ({ formData, setFormData }) => {
     countryCode: "+971",
     number: "",
   });
+  const [eContractNo, setEContractNo] = useState({
+    countryCode: "+971",
+    number: "",
+  });
 
   // Function to handle changes in the phone number
-  const handlePhoneNumberChange = (newValue) => {
-    setPhoneNumber(newValue);
+  const handlePhoneNumberChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "eContactNo") setEContractNo(old => ({ ...old, number: value, }))
+    if (name === "phoneNumber") setPhoneNumber(old => ({ ...old, number: value }))
   };
+
 
   const inputFields = [
     {
@@ -104,12 +111,14 @@ const ContactResidence = ({ formData, setFormData }) => {
               {field.component === CustomCountryCodeInput && (
                 <CustomCountryCodeInput
                   countryCodes={countryCodes}
-                  value={phoneNumber}
+                  value={field.name === "phoneNumber" ? phoneNumber : eContractNo}
                   onChange={handlePhoneNumberChange}
+                  onChangeCode={() => { }}
                   placeholder="Enter phone number"
                   label={field.label}
                   bgcolor="#FFF"
                   height="40px"
+                  name={field.name}
                   required
                 />
               )}

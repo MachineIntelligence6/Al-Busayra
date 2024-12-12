@@ -12,7 +12,7 @@ import CustomTable from "@/components/Shared-components/Table-components/CustomT
 import CustomAvatar from "@/components/Shared-components/CustomAvatar";
 import { DashboardDetailTable } from "@/utils/hard-data/inventory-data";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 const menuItems = [
     { label: "View Details", action: "view_details" },
@@ -62,7 +62,7 @@ const CompanyDetails = () => {
 
 
     const handleAddInventory = () => {
-        router.push("/admin/inventory/add-inventory")
+        redirect("/admin/inventory/add-inventory")
     }
 
     const columns = useMemo(() => {

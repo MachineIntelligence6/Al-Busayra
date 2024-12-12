@@ -21,13 +21,15 @@ const CustomCountryCodeInput = ({
   required = false, // If the field is required
   bgcolor = "#FCFCFC", // Default background color
   height = "", // Default height
+  name = "any-name",
+  onChangeCode
 }) => {
   const handleCountryCodeChange = (code) => {
-    onChange({ ...value, countryCode: code });
+    onChangeCode({ ...value, countryCode: code });
   };
 
-  const handleNumberChange = (number) => {
-    onChange({ ...value, number });
+  const handleNumberChange = (e) => {
+    onChange(e);
   };
 
   return (
@@ -101,7 +103,8 @@ const CustomCountryCodeInput = ({
           {/* Phone Number TextField */}
           <TextField
             value={value.number}
-            onChange={(e) => handleNumberChange(e.target.value)}
+            onChange={(e) => handleNumberChange(e)}
+            name={name}
             placeholder={placeholder}
             sx={{
               width: "70%", // Phone number input width
