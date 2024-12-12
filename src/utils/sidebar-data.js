@@ -124,5 +124,4 @@ export const companyMenuData = [
         icon: "/sidebarIcons/company/allocation.svg",
 
     },
-
 ]

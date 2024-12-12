@@ -11,51 +11,6 @@ import TableExportRow from "../Shared-components/Table-components/TableExportRow
 import TablePagination from "../Shared-components/Table-components/TablePagination";
 import { StatusIndicator } from "./StatusIndicator";
 import TableFilters from "../Shared-components/Table-components/TableFilters";
-const finalReviewTableFilters = [
-  {
-    id: 1,
-    filterName: "Resident",
-    placeholder: "Non Resident",
-    inputType: "dropdown",
-    // inputType: "text", // Indicates a text input field
-    options: [
-      { id: 14, label: "Non Resident", value: "non resident" },
-      { id: 24, label: "Resident", value: "resident" },
-    ],
-  },
-  {
-    id: 2,
-    filterName: "Country",
-    placeholder: "UAE",
-    inputType: "dropdown", // Indicates a dropdown field
-    options: [
-      { id: 13, label: "UAE", value: "uae" },
-      { id: 23, label: "PAkistan", value: "pakistan" },
-      { id: 33, label: "UK", value: "uk" },
-    ],
-  },
-  {
-    id: 3,
-    filterName: "City",
-    placeholder: "Sharjah",
-    inputType: "dropdown",
-    options: [
-      { id: 12, label: "Sharjah", value: "sharjah" },
-      { id: 22, label: "Dubai", value: "Dubai" },
-    ],
-  },
-  {
-    id: 4,
-    filterName: "Campaign",
-    placeholder: "PLease select",
-    inputType: "dropdown",
-    options: [
-      { id: 11, label: "campaign 1", value: "campaign 1" },
-      { id: 21, label: "campaign 2", value: "campaign 2" },
-      { id: 31, label: "campaign 3", value: "campaign 2" },
-    ],
-  },
-];
 
 const columnConfig = {
   shortlistedApplicants: [
@@ -134,8 +89,8 @@ const ApplicantsTableWrapper = ({
   setCurrentPage,
   rowsPerPage,
   currentPage,
+  filters
 }) => {
-  const [filters, setFilters] = useState(finalReviewTableFilters);
   const [totalEntries, setTotalEntries] = useState(10);
   const router = useRouter();
   const pathname = usePathname();
