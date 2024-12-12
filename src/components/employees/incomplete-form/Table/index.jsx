@@ -1,6 +1,6 @@
 "use client";
 import React, { useMemo } from "react";
-import { usePathname, useRouter, } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Box } from "@mui/material";
 import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
 import { data } from "@/utils/campaigns.data";
@@ -47,7 +47,7 @@ const EmployeeTableWrapper = ({
   currentPage,
 }) => {
   const pathname = usePathname();
-  const router = useRouter()
+  const router = useRouter();
   const totalEntries = 20;
   const totalPages = Math.ceil(totalEntries / rowsPerPage);
 
