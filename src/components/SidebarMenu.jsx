@@ -41,7 +41,10 @@ const SidebarMenu = ({ adminMenuData, portal = "admin" }) => {
                 bgcolor: "#23567F",
                 color: "white",
                 height: "100vh",
+                minHeight: '100vh',
                 padding: "1rem 1rem 0rem 1rem",
+                overflow: 'auto',
+                scrollbarWidth: "none"
             }}
         >
             <Box component="div" sx={{ width: "100%", borderBottom: "2px solid white", py: 2 }}>
@@ -107,7 +110,7 @@ const SidebarMenu = ({ adminMenuData, portal = "admin" }) => {
                                     >
                                         {menu.item.map((subItem) => (
                                             <ListItem key={subItem.id} disablePadding sx={{ pb: 1 }}>
-                                                <Link href={subItem.url} style={{ width: "100%" }}>
+                                                <Link href={subItem.url} style={{ width: "100%", textDecoration: "none" }}>
                                                     <ListItemButton
                                                         sx={{
                                                             borderRadius: 2,

@@ -1,5 +1,6 @@
 import {
     CircleEllipsis,
+    CreditCard,
     Files,
     FileText,
     Info,
@@ -141,3 +142,51 @@ export const inventoryFormTab = [
         ),
     },
 ];
+
+
+export const addEmployeeFormTabs = [
+    {
+        id: "1",
+        text: "Add Employee",
+        isActive: true,
+        getIcon: (isActive) => (
+            <>
+                {isActive ? (
+                    <Info
+                        color="white"
+                        style={{ background: "#104774", padding: 10, borderRadius: 6 }}
+                        size={40}
+                    />
+                ) : (
+                    <Info
+                        color="#104774"
+                        style={{ background: "#1047741A", padding: 10, borderRadius: 6 }}
+                        size={40}
+                    />
+                )}
+            </>
+        ),
+    },
+    {
+        id: "2",
+        text: "C3 Card",
+        isActive: false,
+        getIcon: (isActive) => (
+            <>
+                {isActive ? (
+                    <CreditCard
+                        color="white"
+                        style={{ background: "#104774", padding: 10, borderRadius: 6 }}
+                        size={40}
+                    />
+                ) : (
+                    <CreditCard
+                        color="#104774"
+                        style={{ background: "#1047741A", padding: 10, borderRadius: 6 }}
+                        size={40}
+                    />
+                )}
+            </>
+        ),
+    },
+]

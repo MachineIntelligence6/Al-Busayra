@@ -82,7 +82,7 @@ const columnConfig = {
   ],
 };
 
-const EmployeeTableWrapper = ({
+const AllocateAssetTable = ({
   handleOpenModal,
   setCurrentPage,
   rowsPerPage,
@@ -90,7 +90,8 @@ const EmployeeTableWrapper = ({
 }) => {
   const pathname = usePathname();
   const router = useRouter();
-  const totalEntries = 20;
+    const [totalEntries, setTotalEntries] = useState(10);
+  
   const totalPages = Math.ceil(totalEntries / rowsPerPage);
   const [filters, setFilters] = useState(platformFilters);
 
@@ -207,18 +208,27 @@ const EmployeeTableWrapper = ({
   return (
     <Box sx={{ bgcolor: "white", overflow: "hidden", m: 1.5, borderRadius: 6 }}>
       <TableFilters filters={filters} />
-      <TableExportRow handleOpenModal={handleOpenModal} />
+      <TableExportRow handleOpenModal={handleOpenModal}
+      totalEntries={totalEntries}
+      pathname={pathname}
+    //   isBtnAdd={isBtnAdd}
+      />
       <Box sx={{ height: "100%" }}>
         <CustomTable
           columns={columns}
-          data={data}
+          data={paginatedData}
           onRowSelect={handleRowSelect}
           handleFilterClick={handleFilterClick}
         />
-        <TablePagination />
+        <TablePagination
+        totalEntries={totalEntries}
+        rowsPerPage={rowsPerPage}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        />
       </Box>
     </Box>
   );
 };
 
-export default EmployeeTableWrapper;
+export default AllocateAssetTable;
