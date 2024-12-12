@@ -74,7 +74,10 @@ const SideCard = ({ avatarSrc, name, email, contractData }) => {
                     padding: "2px 10px",
                     borderRadius: "4px",
                     fontWeight: 500,
-                  }),
+                  }
+                
+                ),
+                  
                 }}
               >
                 {item.value}
