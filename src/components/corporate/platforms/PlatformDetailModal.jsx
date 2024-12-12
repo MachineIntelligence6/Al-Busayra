@@ -62,7 +62,7 @@ const PlatformDetailModal = ({ onClose }) => {
             onEditClick={handleEditClick}
             profileImage={"/icons/Careem.svg"}
             sx={{
-              borderRadius: "15px",
+              borderRadius: "14px",
               // border: "2px solid rgba(0, 0, 0, 0.1)",
               boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.2)",
             }}

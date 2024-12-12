@@ -59,22 +59,7 @@ const Insurance = ({ formData, setFormData }) => {
                   onChange={handleInputChange}
                 />
               )}
-              {field.component === Dropdown && (
-                <Dropdown
-                  labelText={field.label}
-                  customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
-                  name={field.name}
-                  value={formData[field.name]}
-                  onChange={handleInputChange}
-                  options={[
-                    { label: "Select an option", value: "" },
-                    ...field.options.map((option) => ({
-                      label: option,
-                      value: option,
-                    })),
-                  ]}
-                />
-              )}
+
               {field.component === CustomDateField && (
                 <CustomDateField
                   label={field.label}

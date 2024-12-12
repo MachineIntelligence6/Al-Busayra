@@ -17,7 +17,7 @@ export default function PlatformDetailCard() {
   return (
     <ViewCard borderTop={false} onEdit={false}>
       {/* Display Vendor ID as title */}
-      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
         {/* First column: Contains fields before and including 'POC Phone Number' */}
         <Box sx={{ flex: 1, minWidth: "300px" }}>
           {firstPart.map(({ label, value, icon }, index) => (

@@ -15,7 +15,9 @@ function Input({
 }) {
   return (
     <div
-      className={`flex ${layout === "row" ? "flex-row" : "flex-col"} gap-[5px] ${customClass}`}
+      className={`flex ${
+        layout === "row" ? "flex-row" : "flex-col"
+      } gap-[5px] ${customClass}`}
     >
       {labelText && (
         <Box component="label" htmlFor={name} sx={{ display: "flex", gap: 0.5 }}>
@@ -37,7 +39,3 @@ function Input({
 }
 
 export default Input;
-
-
-
-

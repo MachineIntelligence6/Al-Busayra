@@ -135,8 +135,8 @@ const InventoryViewDetailModal = (props) => {
 
                 <Divider sx={{ my: 4 }} />
                 <Box component="div" sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-                    <CustomButton bgColor='danger' variant='outlined' startIcon={<CircleX size={16} />}>Cancel</CustomButton>
-                    <CustomButton endIcon={<Check size={16} />}>Save</CustomButton>
+                    <CustomButton bgColor='danger' variant='outlined' startIcon={<CircleX size={16} />} onClick={onClose}>Cancel</CustomButton>
+                    <CustomButton endIcon={<Check size={16} />} onClick={() => alert("Save changes")}>Save</CustomButton>
                 </Box>
 
             </Box>

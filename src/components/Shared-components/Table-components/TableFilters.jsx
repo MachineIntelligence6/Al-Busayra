@@ -81,6 +81,7 @@ const TableFilters = ({ filters, bottomBorder = true, textFieldWidth = 350 }) =>
             value={dropdown3Value}
             onChange={(e) => setDropdown3Value(e.target.value)}
           />
+          
         </>}
 
       </Box>
