@@ -136,7 +136,7 @@ const MultiStepForm = () => {
   const handleSave = () => {
     console.log("Form Data:", formData);
     alert("Form Saved!");
-    router.push("/employees");
+    router.push("/admin/employees/incomplete-profile");
   };
   const handleCancel = () => {
     router.push("/admin/employees/incomplete-profile");
