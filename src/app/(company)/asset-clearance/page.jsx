@@ -59,7 +59,7 @@ const headerMenuItems = [
 const Page = () => {
   const pathname = usePathname();
   const router = useRouter();
-   const [filters, setFilters] = useState(TableFiltersData);
+  const [filters, setFilters] = useState(TableFiltersData);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalEntries, setTotalEntries] = useState(10);
@@ -93,7 +93,7 @@ const Page = () => {
     console.log("Menu clicked:", menuItem.label);
     router.push(menuItem.route);
   };
-  
+
 
   const handleFilterClick = (field) => {
     console.log(`Filter clicked for: ${field}`);
@@ -135,7 +135,7 @@ const Page = () => {
             border: "1px solid #104774",
             padding: "7px 10px",
             borderRadius: "6px",
-            color:"#104774",
+            color: "#104774",
           }}
         >
           {row.resident}
@@ -166,8 +166,8 @@ const Page = () => {
           variant="caption"
           sx={{
             backgroundColor: "#80839029"
-              // row.employeeType === "Rider" ? "#80839029" : "#FCE4EC",
-              ,
+            // row.employeeType === "Rider" ? "#80839029" : "#FCE4EC",
+            ,
             padding: "4px 10px",
             borderRadius: "3px",
             color: "#2F2B3DE5"
@@ -193,44 +193,44 @@ const Page = () => {
   return (
     <>
       <Box sx={{ px: 2 }}>
-      <DynamicBreadcrumb isBtnShow={true} icon={<AddOutlinedIcon />} btnName="Allocate Asset" onClick={handleOpenModal} />
+        <DynamicBreadcrumb isBtnShow={true} icon={<AddOutlinedIcon />} btnName="Allocate Asset" onClick={handleOpenModal} />
       </Box>
       <Divider sx={{ mt: 2 }} />
 
       <Box component="div" display="flex" justifyContent="center" flexDirection="column" alignItems="center" height="80vh">
         <GenericModal
-        open={isModalOpen}
-        onClose={handleCloseModal}
-        title="Applicants Modal"
-        height="80vh"
-        width="100%"
-      >
-      <CustomTableWrapper 
-        handleOpenModal={handleOpenModal} 
-        handleCloseModal={handleCloseModal}
-        rowsPerPage={rowsPerPage} 
-        setCurrentPage={setCurrentPage} 
-        currentPage={currentPage} 
-        filters={filters} 
-        column={column}
-        handleFilterClick={handleFilterClick} 
-        handleMenuClick={handleMenuClick} 
-        handleRowSelect={handleRowSelect}
-        pathname={pathname}
-        tableData={assetClarenceData}
-        // Header export Row props
-        totalEntries={totalEntries}
-        setTotalEntries={handleTotalEntriesChange}
-        isBtnAdd={false}
-        isExportBtn={false}
-        isActionMenu={false}
-        showSearch={true}
-        menuItems={headerMenuItems}
-        onSearchChange={onSearchChange}
-        // btnText="Add New Item"
-        filterTitle="Selected Employees"
-      />
-      </GenericModal>
+          open={isModalOpen}
+          onClose={handleCloseModal}
+          title="Applicants Modal"
+          height="80vh"
+          width="100%"
+        >
+          <CustomTableWrapper
+            handleOpenModal={handleOpenModal}
+            handleCloseModal={handleCloseModal}
+            rowsPerPage={rowsPerPage}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+            filters={filters}
+            column={column}
+            handleFilterClick={handleFilterClick}
+            handleMenuClick={handleMenuClick}
+            handleRowSelect={handleRowSelect}
+            pathname={pathname}
+            tableData={assetClarenceData}
+            // Header export Row props
+            totalEntries={totalEntries}
+            setTotalEntries={handleTotalEntriesChange}
+            isBtnAdd={false}
+            isExportBtn={false}
+            isActionMenu={false}
+            showSearch={true}
+            menuItems={headerMenuItems}
+            onSearchChange={onSearchChange}
+            // btnText="Add New Item"
+            filterTitle="Selected Employees"
+          />
+        </GenericModal>
         <Image src="/company/asset-clearence/bike-asset-clearence.svg" alt="bike" height="313" width="479" />
       </Box>
     </>

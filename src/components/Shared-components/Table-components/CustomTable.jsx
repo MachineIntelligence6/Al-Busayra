@@ -50,7 +50,7 @@ const allowedFields = [
   "createdOn",
 ];
 
-const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelectedOption = true }) => {
+const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelectedOption = true, isFiltered = true }) => {
   const [selectedRows, setSelectedRows] = useState([]);
 
   const isAllSelected = selectedRows.length === data.length && data.length > 0;
@@ -93,7 +93,7 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
             },
           }}
         >
-          <TableRow sx={{ "& .MuiTableCell-root": { pt: 0.5, pb: 0.2 } }}>
+          <TableRow sx={{ "& .MuiTableCell-root": { py: 2 } }}>
             {isSelectedOption && <TableCell padding="checkbox" >
               <Checkbox
                 indeterminate={isIndeterminate}
@@ -118,8 +118,8 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
                     gap: 1
                   }}
                 >
-                  <Typography variant="caption">{column.headerName}</Typography>
-                  {allowedFields.includes(column.field) && (
+                  <Typography variant="body2" sx={{ fontSize: 16, fontWeight: 500, textTransform: "capitalize" }}>{column.headerName}</Typography>
+                  {allowedFields.includes(column) && isFiltered && (
                     <Box component="img" src="/icons/filter.svg" sx={{ width: 20, height: 20 }} onClick={() => handleFilterClick(column.field)}></Box>
                   )}
                 </Box>

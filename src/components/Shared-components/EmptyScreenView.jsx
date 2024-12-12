@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 import CustomButton from "./CustomButton";
+import { Plus } from "lucide-react";
 
 const EmptyScreenView = ({
   image,
@@ -9,7 +10,9 @@ const EmptyScreenView = ({
   description,
   buttonText,
   onButtonClick,
+  descriptionTag,
   showButton = true, // Default to true, button will show by default
+
 }) => {
   return (
     <Box
@@ -29,11 +32,11 @@ const EmptyScreenView = ({
         {title && <Typography variant="h6" sx={{ fontWeight: 600, color: "#104774" }}>
           {title}
         </Typography>}
-        <Typography variant="subtitle1" sx={{ color: "#4B465C" }} >{description}</Typography>
+        {description && <Typography variant="subtitle1" sx={{ color: "#4B465C" }} >{description}</Typography>}
+        {descriptionTag && descriptionTag}
         {/* Conditionally render the button */}
         {showButton && (
-          <CustomButton onClick={onButtonClick} sx={{ px: 4 }}>
-            <img src="/resuable/plus.svg" alt="plus" />
+          <CustomButton onClick={onButtonClick} sx={{ px: 4 }} startIcon={<Plus />}>
             {buttonText}
           </CustomButton>
         )}

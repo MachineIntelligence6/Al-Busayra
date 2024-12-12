@@ -19,7 +19,7 @@ const TableFilters = ({ filters, bottomBorder = true, textFieldWidth = 350 }) =>
   return (
     <Box
       component="div"
-      sx={{ m: 2, }}
+      sx={{ p: 2, }}
     >
       <Typography variant="caption" sx={{ fontSize: 16 }}>
         Advance Filters
@@ -81,7 +81,7 @@ const TableFilters = ({ filters, bottomBorder = true, textFieldWidth = 350 }) =>
             value={dropdown3Value}
             onChange={(e) => setDropdown3Value(e.target.value)}
           />
-          
+
         </>}
 
       </Box>
