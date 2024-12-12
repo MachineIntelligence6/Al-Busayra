@@ -8,9 +8,9 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import DoneIcon from "@mui/icons-material/Done";
 import CustomButton from "@/components/Shared-components/CustomButton";
 import CustomSelect from "@/components/Shared-components/CustomSelect";
-import CustomDatePicker from "@/components/Shared-components/CustomDatePicker";
 import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
 import { DrivingLicenseEditSchema } from "@/utils/schemas/DrivingLicenseEditFormSchema";
+import CustomDateField from "@/components/Shared-components/CustomDateField";
 
 const renderLabel = (label, required = false) => (
   <Typography variant="body1" component="span">
@@ -73,7 +73,7 @@ export default function DrivingLicenseEditForm({ setIsDrivingLicenseModalOpen })
 
   const onSubmit = (data) => {
     console.log(data);
-    handleCloseModal();
+    // handleCloseModal();
   };
 
   const fields = [
@@ -90,13 +90,15 @@ export default function DrivingLicenseEditForm({ setIsDrivingLicenseModalOpen })
       label: "Driving License Issue Date",
       name: "drivingLicenseIssueDate",
       required: watch("isUaeLicenseHolder") === "yes",
-      component: CustomDatePicker,
+      component: CustomDateField,
+      props: { borderRadius: 1.5 }
     },
     {
       label: "Driving License Expiry Date",
       name: "drivingLicenseExpiryDate",
       required: watch("isUaeLicenseHolder") === "yes",
-      component: CustomDatePicker,
+      component: CustomDateField,
+      props: { borderRadius: 1 }
     },
     {
       label: "Driving License (Front)",
@@ -131,6 +133,7 @@ export default function DrivingLicenseEditForm({ setIsDrivingLicenseModalOpen })
                     placeholder,
                     options,
                     component = CustomSelect,
+                    props = {}
                   },
                   index
                 ) => (
@@ -156,13 +159,14 @@ export default function DrivingLicenseEditForm({ setIsDrivingLicenseModalOpen })
                         name={name}
                         control={control}
                         defaultValue=""
-                        render={({ field, fieldState: { error } }) =>
+                        render={({ field, fieldState: { error }}) =>
                           createElement(component, {
                             value: field.value,
                             onChange: field.onChange,
                             placeholder,
                             options,
                             error,
+                            ...props
                           })
                         }
                       />

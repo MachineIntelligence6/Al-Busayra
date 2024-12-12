@@ -164,7 +164,7 @@ const ChallansTableWrapper = ({
   };
 
   useEffect(() => {
-    if (pathname === "/applicants/shortlisted-applicants") {
+    if (pathname.includes("/applicants/shortlisted-applicants")) {
       setIsBtnAdd(true);
     }
   }, [pathname]);
