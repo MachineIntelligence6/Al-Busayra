@@ -1,7 +1,8 @@
 import { Box } from "@mui/material";
 import React, { useRef } from "react";
+import AllocateAssetTable from "./AllocateAssetTable";
 
-const AssetAllocationTableModal = ({ onClose }) => {
+const TableModal = ({ onClose }) => {
   const PopUpRef = useRef(null);
 
   const closePopUp = (e) => {
@@ -36,10 +37,10 @@ const AssetAllocationTableModal = ({ onClose }) => {
           boxShadow: 3,
         }}
       >
-        AssetAllocationTableModal
+        <AllocateAssetTable />
       </Box>
     </Box>
   );
 };
 
-export default AssetAllocationTableModal;
+export default TableModal;

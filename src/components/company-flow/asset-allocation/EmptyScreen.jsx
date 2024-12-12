@@ -1,5 +1,5 @@
 import React from "react";
-import EmptyScreenView from "../Shared-components/EmptyScreenView";
+import EmptyScreenView from "../../Shared-components/EmptyScreenView";
 import { Box } from "@mui/material";
 
 const EmptyScreen = () => {
