@@ -82,6 +82,7 @@ const EmiratesId = ({ formData, setFormData }) => {
                   bgColor="#FFFFFF"
                   textSize="13px"
                   marginBottom="4px"
+                  required={true}
                 />
               )}
             </Box>
