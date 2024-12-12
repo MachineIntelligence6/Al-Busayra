@@ -9,7 +9,6 @@ import RoleInfoCard from "@/components/roles-template/RoleInfoCard";
 import CustomizablePermissionsTable from "@/components/roles-template/CustomPermissionsTable";
 import { CompanyPermissions, permissions } from "@/utils/permissionsData";
 import ViewEmployeeHeader from "@/components/Shared-components/ViewEmployeeHeader";
-import { Person } from "@mui/icons-material";
 import { Building, Building2, Globe2, Mail, MapPin, Phone, User, UserCircle2 } from "lucide-react";
 
 const columns = ["View", "Add", "Edit", "Delete"];
@@ -94,7 +93,7 @@ const Page = () => {
   };
 
   useEffect(() => {
-    if (pathname === "/challans/traffic") {
+    if (pathname.includes("/challans/traffic")) {
       // You might want to set these flags or remove if unnecessary
       setIsBtnShow(true);
       setIsChallan(true);
