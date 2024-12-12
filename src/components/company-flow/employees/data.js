@@ -18,15 +18,11 @@ export const companyEmployeesTableData = [
     {
         id: "AB00001",
         name: "Saleem Ashfaq Muhammad Shehzad",
-<<<<<<< Updated upstream
         image: "/images/profile-f-f.png",
-=======
->>>>>>> Stashed changes
         resident: "UAE",
         drivingLicense: "879343",
         passportNumber: "TA1822801",
         personalMobileNumber: "+971 986556465",
-<<<<<<< Updated upstream
         rider_acquiring_vendor: "Rafiq Khan",
         vendor_image: "/images/vendor_image.png",
         rider_platform: "Careem",
@@ -44,25 +40,10 @@ export const companyEmployeesTableData = [
         employeeType: "Rider",
         bike: "Assigned",
         sim: "Not Assigned",
-=======
-        frontAssocation: "Careem",
-        city: "Sharjah",
-        visaStatus: "Own",
-        salaryType: "Fixed",
-        fixedSalaryAmount: 1200,
-        actualJoiningDate: "12/06/24",
-        dpSharing: "Yes",
-        gtcApplied: "Not Applied",
-        gtcAppliedDate: "12/05/22",
-        status: "Pending",
-        employeeType: "Rider",
-        site: "Not Assigned",
->>>>>>> Stashed changes
     },
     {
         id: "AB00002",
         name: "Mohsin Ullah Bin Suboor",
-<<<<<<< Updated upstream
         image: "/images/profile-m-m.png",
         resident: "Non UAE",
         drivingLicense: "566699",
@@ -85,24 +66,6 @@ export const companyEmployeesTableData = [
         employeeType: "Rider",
         bike: "Assigned",
         sim: "Not Assigned",
-=======
-        resident: "UAE",
-        drivingLicense: "566699",
-        passportNumber: "RT1234567",
-        personalMobileNumber: "+971 345678910",
-        frontAssocation: "Careem",
-        city: "Dubai",
-        visaStatus: "Own",
-        salaryType: "Commission",
-        fixedSalaryAmount: 1500,
-        actualJoiningDate: "12/06/24",
-        dpSharing: "Yes",
-        gtcApplied: "Applied",
-        gtcAppliedDate: "12/05/22",
-        status: "Approved",
-        employeeType: "Rider",
-        site: "Assigned",
->>>>>>> Stashed changes
     },
     // Additional rows...
 ];
