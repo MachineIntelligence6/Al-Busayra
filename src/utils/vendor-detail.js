@@ -86,6 +86,64 @@ export const vendorDetail = [
   },
 ];
 
+export const allocateAssetData = [
+  {
+    label: "Employee ID",
+    value: "AB00001",
+  },
+  {
+    label: "Resident",
+    value: "UAE",
+  },
+  {
+    label: "Driving License",
+    value: "879343",
+  },
+  {
+    label: "Passport Number",
+    value: "TA1822801",
+  },
+  {
+    label: "Employee type",
+    value: "Rider",
+  },
+  {
+    label: "Rider Aquiring Company",
+    value: "Rafiq Khan",
+    icon: "",
+  },
+  {
+    label: "Rider Aquiring Company ",
+    value: "Careem",
+    icon: "",
+  },
+  {
+    label: "City ",
+    value: "Sharjah",
+  },
+  {
+    label: "Salary Type Fixed/Commission",
+    value: "Fixed",
+  },
+  {
+    label: "Salary Amount Fixed/Commission",
+    value: "200",
+    currency: "AED",
+  },
+  {
+    label: "Status",
+    value: "Approved",
+  },
+  {
+    label: "Bike",
+    value: "Not Assigned",
+  },
+  {
+    label: "SIM",
+    value: "Not Assigned",
+  },
+];
+
 export const addContractData = [
   {
     label: "Vendor ID",
