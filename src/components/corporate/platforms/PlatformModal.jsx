@@ -117,7 +117,7 @@ const PlatformModal = (props) => {
         <VendorModalWrapper
             open={isOpenModal}
             onClose={onClose}
-            title="Vendor Information"
+            title="Add Platform"
         >
             <Box component="div">
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>

@@ -18,9 +18,12 @@ function OTp() {
                     <h1 className="font-bold text-center text-[25px] leading-[38px] text-[#2F2B3D] mt-5">
                         Just one more step{" "}
                     </h1>
-                    <div className="text-normal text-center text-[15px] leading-[22px] text-[#2F2B3DB2]">
-                        Please sign-in to your account and start your journey
-                    </div>
+                    <p className="text-normal text-[12px] text-[#2F2B3DB2]">
+                        We’ve sent a code to your email <strong>john.smith@albusayra</strong>
+                    </p>
+                    <p className="text-normal text-[12px] leading-[22px] text-[#2F2B3DB2]">
+                        Please check your inbox insert the code in form below to sign in.
+                    </p>
                 </div>
                 <div className="flex flex-col w-full mb-6">
                     <OTPInput />
