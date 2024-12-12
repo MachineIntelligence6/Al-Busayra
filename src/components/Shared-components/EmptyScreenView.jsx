@@ -26,9 +26,9 @@ const EmptyScreenView = ({
         <img src={image} alt={altText} />
       </div>
       <div className="flex flex-col gap-3 justify-center items-center">
-        <h3 className="text-[rgba(16,71,116,1)] text-xl font-semibold">
+        {title && <h3 className="text-[rgba(16,71,116,1)] text-xl font-semibold">
           {title}
-        </h3>
+        </h3>}
         <p className="text-[#4B465C] text-center">{description}</p>
         {/* Conditionally render the button */}
         {showButton && (

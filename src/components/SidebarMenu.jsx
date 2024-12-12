@@ -41,7 +41,10 @@ const SidebarMenu = ({ adminMenuData, portal = "admin" }) => {
                 bgcolor: "#23567F",
                 color: "white",
                 height: "100vh",
+                minHeight: '100vh',
                 padding: "1rem 1rem 0rem 1rem",
+                overflow: 'auto',
+                scrollbarWidth: "none"
             }}
         >
             <Box component="div" sx={{ width: "100%", borderBottom: "2px solid white", py: 2 }}>
