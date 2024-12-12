@@ -129,7 +129,7 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
         </TableHead>
         <TableBody>
           {data?.map((row) => (
-            <TableRow key={row.id} hover>
+            <TableRow key={row.id} hover sx={{ "& .MuiTableCell-root": { pt: 1, pb: 1 } }}>
               {isSelectedOption && <TableCell padding="checkbox">
                 <Checkbox
                   size="small"
