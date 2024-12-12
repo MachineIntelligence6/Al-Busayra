@@ -20,7 +20,7 @@ const CustomDateField = ({
   textProps = {}, // Props for label typography
   sx = {}, // Additional styles for the field wrapper
   required = false, // Indicate if the field is required
-  borderRadius = 8, // Custom border radius for the date field
+  borderRadius = 2, // Custom border radius for the date field
   height = 40, // Custom height for the date field
   bgcolor = "transparent", // Set default background color to white for the text field
   ...props

@@ -8,6 +8,7 @@ import CustomDropdown from '@/components/Shared-components/CustomDropDown'
 import { UploadOutlined } from '@mui/icons-material'
 import { Box, Divider, Typography } from '@mui/material'
 import { Check, CircleX, FileDownIcon, Info } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 
 
@@ -39,6 +40,7 @@ const tab = {
 }
 const AddInventory = () => {
     const [selectedProduct, setSelectedProduct] = useState("");
+    const router = useRouter();
 
 
     const handleProductChange = (event) => {
@@ -82,7 +84,7 @@ const AddInventory = () => {
                     <OtherDetailsForm />
                 </Box>
                 <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: 'center', borderTop: "1px solid #2F2B3D40", pt: 2, pb: 4 }}>
-                    <CustomButton variant="outlined" bgColor="danger" startIcon={<CircleX size={20} />}>Cancel</CustomButton>
+                    <CustomButton variant="outlined" bgColor="danger" startIcon={<CircleX size={20} />} onClick={() => router.push("/admin/inventory")}>Cancel</CustomButton>
                     <Box component="div" sx={{ display: 'flex', alignItems: 'center', gap: 1 }} >
                         <CustomButton endIcon={<Check size={20} />} onClick={() => { }}>Save</CustomButton>
                     </Box>
