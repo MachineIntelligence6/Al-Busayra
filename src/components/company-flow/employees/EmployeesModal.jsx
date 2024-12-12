@@ -14,12 +14,11 @@ const EmployeesModal = ({ open, onClose, title = "Employees Modal" }) => {
             aria-labelledby="responsive-dialog-title"
             maxWidth={'lg'}
             closeAfterTransition
-            onClose={onClose}
 
         >
 
             <DialogTitle id="responsive-dialog-title" sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                {title} <Box component="button" sx={{ p: 1, borderRadius: 8, "& :hover": { bgcolor: "red", p: 1, borderRadius: 8 } }}><X size={18} /></Box>
+                {title} <Box onClick={onClose} component="button" sx={{ borderRadius: "100%", "& :hover": { bgcolor: "#dfdfdf", color: "#104774", p: 0.2, borderRadius: 4 } }}><X size={18} /></Box>
             </DialogTitle>
             <DialogContent>
                 <DialogContentText>

@@ -110,7 +110,7 @@ const SidebarMenu = ({ adminMenuData, portal = "admin" }) => {
                                     >
                                         {menu.item.map((subItem) => (
                                             <ListItem key={subItem.id} disablePadding sx={{ pb: 1 }}>
-                                                <Link href={subItem.url} style={{ width: "100%" }}>
+                                                <Link href={subItem.url} style={{ width: "100%", textDecoration: "none" }}>
                                                     <ListItemButton
                                                         sx={{
                                                             borderRadius: 2,

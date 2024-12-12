@@ -38,7 +38,7 @@ const DynamicBreadcrumb = ({
               {toTitleCase(crumb.label)}
             </Typography>
           ) : (
-            <Link key={index} href={crumb.href} passHref>
+            <Link style={{ textDecoration: "none" }} key={index} href={crumb.href} passHref>
               <Typography color="primary" sx={{ cursor: "pointer" }}>
                 {toTitleCase(crumb.label)}
               </Typography>
@@ -47,21 +47,21 @@ const DynamicBreadcrumb = ({
         })}
       </Breadcrumbs>
       <Box>
-      {isBtnShow && (
-        <CustomButton startIcon={icon} onClick={onClick}>
-          {btnName}
-        </CustomButton>
-      )}
-      {isChallan && (
-        <CustomButton onClick={onClick} sx={{marginLeft:"14px"}}>
-          Add Challan
-        </CustomButton>
-      )}
-      {isRole && (
-        <CustomButton startIcon={icon} onClick={onClick} sx={{marginLeft:"14px"}}>
-          {btnName}
-        </CustomButton>
-      )}
+        {isBtnShow && (
+          <CustomButton startIcon={icon} onClick={onClick}>
+            {btnName}
+          </CustomButton>
+        )}
+        {isChallan && (
+          <CustomButton onClick={onClick} sx={{ marginLeft: "14px" }}>
+            Add Challan
+          </CustomButton>
+        )}
+        {isRole && (
+          <CustomButton startIcon={icon} onClick={onClick} sx={{ marginLeft: "14px" }}>
+            {btnName}
+          </CustomButton>
+        )}
       </Box>
     </Box>
   );
