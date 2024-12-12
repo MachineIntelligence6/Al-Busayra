@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import { Box, Divider, Typography } from "@mui/material";
 import { usePathname } from "next/navigation";
 import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
-import { Person, Group, CalendarToday, CheckCircle } from "@mui/icons-material";
 import { CustomPermissionTabs } from "@/components/Shared-components/CustomPermissionTabs";
-import { CompanyIcon, GlobalIcon } from "@/utils/Icons";
+import { CalendarIcon, CompanyIcon, GlobalIcon,ShieldIcon,UserIcon } from "@/utils/Icons";
 import RoleInfoCard from "@/components/roles-template/RoleInfoCard";
-import CustomButton from "@/components/Shared-components/CustomButton";
+import CustomizablePermissionsTable from "@/components/roles-template/CustomPermissionsTable";
+import { CompanyPermissions, permissions } from "@/utils/permissionsData";
+
+const columns = ["View", "Add", "Edit", "Delete"];
 
 const Page = () => {
   const pathname = usePathname();
@@ -31,29 +33,33 @@ const Page = () => {
   ];
 
   const cardData = {
-    title: "Basic Information",
-    editButton: true,
+    title: "BASIT INFORMATION",
+    showEditButton: true,
     data: [
-      { label: "Role", value: "Administrator", 
-        // icon: <Person />
-       },
-      { label: "Created Date", value: "10-12-2023",
-        //  icon: <CalendarToday /> 
-        },
-      { label: "User Type", value: "Internal User",
-        //  icon: <Group />
-         },
       {
+        label: "Role",
+        value: "Administrator",
+        icon: <UserIcon className="h-4 w-4" />
+      },
+      { label: "Created Date", 
+        value: "10-12-2023",
+         icon: <CalendarIcon className="h-4 w-4"/> 
+        },
+      {
+        label: "User Type",
+        value: "Global User",
+        icon: <UserIcon className="h-4 w-4" />
+      },
+     {
         label: "Status",
         value: "Active",
-        // icon: <CheckCircle fontSize="20px" />,
-        valueStyle: { color: "green", fontWeight: "bold" },
+        icon: <ShieldIcon />,
       },
-    ],
+    ]
   };
 
   useEffect(() => {
-    if (pathname === "/challans/traffic") {
+    if (pathname.includes("/challans/traffic")) {
       // You might want to set these flags or remove if unnecessary
       setIsBtnShow(true);
       setIsChallan(true);
@@ -77,23 +83,43 @@ const Page = () => {
       {/* Card Section */}
       <Box
         sx={{
-          padding: "3px 0 0 0",
           margin: "20px 0px",
-          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.15)",
-          borderRadius: "10px",
-          backgroundColor: "#104774",
-          height:"2rem !important"
         }}
       >
+        <Box sx={{ marginY: "20px", fontWeight: "700" }}>
         <RoleInfoCard
           title={cardData.title}
           data={cardData.data}
           onEdit={handleEdit}
         />
-        <Typography variant="body2" sx={{ marginY: "20px", fontWeight: "700" }}>
-          ROLE & PERMISSIONS
-        </Typography>
-        <CustomPermissionTabs tabData={tabData} onClick={handleEditTab} handleChange={handleChange} selectedTab={selectedTab} setSelectedTab={setSelectedTab}/>
+        <Typography
+              variant="body2"
+              sx={{ marginY: "20px", fontWeight: "500" , fontSize: "20px", color:"#2F2B3DE5"}}
+            >
+              ROLES & PERMISSIONS
+            </Typography>
+          <CustomPermissionTabs
+            tabData={tabData}
+            onClick={handleEditTab}
+            handleChange={handleChange}
+            selectedTab={selectedTab}
+            setSelectedTab={setSelectedTab}
+          />
+        </Box>
+        {selectedTab === 0 && (
+            <CustomizablePermissionsTable
+              permissions={permissions}
+              columns={columns}
+              customPermissionsLabel="Custom Permissions"
+            />
+        )}
+        {selectedTab === 1 && (
+            <CustomizablePermissionsTable
+              permissions={CompanyPermissions}
+              columns={columns}
+              customPermissionsLabel="Custom Permissions"
+            />
+        )}
       </Box>
     </>
   );

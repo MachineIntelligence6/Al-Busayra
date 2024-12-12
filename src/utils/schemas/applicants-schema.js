@@ -337,7 +337,7 @@ export const formSchema = Yup.object().shape({
     ),
 
   // Driving License fields
-  isLicenseHolder: Yup.boolean().required('Please specify if you hold a driving license'),
+  isLicenseHolder: Yup.string().required('Please specify if you hold a driving license'),
   licenseNumber: Yup.string().when('isLicenseHolder', (isLicenseHolder, schema) => 
     isLicenseHolder 
       ? schema.required('License number is required for license holders')
@@ -363,6 +363,14 @@ export const formSchema = Yup.object().shape({
 
   // Referral fields
   referralName: Yup.string().required('Referral name is required'),
-  referralPhone: Yup.string().required('Referral phone number is required'),
+  referralPhone: Yup.object().shape({
+    countryCode: Yup.string()
+      .matches(/^\+\d{1,3}$/, 'Country code must be in the format +XX or +XXX')
+      .required('Country code is required'),
+    number: Yup.string()
+      .matches(/^\d{3} \d{3} \d{4}$/, 'Number must be in the format XXX XXX XXXX')
+      .required('Phone number is required'),
+  }),
+
   referralAddress: Yup.string().required('Referral address is required'),
 });
