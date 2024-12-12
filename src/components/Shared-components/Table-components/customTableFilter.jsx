@@ -1,13 +1,11 @@
 import React from "react";
-import { Box, Typography, Divider } from "@mui/material";
+import { Box, Typography, Divider, TextField } from "@mui/material";
 import CustomDropdown from "../CustomDropDown";
+import CustomTextField from "../CustomTextField";
 
-export const customTableFilter = ({ title = "Advanced Filters", filters }) => {
+export const CustomTableFilter = ({ filters }) => {
   return (
     <Box component="div" sx={{ m: 2 }}>
-      <Typography variant="caption" sx={{ fontSize: 16 }}>
-        {title}
-      </Typography>
       <Box
         component="div"
         sx={{
@@ -16,6 +14,7 @@ export const customTableFilter = ({ title = "Advanced Filters", filters }) => {
           justifyContent: "space-between",
           gap: "1rem",
           my: 2,
+          width: "100%",
         }}
       >
         {filters?.length ? (
@@ -23,18 +22,28 @@ export const customTableFilter = ({ title = "Advanced Filters", filters }) => {
             <Box
               key={filter.id}
               sx={{
-                flex: filter.options ? 1 : "auto",
+                flex: 1,
                 display: "flex",
                 flexDirection: "column",
+                 width: "100%"
               }}
             >
-              {filter.options ? (
+              {filter.inputType === "dropdown" ? (
                 <CustomDropdown
-                  sx={{ placeItems: "start" }}
+                  sx={{ placeItems: "start", width: "100%"}}
                   label={filter.filterName}
                   placeholder={filter.placeholder}
                   options={filter.options}
                 />
+              ) : filter.inputType === "text" ? (
+                <Box>
+                  <Typography>{filter.filterName}</Typography>
+                  <Box>
+                  <CustomTextField
+                    placeholder={filter.placeholder}
+                  />
+                </Box>
+                </Box>
               ) : (
                 <Typography>{filter.filterName}</Typography>
               )}
@@ -48,4 +57,3 @@ export const customTableFilter = ({ title = "Advanced Filters", filters }) => {
     </Box>
   );
 };
-

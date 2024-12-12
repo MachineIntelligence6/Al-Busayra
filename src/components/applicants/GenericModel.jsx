@@ -2,8 +2,6 @@ import React from 'react';
 import {
   Modal,
   Box,
-  Typography,
-  IconButton,
   useMediaQuery,
   useTheme,
 } from '@mui/material';
@@ -14,6 +12,8 @@ const GenericModal = ({
   onClose,
   title,
   children,
+  height,
+  width
 }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -24,8 +24,8 @@ const GenericModal = ({
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: isMobile ? '90%' : '80%',
-    maxWidth: 800,
-    maxHeight: '90vh',
+    maxWidth: width ? width : 800,
+    maxHeight: height ? height : '90vh',
     boxShadow: 24,
     borderRadius: 2,
     overflow: 'auto',
