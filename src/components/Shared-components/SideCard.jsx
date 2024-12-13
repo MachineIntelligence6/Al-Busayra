@@ -1,7 +1,13 @@
 import React from "react";
-import { Box, Avatar, Typography, Divider } from "@mui/material";
+import { Box, Avatar, Typography, Divider, Button } from "@mui/material";
 
-const SideCard = ({ avatarSrc, name, email, contractData }) => {
+const SideCard = ({
+  avatarSrc,
+  name,
+  email,
+  contractData,
+  isButton = false,
+}) => {
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Box
@@ -31,7 +37,7 @@ const SideCard = ({ avatarSrc, name, email, contractData }) => {
             sx={{
               width: 70,
               height: 70,
-              border: "2px solid white",
+              // border: "2px solid white",
               borderRadius: "50%",
             }}
           />
@@ -41,11 +47,14 @@ const SideCard = ({ avatarSrc, name, email, contractData }) => {
           </Box>
         </Box>
 
-        <Divider color="white" />
+        {/* <Divider color="white" /> */}
 
         {/* Contract Data */}
         {contractData.map((item, index) => (
           <React.Fragment key={index}>
+            {/* {index !== contractData.length - 1 && <Divider color="#F2F2F2" />} */}
+            {<Divider color="#F2F2F2" />}
+
             <Box
               sx={{
                 display: "flex",
@@ -74,18 +83,72 @@ const SideCard = ({ avatarSrc, name, email, contractData }) => {
                     padding: "2px 10px",
                     borderRadius: "4px",
                     fontWeight: 500,
-                  }
-                
-                ),
-                  
+                  }),
+                  ...(item.label === "Bike" && {
+                    backgroundColor: "#7367F0",
+                    color: "#FFFFFF",
+                    padding: "2px 10px",
+                    borderRadius: "4px",
+                    fontWeight: 500,
+                  }),
+                  ...(item.label === "SIM" && {
+                    backgroundColor: "#7367F0",
+                    color: "#FFFFFF",
+                    padding: "2px 10px",
+                    borderRadius: "4px",
+                    fontWeight: 500,
+                  }),
                 }}
               >
-                {item.value}
+                <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
+                  {item.icon && (
+                    <img
+                      src={item.icon}
+                      alt={item.label}
+                      style={{
+                        width: "30px",
+                        height: "30px",
+                        borderRadius: "50%",
+                      }}
+                    />
+                  )}
+                  {item.value}
+                  {item.currency && (
+                    <Box
+                      sx={{
+                        bgcolor: "#80839029",
+                        color: "#808390",
+                        borderRadius: "3.255px",
+                        p: "2px 6px",
+                        fontSize: "9.75px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {item.currency}{" "}
+                    </Box>
+                  )}
+                </Box>
               </Typography>
             </Box>
-            {index !== contractData.length - 1 && <Divider color="#F2F2F2" />}
           </React.Fragment>
         ))}
+        {<Divider color="#F2F2F2" />}
+        {isButton === true && (
+          <Box sx={{ width: "full", textAlign: "center" }}>
+            <Button
+              sx={{
+                color: "#F2F2F2",
+                fontSize: "18px",
+                textDecoration: "underline",
+                textAlign: "center",
+                mb: 1,
+                mt: 2,
+              }}
+            >
+              View All Details
+            </Button>
+          </Box>
+        )}
       </Box>
     </Box>
   );

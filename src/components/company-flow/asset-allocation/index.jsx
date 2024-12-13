@@ -7,7 +7,6 @@ import { Plus } from "lucide-react";
 import React, { useState } from "react";
 import EmptyScreen from "./EmptyScreen";
 import TableModal from "./table/TableModal";
-import AssignBike from "./bike";
 
 const AssetAllocation = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -31,8 +30,7 @@ const AssetAllocation = () => {
       <div className="py-5">
         <Separator />
       </div>
-      {/* <EmptyScreen /> */}
-      <AssignBike />
+      <EmptyScreen />
       {showPopup && <TableModal onClose={onClose} />}
     </div>
   );
