@@ -38,7 +38,7 @@ const Login = () => {
                                 <Checkbox id="remember-me" />
                                 <Typography
                                     component="label"
-                                    sx={{ fontSize: 13, fontWeight: 400, lineHeight: 2, fontStyle: "italic", color: custom.darkGrayish }}
+                                    sx={{ fontSize: 13, fontWeight: 400, lineHeight: 2, fontStyle: "italic", color: custom.primaryText }}
                                     htmlFor="remember-me"
                                 >
                                     Remember Me

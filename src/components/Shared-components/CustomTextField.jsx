@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { TextField, InputAdornment, FormControl, Typography } from "@mui/material";
+import InputLabelTop from "./InputLabel";
 
 const CustomTextField = (props) => {
   const {
@@ -27,10 +28,7 @@ const CustomTextField = (props) => {
   return (
     <FormControl sx={{ ...sx }} fullWidth={fullWidth} error={!!error}>
       {label && (
-        <Typography component="label" {...textProps}>
-          {label}
-          {required && <span style={{ color: "red", }}> *</span>}
-        </Typography>
+        <InputLabelTop text={label} required={required} />
       )}
       <TextField
         value={value}

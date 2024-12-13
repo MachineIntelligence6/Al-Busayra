@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@mui/material";
 import { AddIcCallOutlined } from "@mui/icons-material";
+import { custom } from "@/app/theme";
 
 const CustomButton = ({
     children,
@@ -10,19 +11,19 @@ const CustomButton = ({
     startIcon,
     endIcon,
     sx,                 // Custom styles
-    onClick, 
+    onClick,
     type,
     ...rest             // Remaining props
 }) => {
     // Define a centralized color mapping
     const colors = {
-        primary: "#104774",
+        primary: custom.deepBlue,
         muted: "#808390",
         secondary: "#737682",
         foreground: "#80839029",
-        danger: "#FF4C51",
+        danger: custom.errorButton,
     };
-   
+
 
     // Determine background and text color
     const backgroundColor = colors[bgColor] || colors.primary;
@@ -41,6 +42,9 @@ const CustomButton = ({
                 borderColor: borderColor,
                 borderWidth: variant === "outlined" ? 1 : 0, // Border width for outlined
                 textTransform: "capitalize",
+                fontSize: 15,
+                fontWeight: 500,
+                lineHeight: 2,
                 ...sx,
             }}
             onClick={onClick} // Add the onClick handler here
