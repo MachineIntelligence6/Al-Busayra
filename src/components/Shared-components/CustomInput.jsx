@@ -4,7 +4,7 @@ import { TextField, IconButton, InputAdornment } from "@mui/material";
 import InputLabelTop from "./InputLabel";
 import { Eye, EyeOff } from "lucide-react";
 
-function CustomInput({ onChange, placeholder, labelText, type = "text" }) {
+function CustomInput({ onChange, placeholder, labelText, type = "text", required = false }) {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleTogglePasswordVisibility = () => {

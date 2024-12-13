@@ -98,7 +98,7 @@ const AllocateAsset = () => {
                   <CustomTextField
                     placeholder={field.name}
                     label={field.label}
-                    required
+                    required={true}
                   />
                 )}
                 {field.type === "dropdown" && (
@@ -107,7 +107,7 @@ const AllocateAsset = () => {
                 {field.type === "CustomDateField" && (
                   <CustomDateField
                     label={field.label}
-                    required
+                    required={true}
                     borderRadius={1.5}
                     height={37.5}
                     bgcolor="#FFF"
@@ -127,7 +127,7 @@ const AllocateAsset = () => {
                     bgColor="#FFFFFF"
                     textSize="13px"
                     marginBottom="4px"
-                    required
+                    required={true}
                   />
                 )}
               </Box>

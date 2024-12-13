@@ -13,7 +13,7 @@ import CustomTextField from "../CustomTextField";
 import { UploadIcon } from "@/utils/Icons";
 import { custom } from "@/app/theme";
 
-const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntries, btnText = "Add New" }) => {
+const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntries, btnText = "Add New",  required = false  }) => {
   const [text, setText] = useState("");
   const handleInputChange = (e) => {
     setText(e.target.value);

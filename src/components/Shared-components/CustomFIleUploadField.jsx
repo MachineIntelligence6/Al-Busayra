@@ -17,6 +17,7 @@ const CustomFileUploadField = (props) => {
     textSize = "body1",
     buttonText = "Upload",
     bgColor,
+    required = false
   } = props
 
   const [fileValue, setFileValue] = useState(value);
