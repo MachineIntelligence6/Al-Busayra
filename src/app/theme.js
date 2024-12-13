@@ -2,6 +2,25 @@
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
+  typography: {
+    fontFamily: "Public Sans, sans-serif",
+    // h1: {
+    //   fontSize: "24px", // Figma H1 size
+    //   fontWeight: 700, // Bold
+    // },
+    // h2: {
+    //   fontSize: "20px", // Figma H2 size
+    //   fontWeight: 600, // Semi-bold
+    // },
+    // body1: {
+    //   fontSize: "16px", // Figma body text size
+    //   fontWeight: 400, // Regular weight
+    // },
+    // caption: {
+    //   fontSize: "12px", // Figma caption text size
+    // },
+  },
+  // spacing: (factor) => `${factor * 8}px`, // 8px grid spacing
   palette: {
     primary: {
       main: "#1976d2",
@@ -9,20 +28,13 @@ const theme = createTheme({
     secondary: {
       main: "#dc004e",
     },
-    main: {
-      darkBlue: "#104774",
+    // Add custom colors here
+    custom: {
+      deepBlue: "#104774",
     },
-
-    background: {
-      // default: "#23567F", // Default background color for the app
-      // paper: "#ffffff", // Background color for paper components
-    },
-    // background: {
-    // default: "#23567F", // Default background color for the app
-    // paper: "#ffffff", // Background color for paper components
-    // },
   },
-  // Add more customizations as needed
 });
+
+export const custom = theme.palette.custom; // Access palette.custom
 
 export default theme;

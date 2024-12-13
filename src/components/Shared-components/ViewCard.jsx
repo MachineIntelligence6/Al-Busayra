@@ -10,10 +10,9 @@ export function ViewCard({ title, children, onEdit, borderTop }) {
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        borderTop:
-          borderTop !== false
-            ? borderTop || `4px solid ${theme.palette.main.darkBlue}` // Default or custom
-            : "none", // Disable border
+        borderTop: borderTop !== false
+            ? borderTop || `4px solid ${custom.deepBlue}`
+            : "none",
         borderRadius: "10px",
       })}
     >
