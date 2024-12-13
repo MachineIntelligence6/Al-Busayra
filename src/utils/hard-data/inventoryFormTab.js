@@ -1,3 +1,5 @@
+"use client"
+import { custom } from "@/app/theme";
 import {
     CircleEllipsis,
     CreditCard,
@@ -7,7 +9,6 @@ import {
     ReceiptText,
     ShieldHalf,
 } from "lucide-react";
-import { custom } from "../../app/theme";
 
 export const inventoryFormTab = [
     {

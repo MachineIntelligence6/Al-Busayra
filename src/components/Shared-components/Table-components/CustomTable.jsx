@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import {
   Table,
@@ -11,7 +12,6 @@ import {
   Typography,
   styled,
 } from "@mui/material";
-import FilterListIcon from "@mui/icons-material/FilterList";
 import { custom } from "@/app/theme";
 
 const allowedFields = [

@@ -1,6 +1,6 @@
+"use client"
 import React from "react";
 import { Button } from "@mui/material";
-import { AddIcCallOutlined } from "@mui/icons-material";
 import { custom } from "@/app/theme";
 
 const CustomButton = ({
