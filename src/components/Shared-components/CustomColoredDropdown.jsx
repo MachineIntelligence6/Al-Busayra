@@ -13,9 +13,10 @@ const statusOptions = [
     value: "not_qualified",
     label: "Not Qualified",
     icon: <CancelIcon sx={{ fontSize: 20 }} />,
-    backgroundColor: "#ef4444",
+
+    backgroundColor: "#E64449",
     textColor: "#ffffff",
-    menuBackgroundColor: "#fef2f2",
+    menuBackgroundColor: "#FFDBDC",
     menuTextColor: "#991b1b",
   },
   {
@@ -47,7 +48,7 @@ export const StatusDropdown = ({
         IconComponent={KeyboardArrowDownIcon}
         sx={{
           width: "180px",
-          height: "40px",
+          // height: "40px",
           borderRadius: "6px",
           backgroundColor: selectedStatus?.backgroundColor || "#ffffff",
           color: selectedStatus?.textColor || "#000000",
@@ -87,22 +88,22 @@ export const StatusDropdown = ({
             value={option.value}
             onClick={() => {
               if (onOptionClick) {
-                onOptionClick(option.value); // Trigger custom action on option click
+                onOptionClick(option.value);
               }
             }}
             sx={{
               display: "flex",
               alignItems: "center",
               gap: "8px",
+              fontSize: 15,
               backgroundColor: option.menuBackgroundColor,
               color: option.menuTextColor,
-              padding: "8px 16px",
+              m: 1,
               "&:hover": {
                 backgroundColor: "rgba(0, 0, 0, 0.04)",
               },
             }}
           >
-            {option.icon}
             {option.label}
           </MenuItem>
         ))}
@@ -113,11 +114,11 @@ export const StatusDropdown = ({
 
 // Usage example:
 
-//     <StatusDropdown 
-//       value={status} 
+//     <StatusDropdown
+//       value={status}
 //       onChange={handleChange}
-      // You can now pass any additional Select props
+// You can now pass any additional Select props
 //       disabled={false}
 //       error={false}
-      // ... any other Select props
+// ... any other Select props
 //     />
