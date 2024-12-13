@@ -64,7 +64,7 @@ const Page = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalEntries, setTotalEntries] = useState(10);
   const [headerSearchValue, setHeaderSearchValue] = useState("");
-  const rowsPerPage = 7;
+  const rowsPerPage = 9;
 
   // Handler for search input change
   const onSearchChange = (value) => {

@@ -3,7 +3,7 @@ import { Box, Typography, Pagination } from "@mui/material";
 
 const TablePagination = ({
   totalEntries = 100,
-  rowsPerPage = 10,
+  rowsPerPage = 9,
   currentPage = 1,
   setCurrentPage,
 }) => {

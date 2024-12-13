@@ -3,6 +3,7 @@ import { Box, Divider, Typography } from "@mui/material";
 import React, { useState } from "react";
 import CustomDropdown from "../CustomDropDown";
 import CustomTextField from "../CustomTextField";
+import { custom } from "@/app/theme";
 
 const options = ["A", "B", "C", "D"];
 const TableFilters = ({ filters, bottomBorder = true, textFieldWidth = 350 }) => {
@@ -21,7 +22,7 @@ const TableFilters = ({ filters, bottomBorder = true, textFieldWidth = 350 }) =>
       component="div"
       sx={{ p: 2, }}
     >
-      <Typography variant="caption" sx={{ fontSize: 16 }}>
+      <Typography variant="caption" sx={{ fontSize: "20px", fontWeight:"500" }} color={custom.breadcrumbText}>
         Advance Filters
       </Typography>
 

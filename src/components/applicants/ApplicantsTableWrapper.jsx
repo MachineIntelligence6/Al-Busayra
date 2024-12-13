@@ -88,7 +88,7 @@ const ApplicantsTableWrapper = ({
   handleOpenModal,
   setCurrentPage,
   rowsPerPage,
-  currentPage,
+  currentPage = 9,
   filters
 }) => {
   const [totalEntries, setTotalEntries] = useState(10);
@@ -191,7 +191,7 @@ const ApplicantsTableWrapper = ({
       },
       {
         field: "action",
-        headerName: "Action",
+        headerName: "ACTION",
         align: "left",
         render: (row) => (
           <ActionMenu

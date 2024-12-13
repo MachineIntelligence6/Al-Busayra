@@ -16,7 +16,7 @@ const Page = () => {
   const [isChallan, setIsChallan] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const rowsPerPage = 5;
+  const rowsPerPage = 9;
   const pathname = usePathname();
 
   const handleClick = () => {
