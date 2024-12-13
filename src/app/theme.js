@@ -31,11 +31,13 @@ const theme = createTheme({
     // Add custom colors here
     custom: {
       deepBlue: "#104774",
-      white:"#ffffff",
-      primaryText:"#2F2B3DE5",
-      secondaryText:"#2F2B3DB2",
-      darkGrayish: "#2F2B3DE5",
+      white: "#ffffff",
+      primaryText: "#2F2B3DE5",
+      secondaryText: "#2F2B3DB2",
+      descriptive: "#2F2B3DB2",
+      mute: "#2F2B3D66",
       errorDark: "#E64449",
+      errorButton: "#FF4C51",
     },
   },
 });

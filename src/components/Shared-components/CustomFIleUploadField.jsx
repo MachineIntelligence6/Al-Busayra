@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import { CircleX, FileBarChart2 } from "lucide-react";
+import InputLabelTop from "./InputLabel";
 
 const CustomFileUploadField = (props) => {
   const {
@@ -29,7 +30,7 @@ const CustomFileUploadField = (props) => {
 
   return (
     <Box sx={{ display: "flex", alignItems: "start", flexDirection: "column" }}>
-      <Typography>{label}</Typography>
+      {label && <InputLabelTop text={label} required={required} />}
       <Box
         sx={{
           flex: "1",
