@@ -19,6 +19,7 @@ import { useFormik } from "formik";
 import { YuppValSchema } from "./Schemas/YuppValSchema";
 import IOSSwitch from "../ui/switch-button";
 import CustomButton from "./CustomButton";
+import CustomDateField from "./CustomDateField";
 
 const CampaignCreateModal = ({ open, onClose }) => {
   const [isActive, setIsActive] = useState(true);
@@ -37,8 +38,8 @@ const CampaignCreateModal = ({ open, onClose }) => {
     boxShadow: 24,
     borderRadius: 2,
     overflow: "auto",
-    px: 5,
-    pb: 2,
+    // px: 5,
+    // pb: 2,
   };
 
   const formik = useFormik({
@@ -147,18 +148,18 @@ const CampaignCreateModal = ({ open, onClose }) => {
                         fontWeight: 550,
                       }}
                     >
-                      Start Date <span className="text-[#E64449]">*</span>{" "}
+                      Start Datetime <span className="text-[#E64449]">*</span>{" "}
                     </Typography>
                     <Input
                       name="startDate"
                       value={formik.values.startDate}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      placeholder="2024-06-15"
                       labelText=""
                       layout="row"
                       customClass="w-[60%]  text-[13px]  text-[#2F2B3DE5]"
                       customInputClass="bg-[#FCFCFC]"
+                      placeholder="10/06/2024 12:30 PM"
                     />
                   </Box>
                   <Box sx={{ alignSelf: "end", mt: 1 }}>
@@ -181,7 +182,7 @@ const CampaignCreateModal = ({ open, onClose }) => {
                         fontWeight: 550,
                       }}
                     >
-                      End Date <span className="text-[#E64449]">*</span>{" "}
+                      End Datetime <span className="text-[#E64449]">*</span>{" "}
                     </Typography>
                     <Input
                       name="endDate"

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Box } from "@mui/material";
 import BasicInfo from "./BasicInfo";
-import ContactDetail from "./ContactDetails";
+import ContactDetail from "./ContactDetail";
 import DLInfo from "./DLInfo";
 import PassportInfo from "./PassportInfo";
 
@@ -11,9 +11,8 @@ import EmiratesId from "./EmiratesId";
 import VisaInfo from "./VisaInfo";
 import InsuranceInfo from "./InsuranceInfo";
 import OtherInfo from "./OtherInfo";
-import ViewEmployeeHeader from "../../Shared-components/ViewEmployeeHeader";
-import { ViewEmployeeCardData } from "../../../utils/view-employee-card-data";
-
+import { ViewEmployeeCardData } from "@/utils/view-employee-card-data";
+import ViewEmployeeHeader from "@/components/Shared-components/ViewEmployeeHeader";
 import { useRouter } from "next/navigation";
 
 const EmployeeView = () => {
@@ -22,7 +21,7 @@ const EmployeeView = () => {
 
   const handleEdit = (section) => {
     console.log(`Editing ${section}`);
-    router.push("/admin/employees/incomplete-profile/form");
+    router.push("/employees/incomplete-profile/form");
   };
 
   return (

@@ -63,7 +63,7 @@ const CustomTableExportRow = ({
           justifyContent: "space-evenly",
           gap: 2,
           alignItems: "center",
-          marginRight:1,
+          marginRight: 1,
         }}
       >
         {showSearch && (

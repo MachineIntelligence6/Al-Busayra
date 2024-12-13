@@ -29,7 +29,7 @@ const DynamicBreadcrumb = ({
       .join(" "); // Join back into a single string
 
   return (
-    <Box display="flex" justifyContent="space-between" alignItems="center">
+    <Box display="flex" justifyContent="space-between" alignItems="center"  >
       <Breadcrumbs aria-label="breadcrumb">
         {breadcrumbs.map((crumb, index) => {
           const isLast = index === breadcrumbs.length - 1;

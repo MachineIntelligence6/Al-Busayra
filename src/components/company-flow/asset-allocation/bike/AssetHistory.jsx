@@ -1,245 +1,211 @@
-"use client";
+// import CampaignsWrapper from "@/components/Campaigns";
+import TableExportRow from "@/components/Shared-components/Table-components/TableExportRow";
+import TableFilters from "@/components/Shared-components/Table-components/TableFilters";
+import { Avatar, Box, Typography } from "@mui/material";
+import React, { useMemo } from "react";
+import { AssetHistoryTableData } from "../../employees/data";
+import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
+import TablePagination from "@/components/Shared-components/Table-components/TablePagination";
+import Link from "next/link";
+import CustomAvatar from "@/components/Shared-components/CustomAvatar";
+import CurrencyType from "@/components/Shared-components/CurrencyType";
+import ActionMenu from "@/components/Shared-components/ActionMenu";
 
-import React, { useState } from "react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  Chip,
-  IconButton,
-  Menu,
-  MenuItem,
-  Box,
-} from "@mui/material";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import HomeIcon from "@mui/icons-material/Home"; // Example icon
-import CheckCircleIcon from "@mui/icons-material/CheckCircle"; // Another example icon
-import BikeScooterIcon from "@mui/icons-material/BikeScooter"; // Bike Icon example
-import { PdfIcon } from "@/utils/Icons";
+// const filters = [
+//   { id: 1, filterName: "ID", placeholder: "3421" },
+//   {
+//     id: 3,
+//     filterName: "Platform",
+//     placeholder: "Rider/any other",
+//     options: [
+//       { id: 1, label: "Rider", value: "rider" },
+//       { id: 2, label: "Option-2", value: "option-2" },
+//       { id: 3, label: "Option-3", value: "option-3" },
+//     ],
+//   },
+//   { id: 1, filterName: "Serach By Name", placeholder: "e.g john" },
+//   {
+//     id: 4,
+//     filterName: "City",
+//     placeholder: "Islamabad",
+//     options: [
+//       { id: 1, label: "Islamabad", value: "islamabad" },
+//       { id: 2, label: "Rawalpindi", value: "rawalpindi" },
+//       { id: 3, label: "Peshawar", value: "peshawar" },
+//     ],
+//   },
+// ];
 
 const AssetHistory = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedRow, setSelectedRow] = useState(null);
-
-  const rows = [
-    {
-      bikePlateNo: "1713",
-      bikeCity: "Sharjah",
-      bikeOwnerShip: {
-        imageUrl: "/company/ABDS.svg",
-        value: "ABDS",
-      },
-      bikeIssueDate: "10/09/2024",
-      bikeIssueTime: "10:00 AM",
-      foodPermit: "Yes",
-      mulkiya: "No",
-      physicalAllocation: "Allocation picture",
-      clearanceDate: "--",
-      riderAcquiringVendor: {
-        imageUrl: "/company/Avataricon.svg",
-        value: "Rafiq Khan",
-      },
-      platform: {
-        imageUrl: "/company/careemicon.svg",
-        value: "Rafiq Khan",
-      },
-      status: "Currently Assigned",
-      icons: {
-        physicalAllocation: <PdfIcon sx={{ color: "" }} />,
-      },
-    },
-    {
-      bikePlateNo: "1813",
-      bikeCity: "Dubai",
-      bikeOwnerShip: {
-        imageUrl: "/company/ABDS.svg",
-        value: "ABDS",
-      },
-      bikeIssueDate: "10/08/2024",
-      bikeIssueTime: "11:00 AM",
-      foodPermit: "Yes",
-      mulkiya: "No",
-      physicalAllocation: "Allocation picture",
-      clearanceDate: "12/09/2024",
-      riderAcquiringVendor: {
-        imageUrl: "/company/Avataricon.svg",
-        value: "Rafiq Khan",
-      },
-      platform: {
-        imageUrl: "/company/careemicon.svg",
-        value: "Rafiq Khan",
-      },
-      status: "Close",
-      icons: {
-        physicalAllocation: <PdfIcon sx={{ color: "" }} />,
-      },
-    },
-  ];
-
-  const handleClick = (event, row) => {
-    setAnchorEl(event.currentTarget);
-    setSelectedRow(row);
+  const handleRowSelect = (selectedRowIds) => {
+    console.log("Selected Row IDs:", selectedRowIds);
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-    setSelectedRow(null);
+  const handleMenuClick = (value) => {
+    // if (value.action === "add-contract") router.push("corporate/add-contract");
+    // if (value.action === "view") setShowPopup(true);
+    console.log("clicked menu", value);
   };
 
-  const handleEdit = () => {
-    // Handle the edit action for the selectedRow
-    console.log("Editing contract: ", selectedRow);
-    handleClose(); // Close the menu after the action
+  const handleFilterClick = (field) => {
+    console.log(`Filter clicked for: ${field}`);
   };
 
-  return (
-    <Box sx={{}}>
-      {/* <Box
-        sx={{
-          bgcolor: "#F4F4F4",
-          p: 2.5,
-          color: "#000",
-          fontSize: "14px",
-          fontWeight: 500,
-        }}
-      >
-        Bike Information
-      </Box> */}
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead
+  const MenuItems = useMemo(
+    () => [
+      { label: "View Details", action: "view" },
+      { label: "Edit Details", action: "edit" },
+    ],
+    []
+  );
+  const fullColumns = useMemo(() => {
+    return [
+      {
+        field: "bikePlateNumber",
+        headerName: "Bike Plate Number",
+        align: "left",
+        render: (row) => (
+          // <Link
+          //   href="#"
+          //   style={{ color: "#20A4D5E5", textDecoration: "underline" }}
+          // >
+          // </Link>
+          <Typography>{row.bikePlateNumber}</Typography>
+        ),
+      },
+      {
+        field: "bikeCity",
+        headerName: "Bike City",
+        align: "left",
+        render: (row) => (
+          // <Link
+          //   href="#"
+          //   style={{ color: "#20A4D5E5", textDecoration: "underline" }}
+          // >
+          // </Link>
+          <Typography>{row.bikeCity}</Typography>
+        ),
+      },
+      {
+        field: "name",
+        headerName: "Bike Ownership",
+        align: "left",
+        render: (row) => (
+          <CustomAvatar
+            fullName={row.bikeOwnershipText}
+            image={row.bikeOwnershipImage}
+            // email="abce@gmail.com"
+          />
+        ),
+      },
+      {
+        field: "bikeIssueDate",
+        headerName: "Date of Bike isssue ",
+        align: "left",
+        render: (row) => <Typography>{row.bikeIssueDate}</Typography>,
+      },
+      {
+        field: "bikeIssueTime",
+        headerName: "Time of Bike Issue ",
+        align: "left",
+      },
+      {
+        field: "foodPermit",
+        headerName: "Food Permit provided to Rider",
+        align: "left",
+      },
+      {
+        field: "mulkiya",
+        headerName: "Mulkiya provided to Rider",
+        align: "left",
+      },
+
+      {
+        field: "name",
+        headerName: "Rider Acquiring Vendor",
+        align: "left",
+        render: (row) => (
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            {row.physicalAllocationImage}
+            <Typography>{row.physicalAllocationText}</Typography>
+            {row.physicalAllocationImage1}
+          </Box>
+        ),
+      },
+      {
+        field: "clearanceDate",
+        headerName: "Clearance  Date",
+        align: "left",
+        render: (row) => <Typography>{row.clearanceDate}</Typography>,
+      },
+
+      {
+        field: "name",
+        headerName: "Rider Acquiring Vendor",
+        align: "left",
+        render: (row) => (
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <Avatar src={row.vendorImage} />
+            <Typography>{row.riderAcquiringVendor}</Typography>
+          </Box>
+        ),
+      },
+      {
+        field: "name",
+        headerName: "Rider Acquiring Vendor",
+        align: "left",
+        render: (row) => (
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <Avatar src={row.rider_platform_image} />
+            <Typography>{row.rider_platform}</Typography>
+          </Box>
+        ),
+      },
+      {
+        field: "status",
+        headerName: "Status",
+        align: "left",
+        render: (row) => (
+          <Box
             sx={{
-              backgroundColor: "#F4F4F4",
-              borderTop: "1px solid rgba(172, 170, 177, 0.20)",
-              width: "full",
+              bgcolor: "#28C76F29",
+              color: "#28C76F",
+              borderRadius: "4px",
+              p: "2px 10px;",
+              textAlign: "center",
+              width: "fit-content",
             }}
           >
-            <TableRow>
-              <TableCell>Bike Plate No</TableCell>
-              <TableCell>Bike City</TableCell>
-              <TableCell>Bike Ownership</TableCell>
-              <TableCell>Date of Bike Issue</TableCell>
-              <TableCell>Time of Bike Issue</TableCell>
-              <TableCell>Food Permit provided to Rider</TableCell>
-              <TableCell>Mulkiya provided to Rider</TableCell>
-              <TableCell>Picture of Physical Allocation to Rider</TableCell>
-              <TableCell>Clearance Date</TableCell>
-              <TableCell>Rider Acquiring Vendor</TableCell>
-              <TableCell>Platform</TableCell>
-              <TableCell>Status</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row, index) => (
-              <TableRow key={index}>
-                <TableCell>
-                  {/* {row.icons.bikePlateNo} */}
-                  {row.bikePlateNo}
-                </TableCell>
-                <TableCell>{row.bikeCity}</TableCell>
-                <TableCell>
-                  {/* Render both the text and image in the same cell */}
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <img
-                      src={row.bikeOwnerShip.imageUrl}
-                      alt="Physical Allocation"
-                      style={{
-                        width: "30px", // Set width of the image
-                        height: "30px", // Set height of the image
-                        borderRadius: "50%", // Optional: Make it circular
-                        objectFit: "cover", // Ensure the image fits within the bounds
-                      }}
-                    />
-                    <span>{row.bikeOwnerShip.value}</span>
-                  </Box>
-                </TableCell>
-                <TableCell>{row.bikeIssueDate}</TableCell>
-                <TableCell>{row.bikeIssueTime}</TableCell>
-                <TableCell>{row.foodPermit}</TableCell>
-                <TableCell>{row.mulkiya}</TableCell>
+            <Typography>{row.status}</Typography>
+          </Box>
+        ),
+      },
 
-                <TableCell>
-                  {/* Render both the text and image in the same cell */}
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <Box sx={{}}>{row.icons.physicalAllocation}</Box>
-                    <span>{row.physicalAllocation}</span>
-                  </Box>
-                </TableCell>
-                <TableCell>{row.clearanceDate}</TableCell>
-                <TableCell>
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <img
-                      src={row.riderAcquiringVendor.imageUrl}
-                      alt="Physical Allocation"
-                      style={{
-                        width: "30px", // Set width of the image
-                        height: "30px", // Set height of the image
-                        borderRadius: "50%", // Optional: Make it circular
-                        objectFit: "cover", // Ensure the image fits within the bounds
-                      }}
-                    />
-                    <span>{row.riderAcquiringVendor.value}</span>
-                  </Box>
-                </TableCell>
-                <TableCell>
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <img
-                      src={row.platform.imageUrl}
-                      alt="Physical Allocation"
-                      style={{
-                        width: "30px", // Set width of the image
-                        height: "30px", // Set height of the image
-                        borderRadius: "50%", // Optional: Make it circular
-                        objectFit: "cover", // Ensure the image fits within the bounds
-                      }}
-                    />
-                    <span>{row.platform.value}</span>
-                  </Box>
-                </TableCell>
-                <TableCell>{row.status}</TableCell>
+      {
+        field: "action",
+        headerName: "Action",
+        align: "left",
+        render: (row) => (
+          <ActionMenu menuItems={MenuItems} onMenuItemClick={handleMenuClick} />
+        ),
+      },
+    ];
+  }, []);
 
-                <TableCell>
-                  <Chip
-                    label={row.status}
-                    sx={{
-                      backgroundColor:
-                        row.status === "Currently Assigned"
-                          ? "#28C76F29"
-                          : "#28C76F29",
-                      color:
-                        row.status === "Currently Assigned"
-                          ? "#28C76F"
-                          : "#28C76F",
-                      fontWeight: 500,
-                      borderRadius: "4px",
-                      padding: "2px 10px",
-                    }}
-                  />
-                </TableCell>
-                <TableCell>
-                  <IconButton onClick={(e) => handleClick(e, row)}>
-                    <MoreVertIcon />
-                  </IconButton>
-                  <Menu
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
-                    onClose={handleClose}
-                    MenuListProps={{
-                      "aria-labelledby": "basic-button",
-                    }}
-                  >
-                    <MenuItem onClick={handleEdit}>Edit</MenuItem>
-                  </Menu>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+  return (
+    <Box sx={{ bgcolor: "white" }}>
+      {/* <TableFilters bottomBorder={false} filters={filters} /> */}
+      {/* <TableExportRow isBtnAdd={false} /> */}
+      <Box sx={{ height: "100%" }}>
+        <CustomTable
+          columns={fullColumns}
+          data={AssetHistoryTableData}
+          onRowSelect={handleRowSelect}
+          handleFilterClick={handleFilterClick}
+          isSelectedOption={false}
+        />
+        {/* <TablePagination /> */}
+      </Box>
     </Box>
   );
 };

@@ -9,13 +9,14 @@ import { Check, MoveLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useMemo, useState } from "react";
 import BikeAssignedModal from "./BikeAssignedModal";
+import { LockIcon } from "@/utils/icons2";
 
 const AllocateAsset = () => {
-   const [showPopup, setShowPopup] = useState(false);
-  
-    const onClose = () => {
-      setShowPopup(false);
-    };
+  const [showPopup, setShowPopup] = useState(false);
+
+  const onClose = () => {
+    setShowPopup(false);
+  };
   const router = useRouter();
 
   const inputFields = useMemo(() => {
@@ -35,11 +36,22 @@ const AllocateAsset = () => {
         label: "Bike City",
         name: "bikeCity",
         type: "input",
+        placeholder: "Sharjah",
+        endAdornment: <LockIcon />,
       },
       {
         label: "Bike Ownership",
         name: "BikeOwnership",
         type: "input",
+        placeholder: "ABDS",
+        startAdornment: (
+          <img
+            src="/company/ABDS.svg"
+            alt="Logo"
+            style={{ width: 30, height: 30 }}
+          />
+        ),
+        endAdornment: <LockIcon />,
       },
       {
         label: "Date Of Bike Issue",
@@ -49,7 +61,7 @@ const AllocateAsset = () => {
       {
         label: "Time Of Bike Issue",
         name: "timeOfBikeIssue",
-        type: "input",
+        type: "CustomDateField",
       },
       {
         label: "Food Permit provided to Rider",
@@ -96,9 +108,12 @@ const AllocateAsset = () => {
               >
                 {field.type === "input" && (
                   <CustomTextField
-                    placeholder={field.name}
                     label={field.label}
                     required
+                    disabled
+                    value={field.placeholder}
+                    startAdornment={field.startAdornment}
+                    endAdornment={field.endAdornment}
                   />
                 )}
                 {field.type === "dropdown" && (
@@ -147,7 +162,11 @@ const AllocateAsset = () => {
         >
           Back
         </CustomButton>
-        <CustomButton endIcon={<Check />} sx={buttonStyle} onClick={() => setShowPopup(true)}>
+        <CustomButton
+          endIcon={<Check />}
+          sx={buttonStyle}
+          onClick={() => setShowPopup(true)}
+        >
           Allocate
         </CustomButton>
       </Box>

@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import React, { useRef } from "react";
-import AllocateAssetTable from "./AllocateAssetTable";
+import AddAssetTable from "./AddAssetTable";
 
 const TableModal = ({ onClose }) => {
   const PopUpRef = useRef(null);
@@ -37,7 +37,7 @@ const TableModal = ({ onClose }) => {
           boxShadow: 3,
         }}
       >
-        <AllocateAssetTable />
+        <AddAssetTable />
       </Box>
     </Box>
   );

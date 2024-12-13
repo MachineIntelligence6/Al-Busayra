@@ -1226,6 +1226,15 @@ export const PdfIcon = () => {
         </svg>
     )
 }
+export const DownloadIcon = () => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M3.33203 14.167V15.8337C3.33203 16.7541 4.07822 17.5003 4.9987 17.5003H14.9987C15.9192 17.5003 16.6654 16.7541 16.6654 15.8337V14.167" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5.83203 9.16699L9.9987 13.3337L14.1654 9.16699" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M9.9987 3.33301V13.333" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    )
+}
 export const EyeIcon = () => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
