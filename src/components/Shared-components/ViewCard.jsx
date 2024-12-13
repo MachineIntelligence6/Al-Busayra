@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography, Button, Box, Paper } from "@mui/material";
+import { custom } from "@/app/theme";
 
 export function ViewCard({ title, children, onEdit, borderTop }) {
   return (
@@ -11,8 +12,8 @@ export function ViewCard({ title, children, onEdit, borderTop }) {
         display: "flex",
         flexDirection: "column",
         borderTop: borderTop !== false
-            ? borderTop || `4px solid ${custom.deepBlue}`
-            : "none",
+          ? borderTop || `4px solid ${custom.deepBlue}`
+          : "none",
         borderRadius: "10px",
       })}
     >

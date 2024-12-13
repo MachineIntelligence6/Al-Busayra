@@ -107,7 +107,7 @@ export const inventoryFormTab = [
                 {isActive ? (
                     <ReceiptText
                         color="white"
-                        style={{ background:custom.deepBlue, padding: 10, borderRadius: 6 }}
+                        style={{ background: custom.deepBlue, padding: 10, borderRadius: 6 }}
                         size={40}
                     />
                 ) : (
