@@ -31,6 +31,8 @@ const theme = createTheme({
     // Add custom colors here
     custom: {
       deepBlue: "#104774",
+      darkGrayish: "#2F2B3DE5",
+      errorDark: "#E64449",
     },
   },
 });
