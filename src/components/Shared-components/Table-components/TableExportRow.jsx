@@ -9,6 +9,9 @@ import FileUploadIcon from "@mui/icons-material/FileUpload";
 import ActionMenu from "../ActionMenu";
 import AddIcon from "@mui/icons-material/Add";
 import CustomButton from "../CustomButton";
+import CustomTextField from "../CustomTextField";
+import { UploadIcon } from "@/utils/Icons";
+import { custom } from "@/app/theme";
 
 const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntries, btnText = "Add New" }) => {
   const [text, setText] = useState("");
@@ -45,6 +48,7 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntri
         alignItems: "center",
         marginBottom: 1,
         padding: 1,
+        px: 2
       }}
     >
       <div>
@@ -58,8 +62,10 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntri
             sx={{
               width: 70,
               height: 40,
-              fontSize: 15,
-              borderRadius: "6px",
+              fontSize: "15px",
+              borderRadius: "7px",
+              color: custom.primaryText,
+              fontWeight: "400",
             }}
           //   label={entries}
           >
@@ -79,7 +85,7 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntri
           alignItems: "center",
         }}
       >
-        <TextField
+        <CustomTextField
           variant="outlined"
           placeholder="Search"
           type="text"
@@ -88,15 +94,11 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntri
           onChange={(e) => console.log(e.target.value)}
           sx={{
             borderRadius: "6px",
-            padding: "0px",
-            "& .MuiOutlinedInput-input": {
-              paddingY: "8px",
-              borderRadius: "6px",
-            },
+          width:"auto"
           }}
         />
 
-        <CustomButton bgColor="foreground" color="#808390" endIcon={<FileUploadIcon />}>Export</CustomButton>
+        <CustomButton bgColor="foreground" color={custom.secondaryText} startIcon={<UploadIcon />}>Export</CustomButton>
         {isBtnAdd && <CustomButton endIcon={<AddIcon />} onClick={handleOpenModal ? () => handleOpenModal() : () => { }}>{btnText}</CustomButton>}
         <Box
           sx={{

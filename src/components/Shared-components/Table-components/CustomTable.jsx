@@ -81,7 +81,7 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
   const CustomCheckbox = styled(Checkbox)(({ theme }) => ({
     // '& .MuiSvgIcon-root': {
         //   borderRadius: '4px', // Rounded corners for the icon
-        //   border: `2px solid ${custom.disabledText}`,
+        //   border: `2px solid ${custom.mute}`,
         //     backgroundColor: 'transparent'
         // },
         '&.Mui-checked': {

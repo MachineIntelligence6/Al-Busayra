@@ -20,7 +20,7 @@ const TableFilters = ({ filters, bottomBorder = true, textFieldWidth = 350 }) =>
   return (
     <Box
       component="div"
-      sx={{ p: 2, }}
+      sx={{ p: 2, pb:1, px: 3 }}
     >
       <Typography variant="caption" sx={{ fontSize: "20px", fontWeight:"500" }} color={custom.breadcrumbText}>
         Advance Filters
@@ -50,7 +50,7 @@ const TableFilters = ({ filters, bottomBorder = true, textFieldWidth = 350 }) =>
               // value={dropdown1Value}
               // onChange={(e) => setDropdown1Value(e.target.value)}
               />) : <Box key={filter?.id} sx={{ display: "flex", flexDirection: "column" }}>
-                <Typography>{filter?.filterName}</Typography>
+                <Typography sx={{ fontSize: "15px", fontWeight:"400" }} color={custom.PrimaryText}>{filter?.filterName}</Typography>
                 <CustomTextField placeholder={filter?.placeholder} sx={{ width: textFieldWidth, }} />
               </Box>}
 
@@ -86,7 +86,7 @@ const TableFilters = ({ filters, bottomBorder = true, textFieldWidth = 350 }) =>
         </>}
 
       </Box>
-      {bottomBorder && <Divider />}
+      {bottomBorder && <Divider sx={{mt: "20px",}}/>}
     </Box>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { TextField, InputAdornment, FormControl, Typography } from "@mui/material";
+import { TextField, InputAdornment, FormControl } from "@mui/material";
 import InputLabelTop from "./InputLabel";
 
 const CustomTextField = (props) => {
@@ -48,7 +48,8 @@ const CustomTextField = (props) => {
         }}
         sx={{
           "& .MuiOutlinedInput-root": {
-            borderRadius: "7px", // Add border radius here
+            borderRadius: "7px",
+            paddingY: "1px"
           },
           ...(removeRightBorder && {
             "& .MuiOutlinedInput-notchedOutline": {

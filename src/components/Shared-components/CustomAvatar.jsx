@@ -8,7 +8,7 @@ const CustomAvatar = ({ image, email, fullName }) => {
             <Avatar src={image} sx={{ width: "34px", height: "34px" }} />
             <Box component="div" sx={{ display: "flex", flexDirection: "column", justifyContent: "center", }}>
                 <Typography variant='body1' sx={{ fontWeight: 500, fontSize:"14px", color: custom.primaryText }}>{fullName}</Typography>
-                <Typography variant='body1' sx={{ fontWeight: 400, color: custom.secondaryText, fontSize:"14px" }}>{email}</Typography>
+                <Typography variant='body1' sx={{ fontWeight: 400, color: custom.descriptive, fontSize:"14px" }}>{email}</Typography>
             </Box>
         </Box>
     )
