@@ -1,8 +1,13 @@
 import React from "react";
-import { FormControl, MenuItem, Select, Typography } from "@mui/material";
+import { Box, FormControl, MenuItem, Select, Typography } from "@mui/material";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-const defaultOption = [{ label: "Option-1", value: "option_1" }, { label: "Option-2", value: "option_2" }, { label: "Option-3", value: "option_3" },]
+const defaultOption = [
+  { label: "Option-1", value: "option_1" },
+  { label: "Option-2", value: "option_2" },
+  { label: "Option-3", value: "option_3" },
+];
+
 const CustomDropdown = ({
     label,
     options = defaultOption,
@@ -11,15 +16,20 @@ const CustomDropdown = ({
     placeholder,
     textProps,
     formControlProps,
+    required = false,
     ...props
 }) => {
-    return (
+  return (
         <FormControl fullWidth {...formControlProps}>
             {label && (
-                <Typography component="label" {...textProps}>
-                    {label}
-                </Typography>
-            )}
+                <Box sx={{ display: 'flex', alignItems: "center", gap: 0.4 }}>
+                    <Typography component="label" {...textProps}>
+                        {label}
+                    </Typography>
+                    {required && <Typography Typography variant="body1" sx={{ color: 'red' }}> *</Typography>}
+                </Box>
+            )
+            }
             <Select
                 value={value}
                 onChange={onChange}
@@ -27,7 +37,7 @@ const CustomDropdown = ({
                 displayEmpty
                 renderValue={(selected) => {
                     if (!selected) {
-                        return <Typography sx={{ color: "gray" }}>{placeholder ? placeholder : "Pease Select"}</Typography>;
+                        return <Typography sx={{ color: "gray" }}>{placeholder ? placeholder : "Please Select"}</Typography>;
                     }
                     return options.find((option) => option.value === selected)?.label;
                 }}
@@ -44,7 +54,7 @@ const CustomDropdown = ({
                     </MenuItem>
                 ))}
             </Select>
-        </FormControl>
+        </FormControl >
     );
 };
 

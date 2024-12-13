@@ -3,7 +3,7 @@ import { Controller, useFormContext } from "react-hook-form";
 import { Box, Typography } from "@mui/material";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import CustomSelect from "@/components/Shared-components/CustomSelect";
-import CustomDatePicker from "@/components/Shared-components/CustomDatePicker";
+import CustomDateField from "@/components/Shared-components/CustomDateField";
 
 export const DrivingLicense = ({ control }) => {
   const { setValue } = useFormContext();
@@ -37,21 +37,22 @@ export const DrivingLicense = ({ control }) => {
       label: "License Issue Date",
       name: "licenseIssueDate",
       required: true,
-      
-      component: CustomDatePicker,
+      component: CustomDateField,
+      props: { borderRadius: 1.5 }
     },
     {
       label: "License Expiry Date",
       name: "licenseExpiryDate",
       required: true,
       placeholder: "20-10-2028",
-      component: CustomDatePicker,
+      component: CustomDateField,
+      props: { borderRadius: 1.5 }
     },
   ];
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
-      {fields.map(({ label, name, required, placeholder, options, component }, index) => (
+      {fields.map(({ label, name, required, placeholder, options, component ,  props = {} }, index) => (
         <Box key={index} sx={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
           <Box sx={{ flex: "0 0 40%", textAlign: "left", paddingRight: "1rem" }}>
             {renderLabel(label, required)}
@@ -68,6 +69,7 @@ export const DrivingLicense = ({ control }) => {
                   placeholder,
                   options,
                   error,
+                  ...props
                 })
               }
             />
@@ -77,5 +79,3 @@ export const DrivingLicense = ({ control }) => {
     </Box>
   );
 };
-
-

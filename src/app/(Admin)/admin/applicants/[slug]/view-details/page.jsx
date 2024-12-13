@@ -31,7 +31,7 @@ const Page = () => {
   const [isReferralModalOpen, setIsReferralModalOpen] = useState(false);
 
   useEffect(() => {
-    if (pathname === "/applicants/final-review") {
+    if (pathname === "/admin/applicants/final-review") {
       setIsBtnShow(true);
     }
   }, [pathname]);
@@ -59,6 +59,7 @@ const Page = () => {
 
   const handleRemarkSave = (section) => {
     console.log(`handleRemarkSave ${section}`);
+    setIsModalRemarkOpen(false);
   };
 
   const handleProceed = (section) => {

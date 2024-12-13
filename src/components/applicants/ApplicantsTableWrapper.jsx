@@ -3,7 +3,6 @@ import React, { useMemo, useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Box } from "@mui/material";
 import { useRouter } from "next/navigation"; // Import useRouter
-import TableFilters from "../Shared-components/Table-components/TableFilters";
 import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
 import { data } from "@/utils/campaigns.data";
 import CustomAvatar from "../Shared-components/CustomAvatar";
@@ -11,6 +10,7 @@ import ActionMenu from "../Shared-components/ActionMenu";
 import TableExportRow from "../Shared-components/Table-components/TableExportRow";
 import TablePagination from "../Shared-components/Table-components/TablePagination";
 import { StatusIndicator } from "./StatusIndicator";
+import TableFilters from "../Shared-components/Table-components/TableFilters";
 
 const columnConfig = {
   shortlistedApplicants: [
@@ -89,6 +89,7 @@ const ApplicantsTableWrapper = ({
   setCurrentPage,
   rowsPerPage,
   currentPage,
+  filters
 }) => {
   const [totalEntries, setTotalEntries] = useState(10);
   const router = useRouter();
@@ -110,7 +111,7 @@ const ApplicantsTableWrapper = ({
   };
 
   useEffect(() => {
-    if (pathname === "/applicants/shortlisted-applicants") {
+    if (pathname.includes("/applicants/shortlisted-applicants")) {
       setIsBtnAdd(true);
     }
   }, [pathname]);
@@ -119,7 +120,7 @@ const ApplicantsTableWrapper = ({
     () => ({
       home: {
         menuItems: [
-          { label: "Procced", route: "#" },
+          { label: "Procced", route: "/admin/applicants/final-review" },
           { label: "View Details", route: "/admin/applicants/1234/view-details" },
           { label: "Not qualified", route: "/admin/applicants/not-qualified" },
         ],
@@ -228,19 +229,8 @@ const ApplicantsTableWrapper = ({
 
   return (
     <Box sx={{ bgcolor: "white", overflow: "hidden", m: 1.5, borderRadius: 6 }}>
-      <TableFilters />
-      {/* <CustomSelect
-        value={selectedValue}
-        onChange={onChange}
-        labelId="residency-label" //---- optional
-        id="residency" //----- optional
-        options={[
-          { value: "resident", label: "UAE Resident" },
-          { value: "non-resident", label: "Non UAE Resident" },
-        ]}
-        placeholder="Non UAE Resident"
-        error={error}
-      /> */}
+    <TableFilters filters={filters}/>
+     {/* {pathname.includes("/admin/applicants/final-review") && <customTableFilter title="Advanced Filter" filters={filters} />} */}
       <TableExportRow
         handleOpenModal={handleOpenModal}
         setTotalEntries={setTotalEntries}

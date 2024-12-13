@@ -10,7 +10,7 @@ const CompanyLayout = ({ children }) => {
             minHeight: "100vh",
             width: "100vw",
             bgcolor: "#23567F",
-            // overflow: "hidden",
+            // overflow: "auto",
         }}
         key={"company-layout"}
     >
@@ -32,7 +32,7 @@ const CompanyLayout = ({ children }) => {
                     bgcolor: "#F8F7FA",
                     flexGrow: 1,
                     borderRadius: "30px",
-                    p: 3,
+                    pt: 3,
                     overflow: "auto",
                     display: "flex",
                     flexDirection: "column",

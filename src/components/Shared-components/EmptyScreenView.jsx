@@ -1,6 +1,7 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 import CustomButton from "./CustomButton";
+import { Plus } from "lucide-react";
 
 const EmptyScreenView = ({
   image,
@@ -9,7 +10,9 @@ const EmptyScreenView = ({
   description,
   buttonText,
   onButtonClick,
+  descriptionTag,
   showButton = true, // Default to true, button will show by default
+
 }) => {
   return (
     <Box
@@ -18,26 +21,26 @@ const EmptyScreenView = ({
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        gap: 5,
+        gap: 3,
         mt: 5,
       }}
     >
-      <div className="w-fit">
+      <Box component="figure" className="w-fit">
         <img src={image} alt={altText} />
-      </div>
-      <div className="flex flex-col gap-3 justify-center items-center">
-        <h3 className="text-[rgba(16,71,116,1)] text-xl font-semibold">
+      </Box>
+      <Box component="div" sx={{ display: 'flex', flexDirection: "column", gap: 1, alignItems: 'center' }}>
+        {title && <Typography variant="h6" sx={{ fontWeight: 600, color: "#104774" }}>
           {title}
-        </h3>
-        <p className="text-[#4B465C] text-center">{description}</p>
+        </Typography>}
+        {description && <Typography variant="subtitle1" sx={{ color: "#4B465C" }} >{description}</Typography>}
+        {descriptionTag && descriptionTag}
         {/* Conditionally render the button */}
         {showButton && (
-          <CustomButton onClick={onButtonClick} sx={{ px: 4 }}>
-            <img src="/resuable/plus.svg" alt="plus" />
+          <CustomButton onClick={onButtonClick} sx={{ px: 4 }} startIcon={<Plus />}>
             {buttonText}
           </CustomButton>
         )}
-      </div>
+      </Box>
     </Box>
   );
 };

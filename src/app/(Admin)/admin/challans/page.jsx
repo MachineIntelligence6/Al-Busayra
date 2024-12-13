@@ -17,7 +17,7 @@ const Page = () => {
     const pathname = usePathname();
 
     useEffect(()=> {
-      if (pathname === "/challans") {
+      if (pathname.includes("/admin/challans")) {
         setIsBtnShow(true);
       }
         },[pathname])

@@ -69,11 +69,12 @@ export default function GeneralEditForm({ setIsGeneralInfoModalOpen }) {
 
   const handleSave = async () => {
     console.log("Validating fields:", stepFields[0]); // Debugging
-
     const isValid = await trigger(stepFields[0]);
     if (!isValid) {
       console.log("Validation Errors:", methods.formState.errors); // Log errors for debugging
+      // handleCloseModal();
     }
+    
   };
 
   const onSubmit = (data) => {

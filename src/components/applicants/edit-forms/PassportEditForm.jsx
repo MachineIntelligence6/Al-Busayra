@@ -8,10 +8,10 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import DoneIcon from "@mui/icons-material/Done";
 import CustomButton from "@/components/Shared-components/CustomButton";
 import CustomSelect from "@/components/Shared-components/CustomSelect";
-import CustomDatePicker from "@/components/Shared-components/CustomDatePicker";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import { PassportDetailsSchema } from "@/utils/schemas/PassportDetailsEditSchema";
 import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
+import CustomDateField from "@/components/Shared-components/CustomDateField";
 
 const renderLabel = (label, required = false) => (
   <Typography variant="body1" component="span">
@@ -64,13 +64,15 @@ export default function PassportDetailsEditForm({ setIsPassportModalOpen }) {
       label: "Passport Issue Date",
       name: "passportIssueDate",
       required: true,
-      component: CustomDatePicker,
+      component: CustomDateField,
+      props: { borderRadius: 1 }
     },
     {
       label: "Passport Expiry Date",
       name: "passportExpiryDate",
       required: true,
-      component: CustomDatePicker,
+      component: CustomDateField,
+      props: { borderRadius: 1 }
     },
     {
       label: "Passport Copy",
@@ -110,6 +112,7 @@ export default function PassportDetailsEditForm({ setIsPassportModalOpen }) {
                     options,
                     component,
                     accept,
+                    props = {}
                   },
                   index
                 ) => (
@@ -143,6 +146,7 @@ export default function PassportDetailsEditForm({ setIsPassportModalOpen }) {
                             options,
                             error,
                             accept,
+                            ...props
                           })
                         }
                       />

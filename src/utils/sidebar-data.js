@@ -69,9 +69,9 @@ export const adminMenuData = [
         title: "Users",
         icon: "/sidebarIcons/svg/users.svg",
         item: [
-            { id: "8-1", label: "Active User", url: "/users" },
+            { id: "8-1", label: "Active User", url: "/admin/users" },
             { id: "8-2", label: "Inactive User", url: "/users/inactive-users" },
-            { id: "8-3", label: "Roles Template", url: "/users/roles-template" },
+            { id: "8-3", label: "Roles Template", url: "/admin/users/roles-template" },
         ],
     },
     {
@@ -124,5 +124,4 @@ export const companyMenuData = [
         icon: "/sidebarIcons/company/allocation.svg",
 
     },
-
 ]
