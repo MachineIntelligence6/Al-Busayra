@@ -33,7 +33,9 @@ const theme = createTheme({
       deepBlue: "#104774",
       white:"#ffffff",
       primaryText:"#2F2B3DE5",
-      secondaryText:"#2F2B3DB2"
+      secondaryText:"#2F2B3DB2",
+      darkGrayish: "#2F2B3DE5",
+      errorDark: "#E64449",
     },
   },
 });

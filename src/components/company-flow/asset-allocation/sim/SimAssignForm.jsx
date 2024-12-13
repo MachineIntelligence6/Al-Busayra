@@ -2,20 +2,19 @@
 import CustomButton from "@/components/Shared-components/CustomButton";
 import CustomDateField from "@/components/Shared-components/CustomDateField";
 import CustomDropdown from "@/components/Shared-components/CustomDropDown";
-import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import { Box, Typography } from "@mui/material";
 import { Check, MoveLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useMemo, useState } from "react";
-import BikeAssignedModal from "./BikeAssignedModal";
+import SimAssignedModal from "./SimAssignedModal";
 
-const AllocateAsset = () => {
-   const [showPopup, setShowPopup] = useState(false);
-  
-    const onClose = () => {
-      setShowPopup(false);
-    };
+const SimAssignForm = () => {
+  const [showPopup, setShowPopup] = useState(false);
+
+  const onClose = () => {
+    setShowPopup(false);
+  };
   const router = useRouter();
 
   const inputFields = useMemo(() => {
@@ -27,53 +26,28 @@ const AllocateAsset = () => {
       },
 
       {
-        label: "Bike Plate No",
-        name: "bikePlateNo",
+        label: "Number",
+        name: "simNumber",
         type: "dropdown",
       },
       {
-        label: "Bike City",
-        name: "bikeCity",
-        type: "input",
+        label: "Sim Operator",
+        name: "simOperator",
+        type: "dropdown",
       },
+
       {
-        label: "Bike Ownership",
-        name: "BikeOwnership",
-        type: "input",
-      },
-      {
-        label: "Date Of Bike Issue",
-        name: "dateOfBikeIssue",
+        label: "Date Of Sim Issue",
+        name: "dateOfSimIssue",
         type: "CustomDateField",
       },
       {
-        label: "Time Of Bike Issue",
-        name: "timeOfBikeIssue",
+        label: "Time Of Sim Issue",
+        name: "timeOfSimIssue",
         type: "input",
-      },
-      {
-        label: "Food Permit provided to Rider",
-        name: "foodPermit",
-        type: "dropdown",
-      },
-      {
-        label: "Mulkiya provided to Rider",
-        name: "mulkiya",
-        type: "dropdown",
-      },
-      {
-        label: "Picture of physical allocation to Rider",
-        name: "physicalAllocationCopy",
-        type: "CustomFileUploadField",
-      },
-      {
-        label: "Acceptance letter",
-        name: "acceptanceLetter",
-        type: "CustomFileUploadField",
       },
     ];
   }, []);
-
   return (
     <Box>
       <Typography sx={{ color: "#4B465C", fontSize: "18px", fontWeight: 500 }}>
@@ -117,19 +91,6 @@ const AllocateAsset = () => {
                     }}
                   />
                 )}
-
-                {field.type === "CustomFileUploadField" && (
-                  <CustomFileUploadField
-                    label={field.label}
-                    // value={formData[field.name]}
-                    height={36.5}
-                    borderRadius={5}
-                    bgColor="#FFFFFF"
-                    textSize="13px"
-                    marginBottom="4px"
-                    required
-                  />
-                )}
               </Box>
             );
           })}
@@ -147,16 +108,20 @@ const AllocateAsset = () => {
         >
           Back
         </CustomButton>
-        <CustomButton endIcon={<Check />} sx={buttonStyle} onClick={() => setShowPopup(true)}>
+        <CustomButton
+          endIcon={<Check />}
+          sx={buttonStyle}
+          onClick={() => setShowPopup(true)}
+        >
           Allocate
         </CustomButton>
       </Box>
-      {showPopup && <BikeAssignedModal onClose={onClose} />}
+      {showPopup && <SimAssignedModal onClose={onClose} />}
     </Box>
   );
 };
 
-export default AllocateAsset;
+export default SimAssignForm;
 
 const buttonStyle = {
   padding: "8px 20px",

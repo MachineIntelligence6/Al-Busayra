@@ -1,8 +1,7 @@
-"use client"
-import EmployeeView from "@/components/employees/ViewEmployee";
 import React from "react";
+import EmployeeView from "@/components/employees/ViewEmployee";
 
-const page = () => {
+const Page = () => {
   return (
     <div>
       <EmployeeView />
@@ -10,4 +9,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

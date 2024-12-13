@@ -1,10 +1,10 @@
 import BikeDetails from '@/components/inventory/dashboard/company-details/bike-details'
 import React from 'react'
 
-const page = () => {
+const Page = () => {
     return (
         <BikeDetails />
     )
 }
 
-export default page
+export default Page

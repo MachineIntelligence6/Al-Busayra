@@ -89,11 +89,11 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
           sx={{
             "& .MuiTableCell-root": {
               fontWeight: "500",
-              bgcolor: "#80839014",
+              bgcolor: "#80839014"
             },
           }}
         >
-          <TableRow sx={{ "& .MuiTableCell-root": { py: 2 } }}>
+          <TableRow sx={{ "& .MuiTableCell-root": { py: 1, } }}>
             {isSelectedOption && <TableCell padding="checkbox" >
               <Checkbox
                 indeterminate={isIndeterminate}
@@ -107,7 +107,7 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
 
                 key={column.field}
                 align={column.align || "left"}
-                sx={{ fontWeight: "400", whiteSpace: "nowrap", }}
+                sx={{ whiteSpace: "nowrap", }}
               >
                 <Box
                   component="div"
@@ -115,10 +115,11 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
                     display: "flex",
                     alignItems: "center",
                     justifyContent: 'space-between',
-                    gap: 1
+                    gap: 1,
+
                   }}
                 >
-                  <Typography variant="body2" sx={{ fontSize: 16, fontWeight: 500, textTransform: headTextTransform }}>{column.headerName}</Typography>
+                  <Typography variant="body2" sx={{ color: "#2F2B3DE5", fontSize: 13, fontWeight: 500, textTransform: headTextTransform }}>{column.headerName}</Typography>
                   {allowedFields.includes(column) && isFiltered && (
                     <Box component="img" src="/icons/filter.svg" sx={{ width: 20, height: 20 }} onClick={() => handleFilterClick(column.field)}></Box>
                   )}

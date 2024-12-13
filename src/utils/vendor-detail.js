@@ -110,12 +110,12 @@ export const allocateAssetData = [
   {
     label: "Rider Aquiring Company",
     value: "Rafiq Khan",
-    icon: "",
+    icon: "/company/Avataricon.svg",
   },
   {
     label: "Rider Aquiring Company ",
     value: "Careem",
-    icon: "",
+    icon: "/company/careemicon.svg",
   },
   {
     label: "City ",
