@@ -9,6 +9,7 @@ import GenericModal from "@/components/applicants/GenericModel";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
 import { assetClarenceData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
+import { custom } from "@/app/theme";
 
 const TableFiltersData = [
   {
@@ -46,8 +47,8 @@ const TableFiltersData = [
 ];
 
 const actionMenu = [
-  { label: "Allocate Asset", route: "/admin/applicants/view-details" },
-  { label: "Asset Clearence", route: "/admin/applicants/proceed" },
+  { label: "Allocate Asset", route: "#" },
+  { label: "Asset Clearence", route: "/asset-clearance/asset-clearance-form" },
   { label: "View Details", route: "/admin/applicants/hold" },
 ]
 
@@ -132,10 +133,10 @@ const Page = () => {
           variant="caption"
           sx={{
             backgroundColor: "transparent",
-            border: "1px solid #104774",
+            border: `1px solid ${custom.deepBlue}`,
             padding: "7px 10px",
             borderRadius: "6px",
-            color: "#104774",
+            color: custom.deepBlue
           }}
         >
           {row.resident}

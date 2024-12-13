@@ -106,7 +106,7 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
             },
           }}
         >
-          <TableRow sx={{ "& .MuiTableCell-root": { py: "4px", } }}>
+          <TableRow sx={{ "& .MuiTableCell-root": { py: "5px", } }}>
             {isSelectedOption && <TableCell padding="checkbox" >
               <CustomCheckbox
                 indeterminate={isIndeterminate}
@@ -120,7 +120,7 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
 
                 key={column.field}
                 align={column.align || "left"}
-                sx={{ whiteSpace: "nowrap", }}
+                sx={{ fontWeight: "500", whiteSpace: "nowrap",}}
               >
                 <Box
                   component="div"
@@ -132,7 +132,7 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
 
                   }}
                 >
-                  <Typography variant="body2" sx={{ color: custom.primaryText, fontSize: 13, fontWeight: 500, textTransform: headTextTransform }}>{column.headerName}</Typography>
+                  <Typography variant="body2" sx={{ fontSize: "13px", fontWeight: 500, textTransform: headTextTransform ,color:"#2F2B3DE5",lineHeight:0  }}>{column.headerName}</Typography>
                   {allowedFields.includes(column) && isFiltered && (
                     <Box component="img" src="/icons/filter.svg" sx={{ width: 20, height: 20 }} onClick={() => handleFilterClick(column.field)}></Box>
                   )}
@@ -143,7 +143,7 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
         </TableHead>
         <TableBody>
           {data?.map((row) => (
-            <TableRow key={row.id} hover sx={{ "& .MuiTableCell-root": { py:"13px" } }}>
+            <TableRow key={row.id} hover sx={{ "& .MuiTableCell-root": { py:"13px" }, color: custom.primaryText }}>
               {isSelectedOption && <TableCell padding="checkbox">
                 <CustomCheckbox
                   size="small"
