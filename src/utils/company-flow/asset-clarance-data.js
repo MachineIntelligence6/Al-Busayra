@@ -63,3 +63,66 @@ export const assetClarenceData = [
         "employeeType": "Other Employee"
     }
 ];
+
+
+export const AssetClearanceData = [
+    {
+      label: "Employee ID",
+      value: "AB00001",
+    },
+    {
+      label: "Resident",
+      value: "UAE",
+    },
+    {
+      label: "Driving License",
+      value: "879343",
+    },
+    {
+      label: "Passport Number",
+      value: "TA1822801",
+    },
+    {
+      label: "Phone Number",
+      value: "+971 986556465",
+    },
+    {
+      label: "Employee Type",
+      value: "Rider",
+    },
+    {
+      label: "Rider Aquiring Company",
+      value: "Rafiq Khan",
+      icon: "/public/company/asset-clearence/man.svg",
+    },
+    {
+      label: "Rider Aquiring Company ",
+      value: "Careem",
+      icon: "/icons/careem.svg",
+    },
+    {
+      label: "City ",
+      value: "Sharjah",
+    },
+    {
+      label: "Salary Type Fixed/Commission",
+      value: "Fixed",
+    },
+    {
+      label: "Salary Amount Fixed/Commission",
+      value: "200",
+      currency: "AED",
+    },
+    {
+      label: "Status",
+      value: "Approved",
+    },
+    {
+      label: "Bike",
+      value: "Not Assigned",
+    },
+    {
+      label: "SIM",
+      value: "Not Assigned",
+    },
+  ];

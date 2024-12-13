@@ -1,7 +1,7 @@
 import React from "react";
-import { Typography, Button, Box, Paper } from "@mui/material";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import { Typography, Box, Paper } from "@mui/material";
 import CustomButton from "./CustomButton";
+import { custom } from "@/app/theme";
 export function InfoCard({ title, children, onEdit }) {
 
   return (
@@ -12,7 +12,7 @@ export function InfoCard({ title, children, onEdit }) {
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        borderTop: (theme) => `4px solid ${theme.palette.main.darkBlue}`,
+        borderTop: `4px solid ${custom.deepBlue}`,
         borderRadius: "10px",
       }}
     >
