@@ -50,7 +50,7 @@ const allowedFields = [
   "createdOn",
 ];
 
-const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelectedOption = true, isFiltered = true }) => {
+const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelectedOption = true, isFiltered = true, headTextTransform = "capitalize" }) => {
   const [selectedRows, setSelectedRows] = useState([]);
 
   const isAllSelected = selectedRows.length === data.length && data.length > 0;
@@ -118,7 +118,7 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
                     gap: 1
                   }}
                 >
-                  <Typography variant="body2" sx={{ fontSize: 16, fontWeight: 500, textTransform: "capitalize" }}>{column.headerName}</Typography>
+                  <Typography variant="body2" sx={{ fontSize: 16, fontWeight: 500, textTransform: headTextTransform }}>{column.headerName}</Typography>
                   {allowedFields.includes(column) && isFiltered && (
                     <Box component="img" src="/icons/filter.svg" sx={{ width: 20, height: 20 }} onClick={() => handleFilterClick(column.field)}></Box>
                   )}

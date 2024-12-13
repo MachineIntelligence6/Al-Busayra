@@ -19,7 +19,7 @@ const CustomTableWrapper = ({
   handleMenuClick,
   handleFilterClick,
   tableData,
-// header export row
+  // header export row
   totalEntries,
   setTotalEntries,
   isBtnAdd,
@@ -31,7 +31,7 @@ const CustomTableWrapper = ({
   btnText,
   filterTitle = "Advanced Filter",
 }) => {
- 
+
   const paginatedData = useMemo(() => {
     const startIndex = (currentPage - 1) * rowsPerPage;
     const endIndex = startIndex + rowsPerPage;
@@ -39,18 +39,18 @@ const CustomTableWrapper = ({
   }, [currentPage, rowsPerPage, tableData]);
 
   return (
-    <Box sx={{ bgcolor: "white", overflow: "hidden",}}>
+    <Box sx={{ bgcolor: "white", overflow: "hidden", }}>
       <Box display="flex" justifyContent="space-between" sx={{ m: 2 }}>
-      <Typography variant="caption" sx={{ fontSize: 16 }}>
+        <Typography variant="caption" sx={{ fontSize: 16 }}>
           {filterTitle}
         </Typography>
-        <Button color="#2F2B3D"  onClick={handleCloseModal}>
-        <ClearOutlinedIcon />
+        <Button color="#2F2B3D" onClick={handleCloseModal}>
+          <ClearOutlinedIcon />
         </Button>
       </Box>
-      <CustomTableFilter filters={filters}/>
+      <CustomTableFilter filters={filters} />
       <CustomTableExportRow
-        handleOpenModal={handleOpenModal}
+        onAddButtonClick={handleOpenModal}
         isBtnAdd={isBtnAdd}
         isExportBtn={isExportBtn}
         isActionMenu={isActionMenu}
@@ -61,7 +61,7 @@ const CustomTableWrapper = ({
         menuItems={menuItems}
         btnText={btnText}
         onMenuItemClick={handleMenuClick}
-    />
+      />
       <Box sx={{ height: "100%" }}>
         <CustomTable
           columns={column}
@@ -86,16 +86,16 @@ export default CustomTableWrapper;
 
 
 // usage
-//  <CustomTableWrapper 
-//         handleOpenModal={handleOpenModal} 
+//  <CustomTableWrapper
+//         handleOpenModal={handleOpenModal}
 //         handleCloseModal={handleCloseModal}
-//         rowsPerPage={rowsPerPage} 
-//         setCurrentPage={setCurrentPage} 
-//         currentPage={currentPage} 
-//         filters={filters} 
+//         rowsPerPage={rowsPerPage}
+//         setCurrentPage={setCurrentPage}
+//         currentPage={currentPage}
+//         filters={filters}
 //         column={column}
-//         handleFilterClick={handleFilterClick} 
-//         handleMenuClick={handleMenuClick} 
+//         handleFilterClick={handleFilterClick}
+//         handleMenuClick={handleMenuClick}
 //         handleRowSelect={handleRowSelect}
 //         pathname={pathname}
 //         tableData={assetClarenceData}

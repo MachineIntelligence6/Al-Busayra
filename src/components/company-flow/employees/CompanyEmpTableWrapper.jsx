@@ -92,12 +92,13 @@ const CompanyEmpTableWrapper = () => {
                 align: "left",
                 render: (row) => (
                     <Typography
+                        variant="caption"
                         sx={{
+                            backgroundColor: "transparent",
                             border: "1px solid #104774",
-                            px: 1,
-                            py: 1,
-                            borderRadius: 2,
-                            textAlign: "center",
+                            padding: "7px 10px",
+                            borderRadius: "6px",
+                            color: "#104774",
                         }}
                     >
                         {row.resident}
@@ -169,6 +170,7 @@ const CompanyEmpTableWrapper = () => {
             <TableExportRow isBtnAdd={false} />
             <Box sx={{ height: "100%" }}>
                 <CustomTable
+                    headTextTransform="uppercase"
                     columns={fullColumns}
                     data={companyEmployeesTableData}
                     onRowSelect={handleRowSelect}
