@@ -87,17 +87,18 @@ const CompanyEmpTableWrapper = () => {
         ),
       },
       {
-        field: "name",
+        field: "resident",
         headerName: "Resident",
         align: "left",
         render: (row) => (
           <Typography
             sx={{
               border: "1px solid #104774",
-              px: 1,
-              py: 1,
+              p: "6px var(--Padding-padding-3, 12px)",
+
               borderRadius: 2,
               textAlign: "center",
+              width: "fit-content",
             }}
           >
             {row.resident}
@@ -112,29 +113,39 @@ const CompanyEmpTableWrapper = () => {
         align: "left",
       },
       {
-        field: "name",
+        field: "rider_acquiring_vendor",
         headerName: "Rider Acquiring Vendor",
         align: "left",
         render: (row) => (
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+              fontSize: "15px",
+            }}
+          >
             <Avatar src={row.vendor_image} />
-            <Typography>{row.rider_acquiring_vendor}</Typography>
+            <Typography sx={{ fontSize: "15px" }}>
+              {row.rider_acquiring_vendor}
+            </Typography>
           </Box>
         ),
       },
       {
-        field: "name",
-        headerName: "Rider Acquiring Vendor",
+        field: "rider_platform",
+        headerName: "Rider Acquiring Platform",
         align: "left",
         render: (row) => (
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             <Avatar src={row.rider_platform_image} />
-            <Typography>{row.rider_platform}</Typography>
+            <Typography sx={{ fontSize: "15px" }}>
+              {row.rider_platform}
+            </Typography>
           </Box>
         ),
       },
       { field: "city", headerName: "City", align: "left" },
-      { field: "visaStatus", headerName: "Visa Status", align: "left" },
       { field: "visaStatus", headerName: "Visa Status", align: "left" },
       { field: "contract", headerName: "Contract", align: "left" },
       { field: "salaryType", headerName: "Salary Type", align: "left" },
@@ -144,7 +155,9 @@ const CompanyEmpTableWrapper = () => {
         align: "left",
         render: (row) => (
           <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-            <Typography>{row.fixedSalaryAmount}</Typography>
+            <Typography sx={{ fontSize: "13px" }}>
+              {row.fixedSalaryAmount}
+            </Typography>
             <CurrencyType />
           </Box>
         ),
@@ -177,7 +190,7 @@ const CompanyEmpTableWrapper = () => {
               width: "fit-content",
             }}
           >
-            <Typography>{row.status}</Typography>
+            <Typography sx={{ fontSize: "13px" }}>{row.status}</Typography>
           </Box>
         ),
       },
@@ -193,6 +206,7 @@ const CompanyEmpTableWrapper = () => {
               borderRadius: 1,
               bgcolor: "#2F2B3D14",
               width: "fit-content",
+              fontSize: "13px",
             }}
           >
             {row.employeeType}
@@ -215,7 +229,7 @@ const CompanyEmpTableWrapper = () => {
               width: "fit-content",
             }}
           >
-            <Typography>{row.sim}</Typography>
+            <Typography sx={{ fontSize: "13px" }}>{row.sim}</Typography>
           </Box>
         ),
       },
@@ -234,7 +248,7 @@ const CompanyEmpTableWrapper = () => {
               width: "fit-content",
             }}
           >
-            <Typography>{row.bike}</Typography>
+            <Typography sx={{ fontSize: "13px" }}>{row.bike}</Typography>
           </Box>
         ),
       },
@@ -252,11 +266,7 @@ const CompanyEmpTableWrapper = () => {
 
   return (
     <Box sx={{ bgcolor: "white", mx: 2 }}>
-      <TableFilters
-        bottomBorder={false}
-        filters={filters}
-        textFieldWidth="270px"
-      />
+      <TableFilters bottomBorder={false} filters={filters} />
       <TableExportRow isBtnAdd={false} />
       <Box sx={{ height: "100%" }}>
         <CustomTable

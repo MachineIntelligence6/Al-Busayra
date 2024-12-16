@@ -102,7 +102,10 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
           sx={{
             "& .MuiTableCell-root": {
               fontWeight: "500",
-              bgcolor: "#80839014"
+              bgcolor: "#80839014",
+              // fontSize: '13px',
+              // height: '60px',
+            //  py: 3,
             },
           }}
         >
