@@ -4,6 +4,7 @@ import { Box, Typography } from "@mui/material";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
 import CustomSelect from "@/components/Shared-components/CustomSelect";
+import CaptionText from "@/components/Shared-components/CaptionText";
 
 export const EmiratesID = ({ control }) => {
   const renderLabel = (label, required = false) => (
@@ -14,7 +15,7 @@ export const EmiratesID = ({ control }) => {
   );
 
   const fields = [
-   // Nationality will be removed when residency in uae select
+    // Nationality will be removed when residency in uae select
     {
       label: "Nationality",
       name: "nationality",
@@ -23,7 +24,7 @@ export const EmiratesID = ({ control }) => {
         { value: "pakistani", label: "Pakistani" },
         { value: "indian", label: "Indian" },
       ],
-      placeholder:"UAE",
+      placeholder: "UAE",
       component: CustomSelect,
     },
     {
@@ -75,7 +76,7 @@ export const EmiratesID = ({ control }) => {
       {fields.map(({ label, name, required, placeholder, component }, index) => (
         <Box key={index} sx={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
           <Box sx={{ flex: "0 0 40%", textAlign: "left", paddingRight: "1rem" }}>
-            {renderLabel(label, required)}
+            <CaptionText text={label} required />
           </Box>
           <Box sx={{ flex: "1", width: "80%" }}>
             <Controller

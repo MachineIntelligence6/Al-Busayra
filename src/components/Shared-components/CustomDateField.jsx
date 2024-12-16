@@ -9,6 +9,8 @@ import {
 } from "@mui/material";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday"; // Import the calendar icon
 import InputLabelTop from "./InputLabel";
+import { custom } from "zod";
+import { Calendar } from "lucide-react";
 
 const CustomDateField = ({
   label,
@@ -18,12 +20,12 @@ const CustomDateField = ({
   error,
   helperText,
   fullWidth = true,
-  textProps = {}, // Props for label typography
-  sx = {}, // Additional styles for the field wrapper
-  required = false, // Indicate if the field is required
-  borderRadius = 2, // Custom border radius for the date field
-  height = 40, // Custom height for the date field
-  bgcolor = "transparent", // Set default background color to white for the text field
+  textProps = {},
+  sx = {},
+  required = false,
+  borderRadius = 2,
+  height = 38,
+  bgcolor = "transparent",
   ...props
 }) => {
   return (
@@ -47,14 +49,16 @@ const CustomDateField = ({
         type="date"
         size="small"
         variant="outlined"
+
         sx={{
-          height: height, // Set custom height
-          borderRadius: borderRadius, // Apply custom border radius
+          height: height,
+          borderRadius: borderRadius,
           "& .MuiOutlinedInput-root": {
-            height: height, // Ensure the height is consistent for the input
-            borderRadius: borderRadius, // Border radius for the input
-            backgroundColor: bgcolor, // Apply the background color (white by default)
+            height: height,
+            borderRadius: borderRadius,
+            backgroundColor: bgcolor,
           },
+
         }}
         {...props}
       />
@@ -82,3 +86,4 @@ CustomDateField.propTypes = {
 };
 
 export default CustomDateField;
+

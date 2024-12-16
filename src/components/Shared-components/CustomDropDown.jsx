@@ -22,7 +22,7 @@ const CustomDropdown = ({
     ...props
 }) => {
     return (
-        <FormControl fullWidth {...formControlProps}>
+        <FormControl fullWidth {...formControlProps} >
             {label && (
                 <InputLabelTop text={label} required={required} />
             )
@@ -34,19 +34,19 @@ const CustomDropdown = ({
                 displayEmpty
                 renderValue={(selected) => {
                     if (!selected) {
-                        return <Typography sx={{ color: custom.mute, fontSize: "15px", fontWeight:"400" }}>{placeholder ? placeholder : "Please Select"}</Typography>;
+                        return <Typography sx={{ color: custom.muted, fontSize: "15px", fontWeight: "400" }}>{placeholder ? placeholder : "Please Select"}</Typography>;
                     }
                     return options.find((option) => option.value === selected)?.label;
                 }}
                 {...props}
-                sx={{ borderRadius: "7px" }}
+                sx={{ borderRadius: "7px", height: 38 }}
                 IconComponent={KeyboardArrowDownIcon}
             >
-                <MenuItem value="" disabled sx={{ fontSize: "15px", fontWeight:"400" }} color={custom.PrimaryText}>
+                <MenuItem value="" disabled sx={{ fontSize: "15px", fontWeight: "400" }} color={custom.PrimaryText}>
                     {placeholder}
                 </MenuItem>
                 {options?.map((option, index) => (
-                    <MenuItem key={index} value={option.value} sx={{ fontSize: "15px", fontWeight:"400" }} color={custom.PrimaryText}>
+                    <MenuItem key={index} value={option.value} sx={{ fontSize: "15px", fontWeight: "400" }} color={custom.PrimaryText}>
                         {option.label}
                     </MenuItem>
                 ))}

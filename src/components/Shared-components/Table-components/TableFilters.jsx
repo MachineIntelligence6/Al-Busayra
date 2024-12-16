@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import CustomDropdown from "../CustomDropDown";
 import CustomTextField from "../CustomTextField";
 import { custom } from "@/app/theme";
+import DescriptiveText from "../DescriptiveText";
+import CustomMultiSelected from "../CustomMultiSelected";
 
 const options = ["A", "B", "C", "D"];
 const TableFilters = ({
@@ -22,13 +24,9 @@ const TableFilters = ({
 
   return (
     <Box component="div" sx={{ p: 2, pb: 1, px: 3 }}>
-      <Typography
-        variant="caption"
-        sx={{ fontSize: "20px", fontWeight: "500" }}
-        color={custom.breadcrumbText}
-      >
-        Advance Filters
-      </Typography>
+
+      <DescriptiveText text="Advnace Filter" fontWeigth={500} fontSize={15} color={custom.primaryText} />
+
 
       <Box
         component="div"
@@ -52,10 +50,8 @@ const TableFilters = ({
                     label={filter?.filterName}
                     placeholder={filter?.placeholder}
                     options={filter?.options}
-                    required
-                    // value={dropdown1Value}
-                    // onChange={(e) => setDropdown1Value(e.target.value)}
                   />
+
                 ) : (
                   <Box
                     key={filter?.id}
@@ -69,7 +65,6 @@ const TableFilters = ({
                     <CustomTextField
                       placeholder={filter?.placeholder}
                       label={filter.filterName}
-                      required
                     />
                   </Box>
                 )}
@@ -78,7 +73,10 @@ const TableFilters = ({
           })
         ) : (
           <>
-            <CustomDropdown
+            <CustomMultiSelected label="Campaign Name" />
+            <CustomMultiSelected label="Country" />
+            <CustomMultiSelected label="City" />
+            {/* <CustomDropdown
               sx={{ flex: 1, placeItems: "start" }}
               label="Campaign Name"
               placeholder="Please Select"
@@ -101,7 +99,7 @@ const TableFilters = ({
               options={options}
               value={dropdown3Value}
               onChange={(e) => setDropdown3Value(e.target.value)}
-            />
+            /> */}
           </>
         )}
       </Box>

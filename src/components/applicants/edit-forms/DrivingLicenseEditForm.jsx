@@ -11,6 +11,7 @@ import CustomSelect from "@/components/Shared-components/CustomSelect";
 import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
 import { DrivingLicenseEditSchema } from "@/utils/schemas/DrivingLicenseEditFormSchema";
 import CustomDateField from "@/components/Shared-components/CustomDateField";
+import CaptionText from "@/components/Shared-components/CaptionText";
 
 const renderLabel = (label, required = false) => (
   <Typography variant="body1" component="span">
@@ -30,11 +31,11 @@ export default function DrivingLicenseEditForm({ setIsDrivingLicenseModalOpen })
     resolver: yupResolver(DrivingLicenseEditSchema),
     mode: "onChange",
     defaultValues: {
-        isUaeLicenseHolder: "",
-        drivingLicenseIssueDate: null,
-        drivingLicenseExpiryDate: null,
-        drivingLicenseFront: null,
-        drivingLicenseBack: null,
+      isUaeLicenseHolder: "",
+      drivingLicenseIssueDate: null,
+      drivingLicenseExpiryDate: null,
+      drivingLicenseFront: null,
+      drivingLicenseBack: null,
     },
   });
 
@@ -61,7 +62,7 @@ export default function DrivingLicenseEditForm({ setIsDrivingLicenseModalOpen })
       "drivingLicenseBack",
     ],
   };
-  
+
   const handleSave = async () => {
     console.log("Validating fields:", stepFields[0]); // Debugging
 
@@ -113,13 +114,13 @@ export default function DrivingLicenseEditForm({ setIsDrivingLicenseModalOpen })
       component: CustomFileUploadField,
     },
   ];
-  
+
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <Paper sx={{ maxWidth: 800, margin: "auto", p: 3 }}>
         <Typography variant="h6" mb="3em">
-        DRIVING LICENSE
+          DRIVING LICENSE
         </Typography>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
@@ -152,14 +153,15 @@ export default function DrivingLicenseEditForm({ setIsDrivingLicenseModalOpen })
                         paddingRight: "1rem",
                       }}
                     >
-                      {renderLabel(label, required)}
+                      <CaptionText text={label} required />
+
                     </Box>
                     <Box sx={{ flex: "1", width: "80%" }}>
                       <Controller
                         name={name}
                         control={control}
                         defaultValue=""
-                        render={({ field, fieldState: { error }}) =>
+                        render={({ field, fieldState: { error } }) =>
                           createElement(component, {
                             value: field.value,
                             onChange: field.onChange,
@@ -182,7 +184,7 @@ export default function DrivingLicenseEditForm({ setIsDrivingLicenseModalOpen })
               <CustomButton
                 variant="outlined"
                 bgColor="danger"
-                onClick={()=> setIsDrivingLicenseModalOpen(false)}
+                onClick={() => setIsDrivingLicenseModalOpen(false)}
                 startIcon={<CancelIcon />}
               >
                 Cancel

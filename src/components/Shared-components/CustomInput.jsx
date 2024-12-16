@@ -4,7 +4,7 @@ import { TextField, IconButton, InputAdornment } from "@mui/material";
 import InputLabelTop from "./InputLabel";
 import { Eye, EyeOff } from "lucide-react";
 
-function CustomInput({ onChange, placeholder, labelText, type = "text", required = false }) {
+function CustomInput({ onChange, placeholder, labelText, type = "text", required = false, height = 38 }) {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleTogglePasswordVisibility = () => {
@@ -19,6 +19,7 @@ function CustomInput({ onChange, placeholder, labelText, type = "text", required
         type={type === "password" && !showPassword ? "password" : "text"}
         onChange={onChange}
         placeholder={placeholder}
+        sx={{ height: height }}
         InputProps={
           type === "password"
             ? {
@@ -29,7 +30,7 @@ function CustomInput({ onChange, placeholder, labelText, type = "text", required
                     edge="end"
                     aria-label="toggle password visibility"
                   >
-                    {showPassword ? <EyeOff /> : <Eye />}
+                    {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                   </IconButton>
                 </InputAdornment>
               ),

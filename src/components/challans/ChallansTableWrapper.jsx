@@ -13,6 +13,7 @@ import ActionMenu from "../Shared-components/ActionMenu";
 import CustomDropdown from "../Shared-components/CustomDropDown";
 import TableExportRow from "../Shared-components/Table-components/TableExportRow";
 import CustomTable from "../Shared-components/Table-components/CustomTable";
+import DescriptiveText from "../Shared-components/DescriptiveText";
 
 const challanSalikFilters = [
   {
@@ -312,12 +313,13 @@ const ChallansTableWrapper = ({
         )
       },
       { field: "createdOn", headerName: "CREATED ON", align: "left" },
-      { field: "status", headerName: "STATUS", align: "left",
-          render: (row) => (
-            <StatusIndicator
-              status={row.status}
-              pathname={pathname}
-            />
+      {
+        field: "status", headerName: "STATUS", align: "left",
+        render: (row) => (
+          <StatusIndicator
+            status={row.status}
+            pathname={pathname}
+          />
         ),
       },
 
@@ -370,9 +372,7 @@ const ChallansTableWrapper = ({
         component="div"
         sx={{ m: 2, }}
       >
-        <Typography variant="caption" sx={{ fontSize: 16 }}>
-          Advance Filters
-        </Typography>
+        <DescriptiveText text="Advance Filter" />
 
         <Box
           component="div"

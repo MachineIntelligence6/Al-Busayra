@@ -112,7 +112,8 @@ const Page = () => {
           sx={{
             borderBottom: "1px solid #20A4D5E5",
             color: "#20A4D5E5",
-            cursor: "pointer"
+            cursor: "pointer",
+            width: "fit-content"
           }}
         >
           {row.id}

@@ -15,6 +15,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { contactEditFormSchema } from "@/utils/schemas/contactEditFormSchema";
 import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
+import CaptionText from "@/components/Shared-components/CaptionText";
 const renderLabel = (label, required = false) => (
   <Typography variant="body1" component="span">
     {label}
@@ -33,23 +34,23 @@ export default function ContactEditForm({ setIsContactModalOpen }) {
     resolver: yupResolver(contactEditFormSchema),
     mode: "onChange",
     defaultValues: {
-  email: '',
-  phoneNumber: {
-    countryCode: '',
-    number: '',
-  },
-  whatsappNumber: {
-    countryCode: '',
-    number: '',
-  },
-  nationality: '',
-  residency: '', 
-  emiratesIDNumber: '',
-  emiratesIDIssueDate: null,
-  emiratesIDExpiryDate: null, 
-  emiratesIDFront: null, 
-  emiratesIDBack: null, 
-  residencyIqama: null,
+      email: '',
+      phoneNumber: {
+        countryCode: '',
+        number: '',
+      },
+      whatsappNumber: {
+        countryCode: '',
+        number: '',
+      },
+      nationality: '',
+      residency: '',
+      emiratesIDNumber: '',
+      emiratesIDIssueDate: null,
+      emiratesIDExpiryDate: null,
+      emiratesIDFront: null,
+      emiratesIDBack: null,
+      residencyIqama: null,
 
     },
   });
@@ -142,7 +143,7 @@ export default function ContactEditForm({ setIsContactModalOpen }) {
         { value: "pakistani", label: "Pakistani" },
         { value: "indian", label: "Indian" },
       ],
-      placeholder:"UAE",
+      placeholder: "UAE",
       component: CustomSelect,
     },
     {
@@ -193,65 +194,66 @@ export default function ContactEditForm({ setIsContactModalOpen }) {
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <Paper sx={{ maxWidth: 800, margin: "auto", p: 3 }}>
         <Typography variant="h6" mb="3em">
-        CONTACT & RESIDENT
+          CONTACT & RESIDENT
         </Typography>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
-          {fields.map(({ label, name, required, placeholder, component, countryCodes, icon, adornment, options }, index) => (
-            <Box
-                    key={index}
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      marginBottom: "1rem",
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        flex: "0 0 40%",
-                        textAlign: "left",
-                        paddingRight: "1rem",
-                      }}
-                    >
-                      {renderLabel(label, required)}
-                    </Box>
-  <Box key={name} sx={{ flex: "1", width: "80%", mb: 2 }}>
-    <Controller
-      name={name}
-      control={control}
-      defaultValue={
-        component === CustomCountryCodeInput
-          ? { countryCode: countryCodes?.[0]?.code || "", number: "" }
-          : ""
-      }
-      render={({ field, fieldState: { error } }) =>
-        component === CustomCountryCodeInput
-          ? createElement(component, {
-              value: field.value,
-              onChange: field.onChange,
-              countryCodes,
-              error,
-              icon, // Pass icon for Phone and WhatsApp fields
-            })
-          : createElement(component, {
-              value: field.value,
-              onChange: field.onChange,
-              placeholder,
-              options,
-              error,
-              InputProps: adornment
-                ? {
-                    startAdornment: (
-                      <InputAdornment position="start">{adornment}</InputAdornment>
-                    ),
-                  }
-                : undefined,
-            })
-      }
-    />
-  </Box>
-  </Box>
-))}
+            {fields.map(({ label, name, required, placeholder, component, countryCodes, icon, adornment, options }, index) => (
+              <Box
+                key={index}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginBottom: "1rem",
+                }}
+              >
+                <Box
+                  sx={{
+                    flex: "0 0 40%",
+                    textAlign: "left",
+                    paddingRight: "1rem",
+                  }}
+                >
+                  <CaptionText text={label} required />
+
+                </Box>
+                <Box key={name} sx={{ flex: "1", width: "80%", mb: 2 }}>
+                  <Controller
+                    name={name}
+                    control={control}
+                    defaultValue={
+                      component === CustomCountryCodeInput
+                        ? { countryCode: countryCodes?.[0]?.code || "", number: "" }
+                        : ""
+                    }
+                    render={({ field, fieldState: { error } }) =>
+                      component === CustomCountryCodeInput
+                        ? createElement(component, {
+                          value: field.value,
+                          onChange: field.onChange,
+                          countryCodes,
+                          error,
+                          icon, // Pass icon for Phone and WhatsApp fields
+                        })
+                        : createElement(component, {
+                          value: field.value,
+                          onChange: field.onChange,
+                          placeholder,
+                          options,
+                          error,
+                          InputProps: adornment
+                            ? {
+                              startAdornment: (
+                                <InputAdornment position="start">{adornment}</InputAdornment>
+                              ),
+                            }
+                            : undefined,
+                        })
+                    }
+                  />
+                </Box>
+              </Box>
+            ))}
 
             <Divider />
             <Box
@@ -260,7 +262,7 @@ export default function ContactEditForm({ setIsContactModalOpen }) {
               <CustomButton
                 variant="outlined"
                 bgColor="danger"
-                onClick={()=> setIsContactModalOpen(false)}
+                onClick={() => setIsContactModalOpen(false)}
                 startIcon={<CancelIcon />}
               >
                 Cancel

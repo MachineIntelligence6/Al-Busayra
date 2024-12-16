@@ -10,6 +10,7 @@ const CustomSelect = ({
   placeholder = "Please Select",
   error,
   fullWidth = true,
+  height = 38,
   sx,
   ...rest
 }) => {
@@ -23,6 +24,7 @@ const CustomSelect = ({
         sx={{
           borderRadius: "7px",
           padding: "0",
+          height: height,
           "& .MuiSelect-select": {
             padding: "11px",
             backgroundColor: "#FCFCFC",

@@ -12,6 +12,7 @@ const PercentageTextField = ({
     helperText,
     fullWidth = true,
     textProps,
+    height = 38,
     sx,
     type = "text",
     required = false,
@@ -32,11 +33,11 @@ const PercentageTextField = ({
                 type={type}
                 size="small"
                 variant="outlined"
-                sx={{ "& .MuiInputBase-root": { pr: 0 } }}
+                sx={{ "& .MuiInputBase-root": { pr: 0, height: height, borderRadius: 2, } }}
                 InputProps={{
                     endAdornment: (
                         <InputAdornment position="end">
-                            <Box component="div" sx={{ bgcolor: "#e0e0e0", py: 0.9, px: 1.5, border: "1px solid gray", borderTopRightRadius: 4, borderTopLeftRadius: 4 }}>
+                            <Box component="div" sx={{ bgcolor: "#e0e0e0", py: 0.5, px: 1, mx: 0.3, border: "1px solid gray", borderTopRightRadius: 6, borderBottomRightRadius: 6 }}>
                                 <Percent />
                             </Box>
                         </InputAdornment>
@@ -44,10 +45,12 @@ const PercentageTextField = ({
                 }}
                 {...props}
             />
-            {helperText && (
-                <FormHelperText sx={{ marginTop: "4px" }}>{helperText}</FormHelperText>
-            )}
-        </FormControl>
+            {
+                helperText && (
+                    <FormHelperText sx={{ marginTop: "4px" }}>{helperText}</FormHelperText>
+                )
+            }
+        </FormControl >
     );
 };
 

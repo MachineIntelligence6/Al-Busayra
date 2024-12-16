@@ -12,6 +12,7 @@ import CustomDatePicker from "@/components/Shared-components/CustomDatePicker";
 import { ChallansSchema } from "@/utils/schemas/ChallanFormSchema";
 import CustomSelect from "../Shared-components/CustomSelect";
 import CustomFileUploadField from "../Shared-components/CustomFIleUploadField";
+import CaptionText from "../Shared-components/CaptionText";
 
 const renderLabel = (label, required = false) => (
   <Typography variant="body1" component="span">
@@ -106,7 +107,7 @@ export default function ChallansForm({ handleCloseModal }) {
       name: "dateOfTrafficChallan",
       required: true,
       component: CustomDatePicker,
-      placeholder:"DD/MM/YYYY"
+      placeholder: "DD/MM/YYYY"
     },
     {
       label: "Time",
@@ -147,7 +148,7 @@ export default function ChallansForm({ handleCloseModal }) {
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <Paper sx={{ maxWidth: 800, margin: "auto", p: 3 }}>
         <Typography variant="h6">Challan Upload</Typography>
-        <Divider sx={{my:"1em"}} />
+        <Divider sx={{ my: "1em" }} />
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -178,7 +179,7 @@ export default function ChallansForm({ handleCloseModal }) {
                         paddingRight: "1rem",
                       }}
                     >
-                      {renderLabel(label, required)}
+                      <CaptionText text={label} required />
                     </Box>
                     <Box sx={{ flex: "1", width: "80%" }}>
                       {/* <Controller
@@ -196,22 +197,22 @@ export default function ChallansForm({ handleCloseModal }) {
                         }
                       /> */}
                       <Controller
-  name={name}
-  control={control}
-  defaultValue=""
-  render={({ field, fieldState: { error } }) => {
-    const Component = component; // Assign the component dynamically
-    return (
-      <Component
-        {...field} // Pass field props such as value and onChange
-        placeholder={placeholder}
-        error={!!error} // Convert error state to boolean for the component
-        helperText={error ? error.message : ""}
-        accept={accept} // For fields like file upload
-      />
-    );
-  }}
-/>
+                        name={name}
+                        control={control}
+                        defaultValue=""
+                        render={({ field, fieldState: { error } }) => {
+                          const Component = component; // Assign the component dynamically
+                          return (
+                            <Component
+                              {...field} // Pass field props such as value and onChange
+                              placeholder={placeholder}
+                              error={!!error} // Convert error state to boolean for the component
+                              helperText={error ? error.message : ""}
+                              accept={accept} // For fields like file upload
+                            />
+                          );
+                        }}
+                      />
                     </Box>
                   </Box>
                 )

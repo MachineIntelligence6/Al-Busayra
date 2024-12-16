@@ -4,6 +4,7 @@ import { Box, Typography } from "@mui/material";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import CustomSelect from "@/components/Shared-components/CustomSelect";
 import CustomDateField from "@/components/Shared-components/CustomDateField";
+import CaptionText from "@/components/Shared-components/CaptionText";
 
 export const DrivingLicense = ({ control }) => {
   const { setValue } = useFormContext();
@@ -52,10 +53,10 @@ export const DrivingLicense = ({ control }) => {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
-      {fields.map(({ label, name, required, placeholder, options, component ,  props = {} }, index) => (
+      {fields.map(({ label, name, required, placeholder, options, component, props = {} }, index) => (
         <Box key={index} sx={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
           <Box sx={{ flex: "0 0 40%", textAlign: "left", paddingRight: "1rem" }}>
-            {renderLabel(label, required)}
+            <CaptionText text={label} required />
           </Box>
           <Box sx={{ flex: "1", width: "80%" }}>
             <Controller

@@ -11,6 +11,7 @@ import CustomAvatar from "@/components/Shared-components/CustomAvatar";
 import CurrencyType from "@/components/Shared-components/CurrencyType";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
 import { useRouter } from "next/navigation";
+import { custom } from "@/app/theme";
 
 const filters = [
   { id: 1, filterName: "ID", placeholder: "3421" },
@@ -92,13 +93,13 @@ const CompanyEmpTableWrapper = () => {
         align: "left",
         render: (row) => (
           <Typography
+            variant="caption"
             sx={{
-              border: "1px solid #104774",
-              p: "6px var(--Padding-padding-3, 12px)",
-
-              borderRadius: 2,
-              textAlign: "center",
-              width: "fit-content",
+              backgroundColor: "transparent",
+              border: `1px solid ${custom.deepBlue}`,
+              padding: "7px 10px",
+              borderRadius: "6px",
+              color: custom.deepBlue
             }}
           >
             {row.resident}

@@ -12,6 +12,7 @@ import CustomTextField from "@/components/Shared-components/CustomTextField";
 import { PassportDetailsSchema } from "@/utils/schemas/PassportDetailsEditSchema";
 import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
 import CustomDateField from "@/components/Shared-components/CustomDateField";
+import CaptionText from "@/components/Shared-components/CaptionText";
 
 const renderLabel = (label, required = false) => (
   <Typography variant="body1" component="span">
@@ -131,7 +132,7 @@ export default function PassportDetailsEditForm({ setIsPassportModalOpen }) {
                         paddingRight: "1rem",
                       }}
                     >
-                      {renderLabel(label, required)}
+                      <CaptionText text={label} required />
                     </Box>
                     <Box sx={{ flex: "1", width: "80%" }}>
                       <Controller

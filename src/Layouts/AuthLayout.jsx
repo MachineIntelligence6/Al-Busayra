@@ -3,6 +3,9 @@ import React from "react";
 import Image from "next/image";
 import { Box, Typography } from "@mui/material";
 import { usePathname } from "next/navigation";
+import HeadingText1 from "@/components/Shared-components/HeadingText1";
+import HeadingText3 from "@/components/Shared-components/HeadingText3";
+import { custom } from "@/app/theme";
 
 
 const AuthLayout = ({ children }) => {
@@ -22,17 +25,18 @@ const AuthLayout = ({ children }) => {
             backgroundRepeat: "no-repeat",
             backdropFilter: 10,
             overflow: "hidden",
-            height: "auto",
+            height: "95vh",
+
           }}
         >
-          <div className="flex flex-col items-center mt-44 gap-6 z-10">
-            <div className="font-bold text-[40px] leading-[22px] text-[#FFFFFF]">
-              We Leverage Our SMART Strength
-            </div>
-            <div className="font-normal text-[25px] leading-[22px] text-[#FFFFFF]">
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 12 }}>
+            <HeadingText1>
+              We Leverage Our &ldquo;SMART&rdquo; Strength
+            </HeadingText1>
+            <HeadingText3 sx={{ color: custom.white, fontWeight: 400, fontSize: 25 }}>
               of monitoring riders to our clients and partners
-            </div>
-          </div>
+            </HeadingText3>
+          </Box>
         </Box>
         <div className="col-span-4  p-4">{children}</div>
       </div>

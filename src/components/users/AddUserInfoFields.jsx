@@ -5,6 +5,7 @@ import CustomSelect from "@/components/Shared-components/CustomSelect";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import ImageUpload from "../applicants/ImageUpload";
 import { CustomMultiSelect } from "../Shared-components/CustomMultiSelect";
+import CaptionText from "../Shared-components/CaptionText";
 
 export const AddUserInfoFields = ({ control }) => {
   const { setValue } = useFormContext();
@@ -126,7 +127,7 @@ export const AddUserInfoFields = ({ control }) => {
       {fields.map(({ label, name, required, placeholder, options, isMultiSelect, component = CustomSelect }, index) => (
         <Box key={index} sx={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
           <Box sx={{ flex: "0 0 40%", textAlign: "left", paddingRight: "1rem" }}>
-            {renderLabel(label, required)}
+            <CaptionText text={label} required />
           </Box>
           <Box sx={{ flex: "1", width: "80%" }}>
             <Controller
@@ -136,10 +137,10 @@ export const AddUserInfoFields = ({ control }) => {
               render={({ field, fieldState: { error } }) => (
                 isMultiSelect ? (
                   <CustomMultiSelect
-                  options={options}
-                  value={field.value}
-                  onChange={field.onChange}
-                  placeholder="Select Campony"/>
+                    options={options}
+                    value={field.value}
+                    onChange={field.onChange}
+                    placeholder="Select Campony" />
                 ) : component === CustomSelect ? (
                   <CustomSelect
                     value={field.value}
