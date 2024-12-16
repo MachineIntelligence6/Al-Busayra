@@ -1,17 +1,6 @@
 "use client";
-import React from "react";
-import { useTheme } from "@emotion/react";
-import {
-  Box,
-  Dialog,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  useMediaQuery,
-} from "@mui/material";
-import { CircleX, X } from "lucide-react";
 import { useState } from "react";
-import { Divider, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
 import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
 import Image from "next/image";
@@ -20,7 +9,6 @@ import GenericModal from "@/components/applicants/GenericModel";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
 import { assetClarenceData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
-import DetailModal from "./view-detail";
 
 const TableFiltersData = [
   {
@@ -58,14 +46,17 @@ const TableFiltersData = [
 ];
 
 const actionMenu = [
-  { label: "Add", route: "/employees/add-employee" },
-  { label: "View Details" },
+  { label: "Allocate Asset", route: "/asset-allocation/bike-assign" },
+  { label: "Asset Clearence", route: "/asset-clearance" },
+  { label: "View Details", route: "/admin/applicants/hold" },
 ];
 
-const EmployeesModal = ({ open, onClose, title = "Employees Modal" }) => {
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("lg"));
+const headerMenuItems = [
+  { label: "Edit", action: "edit" },
+  { label: "Delete", action: "delete" },
+];
 
+const AddAssetTable = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [filters, setFilters] = useState(TableFiltersData);
@@ -87,30 +78,26 @@ const EmployeesModal = ({ open, onClose, title = "Employees Modal" }) => {
     setTotalEntries(value);
   };
 
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+    console.log("cl");
+  };
+
+  const handleCloseModal = () => setIsModalOpen(false);
+
   const handleRowSelect = (selectedRowIds) => {
     console.log("Selected Row IDs:", selectedRowIds);
   };
 
   const handleMenuClick = (menuItem) => {
     console.log("Menu clicked:", menuItem.label);
-
-    // Handle "View Details" separately
-    if (menuItem.label === "View Details") {
-      setShowPopup(true); // Show popup
-    }
-
-    // Ensure that route is defined before trying to navigate
-    if (menuItem.route) {
-      router.push(menuItem.route);
-    }
+    router.push(menuItem.route);
   };
 
   const handleFilterClick = (field) => {
     console.log(`Filter clicked for: ${field}`);
     // Add your filter logic here, such as opening a dropdown or modal
   };
-
-  const [showPopup, setShowPopup] = useState(false);
 
   const column = [
     {
@@ -195,86 +182,64 @@ const EmployeesModal = ({ open, onClose, title = "Employees Modal" }) => {
       render: (row) => (
         <ActionMenu
           menuItems={actionMenu}
-          onMenuItemClick={(item) => {
-            if (item.label === "View Details") {
-              setShowPopup(true); // Show popup for "View Details"
-            } else if (item.route) {
-              router.push(item.route); // Only push route if it's defined
-            }
-          }}
+          onMenuItemClick={(item) => router.push(item.route)}
         />
       ),
     },
   ];
 
   return (
-    <Dialog
-      fullScreen={fullScreen}
-      open={open}
-      aria-labelledby="responsive-dialog-title"
-      maxWidth={""}
-      closeAfterTransition
-    >
-      <DialogTitle
-        id="responsive-dialog-title"
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
+    <>
+      {/* <Box sx={{ px: 2 }}>
+        <DynamicBreadcrumb isBtnShow={true} icon={<AddOutlinedIcon />} btnName="Allocate Asset" onClick={handleOpenModal} />
+      </Box>
+      <Divider sx={{ mt: 2 }} /> */}
+
+      <Box
+        component="div"
+        display="flex"
+        justifyContent="center"
+        flexDirection="column"
+        alignItems="center"
+        height="85vh"
       >
-        {title}{" "}
-        <Box
-          onClick={onClose}
-          component="button"
-          sx={{
-            borderRadius: "100%",
-            "& :hover": {
-              bgcolor: "#dfdfdf",
-              color: "#104774",
-              p: 0.2,
-              borderRadius: 4,
-            },
-          }}
-        >
-          <X size={18} />
-        </Box>
-      </DialogTitle>
-      <DialogContent>
-        <Box
-          component="div"
-          display="flex"
-          justifyContent="center"
-          flexDirection="column"
-          alignItems="center"
-        >
-          <CustomTableWrapper
-            rowsPerPage={rowsPerPage}
-            setCurrentPage={setCurrentPage}
-            currentPage={currentPage}
-            filters={filters}
-            column={column}
-            handleFilterClick={handleFilterClick}
-            handleMenuClick={handleMenuClick}
-            handleRowSelect={handleRowSelect}
-            pathname={pathname}
-            tableData={assetClarenceData}
-            // Header export Row props
-            totalEntries={totalEntries}
-            setTotalEntries={handleTotalEntriesChange}
-            isBtnAdd={false}
-            isExportBtn={false}
-            isActionMenu={false}
-            showSearch={true}
-            onSearchChange={onSearchChange}
-            // btnText="Add New Item"
-            isHeader={false}
-          />
-        </Box>
-      </DialogContent>
-      {showPopup && <DetailModal onClose={onClose} />}
-    </Dialog>
+        {/* <GenericModal
+          open={isModalOpen}
+          onClose={handleCloseModal}
+          title="Applicants Modal"
+          height="80vh"
+          width="100%"
+        > */}
+        <CustomTableWrapper
+          // handleOpenModal={handleOpenModal}
+          // handleCloseModal={handleCloseModal}
+          rowsPerPage={rowsPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+          filters={filters}
+          column={column}
+          handleFilterClick={handleFilterClick}
+          handleMenuClick={handleMenuClick}
+          handleRowSelect={handleRowSelect}
+          pathname={pathname}
+          tableData={assetClarenceData}
+          // Header export Row props
+          totalEntries={totalEntries}
+          setTotalEntries={handleTotalEntriesChange}
+          isBtnAdd={false}
+          isExportBtn={false}
+          isActionMenu={false}
+          showSearch={true}
+          menuItems={headerMenuItems}
+          onSearchChange={onSearchChange}
+          // btnText="Add New Item"
+          filterTitle="Selected Employees"
+        />
+        {/* </GenericModal> */}
+        {/* <Image src="/company/asset-clearence/bike-asset-clearence.svg" alt="bike" height="313" width="479" /> */}
+      </Box>
+    </>
   );
 };
 
-export default EmployeesModal;
+export default AddAssetTable;

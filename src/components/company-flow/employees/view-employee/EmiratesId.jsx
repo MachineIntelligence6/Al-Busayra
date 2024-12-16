@@ -1,7 +1,7 @@
 "use client";
 
 import { ViewCard, ViewItem } from "@/components/Shared-components/ViewCard";
-import { Box, Divider, IconButton } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 
 export default function EmiratesId({ profile, onEdit }) {
   return (
@@ -18,17 +18,7 @@ export default function EmiratesId({ profile, onEdit }) {
                 <span>{item.label}</span>
               </Box>
             }
-            value={
-              <Box
-                component="label"
-                sx={{ display: "flex", alignItems: "center", gap: 1 }}
-              >
-                {item.icon1}
-                <span>{item.value}</span>
-                {item.icon2}
-                {/* <IconButton size="small">{item.icon2}</IconButton> */}
-              </Box>
-            }
+            value={item.value}
           />
           {index < profile.data.length - 1 && (
             <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />

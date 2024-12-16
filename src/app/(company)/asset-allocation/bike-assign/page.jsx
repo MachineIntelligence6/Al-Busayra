@@ -6,11 +6,11 @@ import { Separator } from "@/components/ui/separator";
 
 const page = () => {
   return (
-    <div>
-      <div className="flex flex-row items-center justify-between">
+    <div className="px-5">
+      <div className="flex flex-row items-center justify-between ">
         <CustomBreadcrumb name="Asset Allocation" />
       </div>
-      <div className="py-5">
+      <div className="my-4">
         <Separator />
       </div>
       <AssignBike />
