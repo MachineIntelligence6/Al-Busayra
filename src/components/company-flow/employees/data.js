@@ -42,7 +42,7 @@ export const companyEmployeesTableData = [
     employeeType: "Rider",
     bike: "Assigned",
     sim: "Not Assigned",
-    ghpTraining: 'Yes',
+    ghpTraining: "Yes",
   },
   {
     id: "AB00002",
@@ -69,8 +69,7 @@ export const companyEmployeesTableData = [
     employeeType: "Rider",
     bike: "Not Assigned",
     sim: "Assigned",
-    ghpTraining: 'No',
-
+    ghpTraining: "No",
   },
   // Additional rows...
 ];
@@ -116,3 +115,96 @@ export const AssetHistoryTableData = [
   },
   // Additional rows...
 ];
+
+export const advanceSalaryTableData = [
+  {
+    id: "AB00001",
+    name: "Saleem Ashfaq Muhammad Shehzad",
+    image: "/images/profile-f-f.png",
+    date: "12/08/2024",
+    reason: "Any",
+    amount: "7000",
+    remarks: "--",
+    status: "New Request",
+    createdByName: "Adil Dildar",
+    image1: "/company/Avatarr.png",
+  },
+  {
+    id: "AB00002",
+    name: "Saleem Ashfaq Muhammad Shehzad",
+    image: "/images/profile-f-f.png",
+    date: "12/08/2024",
+    reason: "Any",
+    amount: "7000",
+    remarks: "--",
+    status: "Pending",
+    createdByName: "Adil Dildar",
+    image1: "/company/Avatarr.png",
+  },
+  {
+    id: "AB00003",
+    name: "MD Kulemd",
+    image: "/images/profile-f-f.png",
+    date: "14/08/2024",
+    reason: "Any",
+    amount: "8000",
+    remarks: "All fine release lone",
+    status: "Approved",
+    createdByName: "Waqar Ali",
+    image1: "/company/Avatarr.png",
+  },
+  {
+    id: "AB00004",
+    name: "MD Kulem",
+    image: "/images/profile-f-f.png",
+    date: "14/08/2024",
+    reason: "Any",
+    amount: "8000",
+    remarks: "Reason is not solid",
+    status: "Rejected",
+    createdByName: "Waqar Ali",
+    image1: "/company/Avatarr.png",
+  },
+];
+
+// export const advanceSalaryTableData = [
+//   {
+//     id: "AB00001",
+//     name: "Saleem Ashfaq Muhammad Shehzad",
+//     image: "/images/profile-f-f.png",
+//     terminationReason: "Any",
+//     bike: "--",
+//     sim: "--",
+//     deduction: "Yes",
+//     deductionAmount: "New Request",
+//     deductionReason: "Adil Dildar",
+//     clearanceForm: "Clearance",
+//     status: "New Request",
+//   },
+//   {
+//     id: "AB00002",
+//     name: "Saleem Ashfaq Muhammad Shehzad",
+//     image: "/images/profile-f-f.png",
+//     terminationReason: "Personal",
+//     bike: "Asset is lost",
+//     sim: "Asset is lost",
+//     deduction: "Yes",
+//     deductionAmount: "New Request",
+//     deductionReason: "Adil Dildar",
+//     clearanceForm: "Clearance",
+//     status: "New Request",
+//   },
+//   {
+//     id: "AB00003",
+//     name: "MD Kulemd",
+//     image: "/images/profile-f-f.png",
+//     date: "14/08/2024",
+//     reason: "Any",
+//     amount: "8000",
+//     remarks: "All fine release lone",
+//     status: "Approved",
+//     createdByName: "Waqar Ali",
+//     image1: "/company/Avatarr.png",
+//   },
+  
+// ];

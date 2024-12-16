@@ -73,16 +73,17 @@ const CustomTableExportRow = ({
           />
         )}
 
-        {isExportBtn && (
-          <CustomButton
-            bgColor="foreground"
-            color="#808390"
-            endIcon={<FileUploadIcon />}
-          >
-            Export
-          </CustomButton>
-        )}
-
+        <Box>
+          {isExportBtn && (
+            <CustomButton
+              bgColor="foreground"
+              color="#808390"
+              endIcon={<FileUploadIcon />}
+            >
+              Export
+            </CustomButton>
+          )}
+        </Box>
         {isBtnAdd && (
           <CustomButton
             endIcon={<AddIcon />}
@@ -91,7 +92,6 @@ const CustomTableExportRow = ({
             {btnText}
           </CustomButton>
         )}
-
         {isActionMenu && (
           <Box
             sx={{
