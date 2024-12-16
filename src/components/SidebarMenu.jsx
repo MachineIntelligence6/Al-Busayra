@@ -8,6 +8,7 @@ import AppLogo from "./Shared-components/AppLogo";
 import SvgIcon from "./Shared-components/SvgIcon";
 import Link from "next/link";
 import CompanyProfileMiniCard from "./Shared-components/profiles/CompanyProfileMiniCard";
+import { Circle } from "lucide-react";
 
 const SidebarMenu = ({ adminMenuData, portal = "admin" }) => {
     const [openMenu, setOpenMenu] = useState(null);
@@ -38,6 +39,7 @@ const SidebarMenu = ({ adminMenuData, portal = "admin" }) => {
             component="aside"
             sx={{
                 minWidth: 300,
+                width: 280,
                 bgcolor: "#23567F",
                 color: "white",
                 height: "100vh",
@@ -114,19 +116,20 @@ const SidebarMenu = ({ adminMenuData, portal = "admin" }) => {
                                                     <ListItemButton
                                                         sx={{
                                                             borderRadius: 2,
-                                                            bgcolor: subItem.id === selectedMenu ? "white" : "#37658B",
-                                                            color: subItem.id === selectedMenu ? "#37658B" : "white",
+                                                            bgcolor: subItem.id === selectedMenu ? "#104774" : "",
+                                                            color: subItem.id === selectedMenu ? "white" : "",
                                                             display: "flex",
                                                             alignItems: "center",
                                                             gap: 2,
                                                             "&:hover": { bgcolor: "#1E4568", color: "white" },
                                                         }}
                                                     >
-                                                        <RadioButtonUncheckedIcon fontSize="small" />
+                                                        <Circle size={9} color={"white"} />
                                                         <ListItemText
                                                             primary={subItem.label}
                                                             primaryTypographyProps={{
-                                                                fontWeight: subItem.id === selectedMenu ? "400" : "normal",
+                                                                fontWeight: 400,
+                                                                fontSize: 15
                                                             }}
                                                         />
                                                     </ListItemButton>

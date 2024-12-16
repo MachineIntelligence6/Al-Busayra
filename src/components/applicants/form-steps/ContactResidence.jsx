@@ -7,8 +7,9 @@ import CustomCountryCodeInput from "@/components/Shared-components/CustomCountry
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import CaptionText from "@/components/Shared-components/CaptionText";
 
-export const ContactResidence = ({ control,isUaeResident }) => {
+export const ContactResidence = ({ control, isUaeResident }) => {
   const renderLabel = (label, required = false) => (
     <Typography variant="body1" component="span">
       {label}
@@ -108,7 +109,7 @@ export const ContactResidence = ({ control,isUaeResident }) => {
           >
             {/* Render label */}
             <Box sx={{ flex: "0 0 40%", textAlign: "left", paddingRight: "1rem" }}>
-              {renderLabel(label, required)}
+              <CaptionText text={label} required />
             </Box>
 
             {/* Render input component */}
@@ -124,26 +125,26 @@ export const ContactResidence = ({ control,isUaeResident }) => {
                 render={({ field, fieldState: { error } }) =>
                   component === CustomCountryCodeInput
                     ? createElement(component, {
-                        value: field.value,
-                        onChange: field.onChange,
-                        countryCodes,
-                        error,
-                        icon, // Pass icon for Phone and WhatsApp fields
-                      })
+                      value: field.value,
+                      onChange: field.onChange,
+                      countryCodes,
+                      error,
+                      icon, // Pass icon for Phone and WhatsApp fields
+                    })
                     : createElement(component, {
-                        value: field.value,
-                        onChange: field.onChange,
-                        placeholder,
-                        options,
-                        error,
-                        InputProps: adornment
-                          ? {
-                              startAdornment: (
-                                <InputAdornment position="start">{adornment}</InputAdornment>
-                              ),
-                            }
-                          : undefined,
-                      })
+                      value: field.value,
+                      onChange: field.onChange,
+                      placeholder,
+                      options,
+                      error,
+                      InputProps: adornment
+                        ? {
+                          startAdornment: (
+                            <InputAdornment position="start">{adornment}</InputAdornment>
+                          ),
+                        }
+                        : undefined,
+                    })
                 }
               />
             </Box>

@@ -4,8 +4,9 @@ import { Box, Typography } from "@mui/material";
 import CustomSelect from "@/components/Shared-components/CustomSelect";
 import ImageUpload from "../ImageUpload";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
+import CaptionText from "@/components/Shared-components/CaptionText";
 
-export const GeneralInfo = ({ control,isUaeResident }) => {
+export const GeneralInfo = ({ control, isUaeResident }) => {
   const { setValue } = useFormContext();
   const renderLabel = (label, required = false) => (
     <Typography variant="body1" component="span">
@@ -101,7 +102,7 @@ export const GeneralInfo = ({ control,isUaeResident }) => {
     {
       label: "Will your company provide NOC",
       name: "companyprovideNOC",
-      required:  isUaeResident ? true : false,
+      required: isUaeResident ? true : false,
       options: [
         { value: "social", label: "Social Media" },
         { value: "friend", label: "Friend" },
@@ -127,7 +128,8 @@ export const GeneralInfo = ({ control,isUaeResident }) => {
       {fields.map(({ label, name, required, placeholder, options, component = CustomSelect }, index) => (
         <Box key={index} sx={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
           <Box sx={{ flex: "0 0 40%", textAlign: "left", paddingRight: "1rem" }}>
-            {renderLabel(label, required)}
+            <CaptionText text={label} required />
+
           </Box>
           <Box sx={{ flex: "1", width: "80%" }}>
             <Controller

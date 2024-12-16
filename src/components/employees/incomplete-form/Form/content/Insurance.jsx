@@ -63,7 +63,6 @@ const Insurance = ({ formData, setFormData }) => {
               {field.component === CustomDateField && (
                 <CustomDateField
                   label={field.label}
-                  required={true}
                   borderRadius={2}
                   height={36.5}
                   bgcolor="#FFF"

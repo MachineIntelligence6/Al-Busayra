@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import CustomDropdown from "../CustomDropDown";
 import CustomTextField from "../CustomTextField";
 import { custom } from "@/app/theme";
+import DescriptiveText from "../DescriptiveText";
 
 const options = ["A", "B", "C", "D"];
 const TableFilters = ({ filters, bottomBorder = true, textFieldWidth = 350 }) => {
@@ -20,12 +21,9 @@ const TableFilters = ({ filters, bottomBorder = true, textFieldWidth = 350 }) =>
   return (
     <Box
       component="div"
-      sx={{ p: 2, pb:1, px: 3 }}
+      sx={{ p: 2, pb: 1, px: 3 }}
     >
-      <Typography variant="caption" sx={{ fontSize: "20px", fontWeight:"500" }} color={custom.breadcrumbText}>
-        Advance Filters
-      </Typography>
-
+      <DescriptiveText text="Advance Filter" fontSize={16} fontWeight={500} color={custom.primaryText} />
       <Box
         component="div"
         sx={{
@@ -50,8 +48,7 @@ const TableFilters = ({ filters, bottomBorder = true, textFieldWidth = 350 }) =>
               // value={dropdown1Value}
               // onChange={(e) => setDropdown1Value(e.target.value)}
               />) : <Box key={filter?.id} sx={{ display: "flex", flexDirection: "column" }}>
-                <Typography sx={{ fontSize: "15px", fontWeight:"400" }} color={custom.PrimaryText}>{filter?.filterName}</Typography>
-                <CustomTextField placeholder={filter?.placeholder} sx={{ width: textFieldWidth, }} />
+                <CustomTextField placeholder={filter?.placeholder} sx={{ width: textFieldWidth, }} label={filter?.filterName} />
               </Box>}
 
             </>
@@ -86,7 +83,7 @@ const TableFilters = ({ filters, bottomBorder = true, textFieldWidth = 350 }) =>
         </>}
 
       </Box>
-      {bottomBorder && <Divider sx={{mt: "20px",}}/>}
+      {bottomBorder && <Divider sx={{ mt: "20px", }} />}
     </Box>
   );
 };

@@ -8,6 +8,7 @@ import CustomButton from "@/components/Shared-components/CustomButton";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import CustomCountryCodeInput from "@/components/Shared-components/CustomCountryCodeInput";
 import { referralFormSchema } from "@/utils/schemas/ReferralFormSchema";
+import CaptionText from "@/components/Shared-components/CaptionText";
 
 const renderLabel = (label, required = false) => (
   <Typography variant="body1" component="span">
@@ -116,7 +117,7 @@ export default function ReferralEditForm({ setIsReferralModalOpen }) {
                       paddingRight: "1rem",
                     }}
                   >
-                    {renderLabel(label, required)}
+                    <CaptionText text={label} required />
                   </Box>
                   <Box sx={{ flex: "1", width: "80%" }}>
                     <Controller

@@ -8,6 +8,7 @@ import CustomTextField from '@/components/Shared-components/CustomTextField';
 import CustomSelect from "@/components/Shared-components/CustomSelect";
 import PhoneNumberTextField from '@/components/Shared-components/NumberTextField';
 import UploadInputField from '@/components/Shared-components/UploadInputField';
+import CaptionText from '@/components/Shared-components/CaptionText';
 
 
 const fields = [
@@ -138,7 +139,7 @@ const PlatformModal = (props) => {
                 {fields.map(({ label, name, required, placeholder, options, component = CustomSelect }, index) => (
                     <Box key={index} sx={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
                         <Box sx={{ flex: "0 0 40%", textAlign: "left", paddingRight: "1rem" }}>
-                            {renderLabel(label, required)}
+                            <CaptionText text={label} required />
                         </Box>
                         <Box sx={{ flex: "1", width: "80%" }}>
                             <Controller

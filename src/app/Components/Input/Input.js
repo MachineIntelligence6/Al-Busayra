@@ -1,3 +1,4 @@
+import InputLabelTop from "@/components/Shared-components/InputLabel";
 import { Box } from "@mui/material";
 import React from "react";
 
@@ -12,18 +13,15 @@ function Input({
   layout = "col",
   customClass = "",
   customInputClass = "",
+  required = false
 }) {
   return (
     <div
-      className={`flex ${
-        layout === "row" ? "flex-row" : "flex-col"
-      } gap-[5px] ${customClass}`}
+      className={`flex ${layout === "row" ? "flex-row" : "flex-col"
+        } gap-[1px] ${customClass}`}
     >
       {labelText && (
-        <Box component="label" htmlFor={name} sx={{ display: "flex", gap: 0.5 }}>
-          {labelText}
-          <p className="text-red-500">*</p>
-        </Box>
+        <InputLabelTop text={labelText} required={required} />
       )}
       <input
         onChange={onChange}

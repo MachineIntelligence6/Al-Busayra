@@ -44,9 +44,9 @@ const CustomButton = ({
                 fontSize: "15px",
                 fontWeight: 500,
                 lineHeight: 2,
+                borderRadius: "6px",
+                boxShadow: "none",
                 ...sx,
-                borderRadius:"6px",
-                boxShadow:"none"
             }}
             onClick={onClick} // Add the onClick handler here
             {...rest}

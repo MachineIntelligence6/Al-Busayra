@@ -10,6 +10,7 @@ import CustomButton from "@/components/Shared-components/CustomButton";
 import { GeneralInfoSchema } from "@/utils/schemas/generalInformation";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import CustomSelect from "@/components/Shared-components/CustomSelect";
+import CaptionText from "@/components/Shared-components/CaptionText";
 
 const renderLabel = (label, required = false) => (
   <Typography variant="body1" component="span">
@@ -74,7 +75,7 @@ export default function GeneralEditForm({ setIsGeneralInfoModalOpen }) {
       console.log("Validation Errors:", methods.formState.errors); // Log errors for debugging
       // handleCloseModal();
     }
-    
+
   };
 
   const onSubmit = (data) => {
@@ -195,7 +196,8 @@ export default function GeneralEditForm({ setIsGeneralInfoModalOpen }) {
                         paddingRight: "1rem",
                       }}
                     >
-                      {renderLabel(label, required)}
+                      <CaptionText text={label} required />
+
                     </Box>
                     <Box sx={{ flex: "1", width: "80%" }}>
                       <Controller
@@ -224,7 +226,7 @@ export default function GeneralEditForm({ setIsGeneralInfoModalOpen }) {
               <CustomButton
                 variant="outlined"
                 bgColor="danger"
-                onClick={()=> setIsGeneralInfoModalOpen(false)}
+                onClick={() => setIsGeneralInfoModalOpen(false)}
                 startIcon={<CancelIcon />}
               >
                 Cancel

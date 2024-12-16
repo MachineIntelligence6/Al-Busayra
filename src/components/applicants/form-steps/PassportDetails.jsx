@@ -5,6 +5,7 @@ import CustomTextField from "@/components/Shared-components/CustomTextField";
 import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
 import CustomDateField from "@/components/Shared-components/CustomDateField";
 import IOSSwitch from "@/components/ui/switch-button";
+import CaptionText from "@/components/Shared-components/CaptionText";
 
 export const PassportDetails = ({ control }) => {
   const renderLabel = (label, required = false) => (
@@ -55,10 +56,10 @@ export const PassportDetails = ({ control }) => {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
-      {fields.map(({ label, name, required, placeholder, component,  props = {}  }, index) => (
+      {fields.map(({ label, name, required, placeholder, component, props = {} }, index) => (
         <Box key={index} sx={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
           <Box sx={{ flex: "0 0 40%", textAlign: "left", paddingRight: "1rem" }}>
-            {renderLabel(label, required)}
+            <CaptionText text={label} required />
           </Box>
           <Box sx={{ flex: "1", width: "80%" }}>
             <Controller

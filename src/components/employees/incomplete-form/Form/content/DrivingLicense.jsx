@@ -15,27 +15,32 @@ const DrivingLicense = ({ formData, setFormData }) => {
     {
       label: "Driving License No.",
       name: "licenseNumber",
+      isRequired: true,
       component: Input,
     },
     {
       label: "Driving License Issue Date",
       name: "licenseIssueDate",
+      isRequired: true,
       component: CustomDateField,
     },
     {
       label: "Driving License Expiry Date",
       name: "licenseExpiryDate",
+      isRequired: true,
       component: CustomDateField,
     },
     {
       label: "Driving License Copy Front",
       name: "licenseCopyFront",
+      isRequired: true,
       component: CustomFileUploadField,
       type: "file",
     },
     {
       label: "Driving License Copy Back",
       name: "licenseCopyBack",
+      isRequired: true,
       component: CustomFileUploadField,
       type: "file",
     },
@@ -54,6 +59,7 @@ const DrivingLicense = ({ formData, setFormData }) => {
                   labelText={field.label}
                   customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
                   name={field.name}
+                  required={field.isRequired}
                   value={formData[field.name]}
                   onChange={handleInputChange}
                 />
@@ -62,7 +68,7 @@ const DrivingLicense = ({ formData, setFormData }) => {
               {field.component === CustomDateField && (
                 <CustomDateField
                   label={field.label}
-                  required={true}
+                  required={field.isRequired}
                   borderRadius={1.5}
                   height={37.5}
                   bgcolor="#FFF"
@@ -82,7 +88,7 @@ const DrivingLicense = ({ formData, setFormData }) => {
                   bgColor="#FFFFFF"
                   textSize="13px"
                   marginBottom="4px"
-                  required={true}
+                  required={field.isRequired}
                 />
               )}
             </Box>

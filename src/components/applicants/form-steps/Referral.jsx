@@ -11,6 +11,7 @@ import { Controller } from "react-hook-form";
 import { Box, Typography } from "@mui/material";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import CustomCountryCodeInput from "@/components/Shared-components/CustomCountryCodeInput";
+import CaptionText from "@/components/Shared-components/CaptionText";
 
 const countryCodes = [
   { code: "+1", country: "USA" },
@@ -70,7 +71,7 @@ export const Referral = ({ control }) => {
           >
             {/* Render label */}
             <Box sx={{ flex: "0 0 40%", textAlign: "left", paddingRight: "1rem" }}>
-              {renderLabel(label, required)}
+              <CaptionText text={label} required />
             </Box>
 
             {/* Render input component */}
