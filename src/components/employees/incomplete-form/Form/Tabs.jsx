@@ -1,9 +1,18 @@
 import React from "react";
 import { Tabs, Tab, Box } from "@mui/material";
 
-const TabsComponent = ({ steps, activeStep }) => {
+const TabsComponent = ({ steps, activeStep, onChange }) => {
+  const handleTabChange = (event, newValue) => {
+    onChange(newValue);
+  };
+
   return (
-    <Tabs value={activeStep} indicatorColor="transparent" sx={{ marginTop: 1 }}>
+    <Tabs
+      value={activeStep}
+      onChange={handleTabChange}
+      indicatorColor="transparent"
+      sx={{ marginTop: 1 }}
+    >
       {steps.map((step, index) => (
         <Tab
           key={index}

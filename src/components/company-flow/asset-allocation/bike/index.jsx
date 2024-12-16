@@ -1,3 +1,5 @@
+"use client";
+
 import SideCard from "@/components/Shared-components/SideCard";
 import { Box } from "@mui/material";
 import React from "react";
@@ -8,6 +10,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import CompanyEmpTableWrapper from "../../employees/CompanyEmpTableWrapper";
 
 const AssignBike = () => {
   return (
@@ -26,7 +29,8 @@ const AssignBike = () => {
             display: "flex",
             flexDirection: "column",
             gap: 2,
-            width: "100%",
+            width: "80%",
+            overflow: "auto",
           }}
         >
           <Box
@@ -49,7 +53,7 @@ const AssignBike = () => {
           >
             <Box
               sx={{
-                p: 2.5,
+                p: 2,
                 fontSize: "18px",
                 fontWeight: 500,
                 color: "#4B465C",
@@ -64,55 +68,74 @@ const AssignBike = () => {
                 gap: 4,
               }}
             >
-              <Accordion>
+              <Accordion sx={{ p: 0, m: 0, boxShadow: "none" }}>
                 <Box
                   sx={{
                     bgcolor: "#F4F4F4",
 
-                    color: "#000",
-                    fontSize: "14px",
-                    fontWeight: 500,
-                    width: "100%",
-                    p: 1,
+                    padding: 0,
                   }}
                 >
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2-content"
                     id="panel2-header"
+                    sx={{
+                      p: 0,
+                      mx: 2,
+                    }}
                   >
-                    <Box sx={{}}>Bike Information</Box>
+                    <Box
+                      sx={{
+                        padding: 0,
+                        color: "#000",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                      }}
+                    >
+                      Bike Information
+                    </Box>
                   </AccordionSummary>
                 </Box>
-                <AccordionDetails>
+                <AccordionDetails sx={{ padding: 0, margin: 0 }}>
                   <AssetHistory />
                 </AccordionDetails>
               </Accordion>
 
-              {/* <Accordion>
+              <Accordion sx={{ p: 0, m: 0, boxShadow: "none" }}>
                 <Box
                   sx={{
                     bgcolor: "#F4F4F4",
 
-                    color: "#000",
-                    fontSize: "14px",
-                    fontWeight: 500,
-                    width: "100%",
-                    p: 1,
+                    padding: 0,
                   }}
                 >
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2-content"
                     id="panel2-header"
+                    sx={{
+                      p: 0,
+                      mx: 2,
+                    }}
                   >
-                    <Box sx={{}}>Bike Information</Box>
+                    <Box
+                      sx={{
+                        padding: 0,
+                        color: "#000",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                      }}
+                    >
+                      Sim Information
+                    </Box>
                   </AccordionSummary>
                 </Box>
-                <AccordionDetails>
-                  <AssetHistory />
+                <AccordionDetails sx={{ padding: 0, margin: 0 }}>
+                  {/* <SimInformation /> */}
                 </AccordionDetails>
-              </Accordion> */}
+              </Accordion>
+
               <Box sx={{ mt: 2 }}></Box>
             </Box>
           </Box>

@@ -3,10 +3,11 @@
 import CustomBreadcrumb from "@/app/Components/sharedComponents/BreadCrum/page";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Plus } from "lucide-react";
+import { Plus, ChevronDown } from "lucide-react";
 import React, { useState } from "react";
 import EmptyScreen from "./EmptyScreen";
 import TableModal from "./table/TableModal";
+import AllocateAssetTable from "./table";
 
 const AssetAllocation = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -27,10 +28,12 @@ const AssetAllocation = () => {
           Allocate Asset
         </Button>
       </div>
-      <div className="py-5">
+      <div className="py-2">
         <Separator />
       </div>
-      <EmptyScreen />
+
+      {true ? <AllocateAssetTable /> : <EmptyScreen />}
+
       {showPopup && <TableModal onClose={onClose} />}
     </div>
   );

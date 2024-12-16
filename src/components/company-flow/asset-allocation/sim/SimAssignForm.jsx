@@ -44,7 +44,7 @@ const SimAssignForm = () => {
       {
         label: "Time Of Sim Issue",
         name: "timeOfSimIssue",
-        type: "input",
+        type: "CustomDateField",
       },
     ];
   }, []);
