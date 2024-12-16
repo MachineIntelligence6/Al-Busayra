@@ -8,6 +8,7 @@ import {
   FormHelperText,
 } from "@mui/material";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday"; // Import the calendar icon
+import InputLabelTop from "./InputLabel";
 
 const CustomDateField = ({
   label,
@@ -36,10 +37,7 @@ const CustomDateField = ({
       error={!!error}
     >
       {label && (
-        <Typography component="label" sx={{ fontSize: textProps.fontSize, marginBottom: textProps.marginBottom }} {...textProps}>
-          {label}
-          {required && <span style={{ color: "red" }}> *</span>}
-        </Typography>
+        <InputLabelTop text={label} required={required} />
       )}
 
       <TextField

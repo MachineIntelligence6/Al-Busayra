@@ -10,7 +10,7 @@ import CampaignsWrapper from "@/components/Campaigns";
 const Page = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const rowsPerPage = 5;
+  const rowsPerPage = 9;
 
 
   return (

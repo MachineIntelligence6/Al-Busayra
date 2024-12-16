@@ -119,7 +119,7 @@ const ContactResidence = ({ formData, setFormData }) => {
                   bgcolor="#FFF"
                   height="40px"
                   name={field.name}
-                  required
+                  required={true}
                 />
               )}
             </Box>

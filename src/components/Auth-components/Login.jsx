@@ -7,6 +7,7 @@ import HeadingWrapper from "./HeadingWrapper";
 import { Box, Button, Checkbox, Typography } from "@mui/material";
 import CustomButton from "@/components/Shared-components/CustomButton";
 import OTp from "./otp-component";
+import { custom } from "@/app/theme";
 
 const Login = () => {
     const [loginUser, setLoginUser] = useState({ email: "", password: "" });
@@ -34,10 +35,10 @@ const Login = () => {
                     <div className="flex flex-row items-center w-full justify-between mt-[10px]">
                         <div className="flex justify-between items-center w-full">
                             <div className="flex items-center">
-                                <Checkbox id="remember-me" size="small" />
+                                <Checkbox id="remember-me" />
                                 <Typography
                                     component="label"
-                                    sx={{ fontSize: 14 }}
+                                    sx={{ fontSize: 13, fontWeight: 400, lineHeight: 2, fontStyle: "italic", color: custom.primaryText }}
                                     htmlFor="remember-me"
                                 >
                                     Remember Me

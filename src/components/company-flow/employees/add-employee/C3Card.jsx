@@ -23,9 +23,9 @@ const C3Card = () => {
                     gap: 3,
                 }}
             >
-                <CustomDropdown label="C3 Card" required options={cardOptions} />
+                <CustomDropdown label="C3 Card"  required={true} options={cardOptions} />
 
-                <CustomDateField label="C3 Card Applied Date" required />
+                <CustomDateField label="C3 Card Applied Date"  required={true} />
             </Box>
             <Box
                 component="div"
@@ -39,13 +39,13 @@ const C3Card = () => {
                 <CustomTextField
                     label="C3 Card Cost (Ist Time)"
                     placeholder="e.g 1200"
-                    required
+                    required={true}
                     endAdornment={<CurrencyType />}
                 />
                 <CustomTextField
                     label="C3 Card Cost (Monthly)"
                     placeholder="e.g 1200"
-                    required
+                    required={true}
                     endAdornment={<CurrencyType />}
                 />            </Box>
 
@@ -58,7 +58,7 @@ const C3Card = () => {
                     gap: 3,
                 }}
             >
-                <CustomDropdown label="Card Type" options={cardType} required />
+                <CustomDropdown label="Card Type" options={cardType}  required={true} />
                 <Box sx={{ width: "100%", height: "10px" }}></Box>
             </Box>
 

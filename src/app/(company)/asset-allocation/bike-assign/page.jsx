@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import AssignBike from "@/components/company-flow/asset-allocation/bike";
 import CustomBreadcrumb from "@/app/Components/sharedComponents/BreadCrum/page";

@@ -1,9 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import ApplicantsTableWrapper from "@/components/applicants/ApplicantsTableWrapper";
 import { Box, Divider } from "@mui/material";
 import GenericModal from "@/components/applicants/GenericModel";
-import MultiStepFormModel from "@/components/applicants/MultiStepFormModel";
 import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
 import AddIcon from "@mui/icons-material/Add";
 import { usePathname } from "next/navigation";

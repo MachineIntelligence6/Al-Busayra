@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 import CustomButton from "./CustomButton";
 import { Plus } from "lucide-react";
+import { custom } from "@/app/theme";
 
 const EmptyScreenView = ({
   image,
@@ -29,7 +30,7 @@ const EmptyScreenView = ({
         <img src={image} alt={altText} />
       </Box>
       <Box component="div" sx={{ display: 'flex', flexDirection: "column", gap: 1, alignItems: 'center' }}>
-        {title && <Typography variant="h6" sx={{ fontWeight: 600, color: "#104774" }}>
+        {title && <Typography variant="h6" sx={{ fontWeight: 600, color: custom.deepBlue }}>
           {title}
         </Typography>}
         {description && <Typography variant="subtitle1" sx={{ color: "#4B465C" }} >{description}</Typography>}
