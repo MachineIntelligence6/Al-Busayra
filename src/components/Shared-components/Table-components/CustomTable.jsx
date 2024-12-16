@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import {
   Table,
@@ -7,11 +8,11 @@ import {
   TableHead,
   TableRow,
   Checkbox,
-  IconButton,
   Box,
   Typography,
+  styled,
 } from "@mui/material";
-import FilterListIcon from "@mui/icons-material/FilterList";
+import { custom } from "@/app/theme";
 
 const allowedFields = [
   "date",
@@ -50,7 +51,7 @@ const allowedFields = [
   "createdOn",
 ];
 
-const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelectedOption = true, isFiltered = true }) => {
+const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelectedOption = true, isFiltered = true, headTextTransform = "capitalize" }) => {
   const [selectedRows, setSelectedRows] = useState([]);
 
   const isAllSelected = selectedRows.length === data.length && data.length > 0;
@@ -77,6 +78,18 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
     }
   };
 
+  const CustomCheckbox = styled(Checkbox)(({ theme }) => ({
+    // '& .MuiSvgIcon-root': {
+        //   borderRadius: '4px', // Rounded corners for the icon
+        //   border: `2px solid ${custom.mute}`,
+        //     backgroundColor: 'transparent'
+        // },
+        '&.Mui-checked': {
+          color: custom.deepBlue, // Color when checked
+          backgroundColor: 'transparent',
+        },
+  }));
+
   return (
     <TableContainer
       sx={{
@@ -89,13 +102,13 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
           sx={{
             "& .MuiTableCell-root": {
               fontWeight: "500",
-              bgcolor: "#80839014",
+              bgcolor: "#80839014"
             },
           }}
         >
-          <TableRow sx={{ "& .MuiTableCell-root": { py: 2 } }}>
+          <TableRow sx={{ "& .MuiTableCell-root": { py: "5px", } }}>
             {isSelectedOption && <TableCell padding="checkbox" >
-              <Checkbox
+              <CustomCheckbox
                 indeterminate={isIndeterminate}
                 checked={isAllSelected}
                 onChange={handleSelectAll}
@@ -107,7 +120,7 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
 
                 key={column.field}
                 align={column.align || "left"}
-                sx={{ fontWeight: "400", whiteSpace: "nowrap", }}
+                sx={{ fontWeight: "500", whiteSpace: "nowrap",}}
               >
                 <Box
                   component="div"
@@ -115,10 +128,11 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
                     display: "flex",
                     alignItems: "center",
                     justifyContent: 'space-between',
-                    gap: 1
+                    gap: 1,
+
                   }}
                 >
-                  <Typography variant="body2" sx={{ fontSize: 16, fontWeight: 500, textTransform: "capitalize" }}>{column.headerName}</Typography>
+                  <Typography variant="body2" sx={{ fontSize: "13px", fontWeight: 500, textTransform: headTextTransform ,color:"#2F2B3DE5",lineHeight:0  }}>{column.headerName}</Typography>
                   {allowedFields.includes(column) && isFiltered && (
                     <Box component="img" src="/icons/filter.svg" sx={{ width: 20, height: 20 }} onClick={() => handleFilterClick(column.field)}></Box>
                   )}
@@ -129,9 +143,9 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
         </TableHead>
         <TableBody>
           {data?.map((row) => (
-            <TableRow key={row.id} hover sx={{ "& .MuiTableCell-root": { pt: 1, pb: 1 } }}>
+            <TableRow key={row.id} hover sx={{ "& .MuiTableCell-root": { py:"13px" }, color: custom.primaryText }}>
               {isSelectedOption && <TableCell padding="checkbox">
-                <Checkbox
+                <CustomCheckbox
                   size="small"
                   checked={selectedRows.includes(row.id)}
                   onChange={() => handleSelectRow(row.id)}
@@ -147,8 +161,8 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
                   {column.render
                     ? column.render(row)
                     : typeof row[column.field] === "object"
-                      ? row[column.field]?.name || "-"
-                      : row[column.field]}
+                      ? <Typography color={custom.primaryText} fontSize="14px" fontWeight="400">{row[column.field]?.name}</Typography> || "-"
+                      : <Typography color={custom.primaryText} fontSize="14px" fontWeight="400">{row[column.field]}</Typography>}
                 </TableCell>
               ))}
             </TableRow>

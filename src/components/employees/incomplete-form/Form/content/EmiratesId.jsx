@@ -62,7 +62,7 @@ const EmiratesId = ({ formData, setFormData }) => {
               {field.component === CustomDateField && (
                 <CustomDateField
                   label={field.label}
-                  required
+                  required={true}
                   borderRadius={1.5}
                   height={37.5}
                   bgcolor="#FFF"

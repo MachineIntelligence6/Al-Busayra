@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Box, Breadcrumbs, Typography } from "@mui/material";
 import CustomButton from "./CustomButton";
+import { custom } from "@/app/theme";
 
 const DynamicBreadcrumb = ({
   isBtnShow,
@@ -34,12 +35,12 @@ const DynamicBreadcrumb = ({
         {breadcrumbs.map((crumb, index) => {
           const isLast = index === breadcrumbs.length - 1;
           return isLast ? (
-            <Typography key={index} color="text.primary">
+            <Typography key={index} color={custom.breadcrumbText} fontSize="20px" fontWeight="500">
               {toTitleCase(crumb.label)}
             </Typography>
           ) : (
             <Link style={{ textDecoration: "none" }} key={index} href={crumb.href} passHref>
-              <Typography color="primary" sx={{ cursor: "pointer" }}>
+              <Typography color={custom.breadcrumbText} fontSize="20px" fontWeight="500" sx={{ cursor: "pointer" }}>
                 {toTitleCase(crumb.label)}
               </Typography>
             </Link>

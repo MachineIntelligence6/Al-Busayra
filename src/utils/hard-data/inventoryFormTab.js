@@ -1,3 +1,5 @@
+"use client"
+import { custom } from "@/app/theme";
 import {
     CircleEllipsis,
     CreditCard,
@@ -18,12 +20,12 @@ export const inventoryFormTab = [
                 {isActive ? (
                     <Info
                         color="white"
-                        style={{ background: "#104774", padding: 10, borderRadius: 6 }}
+                        style={{ background: custom.deepBlue, padding: 10, borderRadius: 6 }}
                         size={40}
                     />
                 ) : (
                     <Info
-                        color="#104774"
+                        color={custom.deepBlue}
                         style={{ background: "#1047741A", padding: 10, borderRadius: 6 }}
                         size={40}
                     />
@@ -40,12 +42,12 @@ export const inventoryFormTab = [
                 {isActive ? (
                     <FileText
                         color="white"
-                        style={{ background: "#104774", padding: 10, borderRadius: 6 }}
+                        style={{ background: custom.deepBlue, padding: 10, borderRadius: 6 }}
                         size={40}
                     />
                 ) : (
                     <FileText
-                        color="#104774"
+                        color={custom.deepBlue}
                         style={{ background: "#1047741A", padding: 10, borderRadius: 6 }}
                         size={40}
                     />
@@ -62,12 +64,12 @@ export const inventoryFormTab = [
                 {isActive ? (
                     <ShieldHalf
                         color="white"
-                        style={{ background: "#104774", padding: 10, borderRadius: 6 }}
+                        style={{ background: custom.deepBlue, padding: 10, borderRadius: 6 }}
                         size={40}
                     />
                 ) : (
                     <ShieldHalf
-                        color="#104774"
+                        color={custom.deepBlue}
                         style={{ background: "#1047741A", padding: 10, borderRadius: 6 }}
                         size={40}
                     />
@@ -84,12 +86,12 @@ export const inventoryFormTab = [
                 {isActive ? (
                     <Files
                         color="white"
-                        style={{ background: "#104774", padding: 10, borderRadius: 6 }}
+                        style={{ background: custom.deepBlue, padding: 10, borderRadius: 6 }}
                         size={40}
                     />
                 ) : (
                     <Files
-                        color="#104774"
+                        color={custom.deepBlue}
                         style={{ background: "#1047741A", padding: 10, borderRadius: 6 }}
                         size={40}
                     />
@@ -106,12 +108,12 @@ export const inventoryFormTab = [
                 {isActive ? (
                     <ReceiptText
                         color="white"
-                        style={{ background: "#104774", padding: 10, borderRadius: 6 }}
+                        style={{ background: custom.deepBlue, padding: 10, borderRadius: 6 }}
                         size={40}
                     />
                 ) : (
                     <ReceiptText
-                        color="#104774"
+                        color={custom.deepBlue}
                         style={{ background: "#1047741A", padding: 10, borderRadius: 6 }}
                         size={40}
                     />
@@ -128,12 +130,12 @@ export const inventoryFormTab = [
                 {isActive ? (
                     <CircleEllipsis
                         color="white"
-                        style={{ background: "#104774", padding: 10, borderRadius: 6 }}
+                        style={{ background: custom.deepBlue, padding: 10, borderRadius: 6 }}
                         size={40}
                     />
                 ) : (
                     <CircleEllipsis
-                        color="#104774"
+                        color={custom.deepBlue}
                         style={{ background: "#1047741A", padding: 10, borderRadius: 6 }}
                         size={40}
                     />
@@ -154,12 +156,12 @@ export const addEmployeeFormTabs = [
                 {isActive ? (
                     <Info
                         color="white"
-                        style={{ background: "#104774", padding: 10, borderRadius: 6 }}
+                        style={{ background: custom.deepBlue, padding: 10, borderRadius: 6 }}
                         size={40}
                     />
                 ) : (
                     <Info
-                        color="#104774"
+                        color={custom.deepBlue}
                         style={{ background: "#1047741A", padding: 10, borderRadius: 6 }}
                         size={40}
                     />
@@ -176,12 +178,12 @@ export const addEmployeeFormTabs = [
                 {isActive ? (
                     <CreditCard
                         color="white"
-                        style={{ background: "#104774", padding: 10, borderRadius: 6 }}
+                        style={{ background: custom.deepBlue, padding: 10, borderRadius: 6 }}
                         size={40}
                     />
                 ) : (
                     <CreditCard
-                        color="#104774"
+                        color={custom.deepBlue}
                         style={{ background: "#1047741A", padding: 10, borderRadius: 6 }}
                         size={40}
                     />

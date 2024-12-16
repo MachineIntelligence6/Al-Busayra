@@ -11,7 +11,7 @@ import ActionMenu from "./ActionMenu";
 import CustomTextField from "./CustomTextField";
 
 const CustomTableExportRow = ({
-  handleOpenModal, // Function to handle Add button click
+  onAddButtonClick, // Function to handle Add button click
   isBtnAdd = true, // Controls the visibility of the Add button
   isExportBtn = true, // Controls the visibility of the Export button
   isActionMenu = true, // Controls the visibility of the ActionMenu
@@ -86,7 +86,7 @@ const CustomTableExportRow = ({
         {isBtnAdd && (
           <CustomButton
             endIcon={<AddIcon />}
-            onClick={handleOpenModal ? () => handleOpenModal() : null}
+            onClick={onAddButtonClick ? () => onAddButtonClick() : null}
           >
             {btnText}
           </CustomButton>

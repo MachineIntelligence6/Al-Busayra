@@ -62,7 +62,7 @@ const CustomTableWrapper = ({
       )}
       <CustomTableFilter filters={filters} />
       <CustomTableExportRow
-        handleOpenModal={handleOpenModal}
+        onAddButtonClick={handleOpenModal}
         isBtnAdd={isBtnAdd}
         isExportBtn={isExportBtn}
         isActionMenu={isActionMenu}

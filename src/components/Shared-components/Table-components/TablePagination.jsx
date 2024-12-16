@@ -1,9 +1,10 @@
 import React, { useMemo } from "react";
 import { Box, Typography, Pagination } from "@mui/material";
+import { custom } from "@/app/theme";
 
 const TablePagination = ({
   totalEntries = 100,
-  rowsPerPage = 10,
+  rowsPerPage = 9,
   currentPage = 1,
   setCurrentPage,
 }) => {
@@ -46,6 +47,9 @@ const TablePagination = ({
         sx={{
           "& .MuiPaginationItem-root": {
             borderRadius: "4px",
+            backgroundColor: "#1047741A",
+            color: custom.primaryText,
+            border: "none"
           },
           "& .Mui-selected": {
             backgroundColor: "#004080 !important", // Custom color for the selected page

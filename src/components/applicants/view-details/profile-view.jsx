@@ -56,7 +56,7 @@ const profile = {
 export default function ProfileView({ isModalRemarkOpen, status, setStatus, handleChange, handleEdit, handleOptionClick, handleProceed }) {
 
   return (
-    <Box sx={{ p: 2 }}>
+    <Box sx={{ pt: 2 }}>
       <Card sx={{ mb: 3 }}>
         <Box
           sx={{
@@ -97,7 +97,7 @@ export default function ProfileView({ isModalRemarkOpen, status, setStatus, hand
                   <CameraAltOutlinedIcon fontSize="small" />
                 </IconButton>
               </Box>
-              <Typography variant="h5">{profile.fullName}</Typography>
+              <Typography sx={{ fontSize: 25, fontWeight: 500, color: "#2F2B3DE5" }}>{profile.fullName}</Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "flex-end", gap: 2 }}>
               <StatusDropdown
@@ -123,7 +123,7 @@ export default function ProfileView({ isModalRemarkOpen, status, setStatus, hand
         </Box>
       </Card>
 
-      <StatusAlert
+      {/* <StatusAlert
         message={
           status === 'not_Qualified'
             ? "Reason: Your reason will appear here"
@@ -131,16 +131,15 @@ export default function ProfileView({ isModalRemarkOpen, status, setStatus, hand
         }
         status="status"
         type={status === 'not_qualified' ? 'not_Qualified' : 'hold'}
-      />
+      /> */}
       <Box
         sx={{
           display: "grid",
-          // gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
           gridTemplateColumns: {
-    xs: "1fr", // For extra-small and small screens
-    sm: "1fr", // Optionally specify for small screens (e.g., tablets)
-    md: "1fr 1fr", // For medium and larger screens
-  },
+            xs: "1fr", // For extra-small and small screens
+            sm: "1fr", // Optionally specify for small screens (e.g., tablets)
+            md: "1fr 1fr", // For medium and larger screens
+          },
           gap: 2,
         }}
       >

@@ -1,11 +1,13 @@
 import React from "react";
 import { Box, FormControl, MenuItem, Select, Typography } from "@mui/material";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import InputLabelTop from "./InputLabel";
+import { custom } from "@/app/theme";
 
 const defaultOption = [
-  { label: "Option-1", value: "option_1" },
-  { label: "Option-2", value: "option_2" },
-  { label: "Option-3", value: "option_3" },
+    { label: "Option-1", value: "option_1" },
+    { label: "Option-2", value: "option_2" },
+    { label: "Option-3", value: "option_3" },
 ];
 
 const CustomDropdown = ({
@@ -19,15 +21,10 @@ const CustomDropdown = ({
     required = false,
     ...props
 }) => {
-  return (
+    return (
         <FormControl fullWidth {...formControlProps}>
             {label && (
-                <Box sx={{ display: 'flex', alignItems: "center", gap: 0.4 }}>
-                    <Typography component="label" {...textProps}>
-                        {label}
-                    </Typography>
-                    {required && <Typography Typography variant="body1" sx={{ color: 'red' }}> *</Typography>}
-                </Box>
+                <InputLabelTop text={label} required={required} />
             )
             }
             <Select
@@ -37,7 +34,7 @@ const CustomDropdown = ({
                 displayEmpty
                 renderValue={(selected) => {
                     if (!selected) {
-                        return <Typography sx={{ color: "gray" }}>{placeholder ? placeholder : "Please Select"}</Typography>;
+                        return <Typography sx={{ color: custom.mute, fontSize: "15px", fontWeight:"400" }}>{placeholder ? placeholder : "Please Select"}</Typography>;
                     }
                     return options.find((option) => option.value === selected)?.label;
                 }}
@@ -45,16 +42,16 @@ const CustomDropdown = ({
                 sx={{ borderRadius: "7px" }}
                 IconComponent={KeyboardArrowDownIcon}
             >
-                <MenuItem value="" disabled>
+                <MenuItem value="" disabled sx={{ fontSize: "15px", fontWeight:"400" }} color={custom.PrimaryText}>
                     {placeholder}
                 </MenuItem>
                 {options?.map((option, index) => (
-                    <MenuItem key={index} value={option.value}>
+                    <MenuItem key={index} value={option.value} sx={{ fontSize: "15px", fontWeight:"400" }} color={custom.PrimaryText}>
                         {option.label}
                     </MenuItem>
                 ))}
             </Select>
-        </FormControl >
+        </FormControl>
     );
 };
 
