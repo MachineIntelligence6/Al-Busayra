@@ -42,6 +42,7 @@ export const companyEmployeesTableData = [
     employeeType: "Rider",
     bike: "Assigned",
     sim: "Not Assigned",
+    ghpTraining: 'Yes',
   },
   {
     id: "AB00002",
@@ -66,8 +67,10 @@ export const companyEmployeesTableData = [
     c3_card_date: "12/05/22",
     status: "Approved",
     employeeType: "Rider",
-    bike: "Assigned",
-    sim: "Not Assigned",
+    bike: "Not Assigned",
+    sim: "Assigned",
+    ghpTraining: 'No',
+
   },
   // Additional rows...
 ];

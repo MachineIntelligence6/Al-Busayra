@@ -154,6 +154,7 @@ const CompanyEmpTableWrapper = () => {
         headerName: "Actual joining date",
         align: "left",
       },
+      { field: "ghpTraining", headerName: "GHP Training", align: "left" },
       { field: "c3_card", headerName: "C3 Card", align: "left" },
       {
         field: "c3_card_date",
@@ -161,7 +162,25 @@ const CompanyEmpTableWrapper = () => {
         align: "left",
       },
 
-      { field: "status", headerName: "Status", align: "left" },
+      {
+        field: "status",
+        headerName: "Status",
+        align: "left",
+        render: (row) => (
+          <Box
+            sx={{
+              bgcolor: row.status === "Pending" ? "#7367F029" : "#28C76F29",
+              color: row.status === "Pending" ? "#7367F0" : "#28C76F",
+              borderRadius: "4px",
+              p: "2px 10px;",
+              textAlign: "center",
+              width: "fit-content",
+            }}
+          >
+            <Typography>{row.status}</Typography>
+          </Box>
+        ),
+      },
 
       {
         field: "employeeType",
@@ -181,8 +200,44 @@ const CompanyEmpTableWrapper = () => {
         ),
       },
 
-      { field: "bike", headerName: "Bike", align: "left" },
-      { field: "sim", headerName: "SIM", align: "left" },
+      {
+        field: "sim",
+        headerName: "SIM",
+        align: "left",
+        render: (row) => (
+          <Box
+            sx={{
+              bgcolor: row.sim === "Assigned" ? "#7367F029" : "#28C76F29",
+              color: row.sim === "Assigned" ? "#7367F0" : "#28C76F",
+              borderRadius: "4px",
+              p: "2px 10px;",
+              textAlign: "center",
+              width: "fit-content",
+            }}
+          >
+            <Typography>{row.sim}</Typography>
+          </Box>
+        ),
+      },
+      {
+        field: "bike",
+        headerName: "Bike",
+        align: "left",
+        render: (row) => (
+          <Box
+            sx={{
+              bgcolor: row.bike === "Assigned" ? "#7367F029" : "#28C76F29",
+              color: row.bike === "Assigned" ? "#7367F0" : "#28C76F",
+              borderRadius: "4px",
+              p: "2px 10px;",
+              textAlign: "center",
+              width: "fit-content",
+            }}
+          >
+            <Typography>{row.bike}</Typography>
+          </Box>
+        ),
+      },
 
       {
         field: "action",
@@ -197,7 +252,11 @@ const CompanyEmpTableWrapper = () => {
 
   return (
     <Box sx={{ bgcolor: "white", mx: 2 }}>
-      <TableFilters bottomBorder={false} filters={filters} />
+      <TableFilters
+        bottomBorder={false}
+        filters={filters}
+        textFieldWidth="270px"
+      />
       <TableExportRow isBtnAdd={false} />
       <Box sx={{ height: "100%" }}>
         <CustomTable

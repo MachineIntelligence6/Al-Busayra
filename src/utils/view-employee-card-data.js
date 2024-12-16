@@ -21,7 +21,9 @@ import {
   BulbIcon,
   CircleCheckIcon,
   BuildingIcon,
+  PdfIcon,
 } from "./Icons";
+import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 
 export const ViewEmployeeCardData = [
   {
@@ -142,12 +144,18 @@ export const ViewEmployeeCardData = [
         icon: <IdIcon />,
         label: "EID Copy Front",
         value: "PDF File",
+        icon1: <PdfIcon />,
+        // icon2: <EyeIcon />,
+        icon2: <RemoveRedEyeOutlinedIcon fontSize="medium" />,
       },
       {
         id: "005",
         icon: <IdIcon />,
         label: "EID Copy Back",
         value: "PDF File",
+        icon1: <PdfIcon />,
+        // icon2: <EyeIcon />,
+        icon2: <RemoveRedEyeOutlinedIcon />,
       },
     ],
   },

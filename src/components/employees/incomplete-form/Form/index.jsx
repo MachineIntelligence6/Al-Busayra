@@ -145,7 +145,7 @@ const MultiStepForm = () => {
 
   return (
     <Box sx={{ width: "100%", p: 0.5 }}>
-      <TabsComponent steps={steps} activeStep={activeStep} />
+      <TabsComponent steps={steps} activeStep={activeStep} onChange={setActiveStep} />
       <Divider sx={{ borderColor: "#2F2B3D40", mb: 4 }} />
       <ContentComponent
         activeStep={activeStep}

@@ -141,33 +141,29 @@ const CampaignCreateModal = ({ open, onClose }) => {
                   <Box
                     sx={{ display: "flex", justifyContent: "space-between" }}
                   >
-                    <Typography
-                      sx={{
-                        fontSize: "16px",
-                        color: "#2F2B3DE5",
-                        fontWeight: 550,
-                      }}
-                    >
-                      Start Datetime <span className="text-[#E64449]">*</span>{" "}
-                    </Typography>
-                    <Input
-                      name="startDate"
-                      value={formik.values.startDate}
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      labelText=""
-                      layout="row"
-                      customClass="w-[60%]  text-[13px]  text-[#2F2B3DE5]"
-                      customInputClass="bg-[#FCFCFC]"
-                      placeholder="10/06/2024 12:30 PM"
-                    />
-                  </Box>
-                  <Box sx={{ alignSelf: "end", mt: 1 }}>
-                    {formik.touched.startDate && formik.errors.startDate && (
-                      <Typography color="error" variant="body2">
-                        {formik.errors.startDate}
+                    <Box>
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          color: "#2F2B3DE5",
+                          fontWeight: 550,
+                        }}
+                      >
+                        Start Datetime <span className="text-[#E64449]">*</span>{" "}
                       </Typography>
-                    )}
+                    </Box>
+                    <Box sx={{ width: "60%" }}>
+                      <CustomDateField
+                        height={38}
+                        sx={{ bgcolor: "#FCFCFC" }}
+                        name="startDate"
+                        value={formik.values.startDate || ""}
+                        onChange={(e) =>
+                          formik.setFieldValue("startDate", e.target.value)
+                        }
+                        onBlur={formik.handleBlur}
+                      />
+                    </Box>
                   </Box>
                 </Box>
 
@@ -175,33 +171,29 @@ const CampaignCreateModal = ({ open, onClose }) => {
                   <Box
                     sx={{ display: "flex", justifyContent: "space-between" }}
                   >
-                    <Typography
-                      sx={{
-                        fontSize: "16px",
-                        color: "#2F2B3DE5",
-                        fontWeight: 550,
-                      }}
-                    >
-                      End Datetime <span className="text-[#E64449]">*</span>{" "}
-                    </Typography>
-                    <Input
-                      name="endDate"
-                      value={formik.values.endDate}
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      placeholder="2024-06-18"
-                      labelText=""
-                      layout="row"
-                      customClass="w-[60%]  text-[13px]  text-[#2F2B3DE5] "
-                      customInputClass="bg-[#FCFCFC]"
-                    />
-                  </Box>
-                  <Box sx={{ alignSelf: "end", mt: 1 }}>
-                    {formik.touched.endDate && formik.errors.endDate && (
-                      <Typography color="error" variant="body2">
-                        {formik.errors.endDate}
+                    <Box>
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          color: "#2F2B3DE5",
+                          fontWeight: 550,
+                        }}
+                      >
+                        End Datetime <span className="text-[#E64449]">*</span>{" "}
                       </Typography>
-                    )}
+                    </Box>
+                    <Box sx={{ width: "60%" }}>
+                      <CustomDateField
+                        height={38}
+                        sx={{ bgcolor: "#FCFCFC" }}
+                        name="endDate"
+                        value={formik.values.endDate || ""}
+                        onChange={(e) =>
+                          formik.setFieldValue("endDate", e.target.value)
+                        }
+                        onBlur={formik.handleBlur}
+                      />
+                    </Box>
                   </Box>
                 </Box>
 
