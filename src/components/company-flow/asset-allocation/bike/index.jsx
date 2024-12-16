@@ -74,6 +74,7 @@ const AssignBike = () => {
                     bgcolor: "#F4F4F4",
 
                     padding: 0,
+                    borderBottom: "1px solid rgba(172, 170, 177, 0.20)",
                   }}
                 >
                   <AccordionSummary
@@ -108,6 +109,7 @@ const AssignBike = () => {
                     bgcolor: "#F4F4F4",
 
                     padding: 0,
+                    borderBottom: "1px solid rgba(172, 170, 177, 0.20)",
                   }}
                 >
                   <AccordionSummary
