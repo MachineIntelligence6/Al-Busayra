@@ -3,9 +3,9 @@ import { Typography } from '@mui/material';
 import React from 'react'
 
 const HeadingText1 = (props) => {
-    const { text, sx } = props;
+    const { children, sx } = props;
     return (
-        <Typography component="h1" sx={{ fontSize: 25, fontWeight: 700, color: custom.primaryText, ...sx }} {...props}>{text}</Typography>
+        <Typography component="h3" sx={{ fontSize: 40, fontWeight: 700, color: custom.white, ...sx }} {...props}>{children}</Typography>
     )
 }
 

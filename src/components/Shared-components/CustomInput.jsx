@@ -29,7 +29,7 @@ function CustomInput({ onChange, placeholder, labelText, type = "text", required
                     edge="end"
                     aria-label="toggle password visibility"
                   >
-                    {showPassword ? <EyeOff /> : <Eye />}
+                    {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                   </IconButton>
                 </InputAdornment>
               ),
