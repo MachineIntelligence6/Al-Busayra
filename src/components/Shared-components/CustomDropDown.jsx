@@ -22,7 +22,7 @@ const CustomDropdown = ({
     ...props
 }) => {
     return (
-        <FormControl fullWidth {...formControlProps}>
+        <FormControl fullWidth {...formControlProps} >
             {label && (
                 <InputLabelTop text={label} required={required} />
             )
@@ -39,7 +39,7 @@ const CustomDropdown = ({
                     return options.find((option) => option.value === selected)?.label;
                 }}
                 {...props}
-                sx={{ borderRadius: "7px" }}
+                sx={{ borderRadius: "7px", height: 38 }}
                 IconComponent={KeyboardArrowDownIcon}
             >
                 <MenuItem value="" disabled sx={{ fontSize: "15px", fontWeight: "400" }} color={custom.PrimaryText}>

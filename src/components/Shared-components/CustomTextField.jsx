@@ -12,6 +12,7 @@ const CustomTextField = (props) => {
     error,
     helperText,
     fullWidth = true,
+    height = 38,
     sx,
     type = "text",
     multiline = false,
@@ -49,7 +50,7 @@ const CustomTextField = (props) => {
         sx={{
           "& .MuiOutlinedInput-root": {
             borderRadius: "7px",
-            paddingY: "1px"
+            paddingY: "1px", height: height,
           },
           ...(removeRightBorder && {
             "& .MuiOutlinedInput-notchedOutline": {

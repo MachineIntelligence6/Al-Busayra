@@ -24,7 +24,7 @@ const CustomDateField = ({
   sx = {},
   required = false,
   borderRadius = 2,
-  height = 40,
+  height = 38,
   bgcolor = "transparent",
   ...props
 }) => {
@@ -49,13 +49,7 @@ const CustomDateField = ({
         type="date"
         size="small"
         variant="outlined"
-        // InputProps={{
-        //   endAdornment: (
-        //     <InputAdornment position="end" sx={{ "& button": { color: "red" } }}>
-        //       <Calendar size={18} />
-        //     </InputAdornment>
-        //   ),
-        // }}
+
         sx={{
           height: height,
           borderRadius: borderRadius,

@@ -21,7 +21,7 @@ const EmployeeView = () => {
 
   const handleEdit = (section) => {
     console.log(`Editing ${section}`);
-    router.push("/employees/incomplete-profile/form");
+    // router.push("/employees/incomplete-profile/form");
   };
 
   return (

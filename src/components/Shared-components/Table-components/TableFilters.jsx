@@ -1,13 +1,17 @@
-"use client"
+"use client";
 import { Box, Divider, Typography } from "@mui/material";
 import React, { useState } from "react";
 import CustomDropdown from "../CustomDropDown";
 import CustomTextField from "../CustomTextField";
 import { custom } from "@/app/theme";
 import DescriptiveText from "../DescriptiveText";
+import CustomMultiSelected from "../CustomMultiSelected";
 
 const options = ["A", "B", "C", "D"];
-const TableFilters = ({ filters, bottomBorder = true, textFieldWidth = 350 }) => {
+const TableFilters = ({
+  filters,
+  bottomBorder = true,
+}) => {
   const [dropdown1Value, setDropdown1Value] = useState("");
   const [dropdown2Value, setDropdown2Value] = useState("");
   const [dropdown3Value, setDropdown3Value] = useState("");
@@ -19,11 +23,11 @@ const TableFilters = ({ filters, bottomBorder = true, textFieldWidth = 350 }) =>
   ];
 
   return (
-    <Box
-      component="div"
-      sx={{ p: 2, pb: 1, px: 3 }}
-    >
-      <DescriptiveText text="Advance Filter" fontSize={16} fontWeight={500} color={custom.primaryText} />
+    <Box component="div" sx={{ p: 2, pb: 1, px: 3 }}>
+
+      <DescriptiveText text="Advnace Filter" fontWeigth={500} fontSize={15} color={custom.primaryText} />
+
+
       <Box
         component="div"
         sx={{
@@ -35,55 +39,71 @@ const TableFilters = ({ filters, bottomBorder = true, textFieldWidth = 350 }) =>
           my: 2,
         }}
       >
+        {filters?.length ? (
+          filters?.map((filter) => {
+            return (
+              <>
+                {filter?.options ? (
+                  <CustomDropdown
+                    key={filter?.id}
+                    sx={{ flex: 1, placeItems: "start" }}
+                    label={filter?.filterName}
+                    placeholder={filter?.placeholder}
+                    options={filter?.options}
+                  />
 
-        {filters?.length ? filters?.map(filter => {
-
-          return (
-            <>
-              {filter?.options ? (<CustomDropdown key={filter?.id}
-                sx={{ flex: 1, placeItems: "start" }}
-                label={filter?.filterName}
-                placeholder={filter?.placeholder}
-                options={filter?.options}
-              // value={dropdown1Value}
-              // onChange={(e) => setDropdown1Value(e.target.value)}
-              />) : <Box key={filter?.id} sx={{ display: "flex", flexDirection: "column" }}>
-                <CustomTextField placeholder={filter?.placeholder} sx={{ width: textFieldWidth, }} label={filter?.filterName} />
-              </Box>}
-
-            </>
-          )
-        }) : <>
-
-          <CustomDropdown
-            sx={{ flex: 1, placeItems: "start" }}
-            label="Campaign Name"
-            placeholder="Please Select"
-            options={options}
-            value={dropdown1Value}
-            onChange={(e) => setDropdown1Value(e.target.value)}
-          />
-          <CustomDropdown
-            sx={{ flex: 1, placeItems: "start" }}
-            label="Country"
-            placeholder="UAE"
-            options={options}
-            value={dropdown2Value}
-            onChange={(e) => setDropdown2Value(e.target.value)}
-          />
-          <CustomDropdown
-            sx={{ flex: 1, placeItems: "start" }}
-            label="City"
-            placeholder="Dubai"
-            options={options}
-            value={dropdown3Value}
-            onChange={(e) => setDropdown3Value(e.target.value)}
-          />
-
-        </>}
-
+                ) : (
+                  <Box
+                    key={filter?.id}
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      width: "100%",
+                    }}
+                  >
+                    {/* <Typography sx={{ fontSize: "15px", fontWeight:"400" }} color={custom.PrimaryText}>{filter?.filterName}</Typography> */}
+                    <CustomTextField
+                      placeholder={filter?.placeholder}
+                      label={filter.filterName}
+                    />
+                  </Box>
+                )}
+              </>
+            );
+          })
+        ) : (
+          <>
+            <CustomMultiSelected label="Campaign Name" />
+            <CustomMultiSelected label="Country" />
+            <CustomMultiSelected label="City" />
+            {/* <CustomDropdown
+              sx={{ flex: 1, placeItems: "start" }}
+              label="Campaign Name"
+              placeholder="Please Select"
+              options={options}
+              value={dropdown1Value}
+              onChange={(e) => setDropdown1Value(e.target.value)}
+            />
+            <CustomDropdown
+              sx={{ flex: 1, placeItems: "start" }}
+              label="Country"
+              placeholder="UAE"
+              options={options}
+              value={dropdown2Value}
+              onChange={(e) => setDropdown2Value(e.target.value)}
+            />
+            <CustomDropdown
+              sx={{ flex: 1, placeItems: "start" }}
+              label="City"
+              placeholder="Dubai"
+              options={options}
+              value={dropdown3Value}
+              onChange={(e) => setDropdown3Value(e.target.value)}
+            /> */}
+          </>
+        )}
       </Box>
-      {bottomBorder && <Divider sx={{ mt: "20px", }} />}
+      {bottomBorder && <Divider sx={{ mt: "20px" }} />}
     </Box>
   );
 };

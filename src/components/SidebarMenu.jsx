@@ -49,7 +49,7 @@ const SidebarMenu = ({ adminMenuData, portal = "admin" }) => {
                 scrollbarWidth: "none"
             }}
         >
-            <Box component="div" sx={{ width: "100%", borderBottom: "2px solid white", py: 2 }}>
+            <Box component="div" sx={{ width: "100%", borderBottom: "2px solid white", py: 4 }}>
                 <AppLogo type="light" />
             </Box>
             {portal === "company" && <Box sx={{ width: "100%", borderBottom: "2px solid white", py: 3, mb: 2 }}>

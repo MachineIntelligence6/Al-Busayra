@@ -1,6 +1,6 @@
 "use client";
 
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Divider } from "@mui/material";
 import { useRouter } from "next/navigation";
 import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
@@ -11,38 +11,38 @@ import ChallansForm from '@/components/challans/ChallansForm';
 import AddUserForm from '@/components/users/AddUserForm';
 
 const Page = () => {
-    
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
   const [isBtnShow, setIsBtnShow] = useState(false);
   const [isChallan, setIsChallan] = useState(false);
-    const [currentPage, setCurrentPage] = useState(1);
-    const rowsPerPage = 9;
-    const pathname = usePathname();
+  const [currentPage, setCurrentPage] = useState(1);
+  const rowsPerPage = 9;
+  const pathname = usePathname();
   const router = useRouter();
-  
+
   const handleClick = () => {
     router.push("/users/roles-template/add-new-roles");
   };
-  
-    useEffect(()=> {
-      if (pathname === "/challans/traffic") {
-        setIsBtnShow(true);
-        setIsChallan(true);
-      }
-        },[pathname])
 
-    const handleOpenModal = () => {
-      setIsModalOpen(true);
-      console.log("cl");
+  useEffect(() => {
+    if (pathname === "/challans/traffic") {
+      setIsBtnShow(true);
+      setIsChallan(true);
     }
+  }, [pathname])
 
-    const onChange = (e) => {
-        setSelectedValue(e.target.value);
-      console.log("cl");
-    }
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+    console.log("cl");
+  }
 
-    const handleCloseModal = () => setIsModalOpen(false);
+  const onChange = (e) => {
+    setSelectedValue(e.target.value);
+    console.log("cl");
+  }
+
+  const handleCloseModal = () => setIsModalOpen(false);
 
 
   return (
@@ -53,22 +53,24 @@ const Page = () => {
       <Divider sx={{ mt: 2 }} />
 
       <Box component="div">
-      <GenericModal
-            open={isModalOpen}
-            onClose={handleCloseModal}
-            title="Applicants Modal"
-          >
-            <AddUserForm handleCloseModal={handleCloseModal} />
-          </GenericModal>
-        <EmptyScreenView
-          image="/users/Frame.svg"
-          altText="user page icon"
-          title="No Users"
-          description="Please click the button below to add new user."
-          buttonText="Add Users"
-        //   onButtonClick={handleClick}
-          onButtonClick={handleOpenModal}
-        />
+        <GenericModal
+          open={isModalOpen}
+          onClose={handleCloseModal}
+          title="Applicants Modal"
+        >
+          <AddUserForm handleCloseModal={handleCloseModal} />
+        </GenericModal>
+        <Box sx={{ mt: 15 }}>
+          <EmptyScreenView
+            image="/users/Frame.svg"
+            altText="user page icon"
+            title="No Users"
+            description="Please click the button below to add new user."
+            buttonText="Add Users"
+            //   onButtonClick={handleClick}
+            onButtonClick={handleOpenModal}
+          />
+        </Box>
       </Box>
     </>
   );

@@ -13,6 +13,8 @@ import CustomAvatar from "@/components/Shared-components/CustomAvatar";
 import { DashboardDetailTable } from "@/utils/hard-data/inventory-data";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
 import { redirect, useRouter } from "next/navigation";
+import { custom } from "@/app/theme";
+import DescriptiveText from "@/components/Shared-components/DescriptiveText";
 
 const menuItems = [
     { label: "View Details", action: "view_details" },
@@ -62,7 +64,7 @@ const CompanyDetails = () => {
 
 
     const handleAddInventory = () => {
-        redirect("/admin/inventory/add-inventory")
+        router.push("/admin/inventory/add-inventory")
     }
 
     const columns = useMemo(() => {
@@ -234,7 +236,7 @@ const CompanyDetails = () => {
                             }}
                         >
                             <Box sx={{ p: 3, borderBottom: "1px solid #2F2B3D1F" }}>
-                                <Typography sx={{ fontSize: 18, fontWeight: 500 }}>Bike Details</Typography>
+                                <DescriptiveText text="Bike Details" fontSize={18} fontWeight={500} color={custom.breadcrumbText} />
                             </Box>
                             <Box sx={{ border: "1px solid #2F2B3D1F", pb: 2 }}>
                                 <TableFilters textFieldWidth={200} bottomBorder={false} filters={DashboardFilters} />

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
-import { CircleX, FileBarChart2 } from "lucide-react";
+import { Check, CircleX, FileBarChart2, X } from "lucide-react";
 import InputLabelTop from "./InputLabel";
 
 const CustomFileUploadField = (props) => {
@@ -12,7 +12,7 @@ const CustomFileUploadField = (props) => {
     error,
     placeholder,
     label,
-    height = 38.7,
+    height = 38,
     borderRadius = 0,
     textSize = "body1",
     buttonText = "Upload",
@@ -42,6 +42,7 @@ const CustomFileUploadField = (props) => {
           borderRadius: 1.5,
         }}
       >
+
         <CustomTextField
           value={fileValue?.name || ""}
           startAdornment={fileValue?.name ? <FileBarChart2 size={22} color="#E6483D" /> : null}
@@ -50,12 +51,12 @@ const CustomFileUploadField = (props) => {
           error={!!error}
           removeRightBorder={true}
           sx={{
+            height: height,
             "& .MuiInputBase-root": {
               borderTopRightRadius: 0,
               borderBottomRightRadius: 0,
               borderTopLeftRadius: borderRadius,
               borderBottomLeftRadius: borderRadius,
-              height: height,
               backgroundColor: bgColor,
             },
             "& .MuiOutlinedInput-notchedOutline": {
@@ -68,8 +69,8 @@ const CustomFileUploadField = (props) => {
             variant="outlined"
             component="label"
             sx={{
-              py: 0.6,
-              mx: 0.2,
+              pt: 0.5,
+              mx: 0,
               color: "#2F2B3DE5",
               backgroundColor: "#E6E6E9",
               textTransform: "capitalize",
@@ -80,6 +81,7 @@ const CustomFileUploadField = (props) => {
             <input
               type="file"
               accept="*"
+              style={{ height: height }}
               hidden
               onChange={(e) => handleChange(e.target.files?.[0])}
             />
