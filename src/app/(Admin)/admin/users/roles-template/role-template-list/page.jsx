@@ -11,7 +11,7 @@ const Page = () => {
   const [selectedValue, setSelectedValue] = useState("");
   const [isRole, setIsRole] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
-    const rowsPerPage = 5;
+    const rowsPerPage = 9;
     const pathname = usePathname();
 
     const onChange = (e) => {

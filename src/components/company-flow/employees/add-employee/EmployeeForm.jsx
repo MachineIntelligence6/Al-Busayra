@@ -21,9 +21,9 @@ const EmploypeeForm = () => {
                     gap: 3,
                 }}
             >
-                <CustomDropdown label="Vendor" required />
+                <CustomDropdown label="Vendor"  required={true} />
 
-                <CustomDropdown label="Select Contract" required />
+                <CustomDropdown label="Select Contract"  required={true} />
             </Box>
             <Box
                 component="div"
@@ -34,9 +34,9 @@ const EmploypeeForm = () => {
                     gap: 3,
                 }}
             >
-                <CustomDropdown label="Working City" required />
+                <CustomDropdown label="Working City"  required={true} />
 
-                <CustomDropdown label="Platform" required />
+                <CustomDropdown label="Platform"  required={true} />
             </Box>
 
             <Box
@@ -48,12 +48,12 @@ const EmploypeeForm = () => {
                     gap: 3,
                 }}
             >
-                <CustomDropdown label="Salary Type (Fixed/Commission)" required />
+                <CustomDropdown label="Salary Type (Fixed/Commission)"  required={true} />
 
                 <CustomTextField
                     label="Fixed Salary/Commission AMount"
                     placeholder="e.g 1200"
-                    required
+                     required={true}
                     endAdornment={<CurrencyType />}
                 />
             </Box>
@@ -67,9 +67,9 @@ const EmploypeeForm = () => {
                     gap: 3,
                 }}
             >
-                <CustomDateField label="Actual joining Date" required />
+                <CustomDateField label="Actual joining Date"  required={true} />
 
-                <CustomDropdown label="GHP Training" placeholder="Yes/No" required />
+                <CustomDropdown label="GHP Training" placeholder="Yes/No"  required={true} />
             </Box>
         </Box>
     );

@@ -2,6 +2,7 @@ import React from "react";
 import { Box, FormControl, MenuItem, Select, Typography } from "@mui/material";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import InputLabelTop from "./InputLabel";
+import { custom } from "@/app/theme";
 
 const defaultOption = [
     { label: "Option-1", value: "option_1" },
@@ -33,7 +34,7 @@ const CustomDropdown = ({
                 displayEmpty
                 renderValue={(selected) => {
                     if (!selected) {
-                        return <Typography sx={{ color: "gray" }}>{placeholder ? placeholder : "Please Select"}</Typography>;
+                        return <Typography sx={{ color: custom.mute, fontSize: "15px", fontWeight:"400" }}>{placeholder ? placeholder : "Please Select"}</Typography>;
                     }
                     return options.find((option) => option.value === selected)?.label;
                 }}
@@ -41,16 +42,16 @@ const CustomDropdown = ({
                 sx={{ borderRadius: "7px" }}
                 IconComponent={KeyboardArrowDownIcon}
             >
-                <MenuItem value="" disabled>
+                <MenuItem value="" disabled sx={{ fontSize: "15px", fontWeight:"400" }} color={custom.PrimaryText}>
                     {placeholder}
                 </MenuItem>
                 {options?.map((option, index) => (
-                    <MenuItem key={index} value={option.value}>
+                    <MenuItem key={index} value={option.value} sx={{ fontSize: "15px", fontWeight:"400" }} color={custom.PrimaryText}>
                         {option.label}
                     </MenuItem>
                 ))}
             </Select>
-        </FormControl >
+        </FormControl>
     );
 };
 

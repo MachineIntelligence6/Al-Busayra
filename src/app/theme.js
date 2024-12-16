@@ -31,9 +31,10 @@ const theme = createTheme({
     // Add custom colors here
     custom: {
       deepBlue: "#104774",
-      white: "#ffffff",
-      primaryText: "#2F2B3DE5",
-      secondaryText: "#2F2B3DB2",
+      white:"#ffffff",
+      primaryText:"#2F2B3DE5",
+      secondaryText:"#808390",
+      breadcrumbText:"#4B465C",
       descriptive: "#2F2B3DB2",
       mute: "#2F2B3D66",
       errorDark: "#E64449",

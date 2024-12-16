@@ -1,8 +1,8 @@
 "use client"
-import InventoryViewDetails from '@/components/inventory/inventory-list/InventoryViewDetails'
+import React from 'react'
 import DynamicBreadcrumb from '@/components/Shared-components/BreadCrumb'
 import { Box, Divider } from '@mui/material'
-import React from 'react'
+import InventoryViewDetails from '@/components/inventory/inventory-list/InventoryViewDetails'
 
 const page = () => {
     return (

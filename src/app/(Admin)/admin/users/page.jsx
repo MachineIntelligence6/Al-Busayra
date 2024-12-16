@@ -17,7 +17,7 @@ const Page = () => {
   const [isBtnShow, setIsBtnShow] = useState(false);
   const [isChallan, setIsChallan] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const rowsPerPage = 5;
+    const rowsPerPage = 9;
     const pathname = usePathname();
   const router = useRouter();
   

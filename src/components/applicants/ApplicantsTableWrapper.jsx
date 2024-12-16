@@ -88,7 +88,7 @@ const ApplicantsTableWrapper = ({
   handleOpenModal,
   setCurrentPage,
   rowsPerPage,
-  currentPage,
+  currentPage = 9,
   filters
 }) => {
   const [totalEntries, setTotalEntries] = useState(10);
@@ -191,7 +191,7 @@ const ApplicantsTableWrapper = ({
       },
       {
         field: "action",
-        headerName: "Action",
+        headerName: "ACTION",
         align: "left",
         render: (row) => (
           <ActionMenu
@@ -228,7 +228,15 @@ const ApplicantsTableWrapper = ({
   }, [currentPage, rowsPerPage]);
 
   return (
-    <Box sx={{ bgcolor: "white", overflow: "hidden", m: 1.5, borderRadius: 6 }}>
+    <Box
+  sx={{
+    bgcolor: "white",
+    overflow: "hidden",
+    m: 1.5,
+    borderRadius: "25px", // Updated to 25px
+    boxShadow: "0px 3px 12px 0px rgba(47, 43, 61, 0.14)", // Added shadow
+  }}
+>
     <TableFilters filters={filters}/>
      {/* {pathname.includes("/admin/applicants/final-review") && <customTableFilter title="Advanced Filter" filters={filters} />} */}
       <TableExportRow
