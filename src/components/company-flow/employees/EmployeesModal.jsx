@@ -22,6 +22,7 @@ import { assetAllocationData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
 import DetailModal from "./view-detail";
 import CustomAvatar from "@/components/Shared-components/CustomAvatar";
+import Scrollbars from "react-custom-scrollbars";
 
 const TableFiltersData = [
   {
@@ -216,6 +217,7 @@ const EmployeesModal = ({ open, onClose, title = "Employees Modal" }) => {
   ];
 
   return (
+
     <Dialog
       fullScreen={fullScreen}
       open={open}
@@ -248,38 +250,42 @@ const EmployeesModal = ({ open, onClose, title = "Employees Modal" }) => {
           <X size={18} />
         </Box>
       </DialogTitle>
-      <DialogContent>
-        <Box
-          component="div"
-          display="flex"
-          justifyContent="center"
-          flexDirection="column"
-          alignItems="center"
-        >
-          <CustomTableWrapper
-            rowsPerPage={rowsPerPage}
-            setCurrentPage={setCurrentPage}
-            currentPage={currentPage}
-            filters={filters}
-            column={column}
-            handleFilterClick={handleFilterClick}
-            handleMenuClick={handleMenuClick}
-            handleRowSelect={handleRowSelect}
-            pathname={pathname}
-            tableData={assetAllocationData}
-            // Header export Row props
-            totalEntries={totalEntries}
-            setTotalEntries={handleTotalEntriesChange}
-            isBtnAdd={false}
-            isExportBtn={false}
-            isActionMenu={false}
-            showSearch={true}
-            onSearchChange={onSearchChange}
-            // btnText="Add New Item"
-            isHeader={false}
-          />
-        </Box>
-      </DialogContent>
+      <Scrollbars style={{ height: 700, width: 1200 }}>
+
+        <DialogContent>
+          <Box
+            component="div"
+            display="flex"
+            justifyContent="center"
+            flexDirection="column"
+            alignItems="center"
+          >
+            <CustomTableWrapper
+              rowsPerPage={rowsPerPage}
+              setCurrentPage={setCurrentPage}
+              currentPage={currentPage}
+              filters={filters}
+              column={column}
+              handleFilterClick={handleFilterClick}
+              handleMenuClick={handleMenuClick}
+              handleRowSelect={handleRowSelect}
+              pathname={pathname}
+              tableData={assetAllocationData}
+              // Header export Row props
+              totalEntries={totalEntries}
+              setTotalEntries={handleTotalEntriesChange}
+              isBtnAdd={false}
+              isExportBtn={false}
+              isActionMenu={false}
+              showSearch={true}
+              onSearchChange={onSearchChange}
+              // btnText="Add New Item"
+              isHeader={false}
+            />
+          </Box>
+        </DialogContent>
+      </Scrollbars>
+
       {showPopup && <DetailModal onClose={onClose} />}
     </Dialog>
   );

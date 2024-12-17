@@ -1,14 +1,19 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Box, List, ListItem, ListItemButton, ListItemText, Collapse } from "@mui/material";
-import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import { ExpandLess, ExpandMore, Notifications } from "@mui/icons-material";
 import { usePathname } from "next/navigation";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import AppLogo from "./Shared-components/AppLogo";
 import SvgIcon from "./Shared-components/SvgIcon";
 import Link from "next/link";
 import CompanyProfileMiniCard from "./Shared-components/profiles/CompanyProfileMiniCard";
-import { Circle } from "lucide-react";
+import { BellDot, Circle } from "lucide-react";
+import Scrollbars from "react-custom-scrollbars";
+import DescriptiveText from "./Shared-components/DescriptiveText";
+import { custom } from "@/app/theme";
+import CustomAvatar from "./Shared-components/CustomAvatar";
+import SidebarProfileCard from "./Shared-components/SidebarProfileCard";
 
 const SidebarMenu = ({ adminMenuData, portal = "admin" }) => {
     const [openMenu, setOpenMenu] = useState(null);
@@ -45,17 +50,24 @@ const SidebarMenu = ({ adminMenuData, portal = "admin" }) => {
                 height: "100vh",
                 minHeight: '100vh',
                 padding: "1rem 1rem 0rem 1rem",
-                overflow: 'auto',
-                scrollbarWidth: "none"
+                overflowY: "auto",
+                scrollbarWidth: "none",
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 1,
+                justifyContent: 'space-between'
             }}
         >
-            <Box component="div" sx={{ width: "100%", borderBottom: "2px solid white", py: 4 }}>
-                <AppLogo type="light" />
+            <Box >
+                <Box component="div" sx={{ width: "100%", borderBottom: "2px solid white", py: 4 }}>
+                    <AppLogo type="light" />
+                </Box>
+                {portal === "company" && <Box sx={{ width: "100%", borderBottom: "2px solid white", py: 3, mb: 2 }}>
+                    <CompanyProfileMiniCard />
+                </Box>}
+
             </Box>
-            {portal === "company" && <Box sx={{ width: "100%", borderBottom: "2px solid white", py: 3, mb: 2 }}>
-                <CompanyProfileMiniCard />
-            </Box>}
-            <List sx={{ py: 2 }}>
+            <List sx={{ py: 2, height: '100%' }}>
                 {adminMenuData?.map((menu) => (
                     <Box key={menu.id} sx={{ mb: 1, "& .MuiListItemText-root": { margin: 0 } }}>
                         {/* Simple Route */}
@@ -98,14 +110,13 @@ const SidebarMenu = ({ adminMenuData, portal = "admin" }) => {
 
                                 {/* Dropdown Items */}
                                 <Collapse in={openMenu === menu.id} timeout="auto" unmountOnExit>
+
                                     <List
                                         component="div"
                                         sx={{
                                             bgcolor: "#37658B",
-                                            mt: 1,
                                             borderRadius: 2,
-                                            p: 2,
-                                            maxHeight: "255px", // Set a max height for the collapse menu
+                                            maxHeight: 255, // Set a max height for the collapse menu
                                             overflowY: "auto", // Force scrollbar to show at all times
                                             scrollbarWidth: "none"
                                         }}
@@ -143,7 +154,21 @@ const SidebarMenu = ({ adminMenuData, portal = "admin" }) => {
                     </Box>
                 ))}
             </List>
-            {/* <Box sx={{ width: "100%", height: 100, bgcolor: "GrayText" }}></Box> */}
+            <Box sx={{ width: "100%", px: 2 }}>
+                <Box sx={{ display: "flex", justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Box sx={{ display: "flex", gap: 1, alignItems: 'center' }}>
+                        <BellDot />
+                        <DescriptiveText text="Notifications" color={"F7F7F7"} />
+                    </Box>
+                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', px: 1.5, py: 0.3, borderRadius: 1.5, bgcolor: custom.errorDark, color: "#fff" }}>
+                        5
+                    </Box>
+                </Box>
+                <Box sx={{ my: 2 }}>
+                    <SidebarProfileCard fullName="Zaheer Abbas" email="Al Busayra delivery  services" />
+
+                </Box>
+            </Box>
         </Box>
     );
 };
