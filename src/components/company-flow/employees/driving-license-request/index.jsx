@@ -7,6 +7,8 @@ import CustomBreadcrumb from "@/app/Components/sharedComponents/BreadCrum/page";
 import { Button } from "@/components/ui/button";
 import CompanyEmpty from "../../CompanyEmpty";
 import TableModal from "./table/TableModal";
+import DLTable from "./table";
+import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
 // import EmployeeClearanceTableModal from "./table/EmployeeClearanceTableModal";
 // import ClearanceTable from "./table";
 
@@ -27,10 +29,10 @@ const DlRequestEmptyScreen = () => {
           alignItems: "center",
         }}
       >
-        {/* <DynamicBreadcrumb /> */}
+        <DynamicBreadcrumb />
         {/* <CustomButton startIcon={<Plus />}>Request Advance Salary</CustomButton> */}
 
-        <CustomBreadcrumb name="Driving License Request" />
+        {/* <CustomBreadcrumb name="Driving License Request" /> */}
         {false && (
           <Button
             className="bg-[#296291] hover:bg-[#4080b4]"
@@ -45,8 +47,8 @@ const DlRequestEmptyScreen = () => {
       <Divider sx={{ mt: 1, mx: 2, mb: 2 }} />
 
       {false ? (
-        // <ClearanceTable />
-        ""
+        <DLTable />
+        
       ) : (
         <CompanyEmpty>
           <EmptyScreenView

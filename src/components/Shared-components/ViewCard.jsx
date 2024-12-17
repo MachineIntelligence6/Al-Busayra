@@ -11,9 +11,10 @@ export function ViewCard({ title, children, onEdit, borderTop }) {
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        borderTop: borderTop !== false
-          ? borderTop || `4px solid ${custom.deepBlue}`
-          : "none",
+        borderTop:
+          borderTop !== false
+            ? borderTop || `4px solid ${custom.deepBlue}`
+            : "none",
         borderRadius: "10px",
       })}
     >
@@ -22,7 +23,6 @@ export function ViewCard({ title, children, onEdit, borderTop }) {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          mb: 2,
         }}
       >
         <Typography variant="h6">{title}</Typography>
@@ -48,7 +48,7 @@ export function ViewItem({ label, value }) {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        mt: 1.5,
+        mt: 1,
       }}
     >
       <Typography variant="body2" color="text.secondary">
