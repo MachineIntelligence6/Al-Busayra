@@ -52,11 +52,12 @@ const ActionMenu = ({ menuItems = [], onMenuItemClick }) => {
                     <MenuItem
                         key={index}
                         onClick={() => handleMenuItemClick(item)}
+                        sx={{ mx: 1, "&:hover": { "& p": { color: custom.deepBlue, } } }}
                     >
-                        <DescriptiveText text={item.label} color={custom.primaryText} sx={{ "&:hover": { color: custom.deepBlue, } }} />
+                        <DescriptiveText text={item.label} color={custom.primaryText} />
                     </MenuItem>
                 ))}
-            </Menu>
+            </Menu >
         </>
     );
 };

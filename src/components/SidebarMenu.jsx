@@ -55,7 +55,7 @@ const SidebarMenu = ({ adminMenuData, portal = "admin" }) => {
             {portal === "company" && <Box sx={{ width: "100%", borderBottom: "2px solid white", py: 3, mb: 2 }}>
                 <CompanyProfileMiniCard />
             </Box>}
-            <List>
+            <List sx={{ py: 2 }}>
                 {adminMenuData?.map((menu) => (
                     <Box key={menu.id} sx={{ mb: 1, "& .MuiListItemText-root": { margin: 0 } }}>
                         {/* Simple Route */}

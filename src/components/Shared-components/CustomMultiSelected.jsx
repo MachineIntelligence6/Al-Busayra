@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabelTop from './InputLabel';
-import { Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import { custom } from '@/app/theme';
 
 const ITEM_HEIGHT = 48;
@@ -24,6 +24,8 @@ const defaultOption = [
     { value: 'option1', label: 'Option 1' },
     { value: 'option2', label: 'Option 2' },
     { value: 'option3', label: 'Option 3' },
+    { value: 'option4', label: 'Option 4' },
+
 ];
 
 function getStyles(optionValue, selected, theme) {
@@ -84,10 +86,12 @@ const CustomMultiSelected = (props) => {
                         );
                     }
 
-                    // Display selected options
-                    return selected
-                        .map((value) => options.find((option) => option.value === value)?.label)
-                        .join(', ');
+                    return <Stack gap={1} direction="row" flexWrap="nowrap" overflow="auto" >
+                        {selected.map((val) => {
+                            const selectedOption = options.find((option) => option.value === val);
+                            return <Box sx={TagBoxstyle} key={val}>{selectedOption?.label || val}</Box>
+                        })}
+                    </Stack>
                 }}
                 MenuProps={MenuProps}
             >
@@ -106,3 +110,15 @@ const CustomMultiSelected = (props) => {
 };
 
 export default CustomMultiSelected;
+
+const TagBoxstyle = {
+    backgroundColor: '#E9EAEC',
+    padding: '2px 7px',
+    borderRadius: '7px',
+    color: '#0F132499',
+    fontSize: 12,
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    maxWidth: '120px'
+}

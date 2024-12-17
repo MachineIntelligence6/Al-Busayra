@@ -93,7 +93,7 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
   return (
     <TableContainer
       sx={{
-        maxWidth: "80vw",
+        maxWidth: "100vw",
       }}
       className="no-scroll-show"
     >

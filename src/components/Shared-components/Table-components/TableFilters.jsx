@@ -44,13 +44,18 @@ const TableFilters = ({
             return (
               <>
                 {filter?.options ? (
-                  <CustomDropdown
-                    key={filter?.id}
+                  // <CustomDropdown
+                  //   key={filter?.id}
+                  //   sx={{ flex: 1, placeItems: "start" }}
+                  //   label={filter?.filterName}
+                  //   placeholder={filter?.placeholder}
+                  //   options={filter?.options}
+                  // />
+                  <CustomMultiSelected key={filter?.id}
                     sx={{ flex: 1, placeItems: "start" }}
                     label={filter?.filterName}
                     placeholder={filter?.placeholder}
-                    options={filter?.options}
-                  />
+                    options={filter?.options} />
 
                 ) : (
                   <Box
@@ -76,30 +81,7 @@ const TableFilters = ({
             <CustomMultiSelected label="Campaign Name" />
             <CustomMultiSelected label="Country" />
             <CustomMultiSelected label="City" />
-            {/* <CustomDropdown
-              sx={{ flex: 1, placeItems: "start" }}
-              label="Campaign Name"
-              placeholder="Please Select"
-              options={options}
-              value={dropdown1Value}
-              onChange={(e) => setDropdown1Value(e.target.value)}
-            />
-            <CustomDropdown
-              sx={{ flex: 1, placeItems: "start" }}
-              label="Country"
-              placeholder="UAE"
-              options={options}
-              value={dropdown2Value}
-              onChange={(e) => setDropdown2Value(e.target.value)}
-            />
-            <CustomDropdown
-              sx={{ flex: 1, placeItems: "start" }}
-              label="City"
-              placeholder="Dubai"
-              options={options}
-              value={dropdown3Value}
-              onChange={(e) => setDropdown3Value(e.target.value)}
-            /> */}
+
           </>
         )}
       </Box>
