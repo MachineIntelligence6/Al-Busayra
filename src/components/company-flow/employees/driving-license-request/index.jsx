@@ -6,10 +6,11 @@ import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
 import CustomBreadcrumb from "@/app/Components/sharedComponents/BreadCrum/page";
 import { Button } from "@/components/ui/button";
 import CompanyEmpty from "../../CompanyEmpty";
-import EmployeeClearanceTableModal from "./table/EmployeeClearanceTableModal";
-import ClearanceTable from "./table";
+import TableModal from "./table/TableModal";
+// import EmployeeClearanceTableModal from "./table/EmployeeClearanceTableModal";
+// import ClearanceTable from "./table";
 
-const EmployeeClearanceEmptyScreen = () => {
+const DlRequestEmptyScreen = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   const onClose = () => {
@@ -29,8 +30,8 @@ const EmployeeClearanceEmptyScreen = () => {
         {/* <DynamicBreadcrumb /> */}
         {/* <CustomButton startIcon={<Plus />}>Request Advance Salary</CustomButton> */}
 
-        <CustomBreadcrumb name="Employee Clearance" />
-        {true && (
+        <CustomBreadcrumb name="Driving License Request" />
+        {false && (
           <Button
             className="bg-[#296291] hover:bg-[#4080b4]"
             onClick={() => setShowPopup(true)}
@@ -44,22 +45,23 @@ const EmployeeClearanceEmptyScreen = () => {
       <Divider sx={{ mt: 1, mx: 2, mb: 2 }} />
 
       {false ? (
-        <ClearanceTable />
+        // <ClearanceTable />
+        ""
       ) : (
         <CompanyEmpty>
           <EmptyScreenView
-            image="/company/Boxx.svg"
-            title="No Employees Clearance Request"
-            description="Please click the button below to add employee clearance request."
-            buttonText="Clearance Request"
+            image="/company/dlRequest.svg"
+            title="No Driving License Request"
+            description="Please click the button below to add driving license request."
+            buttonText="Driving License Request"
             onButtonClick={() => setShowPopup(true)}
           />
         </CompanyEmpty>
       )}
 
-      {showPopup && <EmployeeClearanceTableModal onClose={onClose} />}
+      {showPopup && <TableModal onClose={onClose} />}
     </Box>
   );
 };
 
-export default EmployeeClearanceEmptyScreen;
+export default DlRequestEmptyScreen;

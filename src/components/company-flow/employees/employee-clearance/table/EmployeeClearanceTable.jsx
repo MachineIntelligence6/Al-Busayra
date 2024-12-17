@@ -7,9 +7,10 @@ import Image from "next/image";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import GenericModal from "@/components/applicants/GenericModel";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
-import { assetClarenceData } from "@/utils/company-flow/asset-clarance-data";
+import { assetAllocationData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
 import AdvDetailModal from "../../advance-salary/view-detail";
+import CustomAvatar from "@/components/Shared-components/CustomAvatar";
 
 const TableFiltersData = [
   {
@@ -82,12 +83,24 @@ const EmployeeClearanceTable = () => {
     setTotalEntries(value);
   };
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-    console.log("cl");
+  // const handleOpenModal = () => {
+  //   setIsModalOpen(true);
+  //   console.log("cl");
+  // };
+
+  const handleCloseModal = () => {
+    const onClose = () => {
+      setShowPopup(false);
+      setIsModalOpen(false);
+    };
+
+    // Call the onClose function
+    onClose();
   };
 
-  const handleCloseModal = () => setIsModalOpen(false);
+  // const onClose = () => {
+  //   setShowPopup(false);
+  // };
 
   const handleRowSelect = (selectedRowIds) => {
     console.log("Selected Row IDs:", selectedRowIds);
@@ -128,6 +141,13 @@ const EmployeeClearanceTable = () => {
       field: "fullName",
       headerName: "FULL NAME AS PER EMIRATES ID",
       align: "left",
+      render: (row) => (
+        <CustomAvatar
+          fullName={row.fullName}
+          image={row.image}
+          email="abce@gmail.com"
+        />
+      ),
     },
     {
       field: "resident",
@@ -218,7 +238,7 @@ const EmployeeClearanceTable = () => {
         justifyContent="center"
         flexDirection="column"
         alignItems="center"
-        height="85vh"
+        // height="90vh"
       >
         {/* <GenericModal
           open={isModalOpen}
@@ -229,7 +249,7 @@ const EmployeeClearanceTable = () => {
         > */}
         <CustomTableWrapper
           // handleOpenModal={handleOpenModal}
-          // handleCloseModal={handleCloseModal}
+          handleCloseModal={handleCloseModal}
           rowsPerPage={rowsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
@@ -239,7 +259,7 @@ const EmployeeClearanceTable = () => {
           handleMenuClick={handleMenuClick}
           handleRowSelect={handleRowSelect}
           pathname={pathname}
-          tableData={assetClarenceData}
+          tableData={assetAllocationData}
           // Header export Row props
           totalEntries={totalEntries}
           setTotalEntries={handleTotalEntriesChange}

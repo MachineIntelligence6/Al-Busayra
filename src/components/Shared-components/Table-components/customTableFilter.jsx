@@ -25,24 +25,25 @@ export const CustomTableFilter = ({ filters }) => {
                 flex: 1,
                 display: "flex",
                 flexDirection: "column",
-                 width: "100%"
+                width: "100%",
               }}
             >
               {filter.inputType === "dropdown" ? (
                 <CustomDropdown
-                  sx={{ placeItems: "start", width: "100%"}}
+                  sx={{ placeItems: "start", width: "100%" }}
                   label={filter.filterName}
                   placeholder={filter.placeholder}
                   options={filter.options}
                 />
               ) : filter.inputType === "text" ? (
                 <Box>
-                  <Typography>{filter.filterName}</Typography>
+                  {/* <Typography>{filter.filterName}</Typography> */}
                   <Box>
-                  <CustomTextField
-                    placeholder={filter.placeholder}
-                  />
-                </Box>
+                    <CustomTextField
+                      placeholder={filter.placeholder}
+                      label={filter.filterName}
+                    />
+                  </Box>
                 </Box>
               ) : (
                 <Typography>{filter.filterName}</Typography>
