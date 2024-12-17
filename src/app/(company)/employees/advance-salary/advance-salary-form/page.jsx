@@ -4,6 +4,7 @@ import CustomBreadcrumb from "@/app/Components/sharedComponents/BreadCrum/page";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import AdvanceSalaryForm from "@/components/company-flow/employees/advance-salary/salary-form";
+import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
 
 const page = () => {
   return (
@@ -19,9 +20,9 @@ const page = () => {
           alignItems: "center",
         }}
       >
-        {/* <DynamicBreadcrumb />
-        <CustomButton startIcon={<Plus />}>Request Advance Salary</CustomButton> */}
-        <CustomBreadcrumb name="Advance Salary Form" />
+        <DynamicBreadcrumb />
+        {/* <CustomButton startIcon={<Plus />}>Request Advance Salary</CustomButton> */}
+        {/* <CustomBreadcrumb name="Advance Salary Form" /> */}
         <Button className="bg-[#296291] hover:bg-[#4080b4]">
           Request Advance Salary
           <Plus />

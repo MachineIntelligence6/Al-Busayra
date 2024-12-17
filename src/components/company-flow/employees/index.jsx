@@ -26,7 +26,7 @@ const CompanyEmployees = () => {
       </Box>
       <Divider sx={{ mt: 1, mx: 2 }} />
 
-      {true ? (
+      {false ? (
         <CompanyEmpTableWrapper />
       ) : (
         <CompanyEmpty>

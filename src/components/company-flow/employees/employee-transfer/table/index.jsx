@@ -7,10 +7,11 @@ import Image from "next/image";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import GenericModal from "@/components/applicants/GenericModel";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
-import { assetAllocationData } from "@/utils/company-flow/asset-clarance-data";
+import { transferData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
 import AdvDetailModal from "../../advance-salary/view-detail";
 import CustomAvatar from "@/components/Shared-components/CustomAvatar";
+import ViewDetailModal from "../view-detail/ViewDetailModal";
 
 const TableFiltersData = [
   {
@@ -47,20 +48,14 @@ const TableFiltersData = [
   },
 ];
 
-const actionMenu = [
-  {
-    label: "Request For Driving License",
-    route: "/employees/driving-license-request/dl-request-form",
-  },
-  { label: "View Details" },
-];
+const actionMenu = [{ label: "View Details" }];
 
 const headerMenuItems = [
   { label: "Edit", action: "edit" },
   { label: "Delete", action: "delete" },
 ];
 
-const DLModalTable = () => {
+const TransferTable = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [filters, setFilters] = useState(TableFiltersData);
@@ -83,12 +78,24 @@ const DLModalTable = () => {
     setTotalEntries(value);
   };
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-    console.log("cl");
+  // const handleOpenModal = () => {
+  //   setIsModalOpen(true);
+  //   console.log("cl");
+  // };
+
+  const handleCloseModal = () => {
+    const onClose = () => {
+      setShowPopup(false);
+      setIsModalOpen(false);
+    };
+
+    // Call the onClose function
+    onClose();
   };
 
-  const handleCloseModal = () => setIsModalOpen(false);
+  // const onClose = () => {
+  //   setShowPopup(false);
+  // };
 
   const handleRowSelect = (selectedRowIds) => {
     console.log("Selected Row IDs:", selectedRowIds);
@@ -138,6 +145,30 @@ const DLModalTable = () => {
       ),
     },
     {
+      field: "employmentType",
+      headerName: "Employee Type",
+      align: "left",
+      render: (row) => (
+        <Box
+          sx={{
+            bgcolor: "#2F2B3D14",
+            p: "2px 10px",
+            borderRadius: "4px",
+            width: "fit-content",
+          }}
+        >
+          <Typography
+            variant="caption"
+            sx={{
+              color: "#2F2B3DE5",
+            }}
+          >
+            {row.employmentType}
+          </Typography>
+        </Box>
+      ),
+    },
+    {
       field: "resident",
       headerName: "RESIDENT",
       align: "left",
@@ -157,39 +188,14 @@ const DLModalTable = () => {
       ),
     },
     {
-      field: "drivingLicense",
-      headerName: "DRIVING LICENSE",
-      align: "left",
-    },
-    {
-      field: "passportNumber",
-      headerName: "PASSPORT NUMBER",
-      align: "left",
-    },
-    {
-      field: "phoneNumber",
-      headerName: "PHONE NUMBER",
-      align: "left",
-    },
-    {
-      field: "employeeType",
-      headerName: "EMPLOYEE TYPE",
+      field: "platformName",
+      headerName: "Platform Name",
       align: "left",
       render: (row) => (
-        <Typography
-          variant="caption"
-          sx={{
-            backgroundColor: "#80839029",
-            // row.employeeType === "Rider" ? "#80839029" : "#FCE4EC",
-            padding: "4px 10px",
-            borderRadius: "3px",
-            color: "#2F2B3DE5",
-          }}
-        >
-          {row.employeeType}
-        </Typography>
+        <CustomAvatar fullName={row.platformName} image={row.image1} />
       ),
     },
+
     {
       field: "action",
       headerName: "ACTION",
@@ -228,6 +234,18 @@ const DLModalTable = () => {
         alignItems="center"
         // height="90vh"
       >
+        <Box
+          sx={{
+            width: "full",
+            alignSelf: "flex-start",
+            marginLeft: 1.6,
+            fontSize: "18px",
+            fontWeight: 600,
+            lineHeight: "22px",
+          }}
+        >
+          Transfer of Platform (Acquiring)
+        </Box>
         {/* <GenericModal
           open={isModalOpen}
           onClose={handleCloseModal}
@@ -237,8 +255,7 @@ const DLModalTable = () => {
         > */}
         <CustomTableWrapper
           // handleOpenModal={handleOpenModal}
-          // handleCloseModal={handleCloseModal}
-
+          handleCloseModal={handleCloseModal}
           rowsPerPage={rowsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
@@ -248,7 +265,7 @@ const DLModalTable = () => {
           handleMenuClick={handleMenuClick}
           handleRowSelect={handleRowSelect}
           pathname={pathname}
-          tableData={assetAllocationData}
+          tableData={transferData}
           // Header export Row props
           totalEntries={totalEntries}
           setTotalEntries={handleTotalEntriesChange}
@@ -259,14 +276,14 @@ const DLModalTable = () => {
           menuItems={headerMenuItems}
           onSearchChange={onSearchChange}
           // btnText="Add New Item"
-          filterTitle="Select Employees"
+          filterTitle="Selected Employees"
         />
         {/* </GenericModal> */}
         {/* <Image src="/company/asset-clearence/bike-asset-clearence.svg" alt="bike" height="313" width="479" /> */}
-        {showPopup && <AdvDetailModal onClose={() => setShowPopup(false)} />}
+        {showPopup && <ViewDetailModal onClose={() => setShowPopup(false)} />}
       </Box>
     </>
   );
 };
 
-export default DLModalTable;
+export default TransferTable;

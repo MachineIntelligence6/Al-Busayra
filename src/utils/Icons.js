@@ -1058,6 +1058,14 @@ export const InfoCircleIcon = () => {
         </svg>
     );
 };
+export const ShieldIcon1 = () => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+        <path d="M9.375 12.5001L11.4583 14.5834L15.625 10.4167" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.4983 3.125C14.9315 5.27768 18.1072 6.39851 21.3525 6.25C22.3071 9.49743 21.904 12.9932 20.2352 15.9381C18.5665 18.8829 15.7748 21.0252 12.4983 21.875C9.22194 21.0252 6.43024 18.8829 4.76147 15.9381C3.0927 12.9932 2.68955 9.49743 3.64418 6.25C6.88952 6.39851 10.0652 5.27768 12.4983 3.125" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    );
+};
 export const ShieldIcon = () => {
     return (
         <svg
