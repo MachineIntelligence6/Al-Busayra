@@ -11,6 +11,7 @@ import CustomAvatar from "@/components/Shared-components/CustomAvatar";
 import CurrencyType from "@/components/Shared-components/CurrencyType";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
 import { useRouter } from "next/navigation";
+import RejectModal from "../../advance-salary/table/RejectModal";
 
 const filters = [
   { id: 1, filterName: "Employee ID", placeholder: "e.g" },

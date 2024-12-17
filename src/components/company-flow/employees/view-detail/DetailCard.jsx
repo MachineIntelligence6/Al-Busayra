@@ -1,7 +1,7 @@
 "use client";
 
 import { ViewCard, ViewItem } from "@/components/Shared-components/ViewCard";
-import { Box, Divider,  } from "@mui/material";
+import { Box, Divider, } from "@mui/material";
 import { vendorDetail } from "@/utils/vendor-detail";
 
 export default function DetailCard() {
@@ -23,7 +23,7 @@ export default function DetailCard() {
               <ViewItem
                 label={
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    {/* Render icon if it exists */}
+
                     {icon && (
                       <Box
                         sx={{
@@ -31,38 +31,37 @@ export default function DetailCard() {
                           height: "25px",
                         }}
                       >
-                        {icon} {/* Render the icon directly if it's a valid JSX component */}
-                      </Box>
+                        {icon}
                     )}
-                    <span>{label}</span>
-                  </Box>
+                        <span>{label}</span>
+                      </Box>
                 }
-                value={
-                  <Box
-                    sx={{
-                      ...(label === "Status" && {
-                        backgroundColor: "#28C76F29",
-                        color: "#28C76F",
-                        padding: "2px 10px",
-                        borderRadius: "4px",
-                        fontWeight: 500,
-                        fontSize: '13px',
-                      }),
-                    }}
-                  >
-                    {value}
-                  </Box>
-                }
+                    value={
+                      <Box
+                        sx={{
+                          ...(label === "Status" && {
+                            backgroundColor: "#28C76F29",
+                            color: "#28C76F",
+                            padding: "2px 10px",
+                            borderRadius: "4px",
+                            fontWeight: 500,
+                            fontSize: '13px',
+                          }),
+                        }}
+                      >
+                        {value}
+                      </Box>
+                    }
               />
-              {index < firstPart.length - 1 && (
-                <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
-              )}
-            </Box>
+                    {index < firstPart.length - 1 && (
+                      <Divider sx={{ borderStyle: "dotted", marginTop: 1 }} />
+                    )}
+                  </Box>
           ))}
-        </Box>
+            </Box>
 
-        {/* Second column: Contains fields after 'Status' */}
-        <Box sx={{ flex: 1, minWidth: "300px" }}>
+        {/* Second column: Contains fields after 'Status' */ }
+            < Box sx = {{ flex: 1, minWidth: "300px" }}>
           {secondPart.map(({ label, value, icon }, index) => (
             <Box key={label}>
               <ViewItem
@@ -89,7 +88,7 @@ export default function DetailCard() {
               )}
             </Box>
           ))}
-        </Box>
+        </>
       </Box>
     </ViewCard>
   );

@@ -9,6 +9,7 @@ import GenericModal from "@/components/applicants/GenericModel";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
 import { assetClarenceData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
+import AdvDetailModal from "../../advance-salary/view-detail";
 
 const TableFiltersData = [
   {
