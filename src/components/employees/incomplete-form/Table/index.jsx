@@ -185,7 +185,7 @@ const EmployeeTableWrapper = ({
         ),
       },
     ],
-    [MenuItems]
+    [MenuItems, handleMenuClick ]
   );
 
   // Dynamically set columns based on the current path

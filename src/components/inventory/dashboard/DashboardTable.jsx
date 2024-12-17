@@ -136,7 +136,7 @@ const DashboardTable = () => {
             },
 
         ];
-    }, []);
+    }, [MenuItems, handleActionClick]);
 
     return (
         <Box
