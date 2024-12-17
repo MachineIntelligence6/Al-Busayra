@@ -104,12 +104,7 @@ const fields = [
 ];
 
 
-const renderLabel = (label, required = false) => (
-    <Typography variant="subtitle1" sx={{ fontSize: 14 }} component="p">
-        {label}
-        {required && <Typography component="span" color="error"> *</Typography>}
-    </Typography>
-);
+
 
 const PlatformModal = (props) => {
     const { isOpenModal, onClose, form } = props;

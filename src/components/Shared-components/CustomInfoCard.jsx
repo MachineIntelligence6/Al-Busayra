@@ -56,7 +56,7 @@ export function InfoItem({ label, value, icon }) {
         }}
 
       >
-        <Box>{icon}</Box>
+        <Box component='span'>{icon}</Box>
         <Typography sx={{ fontSize: 16, fontWeight: 400, color: "#2F2B3D99" }}>{label}</Typography>
       </Box>
       <Box sx={{ color: "#2F2B3DE5", fontWeight: 400, fontSize: 16 }}>{value}</Box>

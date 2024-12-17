@@ -13,17 +13,17 @@ const RoleInfoCard = ({ title, data, onEdit }) => {
   // Custom styles for "Administrator" and "Status"
   const customStyles = {
     administratorStyle: {
-        backgroundColor:'#E5F8E5',
-        color:'#00A000',
+      backgroundColor: '#E5F8E5',
+      color: '#00A000',
       padding: "4px 12px",
       borderRadius: "6px",
     },
     statusStyle: {
-     backgroundColor:'#E5F8E5',
-     color:'#00A000',
+      backgroundColor: '#E5F8E5',
+      color: '#00A000',
       padding: "4px 12px",
       borderRadius: "6px",
-    //   marginBotton:"30px"
+      //   marginBotton:"30px"
     },
   };
 
@@ -41,9 +41,10 @@ const RoleInfoCard = ({ title, data, onEdit }) => {
           {firstColumnData.map((item, index) => (
             <InfoItem
               key={index}
+              icon={item.icon}
               label={
                 <>
-                  {item.icon} {item.label}
+                  {item.label}
                 </>
               }
               value={
@@ -61,9 +62,10 @@ const RoleInfoCard = ({ title, data, onEdit }) => {
           {secondColumnData.map((item, index) => (
             <InfoItem
               key={index}
+              icon={item.icon}
               label={
                 <>
-                  {item.icon} {item.label}
+                  {item.label}
                 </>
               }
               value={

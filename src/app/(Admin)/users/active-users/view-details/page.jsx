@@ -41,53 +41,53 @@ const Page = () => {
       {
         label: "Full Name",
         value: "Saleem Akhtar",
-        icon: <User className="h-4 w-4" />
+        icon: <User size={18} />
       },
       {
         label: "Role",
         value: "Administrator",
-        icon: <UserCircle2 className="h-4 w-4" />
+        icon: <UserCircle2 size={18} />
       },
       {
         label: "Phone Number",
         value: "+971 123 456 7890",
-        icon: <Phone className="h-4 w-4" />
+        icon: <Phone size={18} />
       },
       {
         label: "State/Province",
         value: "Non-UAE Resident",
-        icon: <MapPin className="h-4 w-4" />
+        icon: <MapPin size={18} />
       },
       {
         label: "Active/Inactive",
         value: "Active",
-        icon: <Globe2 className="h-4 w-4" />,
+        icon: <Globe2 size={18} />,
         // valueStyle: { color: "green", fontWeight: "bold" }
       },
       {
         label: "User Type",
         value: "Global User",
-        icon: <User className="h-4 w-4" />
+        icon: <User size={18} />
       },
       {
         label: "Email Address",
         value: "saleemakhtar@gmail.com",
-        icon: <Mail className="h-4 w-4" />
+        icon: <Mail size={18} />
       },
       {
         label: "Country",
         value: "Dubai",
-        icon: <Globe2 className="h-4 w-4" />
+        icon: <Globe2 size={18} />
       },
       {
         label: "City",
         value: "Agent",
-        icon: <Building2 className="h-4 w-4" />
+        icon: <Building2 size={18} />
       },
       {
         label: "Company",
         value: "Al-Busayra",
-        icon: <Building className="h-4 w-4" />
+        icon: <Building size={18} />
       }
     ]
   };
@@ -121,29 +121,29 @@ const Page = () => {
         }}
       >
         <ViewEmployeeHeader
-            fullName="Saleem Akhtar"
-            description="Super Admin"
-            // buttons={buttons}
-            // onBackClick={handleBackClick}
-            // onEditClick={handleEditClick}
-            profileImage={"/icons/Careem.svg"}
-            sx={{
-              borderRadius: "15px",
-              boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.2)",
-            }}
-          />
-        <Box sx={{ marginY: "20px", fontWeight: "700" }}>
-        <RoleInfoCard
-          title={cardData.title}
-          data={cardData.data}
-          onEdit={handleEdit}
+          fullName="Saleem Akhtar"
+          description="Super Admin"
+          // buttons={buttons}
+          // onBackClick={handleBackClick}
+          // onEditClick={handleEditClick}
+          profileImage={"/images/profile-m.jpg"}
+          sx={{
+            borderRadius: "15px",
+            boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.2)",
+          }}
         />
-        <Typography
-              variant="body2"
-              sx={{ marginY: "20px", fontWeight: "500" , fontSize: "20px", color:"#2F2B3DE5"}}
-            >
-              ROLES & PERMISSIONS
-            </Typography>
+        <Box sx={{ marginY: "20px", fontWeight: "700" }}>
+          <RoleInfoCard
+            title={cardData.title}
+            data={cardData.data}
+            onEdit={handleEdit}
+          />
+          <Typography
+            variant="body2"
+            sx={{ marginY: "20px", fontWeight: "500", fontSize: "20px", color: "#2F2B3DE5" }}
+          >
+            ROLES & PERMISSIONS
+          </Typography>
           <CustomPermissionTabs
             tabData={tabData}
             onClick={handleEditTab}
@@ -153,18 +153,18 @@ const Page = () => {
           />
         </Box>
         {selectedTab === 0 && (
-            <CustomizablePermissionsTable
-              permissions={permissions}
-              columns={columns}
-              customPermissionsLabel="Custom Permissions"
-            />
+          <CustomizablePermissionsTable
+            permissions={permissions}
+            columns={columns}
+            customPermissionsLabel="Custom Permissions"
+          />
         )}
         {selectedTab === 1 && (
-            <CustomizablePermissionsTable
-              permissions={CompanyPermissions}
-              columns={columns}
-              customPermissionsLabel="Custom Permissions"
-            />
+          <CustomizablePermissionsTable
+            permissions={CompanyPermissions}
+            columns={columns}
+            customPermissionsLabel="Custom Permissions"
+          />
         )}
       </Box>
     </>

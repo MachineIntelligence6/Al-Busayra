@@ -39,7 +39,7 @@ function Listings() {
     <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
       {
         listings?.map((element, idx) => {
-          return <div key={idx} onClick={() => router.push(`/admin/companies/view?${element?.name}`)} class={`w-full  bg-[${element?.color}] rounded-[25px] `} style={{ backgroundColor: element?.color }}>
+          return <div key={idx} onClick={() => router.push(`/admin/companies/users?${element?.name}`)} class={`w-full  bg-[${element?.color}] rounded-[25px] `} style={{ backgroundColor: element?.color }}>
             <div className="p-[20px] flex flex-col gap-[10px]">
               <div className="flex flex-row items-center justify-between w-full">
                 <div className="w-[60px] h-[60px] rounded-full">

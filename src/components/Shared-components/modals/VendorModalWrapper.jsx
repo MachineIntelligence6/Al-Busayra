@@ -10,6 +10,7 @@ import CustomButton from "../CustomButton";
 import DoneIcon from "@mui/icons-material/Done";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { useTheme } from "@emotion/react";
+import DescriptiveText from "../DescriptiveText";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -41,11 +42,11 @@ const VendorModal = ({ open, onClose, title, children }) => {
 
         >
             <Box sx={{ ...modalStyle, bgcolor: "white" }}>
-                <Typography
-                    sx={{ borderBottom: "1px solid #2F2B3D40", my: 2, py: 0.5 }}
+                <Box
+                    sx={{ borderBottom: "1px solid #2F2B3D40", my: 2, py: 1 }}
                 >
-                    {title}
-                </Typography>
+                    <DescriptiveText text={title} fontSize={18} />
+                </Box>
                 {children}
 
                 <Box

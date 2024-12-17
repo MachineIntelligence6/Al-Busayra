@@ -61,7 +61,7 @@ const CustomMultiSelected = (props) => {
     };
 
     return (
-        <FormControl sx={{ m: 1, width: '100%' }}>
+        <FormControl sx={{ width: '100%' }}>
             {label && <InputLabelTop text={label} required={required} />}
 
             <Select
