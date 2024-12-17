@@ -29,9 +29,9 @@ const ExpandableTable = (props) => {
         isSelectedOption = false,
     } = props;
 
-    const isAllSelected = selectedRows.length === data.length && data.length > 0;
+    const isAllSelected = selectedRows?.length === data?.length && data?.length > 0;
     const isIndeterminate =
-        selectedRows.length > 0 && selectedRows.length < data.length;
+        selectedRows?.length > 0 && selectedRows?.length < data?.length;
 
     const handleSelectRow = (rowId) => {
         const updatedSelection = selectedRows.includes(rowId)

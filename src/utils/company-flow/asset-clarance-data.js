@@ -133,102 +133,14 @@ export const AssetClearanceData = [
   },
 ];
 
-export const assetAllocationData = [
+export const transferData = [
   {
     id: "AB0001",
     fullName: "Saleem Akhtar Muhammad Miskeen",
     image: "/images/profile-f-f.png",
+    employmentType: "Rider",
     resident: "UAE",
-    drivingLicense: "879343",
-    passportNumber: "TA1822801",
-    phoneNumber: "+971 986556465",
-    employeeType: "Rider",
-    simNo: '+941 2324234',
-    bikeNo: '1713',
-    status: 'Approval Pending'
-  },
-  {
-    id: "AB0002",
-    fullName: "MD Kulem Ullah MD Sukwor",
-    image: "/images/profile-f-f.png",
-    resident: "UAE",
-    drivingLicense: "566546",
-    passportNumber: "RT1822856",
-    phoneNumber: "+971 456576546",
-    employeeType: "Rider",
-    simNo: '+941 2324234',
-    bikeNo: '1713',
-    status: 'Approval Pending'
-
-  },
-  {
-    id: "AB0003",
-    fullName: "Hamza Aslam Muhammad Aslam",
-    image: "/images/profile-f-f.png",
-    resident: "UAE",
-    drivingLicense: "879343",
-    passportNumber: "TA1822801",
-    phoneNumber: "+92 3112394995",
-    employeeType: "Rider",
-    simNo: '+941 2324234',
-    bikeNo: '1713',
-    status: 'Approval Pending'
-
-  },
-  {
-    id: "AB0004",
-    fullName: "Adil Dildar Dildar Hussain",
-    image: "/images/profile-f-f.png",
-    resident: "UAE",
-    drivingLicense: "566546",
-    passportNumber: "RT1822856",
-    phoneNumber: "+91 324353432",
-    employeeType: "Rider",
-    simNo: '+941 2324234',
-    bikeNo: '1713',
-    status: 'Approved'
-
-  },
-  {
-    id: "AB0005",
-    fullName: "Waqar Ali Muhammad Anwar Ali",
-    image: "/images/profile-f-f.png",
-    resident: "UAE",
-    drivingLicense: "879343",
-    passportNumber: "TA1822801",
-    phoneNumber: "+966 34565755",
-    employeeType: "Other Employee",
-    simNo: '+941 2324234',
-    bikeNo: '1713',
-    status: 'Approved'
-
-  },
-  {
-    id: "AB0006",
-    fullName: "Hamza Aslam Muhammad Aslam",
-    image: "/images/profile-f-f.png",
-    resident: "UAE",
-    drivingLicense: "879343",
-    passportNumber: "TA1822801",
-    phoneNumber: "+92 3112394995",
-    employeeType: "Rider",
-    simNo: '+941 2324234',
-    bikeNo: '1713',
-    status: 'Approved'
-
-  },
-  {
-    id: "AB0007",
-    fullName: "Waqar Ali Muhammad Anwar Ali",
-    image: "/images/profile-f-f.png",
-    resident: "Non UAE",
-    drivingLicense: "879343",
-    passportNumber: "TA1822801",
-    phoneNumber: "+966 34565755",
-    employeeType: "Other Employee",
-    simNo: '+941 2324234',
-    bikeNo: '1713',
-    status: 'Approved'
-
+    platformName: "Al Hamama",
+    image1: "/company/hamama.svg",
   },
 ];

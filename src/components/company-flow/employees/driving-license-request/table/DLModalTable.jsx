@@ -10,6 +10,7 @@ import ActionMenu from "@/components/Shared-components/ActionMenu";
 import { assetClarenceData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
 import AdvDetailModal from "../../advance-salary/view-detail";
+import CustomAvatar from "@/components/Shared-components/CustomAvatar";
 
 const TableFiltersData = [
   {
@@ -49,7 +50,7 @@ const TableFiltersData = [
 const actionMenu = [
   {
     label: "Request For Driving License",
-    route: "/employees/employee-clearance/asset-verification",
+    route: "/employees/driving-license-request/dl-request-form",
   },
   { label: "View Details" },
 ];
@@ -128,6 +129,13 @@ const DLModalTable = () => {
       field: "fullName",
       headerName: "FULL NAME AS PER EMIRATES ID",
       align: "left",
+      render: (row) => (
+        <CustomAvatar
+          fullName={row.fullName}
+          image={row.image}
+          email="abce@gmail.com"
+        />
+      ),
     },
     {
       field: "resident",
@@ -218,7 +226,7 @@ const DLModalTable = () => {
         justifyContent="center"
         flexDirection="column"
         alignItems="center"
-        // height="90vh"
+      // height="90vh"
       >
         {/* <GenericModal
           open={isModalOpen}
@@ -230,7 +238,7 @@ const DLModalTable = () => {
         <CustomTableWrapper
           // handleOpenModal={handleOpenModal}
           // handleCloseModal={handleCloseModal}
-          
+
           rowsPerPage={rowsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}

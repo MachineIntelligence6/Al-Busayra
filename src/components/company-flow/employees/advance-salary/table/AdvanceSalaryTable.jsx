@@ -7,7 +7,7 @@ import Image from "next/image";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import GenericModal from "@/components/applicants/GenericModel";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
-import { assetAllocationData } from "@/utils/company-flow/asset-clarance-data";
+import { assetClarenceData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
 import AdvDetailModal from "../view-detail";
 import CustomAvatar from "@/components/Shared-components/CustomAvatar";
@@ -247,7 +247,7 @@ const AdvanceSalaryRequestTable = () => {
           handleMenuClick={handleMenuClick}
           handleRowSelect={handleRowSelect}
           pathname={pathname}
-          tableData={assetAllocationData}
+          tableData={assetClarenceData}
           // Header export Row props
           totalEntries={totalEntries}
           setTotalEntries={handleTotalEntriesChange}

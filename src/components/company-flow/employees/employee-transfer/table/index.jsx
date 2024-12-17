@@ -7,9 +7,11 @@ import Image from "next/image";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import GenericModal from "@/components/applicants/GenericModel";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
-import { assetClarenceData } from "@/utils/company-flow/asset-clarance-data";
+import { transferData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
+import AdvDetailModal from "../../advance-salary/view-detail";
 import CustomAvatar from "@/components/Shared-components/CustomAvatar";
+import ViewDetailModal from "../view-detail/ViewDetailModal";
 
 const TableFiltersData = [
   {
@@ -46,18 +48,14 @@ const TableFiltersData = [
   },
 ];
 
-const actionMenu = [
-  { label: "Allocate Asset", route: "/asset-allocation/bike-assign" },
-  { label: "Asset Clearence", route: "/asset-clearance" },
-  { label: "View Details", route: "/admin/applicants/hold" },
-];
+const actionMenu = [{ label: "View Details" }];
 
 const headerMenuItems = [
   { label: "Edit", action: "edit" },
   { label: "Delete", action: "delete" },
 ];
 
-const AllocateAssetTable = () => {
+const TransferTable = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [filters, setFilters] = useState(TableFiltersData);
@@ -66,6 +64,7 @@ const AllocateAssetTable = () => {
   const [totalEntries, setTotalEntries] = useState(10);
   const [headerSearchValue, setHeaderSearchValue] = useState("");
   const rowsPerPage = 7;
+  const [showPopup, setShowPopup] = useState(false);
 
   // Handler for search input change
   const onSearchChange = (value) => {
@@ -79,12 +78,24 @@ const AllocateAssetTable = () => {
     setTotalEntries(value);
   };
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-    console.log("cl");
+  // const handleOpenModal = () => {
+  //   setIsModalOpen(true);
+  //   console.log("cl");
+  // };
+
+  const handleCloseModal = () => {
+    const onClose = () => {
+      setShowPopup(false);
+      setIsModalOpen(false);
+    };
+
+    // Call the onClose function
+    onClose();
   };
 
-  const handleCloseModal = () => setIsModalOpen(false);
+  // const onClose = () => {
+  //   setShowPopup(false);
+  // };
 
   const handleRowSelect = (selectedRowIds) => {
     console.log("Selected Row IDs:", selectedRowIds);
@@ -93,6 +104,9 @@ const AllocateAssetTable = () => {
   const handleMenuClick = (menuItem) => {
     console.log("Menu clicked:", menuItem.label);
     router.push(menuItem.route);
+    if (menuItem.label === "View Details") {
+      setShowPopup(true); // Show popup
+    }
   };
 
   const handleFilterClick = (field) => {
@@ -112,7 +126,6 @@ const AllocateAssetTable = () => {
             borderBottom: "1px solid #20A4D5E5",
             color: "#20A4D5E5",
             cursor: "pointer",
-            width: "fit-content",
           }}
         >
           {row.id}
@@ -131,7 +144,30 @@ const AllocateAssetTable = () => {
         />
       ),
     },
-
+    {
+      field: "employmentType",
+      headerName: "Employee Type",
+      align: "left",
+      render: (row) => (
+        <Box
+          sx={{
+            bgcolor: "#2F2B3D14",
+            p: "2px 10px",
+            borderRadius: "4px",
+            width: "fit-content",
+          }}
+        >
+          <Typography
+            variant="caption"
+            sx={{
+              color: "#2F2B3DE5",
+            }}
+          >
+            {row.employmentType}
+          </Typography>
+        </Box>
+      ),
+    },
     {
       field: "resident",
       headerName: "RESIDENT",
@@ -151,75 +187,12 @@ const AllocateAssetTable = () => {
         </Typography>
       ),
     },
-
     {
-      field: "phoneNumber",
-      headerName: "PHONE NUMBER",
-      align: "left",
-    },
-    {
-      field: "bikeNo",
-      headerName: "Bike No.",
+      field: "platformName",
+      headerName: "Platform Name",
       align: "left",
       render: (row) => (
-        <Typography
-          variant="body2"
-          sx={{
-            borderBottom: "1px solid #20A4D5E5",
-            color: "#20A4D5E5",
-            cursor: "pointer",
-            width: "fit-content",
-          }}
-        >
-          {row.bikeNo}
-        </Typography>
-      ),
-    },
-    {
-      field: "simNo",
-      headerName: "Sim No.",
-      align: "left",
-      render: (row) => (
-        <Typography
-          variant="body2"
-          sx={{
-            borderBottom: "1px solid #20A4D5E5",
-            color: "#20A4D5E5",
-            cursor: "pointer",
-            width: "fit-content",
-          }}
-        >
-          {row.simNo}
-        </Typography>
-      ),
-    },
-    {
-      field: "status",
-      headerName: "Status",
-      align: "left",
-      render: (row) => (
-        <Box
-          sx={{
-            bgcolor:
-              (row.status === "Approval Pending" && "#7367F029") ||
-              (row.status === "Approved" && "#28C76F29") ||
-              (row.status === "New Request" && "#FF9F4329") ||
-              (row.status === "Rejected" && "#FF4C5129") || // Example color for "Rejected"
-              "transparent", // Default background if no condition matches
-            color:
-              (row.status === "Approval Pending" && "#7367F0") ||
-              (row.status === "Approved" && "#28C76F") ||
-              (row.status === "New Request" && "#FF9F43") ||
-              (row.status === "Rejected" && "#FF4C51") || // Example color for "Rejected"
-              "inherit", // Default color if no condition matches
-            borderRadius: "4px",
-            p: "2px 10px",
-            textAlign: "center",
-            width: "fit-content",
-          }}
-        >
-          <Typography sx={{ fontSize: "13px" }}>{row.status}</Typography>
-        </Box>
+        <CustomAvatar fullName={row.platformName} image={row.image1} />
       ),
     },
 
@@ -228,9 +201,19 @@ const AllocateAssetTable = () => {
       headerName: "ACTION",
       align: "left",
       render: (row) => (
+        // <ActionMenu
+        //   menuItems={actionMenu}
+        //   onMenuItemClick={(item) => router.push(item.route)}
+        // />
         <ActionMenu
           menuItems={actionMenu}
-          onMenuItemClick={(item) => router.push(item.route)}
+          onMenuItemClick={(item) => {
+            if (item.label === "View Details") {
+              setShowPopup(true); // Show popup for "View Details"
+            } else if (item.route) {
+              router.push(item.route); // Only push route if it's defined
+            }
+          }}
         />
       ),
     },
@@ -238,16 +221,41 @@ const AllocateAssetTable = () => {
 
   return (
     <>
+      {/* <Box sx={{ px: 2 }}>
+        <DynamicBreadcrumb isBtnShow={true} icon={<AddOutlinedIcon />} btnName="Allocate Asset" onClick={handleOpenModal} />
+      </Box>
+      <Divider sx={{ mt: 2 }} /> */}
+
       <Box
         component="div"
         display="flex"
         justifyContent="center"
         flexDirection="column"
         alignItems="center"
+        // height="90vh"
       >
+        <Box
+          sx={{
+            width: "full",
+            alignSelf: "flex-start",
+            marginLeft: 1.6,
+            fontSize: "18px",
+            fontWeight: 600,
+            lineHeight: "22px",
+          }}
+        >
+          Transfer of Platform (Acquiring)
+        </Box>
+        {/* <GenericModal
+          open={isModalOpen}
+          onClose={handleCloseModal}
+          title="Applicants Modal"
+          height="80vh"
+          width="100%"
+        > */}
         <CustomTableWrapper
-          isShow={false}
-          isWidth={true}
+          // handleOpenModal={handleOpenModal}
+          handleCloseModal={handleCloseModal}
           rowsPerPage={rowsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
@@ -257,20 +265,25 @@ const AllocateAssetTable = () => {
           handleMenuClick={handleMenuClick}
           handleRowSelect={handleRowSelect}
           pathname={pathname}
-          tableData={assetClarenceData}
+          tableData={transferData}
           // Header export Row props
           totalEntries={totalEntries}
           setTotalEntries={handleTotalEntriesChange}
           isBtnAdd={false}
-          isExportBtn={true}
-          isActionMenu={true}
+          isExportBtn={false}
+          isActionMenu={false}
           showSearch={true}
           menuItems={headerMenuItems}
           onSearchChange={onSearchChange}
+          // btnText="Add New Item"
+          filterTitle="Selected Employees"
         />
+        {/* </GenericModal> */}
+        {/* <Image src="/company/asset-clearence/bike-asset-clearence.svg" alt="bike" height="313" width="479" /> */}
+        {showPopup && <ViewDetailModal onClose={() => setShowPopup(false)} />}
       </Box>
     </>
   );
 };
 
-export default AllocateAssetTable;
+export default TransferTable;

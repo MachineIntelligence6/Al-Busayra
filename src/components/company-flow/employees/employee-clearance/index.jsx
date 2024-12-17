@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import CompanyEmpty from "../../CompanyEmpty";
 import EmployeeClearanceTableModal from "./table/EmployeeClearanceTableModal";
 import ClearanceTable from "./table";
+import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
 
 const EmployeeClearanceEmptyScreen = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -26,10 +27,10 @@ const EmployeeClearanceEmptyScreen = () => {
           alignItems: "center",
         }}
       >
-        {/* <DynamicBreadcrumb /> */}
+        <DynamicBreadcrumb />
         {/* <CustomButton startIcon={<Plus />}>Request Advance Salary</CustomButton> */}
 
-        <CustomBreadcrumb name="Employee Clearance" />
+        {/* <CustomBreadcrumb name="Employee Clearance" /> */}
         {true && (
           <Button
             className="bg-[#296291] hover:bg-[#4080b4]"
@@ -43,7 +44,7 @@ const EmployeeClearanceEmptyScreen = () => {
 
       <Divider sx={{ mt: 1, mx: 2, mb: 2 }} />
 
-      {false ? (
+      {true ? (
         <ClearanceTable />
       ) : (
         <CompanyEmpty>
