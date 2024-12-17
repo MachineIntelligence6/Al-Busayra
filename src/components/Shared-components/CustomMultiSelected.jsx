@@ -5,8 +5,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabelTop from './InputLabel';
-import { Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import { custom } from '@/app/theme';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -24,6 +25,8 @@ const defaultOption = [
     { value: 'option1', label: 'Option 1' },
     { value: 'option2', label: 'Option 2' },
     { value: 'option3', label: 'Option 3' },
+    { value: 'option4', label: 'Option 4' },
+
 ];
 
 function getStyles(optionValue, selected, theme) {
@@ -46,6 +49,7 @@ const CustomMultiSelected = (props) => {
 
     const theme = useTheme();
     const [selected, setSelected] = useState([]);
+    const [dropdownOpen, setDropdownOpen] = useState(false)
 
     // Handle changes in selection
     const handleChange = (event) => {
@@ -59,7 +63,7 @@ const CustomMultiSelected = (props) => {
     };
 
     return (
-        <FormControl sx={{ m: 1, width: '100%' }}>
+        <FormControl sx={{ width: '100%' }}>
             {label && <InputLabelTop text={label} required={required} />}
 
             <Select
@@ -69,6 +73,10 @@ const CustomMultiSelected = (props) => {
                 onChange={handleChange}
                 input={<OutlinedInput />}
                 displayEmpty
+                open={dropdownOpen}
+                onOpen={() => setDropdownOpen(true)}
+                onClose={() => setDropdownOpen(false)}
+                IconComponent={() => dropdownOpen ? <ChevronDown size={18} style={{ margin: "0 8px" }} /> : <ChevronUp size={18} style={{ margin: "0 8px" }} />}
                 renderValue={(selected) => {
                     if (selected.length === 0) {
                         return (
@@ -84,10 +92,12 @@ const CustomMultiSelected = (props) => {
                         );
                     }
 
-                    // Display selected options
-                    return selected
-                        .map((value) => options.find((option) => option.value === value)?.label)
-                        .join(', ');
+                    return <Stack gap={1} direction="row" flexWrap="nowrap" overflow="auto" >
+                        {selected.map((val) => {
+                            const selectedOption = options.find((option) => option.value === val);
+                            return <Box sx={TagBoxstyle} key={val}>{selectedOption?.label || val}</Box>
+                        })}
+                    </Stack>
                 }}
                 MenuProps={MenuProps}
             >
@@ -106,3 +116,15 @@ const CustomMultiSelected = (props) => {
 };
 
 export default CustomMultiSelected;
+
+const TagBoxstyle = {
+    backgroundColor: '#E9EAEC',
+    padding: '2px 7px',
+    borderRadius: '7px',
+    color: '#0F132499',
+    fontSize: 12,
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    maxWidth: '120px'
+}

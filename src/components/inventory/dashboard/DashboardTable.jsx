@@ -10,6 +10,14 @@ import CustomAvatar from "@/components/Shared-components/CustomAvatar";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
 import { childData, dashboardTableData } from "@/utils/hard-data/inventory-data";
 import { useRouter } from "next/navigation";
+import DescriptiveText from "@/components/Shared-components/DescriptiveText";
+import CustomDropdownButton from "@/components/Shared-components/CustomDropdownButton";
+
+const statusButtons = [
+    { label: 'Company Status', value: 'compnay_status' },
+    { label: 'Vendor Status', value: 'vendor_status' },
+
+];
 
 const DashboardFilters = [
     { id: 1, filterName: "Bike Plate Number", placeholder: "1211" },
@@ -40,6 +48,8 @@ const DashboardFilters = [
 const DashboardTable = () => {
     const [selectedRows, setSelectedRows] = useState([]);
     const [expandedRows, setExpandedRows] = useState({});
+    const [selectedStatus, setSelectedStatus] = useState(statusButtons[0]);
+
     const router = useRouter()
 
 
@@ -161,12 +171,11 @@ const DashboardTable = () => {
                     borderBottom: "2px solid #2F2B3D1F",
                 }}
             >
-                <Typography variant="h6" sx={{ fontSize: 22, fontWeight: 400 }}>
+                <DescriptiveText text={selectedStatus?.label} fontSize={18} fontWeight={500} />
+                {/* <CustomButton endIcon={<ChevronDown />} sx={{ px: 3 }}>
                     Company Status
-                </Typography>
-                <CustomButton endIcon={<ChevronDown />} sx={{ px: 3 }}>
-                    Company Status
-                </CustomButton>
+                </CustomButton> */}
+                <CustomDropdownButton options={statusButtons} selectedValue={selectedStatus} setSelectedValue={setSelectedStatus} />
             </Box>
             <Box component="div" sx={{ p: 2, borderBottom: "1px solid #2F2B3D1F" }}>
                 <TableFilters bottomBorder={false} filters={DashboardFilters} />

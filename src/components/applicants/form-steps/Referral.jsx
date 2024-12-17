@@ -12,12 +12,9 @@ import { Box, Typography } from "@mui/material";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import CustomCountryCodeInput from "@/components/Shared-components/CustomCountryCodeInput";
 import CaptionText from "@/components/Shared-components/CaptionText";
+import { countryCodes } from "@/utils/hard-data/common";
 
-const countryCodes = [
-  { code: "+1", country: "USA" },
-  { code: "+91", country: "India" },
-  { code: "+44", country: "UK" },
-];
+
 
 export const Referral = ({ control }) => {
   const renderLabel = (label, required = false) => (

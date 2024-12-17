@@ -143,11 +143,7 @@ export default function Page() {
                       <ContactInfo />
                     </TabsContent>
                   </Tabs>
-                  {/* <button onClick={()=> setTabs('contact')}>Click me</button> */}
-                  {/* <AlertDialogFooter>
-                <AlertDialogCancel>Cancel</AlertDialogCancel>
-                <AlertDialogAction>Continue</AlertDialogAction>
-              </AlertDialogFooter> */}
+
                 </AlertDialogContent>
               </AlertDialog>
             </div>

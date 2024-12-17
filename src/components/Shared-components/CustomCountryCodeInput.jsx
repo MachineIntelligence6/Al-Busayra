@@ -9,9 +9,11 @@ import {
   Typography,
 } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { countryCodes } from "@/utils/hard-data/common";
 
+const defaultCodes = countryCodes
 const CustomCountryCodeInput = ({
-  countryCodes,
+  countryCodes = defaultCodes,
   value,
   onChange,
   error,
@@ -27,6 +29,7 @@ const CustomCountryCodeInput = ({
   const handleCountryCodeChange = (code) => {
     onChangeCode({ ...value, countryCode: code });
   };
+
 
   const handleNumberChange = (e) => {
     onChange(e);
@@ -90,6 +93,7 @@ const CustomCountryCodeInput = ({
                 borderRight: "2px solid lightgray", // Add border to the right to separate
               },
             }}
+            renderValue={(selected) => <Typography>{selected?.code ? selected?.code : "+97"}</Typography>}
             IconComponent={KeyboardArrowDownIcon}
             displayEmpty
           >

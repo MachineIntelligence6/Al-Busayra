@@ -22,7 +22,7 @@ const CompanyEmployees = () => {
         }}
       >
         <DynamicBreadcrumb />
-        <CustomButton startIcon={<Plus />}>Add Employee</CustomButton>
+        <CustomButton startIcon={<Plus />} onClick={() => setIsOpenModal(true)}>Add Employee</CustomButton>
       </Box>
       <Divider sx={{ mt: 1, mx: 2 }} />
 
