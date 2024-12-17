@@ -8,6 +8,7 @@ import CompanyEmpty from "../../CompanyEmpty";
 import AdvanceSalaryTableModal from "./table/AdvanceSalaryTableModal";
 import AdvanceSalaryTable from "./table";
 import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import CustomButton from "@/components/Shared-components/CustomButton";
 
 const AdvanceSalaryEmptyScreen = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -28,7 +29,7 @@ const AdvanceSalaryEmptyScreen = () => {
       >
         <DynamicBreadcrumb />
         <CustomButton startIcon={<Plus />}>Request Advance Salary</CustomButton>
-    
+
       </Box>
 
       <Divider sx={{ mt: 1, mx: 2, mb: 2 }} />

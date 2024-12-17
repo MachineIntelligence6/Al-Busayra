@@ -7,7 +7,7 @@ import Image from "next/image";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import GenericModal from "@/components/applicants/GenericModel";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
-import { assetAllocationData } from "@/utils/company-flow/asset-clarance-data";
+import { assetClarenceData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
 import AdvDetailModal from "../../advance-salary/view-detail";
 import CustomAvatar from "@/components/Shared-components/CustomAvatar";
@@ -226,7 +226,7 @@ const DLModalTable = () => {
         justifyContent="center"
         flexDirection="column"
         alignItems="center"
-        // height="90vh"
+      // height="90vh"
       >
         {/* <GenericModal
           open={isModalOpen}
@@ -248,7 +248,7 @@ const DLModalTable = () => {
           handleMenuClick={handleMenuClick}
           handleRowSelect={handleRowSelect}
           pathname={pathname}
-          tableData={assetAllocationData}
+          tableData={assetClarenceData}
           // Header export Row props
           totalEntries={totalEntries}
           setTotalEntries={handleTotalEntriesChange}

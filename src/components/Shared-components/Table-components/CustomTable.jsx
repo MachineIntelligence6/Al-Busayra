@@ -54,9 +54,9 @@ const allowedFields = [
 const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelectedOption = true, isFiltered = true, headTextTransform = "capitalize" }) => {
   const [selectedRows, setSelectedRows] = useState([]);
 
-  const isAllSelected = selectedRows.length === data.length && data.length > 0;
+  const isAllSelected = selectedRows.length === data?.length && data?.length > 0;
   const isIndeterminate =
-    selectedRows.length > 0 && selectedRows.length < data.length;
+    selectedRows.length > 0 && selectedRows?.length < data?.length;
 
   const handleSelectRow = (rowId) => {
     const updatedSelection = selectedRows.includes(rowId)

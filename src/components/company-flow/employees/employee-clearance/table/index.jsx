@@ -41,8 +41,6 @@ const ClearanceTable = () => {
   };
 
   const handleMenuClick = (value) => {
-    // if (value.action === "add-contract") router.push("corporate/add-contract");
-    if (value.action === "view") router.push("employees/view-employee");
     console.log("clicked menu", value);
     if (value.action === "reject") setShowModal(true);
   };
