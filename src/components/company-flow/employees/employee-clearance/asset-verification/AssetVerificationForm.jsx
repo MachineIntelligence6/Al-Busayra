@@ -19,6 +19,10 @@ const bikeOptions = [
 const AssetVerificationForm = () => {
   const router = useRouter();
 
+  const handleClick = () => {
+    router.push("/employees/employee-clearance");
+  };
+
   const inputFields = useMemo(() => {
     return [
       {
@@ -114,7 +118,11 @@ const AssetVerificationForm = () => {
         >
           Back
         </CustomButton>
-        <CustomButton endIcon={<Check />} sx={buttonStyle}>
+        <CustomButton
+          endIcon={<Check />}
+          sx={buttonStyle}
+          onClick={handleClick}
+        >
           Done
         </CustomButton>
       </Box>

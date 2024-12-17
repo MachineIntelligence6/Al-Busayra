@@ -54,7 +54,7 @@ const InventoryViewDetailModal = (props) => {
             {
                 field: "picture", headerName: "Permit picture", align: "left", render: (row) => (
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                        <Image size={22} color='#EB5757' />
+                        <Image size={22} color='#EB5757' alt="pic" />
                         <Typography>{row.picture}</Typography>
                         <Download size={22} />
                     </Box>

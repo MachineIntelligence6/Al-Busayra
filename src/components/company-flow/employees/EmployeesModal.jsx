@@ -18,9 +18,10 @@ import Image from "next/image";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import GenericModal from "@/components/applicants/GenericModel";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
-import { assetClarenceData } from "@/utils/company-flow/asset-clarance-data";
+import { assetAllocationData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
 import DetailModal from "./view-detail";
+import CustomAvatar from "@/components/Shared-components/CustomAvatar";
 
 const TableFiltersData = [
   {
@@ -134,6 +135,13 @@ const EmployeesModal = ({ open, onClose, title = "Employees Modal" }) => {
       field: "fullName",
       headerName: "FULL NAME AS PER EMIRATES ID",
       align: "left",
+      render: (row) => (
+        <CustomAvatar
+          fullName={row.fullName}
+          image={row.image}
+          email="abce@gmail.com"
+        />
+      ),
     },
     {
       field: "resident",
@@ -258,7 +266,7 @@ const EmployeesModal = ({ open, onClose, title = "Employees Modal" }) => {
             handleMenuClick={handleMenuClick}
             handleRowSelect={handleRowSelect}
             pathname={pathname}
-            tableData={assetClarenceData}
+            tableData={assetAllocationData}
             // Header export Row props
             totalEntries={totalEntries}
             setTotalEntries={handleTotalEntriesChange}

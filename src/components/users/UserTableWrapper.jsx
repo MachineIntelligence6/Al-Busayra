@@ -176,7 +176,7 @@ const UserTableWrapper = ({
     const startIndex = (currentPage - 1) * rowsPerPage;
     const endIndex = startIndex + rowsPerPage;
     return userData?.slice(startIndex, endIndex);
-  }, [currentPage, rowsPerPage]);
+  }, [currentPage, rowsPerPage, isActive]);
 
   return (
     <Box

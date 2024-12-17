@@ -9,7 +9,7 @@ import GenericModal from "@/components/applicants/GenericModel";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
 import { assetClarenceData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
-import CustomAvatar from "@/components/Shared-components/CustomAvatar";
+import AdvDetailModal from "../../advance-salary/view-detail";
 
 const TableFiltersData = [
   {
@@ -47,9 +47,11 @@ const TableFiltersData = [
 ];
 
 const actionMenu = [
-  { label: "Allocate Asset", route: "/asset-allocation/bike-assign" },
-  { label: "Asset Clearence", route: "/asset-clearance" },
-  { label: "View Details", route: "/admin/applicants/hold" },
+  {
+    label: "Request For Driving License",
+    route: "/employees/employee-clearance/asset-verification",
+  },
+  { label: "View Details" },
 ];
 
 const headerMenuItems = [
@@ -57,7 +59,7 @@ const headerMenuItems = [
   { label: "Delete", action: "delete" },
 ];
 
-const AddAssetTable = () => {
+const DLModalTable = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [filters, setFilters] = useState(TableFiltersData);
@@ -66,6 +68,7 @@ const AddAssetTable = () => {
   const [totalEntries, setTotalEntries] = useState(10);
   const [headerSearchValue, setHeaderSearchValue] = useState("");
   const rowsPerPage = 7;
+  const [showPopup, setShowPopup] = useState(false);
 
   // Handler for search input change
   const onSearchChange = (value) => {
@@ -93,6 +96,9 @@ const AddAssetTable = () => {
   const handleMenuClick = (menuItem) => {
     console.log("Menu clicked:", menuItem.label);
     router.push(menuItem.route);
+    if (menuItem.label === "View Details") {
+      setShowPopup(true); // Show popup
+    }
   };
 
   const handleFilterClick = (field) => {
@@ -122,13 +128,6 @@ const AddAssetTable = () => {
       field: "fullName",
       headerName: "FULL NAME AS PER EMIRATES ID",
       align: "left",
-      render: (row) => (
-        <CustomAvatar
-          fullName={row.fullName}
-          image={row.image}
-          email="abce@gmail.com"
-        />
-      ),
     },
     {
       field: "resident",
@@ -188,9 +187,19 @@ const AddAssetTable = () => {
       headerName: "ACTION",
       align: "left",
       render: (row) => (
+        // <ActionMenu
+        //   menuItems={actionMenu}
+        //   onMenuItemClick={(item) => router.push(item.route)}
+        // />
         <ActionMenu
           menuItems={actionMenu}
-          onMenuItemClick={(item) => router.push(item.route)}
+          onMenuItemClick={(item) => {
+            if (item.label === "View Details") {
+              setShowPopup(true); // Show popup for "View Details"
+            } else if (item.route) {
+              router.push(item.route); // Only push route if it's defined
+            }
+          }}
         />
       ),
     },
@@ -209,7 +218,7 @@ const AddAssetTable = () => {
         justifyContent="center"
         flexDirection="column"
         alignItems="center"
-        height="85vh"
+        // height="90vh"
       >
         {/* <GenericModal
           open={isModalOpen}
@@ -220,7 +229,8 @@ const AddAssetTable = () => {
         > */}
         <CustomTableWrapper
           // handleOpenModal={handleOpenModal}
-          handleCloseModal={handleCloseModal}
+          // handleCloseModal={handleCloseModal}
+          
           rowsPerPage={rowsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
@@ -241,13 +251,14 @@ const AddAssetTable = () => {
           menuItems={headerMenuItems}
           onSearchChange={onSearchChange}
           // btnText="Add New Item"
-          filterTitle="Selected Employees"
+          filterTitle="Select Employees"
         />
         {/* </GenericModal> */}
         {/* <Image src="/company/asset-clearence/bike-asset-clearence.svg" alt="bike" height="313" width="479" /> */}
+        {showPopup && <AdvDetailModal onClose={() => setShowPopup(false)} />}
       </Box>
     </>
   );
 };
 
-export default AddAssetTable;
+export default DLModalTable;

@@ -3,7 +3,7 @@ import TableExportRow from "@/components/Shared-components/Table-components/Tabl
 import TableFilters from "@/components/Shared-components/Table-components/TableFilters";
 import { Avatar, Box, Typography } from "@mui/material";
 import React, { useMemo, useState } from "react";
-import { advanceSalaryTableData } from "../../data";
+import { ClearanceTableData } from "../../data";
 import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
 import TablePagination from "@/components/Shared-components/Table-components/TablePagination";
 import Link from "next/link";
@@ -12,6 +12,7 @@ import CurrencyType from "@/components/Shared-components/CurrencyType";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
 import { useRouter } from "next/navigation";
 import RejectModal from "../../advance-salary/table/RejectModal";
+import { DownloadIcon, PdfIcon } from "@/utils/Icons";
 
 const filters = [
   { id: 1, filterName: "Employee ID", placeholder: "e.g" },
@@ -27,16 +28,6 @@ const filters = [
       { id: 3, label: "Option-3", value: "option-3" },
     ],
   },
-  // {
-  //   id: 4,
-  //   filterName: "City",
-  //   placeholder: "Islamabad",
-  //   options: [
-  //     { id: 1, label: "Islamabad", value: "islamabad" },
-  //     { id: 2, label: "Rawalpindi", value: "rawalpindi" },
-  //     { id: 3, label: "Peshawar", value: "peshawar" },
-  //   ],
-  // },
 ];
 
 const ClearanceTable = () => {
@@ -95,30 +86,46 @@ const ClearanceTable = () => {
           />
         ),
       },
-      { field: "date", headerName: "Date", align: "left" },
-      { field: "reason", headerName: "Reason", align: "left" },
       {
-        field: "amount",
-        headerName: "Amount",
+        field: "terminationReason",
+        headerName: "Reason of termination/Resign",
+        align: "left",
+      },
+      { field: "bike", headerName: "Bike", align: "left" },
+      { field: "sim", headerName: "Sim", align: "left" },
+      { field: "deduction", headerName: "Deductions", align: "left" },
+
+      {
+        field: "deductionAmount",
+        headerName: "Deduction Amount",
         align: "left",
         render: (row) => (
           <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-            <Typography sx={{ fontSize: "13px" }}>{row.amount}</Typography>
-            <CurrencyType />
+            <Typography sx={{ fontSize: "13px" }}>
+              {row.deductionAmount}
+            </Typography>
+            {row.deductionAmount !== "--" && <CurrencyType />}
           </Box>
         ),
       },
-      { field: "remarks", headerName: "Remarks", align: "left" },
       {
-        field: "createdByName",
-        headerName: "Created by",
+        field: "deductionReason",
+        headerName: "Deduction Reason",
+        align: "left",
+      },
+
+      {
+        field: "clearanceForm",
+        headerName: "Clearance Form",
         align: "left",
         render: (row) => (
-          <CustomAvatar
-            fullName={row.createdByName}
-            image={row.image1}
-            email="abce@gmail.com"
-          />
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            {row.clearanceForm !== "--" && <PdfIcon />}
+            <Typography sx={{ fontSize: "13px" }}>
+              {row.clearanceForm}
+            </Typography>
+            {row.clearanceForm !== "--" && <DownloadIcon />}
+          </Box>
         ),
       },
 
@@ -131,16 +138,16 @@ const ClearanceTable = () => {
             sx={{
               bgcolor:
                 (row.status === "Pending" && "#7367F029") ||
-                (row.status === "Approved" && "#28C76F29") ||
-                (row.status === "New Request" && "#FF9F4329") ||
-                (row.status === "Rejected" && "#FF4C5129") || // Example color for "Rejected"
-                "transparent", // Default background if no condition matches
+                (row.status === "Cleared" && "#28C76F29") ||
+                (row.status === "New Request" && "#00BAD129") ||
+                // (row.status === "Rejected" && "#FF4C5129") ||
+                "transparent",
               color:
                 (row.status === "Pending" && "#7367F0") ||
-                (row.status === "Approved" && "#28C76F") ||
-                (row.status === "New Request" && "#FF9F43") ||
-                (row.status === "Rejected" && "#FF4C51") || // Example color for "Rejected"
-                "inherit", // Default color if no condition matches
+                (row.status === "Cleared" && "#28C76F") ||
+                (row.status === "New Request" && "#00BAD1") ||
+                // (row.status === "Rejected" && "#FF4C51") ||
+                "inherit",
               borderRadius: "4px",
               p: "2px 10px",
               textAlign: "center",
@@ -170,12 +177,12 @@ const ClearanceTable = () => {
       <Box sx={{ height: "100%" }}>
         <CustomTable
           columns={fullColumns}
-          data={advanceSalaryTableData}
+          data={ClearanceTableData}
           onRowSelect={handleRowSelect}
           handleFilterClick={handleFilterClick}
           isSelectedOption={false}
         />
-        {/* <TablePagination /> */}
+        <TablePagination />
       </Box>
       {showModal && <RejectModal onClose={onClose} />}
     </Box>

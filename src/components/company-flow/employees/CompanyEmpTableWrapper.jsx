@@ -45,7 +45,8 @@ const CompanyEmpTableWrapper = () => {
   const router = useRouter();
   const handleMenuClick = (value) => {
     // if (value.action === "add-contract") router.push("corporate/add-contract");
-    if (value.action === "view") router.push("employees/view-employee");
+    if (value.action === "view")
+      router.push("/employees/add-employee/view-employee");
     console.log("clicked menu", value);
   };
 
@@ -99,7 +100,7 @@ const CompanyEmpTableWrapper = () => {
               border: `1px solid ${custom.deepBlue}`,
               padding: "7px 10px",
               borderRadius: "6px",
-              color: custom.deepBlue
+              color: custom.deepBlue,
             }}
           >
             {row.resident}
