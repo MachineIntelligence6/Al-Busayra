@@ -7,8 +7,9 @@ import Image from "next/image";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import GenericModal from "@/components/applicants/GenericModel";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
-import { assetClarenceData } from "@/utils/company-flow/asset-clarance-data";
+import { assetAllocationData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
+import CustomAvatar from "@/components/Shared-components/CustomAvatar";
 
 const TableFiltersData = [
   {
@@ -122,7 +123,15 @@ const AllocateAssetTable = () => {
       field: "fullName",
       headerName: "FULL NAME AS PER EMIRATES ID",
       align: "left",
+      render: (row) => (
+        <CustomAvatar
+          fullName={row.fullName}
+          image={row.image}
+          email="abce@gmail.com"
+        />
+      ),
     },
+
     {
       field: "resident",
       headerName: "RESIDENT",
@@ -142,40 +151,78 @@ const AllocateAssetTable = () => {
         </Typography>
       ),
     },
-    {
-      field: "drivingLicense",
-      headerName: "DRIVING LICENSE",
-      align: "left",
-    },
-    {
-      field: "passportNumber",
-      headerName: "PASSPORT NUMBER",
-      align: "left",
-    },
+
     {
       field: "phoneNumber",
       headerName: "PHONE NUMBER",
       align: "left",
     },
     {
-      field: "employeeType",
-      headerName: "EMPLOYEE TYPE",
+      field: "bikeNo",
+      headerName: "Bike No.",
       align: "left",
       render: (row) => (
         <Typography
-          variant="caption"
+          variant="body2"
           sx={{
-            backgroundColor: "#80839029",
-            // row.employeeType === "Rider" ? "#80839029" : "#FCE4EC",
-            padding: "4px 10px",
-            borderRadius: "3px",
-            color: "#2F2B3DE5",
+            borderBottom: "1px solid #20A4D5E5",
+            color: "#20A4D5E5",
+            cursor: "pointer",
+            width: "fit-content",
           }}
         >
-          {row.employeeType}
+          {row.bikeNo}
         </Typography>
       ),
     },
+    {
+      field: "simNo",
+      headerName: "Sim No.",
+      align: "left",
+      render: (row) => (
+        <Typography
+          variant="body2"
+          sx={{
+            borderBottom: "1px solid #20A4D5E5",
+            color: "#20A4D5E5",
+            cursor: "pointer",
+            width: "fit-content",
+          }}
+        >
+          {row.simNo}
+        </Typography>
+      ),
+    },
+    {
+      field: "status",
+      headerName: "Status",
+      align: "left",
+      render: (row) => (
+        <Box
+          sx={{
+            bgcolor:
+              (row.status === "Approval Pending" && "#7367F029") ||
+              (row.status === "Approved" && "#28C76F29") ||
+              (row.status === "New Request" && "#FF9F4329") ||
+              (row.status === "Rejected" && "#FF4C5129") || // Example color for "Rejected"
+              "transparent", // Default background if no condition matches
+            color:
+              (row.status === "Approval Pending" && "#7367F0") ||
+              (row.status === "Approved" && "#28C76F") ||
+              (row.status === "New Request" && "#FF9F43") ||
+              (row.status === "Rejected" && "#FF4C51") || // Example color for "Rejected"
+              "inherit", // Default color if no condition matches
+            borderRadius: "4px",
+            p: "2px 10px",
+            textAlign: "center",
+            width: "fit-content",
+          }}
+        >
+          <Typography sx={{ fontSize: "13px" }}>{row.status}</Typography>
+        </Box>
+      ),
+    },
+
     {
       field: "action",
       headerName: "ACTION",
@@ -210,7 +257,7 @@ const AllocateAssetTable = () => {
           handleMenuClick={handleMenuClick}
           handleRowSelect={handleRowSelect}
           pathname={pathname}
-          tableData={assetClarenceData}
+          tableData={assetAllocationData}
           // Header export Row props
           totalEntries={totalEntries}
           setTotalEntries={handleTotalEntriesChange}

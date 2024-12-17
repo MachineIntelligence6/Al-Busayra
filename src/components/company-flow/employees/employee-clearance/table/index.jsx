@@ -171,7 +171,7 @@ const ClearanceTable = () => {
   }, []);
 
   return (
-    <Box sx={{ bgcolor: "white", mx: 2, }}>
+    <Box sx={{ bgcolor: "white", mx: 2 }}>
       <TableFilters bottomBorder={false} filters={filters} />
       <TableExportRow isBtnAdd={false} />
       <Box sx={{ height: "100%" }}>

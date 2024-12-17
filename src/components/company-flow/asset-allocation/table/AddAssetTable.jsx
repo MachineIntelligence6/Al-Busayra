@@ -9,6 +9,7 @@ import GenericModal from "@/components/applicants/GenericModel";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
 import { assetClarenceData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
+import CustomAvatar from "@/components/Shared-components/CustomAvatar";
 
 const TableFiltersData = [
   {
@@ -121,6 +122,13 @@ const AddAssetTable = () => {
       field: "fullName",
       headerName: "FULL NAME AS PER EMIRATES ID",
       align: "left",
+      render: (row) => (
+        <CustomAvatar
+          fullName={row.fullName}
+          image={row.image}
+          email="abce@gmail.com"
+        />
+      ),
     },
     {
       field: "resident",
@@ -212,7 +220,7 @@ const AddAssetTable = () => {
         > */}
         <CustomTableWrapper
           // handleOpenModal={handleOpenModal}
-          // handleCloseModal={handleCloseModal}
+          handleCloseModal={handleCloseModal}
           rowsPerPage={rowsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
