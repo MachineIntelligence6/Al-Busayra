@@ -22,6 +22,10 @@ const reasonOptions = [
 const AdvanceSalaryFormCard = () => {
   const router = useRouter();
 
+  const handleClick = () => {
+    router.push("/employees/advance-salary");
+  };
+
   const inputFields = useMemo(() => {
     return [
       {
@@ -109,7 +113,11 @@ const AdvanceSalaryFormCard = () => {
         >
           Back
         </CustomButton>
-        <CustomButton endIcon={<Check />} sx={buttonStyle}>
+        <CustomButton
+          endIcon={<Check />}
+          sx={buttonStyle}
+          onClick={handleClick}
+        >
           Done
         </CustomButton>
       </Box>

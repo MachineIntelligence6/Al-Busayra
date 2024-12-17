@@ -80,6 +80,8 @@ const CustomTableWrapper = ({
           data={paginatedData}
           onRowSelect={handleRowSelect}
           handleFilterClick={handleFilterClick}
+          isSelectedOption={false}
+
         />
         {/* Pagination Component */}
         <TablePagination

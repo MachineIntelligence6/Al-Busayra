@@ -48,7 +48,7 @@ const TableFiltersData = [
 
 const actionMenu = [
   {
-    label: "Clearance Request",
+    label: "Request For Driving License",
     route: "/employees/employee-clearance/asset-verification",
   },
   { label: "View Details" },
@@ -59,7 +59,7 @@ const headerMenuItems = [
   { label: "Delete", action: "delete" },
 ];
 
-const EmployeeClearanceTable = () => {
+const DLModalTable = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [filters, setFilters] = useState(TableFiltersData);
@@ -230,6 +230,7 @@ const EmployeeClearanceTable = () => {
         <CustomTableWrapper
           // handleOpenModal={handleOpenModal}
           // handleCloseModal={handleCloseModal}
+          
           rowsPerPage={rowsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
@@ -260,4 +261,4 @@ const EmployeeClearanceTable = () => {
   );
 };
 
-export default EmployeeClearanceTable;
+export default DLModalTable;
