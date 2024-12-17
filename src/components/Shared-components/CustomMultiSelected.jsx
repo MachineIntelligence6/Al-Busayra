@@ -74,7 +74,6 @@ const CustomMultiSelected = (props) => {
                 input={<OutlinedInput />}
                 displayEmpty
                 open={dropdownOpen}
-                open={dropdownOpen}
                 onOpen={() => setDropdownOpen(true)}
                 onClose={() => setDropdownOpen(false)}
                 IconComponent={() => dropdownOpen ? <ChevronDown size={18} style={{ margin: "0 8px" }} /> : <ChevronUp size={18} style={{ margin: "0 8px" }} />}
