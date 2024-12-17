@@ -1,9 +1,9 @@
 import ViewEmployeeHeader from "@/components/Shared-components/ViewEmployeeHeader";
 import { Box } from "@mui/material";
 import React, { useRef } from "react";
-import AdvDetailCard from "../advance-salary/view-detail/AdvDetailCard";
+import DetailCard from "./AdvDetailCard";
 
-const DetailModal = ({ onClose }) => {
+const AdvDetailModal = ({ onClose }) => {
   const PopUpRef = useRef(null);
   const closePopUp = (e) => {
     if (PopUpRef.current === e.target) {
@@ -44,7 +44,7 @@ const DetailModal = ({ onClose }) => {
         </Box>
         <Box>
           <Box sx={{ width: "1188px" }}>
-            <AdvDetailCard />
+            <DetailCard />
           </Box>
         </Box>
       </Box>
@@ -52,4 +52,4 @@ const DetailModal = ({ onClose }) => {
   );
 };
 
-export default DetailModal;
+export default AdvDetailModal;

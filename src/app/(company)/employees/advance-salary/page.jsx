@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import AdvanceSalaryEmptyScreen from "@/components/company-flow/employees/advance-salary";
 
 const page = () => {
-    return (
-        <div>
-            advance salary
-        </div>
-    )
-}
+  return (
+    <div>
+      <AdvanceSalaryEmptyScreen />
+    </div>
+  );
+};
 
-export default page
+export default page;

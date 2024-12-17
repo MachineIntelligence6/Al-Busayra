@@ -46,9 +46,11 @@ const TableFiltersData = [
 ];
 
 const actionMenu = [
-  { label: "Allocate Asset", route: "/asset-allocation/bike-assign" },
-  { label: "Asset Clearence", route: "/asset-clearance" },
-  { label: "View Details", route: "/admin/applicants/hold" },
+  {
+    label: "Clearance Request",
+    route: "/employees/employee-clearance/asset-verification",
+  },
+  { label: "View Details" },
 ];
 
 const headerMenuItems = [
@@ -56,7 +58,7 @@ const headerMenuItems = [
   { label: "Delete", action: "delete" },
 ];
 
-const AllocateAssetTable = () => {
+const EmployeeClearanceTable = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [filters, setFilters] = useState(TableFiltersData);
@@ -65,6 +67,7 @@ const AllocateAssetTable = () => {
   const [totalEntries, setTotalEntries] = useState(10);
   const [headerSearchValue, setHeaderSearchValue] = useState("");
   const rowsPerPage = 7;
+  const [showPopup, setShowPopup] = useState(false);
 
   // Handler for search input change
   const onSearchChange = (value) => {
@@ -92,6 +95,9 @@ const AllocateAssetTable = () => {
   const handleMenuClick = (menuItem) => {
     console.log("Menu clicked:", menuItem.label);
     router.push(menuItem.route);
+    if (menuItem.label === "View Details") {
+      setShowPopup(true); // Show popup
+    }
   };
 
   const handleFilterClick = (field) => {
@@ -111,7 +117,6 @@ const AllocateAssetTable = () => {
             borderBottom: "1px solid #20A4D5E5",
             color: "#20A4D5E5",
             cursor: "pointer",
-            width: "fit-content",
           }}
         >
           {row.id}
@@ -181,9 +186,19 @@ const AllocateAssetTable = () => {
       headerName: "ACTION",
       align: "left",
       render: (row) => (
+        // <ActionMenu
+        //   menuItems={actionMenu}
+        //   onMenuItemClick={(item) => router.push(item.route)}
+        // />
         <ActionMenu
           menuItems={actionMenu}
-          onMenuItemClick={(item) => router.push(item.route)}
+          onMenuItemClick={(item) => {
+            if (item.label === "View Details") {
+              setShowPopup(true); // Show popup for "View Details"
+            } else if (item.route) {
+              router.push(item.route); // Only push route if it's defined
+            }
+          }}
         />
       ),
     },
@@ -191,16 +206,29 @@ const AllocateAssetTable = () => {
 
   return (
     <>
+      {/* <Box sx={{ px: 2 }}>
+        <DynamicBreadcrumb isBtnShow={true} icon={<AddOutlinedIcon />} btnName="Allocate Asset" onClick={handleOpenModal} />
+      </Box>
+      <Divider sx={{ mt: 2 }} /> */}
+
       <Box
         component="div"
         display="flex"
         justifyContent="center"
         flexDirection="column"
         alignItems="center"
+        height="85vh"
       >
+        {/* <GenericModal
+          open={isModalOpen}
+          onClose={handleCloseModal}
+          title="Applicants Modal"
+          height="80vh"
+          width="100%"
+        > */}
         <CustomTableWrapper
-          isShow={false}
-          isWidth={true}
+          // handleOpenModal={handleOpenModal}
+          // handleCloseModal={handleCloseModal}
           rowsPerPage={rowsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
@@ -215,15 +243,20 @@ const AllocateAssetTable = () => {
           totalEntries={totalEntries}
           setTotalEntries={handleTotalEntriesChange}
           isBtnAdd={false}
-          isExportBtn={true}
-          isActionMenu={true}
+          isExportBtn={false}
+          isActionMenu={false}
           showSearch={true}
           menuItems={headerMenuItems}
           onSearchChange={onSearchChange}
+          // btnText="Add New Item"
+          filterTitle="Select Employees"
         />
+        {/* </GenericModal> */}
+        {/* <Image src="/company/asset-clearence/bike-asset-clearence.svg" alt="bike" height="313" width="479" /> */}
+        {showPopup && <AdvDetailModal onClose={() => setShowPopup(false)} />}
       </Box>
     </>
   );
 };
 
-export default AllocateAssetTable;
+export default EmployeeClearanceTable;
