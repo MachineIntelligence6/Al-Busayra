@@ -29,6 +29,7 @@ const RejectModal = ({ onClose }) => {
     // router.push("/employees/advance-salary");
   };
 
+
   return (
     <Box
       ref={PopUpRef}
@@ -70,7 +71,7 @@ const RejectModal = ({ onClose }) => {
         <TextField
           name="remarks"
           id="remarks"
-          label="Type your remarks here ..."
+          placeholder="Type your remarks here ..."
           multiline
           rows={5}
           variant="outlined"
@@ -100,7 +101,7 @@ const RejectModal = ({ onClose }) => {
             variant="outlined"
             bgColor="danger"
             startIcon={<HighlightOffIcon />}
-            onClick={handleSave} // Assuming you want this to close the modal
+            onClick={onClose} // Assuming you want this to close the modal
           >
             Cancel
           </CustomButton>
