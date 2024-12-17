@@ -159,6 +159,7 @@ const AddUserModal = ({ open, onClose }) => {
                                         onChange: field.onChange,
                                         placeholder,
                                         options,
+                                        countryCodes,
                                         error,
 
                                     })

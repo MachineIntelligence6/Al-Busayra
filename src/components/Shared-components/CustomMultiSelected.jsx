@@ -7,6 +7,7 @@ import Select from '@mui/material/Select';
 import InputLabelTop from './InputLabel';
 import { Box, Stack, Typography } from '@mui/material';
 import { custom } from '@/app/theme';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -48,6 +49,7 @@ const CustomMultiSelected = (props) => {
 
     const theme = useTheme();
     const [selected, setSelected] = useState([]);
+    const [dropdownOpen, setDropdownOpen] = useState(false)
 
     // Handle changes in selection
     const handleChange = (event) => {
@@ -71,6 +73,11 @@ const CustomMultiSelected = (props) => {
                 onChange={handleChange}
                 input={<OutlinedInput />}
                 displayEmpty
+                open={dropdownOpen}
+                open={dropdownOpen}
+                onOpen={() => setDropdownOpen(true)}
+                onClose={() => setDropdownOpen(false)}
+                IconComponent={() => dropdownOpen ? <ChevronDown size={18} style={{ margin: "0 8px" }} /> : <ChevronUp size={18} style={{ margin: "0 8px" }} />}
                 renderValue={(selected) => {
                     if (selected.length === 0) {
                         return (
