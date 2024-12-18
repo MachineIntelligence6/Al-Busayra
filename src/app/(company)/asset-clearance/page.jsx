@@ -1,6 +1,6 @@
 "use client"
 import { Box, Divider, Typography } from "@mui/material";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
 import Image from "next/image";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
@@ -13,11 +13,18 @@ import CustomAvatar from "@/components/Shared-components/CustomAvatar";
 import { useAssetClearance } from "@/hooks/useAssetClearance";
 import { actionMenu, headerMenuItems } from "@/app/constants/assetClearance";
 import { StatusIndicator } from "@/components/applicants/StatusIndicator";
+import { useEffect, useState } from "react";
 
 const Page = () => {
+  const [isTable, setIsTable] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setIsTable(params.get("istable") === "true");
+  }, []);
 
   const {
     modalFilterData,
@@ -35,7 +42,7 @@ const Page = () => {
     setCurrentPage,
   } = useAssetClearance();
 
-  const isTable = searchParams.get("istable");
+  // const isTable = searchParams.get("istable");
 
    const column = [
     {
