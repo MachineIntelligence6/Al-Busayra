@@ -13,11 +13,17 @@ import CustomAvatar from "@/components/Shared-components/CustomAvatar";
 import { useAssetClearance } from "@/hooks/useAssetClearance";
 import { actionMenu, headerMenuItems } from "@/app/constants/assetClearance";
 import { StatusIndicator } from "@/components/applicants/StatusIndicator";
+import { useEffect, useState } from "react";
 
 const Page = () => {
+  const [isTable, setIsTable] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  // const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setIsTable(params.get("istable") === "true");
+  }, []);
 
   const {
     modalFilterData,
@@ -34,8 +40,6 @@ const Page = () => {
     handleTotalEntriesChange,
     setCurrentPage,
   } = useAssetClearance();
-
-  // const isTable = searchParams.get("istable");
 
   const column = [
     {
@@ -233,9 +237,9 @@ const Page = () => {
             filterTitle="Selected Employees"
           />
         </GenericModal>
-        {false && <Image src="/company/asset-clearence/bike-asset-clearence.svg" alt="bike" height={313} width={479} />}
+        {!isTable && <Image src="/company/asset-clearence/bike-asset-clearence.svg" alt="bike" height={313} width={479} />}
       </Box>
-      {true && (
+      {isTable && (
         <Box sx={{ bgcolor: "white", m: 1.5, borderRadius: "25px", boxShadow: "0px 3px 12px 0px rgba(47, 43, 61, 0.14)" }}>
           <CustomTableWrapper
             handleOpenModal={handleOpenModal}
