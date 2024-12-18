@@ -31,8 +31,7 @@ const CompanyLayout = ({ children }) => {
                 sx={{
                     bgcolor: "#F8F7FA",
                     flexGrow: 1,
-                    borderRadius: "30px",
-                    pt: 3,
+                    borderRadius: 7,
                     overflow: "auto",
                     display: "flex",
                     flexDirection: "column",

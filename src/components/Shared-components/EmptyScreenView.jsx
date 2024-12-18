@@ -13,6 +13,7 @@ const EmptyScreenView = ({
   buttonText,
   onButtonClick,
   descriptionTag,
+  icon = <Plus />,
   showButton = true, // Default to true, button will show by default
 
 }) => {
@@ -24,6 +25,8 @@ const EmptyScreenView = ({
         alignItems: "center",
         flexDirection: "column",
         gap: 3,
+        width: '100%',
+        height: "100%"
       }}
     >
       <Box component="figure" className="w-fit">
@@ -34,7 +37,7 @@ const EmptyScreenView = ({
         {description && <DescriptiveText text={description} fontSize={16} fontWeight={400} color={custom.breadcrumbText} />}
         {/* Conditionally render the button */}
         {showButton && (
-          <CustomButton onClick={onButtonClick} sx={{ px: 4 }} startIcon={<Plus />}>
+          <CustomButton onClick={onButtonClick} sx={{ px: 4 }} startIcon={icon}>
             {buttonText}
           </CustomButton>
         )}

@@ -16,7 +16,7 @@ import CaptionText from "../Shared-components/CaptionText";
 import { custom } from "@/app/theme";
 
 const renderLabel = (label, required = false) => (
-  <Typography variant="body1" component="span" sx={{fontSize: "16px", color: custom.primaryText, fontWeight: 500, lineHeight: "18px"}}>
+  <Typography variant="body1" component="span" sx={{ fontSize: "16px", color: custom.primaryText, fontWeight: 500, lineHeight: "18px" }}>
     {label}
     {required && (
       <Typography component="span" color="error">
@@ -183,20 +183,6 @@ export default function ChallansForm({ handleCloseModal }) {
                       <CaptionText text={label} required />
                     </Box>
                     <Box sx={{ flex: "1", width: "80%" }}>
-                      {/* <Controller
-                        name={name}
-                        control={control}
-                        defaultValue=""
-                        render={({ field, fieldState: { error } }) =>
-                          createElement(component, {
-                            value: field.value,
-                            onChange: field.onChange,
-                            placeholder,
-                            error,
-                            accept,
-                          })
-                        }
-                      /> */}
                       <Controller
                         name={name}
                         control={control}

@@ -25,10 +25,10 @@ const Page = () => {
 
   return (
     <>
-      <Box sx={{ px: 2 }}>
+      <Box sx={{}}>
         <DynamicBreadcrumb />
       </Box>
-      <Divider sx={{ mt: 2 }} />
+      <Divider sx={{}} />
 
       <Box component="div" display="flex" justifyContent="center" flexDirection="column" alignItems="center" height="80vh">
         {/* <GenericModal

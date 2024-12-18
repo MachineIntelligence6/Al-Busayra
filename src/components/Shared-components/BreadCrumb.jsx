@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Box, Breadcrumbs, Typography } from "@mui/material";
+import { Box, Breadcrumbs, Divider, Typography } from "@mui/material";
 import CustomButton from "./CustomButton";
 import { custom } from "@/app/theme";
 
@@ -31,7 +31,7 @@ const DynamicBreadcrumb = ({
 
   return (
     <Box display="flex" justifyContent="space-between" alignItems="center"  >
-      <Breadcrumbs aria-label="breadcrumb">
+      <Breadcrumbs aria-label="breadcrumb" sx={{ py: 2 }}>
         {breadcrumbs.map((crumb, index) => {
           const isLast = index === breadcrumbs.length - 1;
           return isLast ? (
@@ -64,6 +64,7 @@ const DynamicBreadcrumb = ({
           </CustomButton>
         )}
       </Box>
+
     </Box>
   );
 };
