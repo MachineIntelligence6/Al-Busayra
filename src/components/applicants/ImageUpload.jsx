@@ -2,13 +2,11 @@ import React from "react";
 import {
   Box,
   IconButton,
-  Button,
   FormHelperText,
 } from "@mui/material";
-import PhotoCamera from "@mui/icons-material/PhotoCamera";
-import FileUploadIcon from "@mui/icons-material/FileUpload";
 import Image from "next/image";
 import CustomButton from "../Shared-components/CustomButton";
+import { CameraIcon ,WhiteUploadIcon} from "@/utils/Icons";
 
 const ImageUpload = ({
   onFileChange,
@@ -23,7 +21,7 @@ const ImageUpload = ({
   };
 
   return (
-    <Box mb={3} textAlign="center" display="flex" flexDirection="column" width="23%">
+    <Box mb={3} textAlign="center" display="flex" flexDirection="column" width="22%">
       <IconButton
         sx={{
           background: "#E9EAEC",
@@ -31,9 +29,9 @@ const ImageUpload = ({
           borderRadius: "10px",
           position: "relative",
           pointerEvents: "none", // Disable interaction with IconButton
-          width: "130px",
-          height:"130px",
-          padding: "0px"
+          width: "100px",
+          height:"100px",
+          margin: "10px 0 0 0"
         }}
         aria-label="upload picture"
         variant="outlined"
@@ -52,7 +50,7 @@ const ImageUpload = ({
             }}
           />
         ) : (
-          <PhotoCamera fontSize="large" color="action" />
+          <CameraIcon />
         )}
       </IconButton>
       <input
@@ -67,7 +65,7 @@ const ImageUpload = ({
       />
       <CustomButton
         variant="contained"
-        endIcon={<FileUploadIcon sx={{ width: "15px" }} />}
+        endIcon={<WhiteUploadIcon sx={{ width: "15px" }} />}
         sx={{ mt: 2 }}
         type="button"
         onClick={handleFileSelect} // Trigger file selection dialog

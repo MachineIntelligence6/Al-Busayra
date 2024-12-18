@@ -13,7 +13,7 @@ import { useParams } from "next/navigation";
 // import EmployeeClearanceTableModal from "./table/EmployeeClearanceTableModal";
 // import ClearanceTable from "./table";
 
-const DlRequestEmptyScreen = () => {
+const DrivingLicenseRequest = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [showTable, setShowTable] = useState(false);
 
@@ -48,10 +48,12 @@ const DlRequestEmptyScreen = () => {
         )}
       </Box>
 
-      <Divider sx={{ mt: 1, mx: 2, mb: 2 }} />
+      <Divider sx={{ mt: 2, mx: 2 }} />
 
-      {showTable ? (
-        <DLTable />
+      {true ? (
+        <Box sx={{ mt: 2 }}>
+          <DLTable />
+        </Box>
 
       ) : (
         <CompanyEmpty>
@@ -70,4 +72,4 @@ const DlRequestEmptyScreen = () => {
   );
 };
 
-export default DlRequestEmptyScreen;
+export default DrivingLicenseRequest;

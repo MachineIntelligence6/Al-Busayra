@@ -39,6 +39,7 @@ const theme = createTheme({
       muted: "#2F2B3D66",
       errorDark: "#E64449",
       errorButton: "#FF4C51",
+      placeHolder:"#2F2B3D66"
     },
   },
 });

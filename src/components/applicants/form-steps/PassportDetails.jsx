@@ -6,10 +6,11 @@ import CustomFileUploadField from "@/components/Shared-components/CustomFIleUplo
 import CustomDateField from "@/components/Shared-components/CustomDateField";
 import IOSSwitch from "@/components/ui/switch-button";
 import CaptionText from "@/components/Shared-components/CaptionText";
+import { custom } from "@/app/theme";
 
 export const PassportDetails = ({ control }) => {
   const renderLabel = (label, required = false) => (
-    <Typography variant="body1" component="span">
+    <Typography variant="body1" component="span" sx={{fontSize: "16px", color: custom.primaryText, fontWeight: 500, lineHeight: "18px"}}>
       {label}
       {required && <Typography component="span" color="error"> *</Typography>}
     </Typography>

@@ -13,9 +13,10 @@ import { ChallansSchema } from "@/utils/schemas/ChallanFormSchema";
 import CustomSelect from "../Shared-components/CustomSelect";
 import CustomFileUploadField from "../Shared-components/CustomFIleUploadField";
 import CaptionText from "../Shared-components/CaptionText";
+import { custom } from "@/app/theme";
 
 const renderLabel = (label, required = false) => (
-  <Typography variant="body1" component="span">
+  <Typography variant="body1" component="span" sx={{fontSize: "16px", color: custom.primaryText, fontWeight: 500, lineHeight: "18px"}}>
     {label}
     {required && (
       <Typography component="span" color="error">

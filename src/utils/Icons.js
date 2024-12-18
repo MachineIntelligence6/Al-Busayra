@@ -17,6 +17,25 @@ export const FIleIcon = () => {
     );
 };
 
+export const CameraIcon = () => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <path d="M5.8079 8.13227H6.96967C8.25292 8.13227 9.2932 7.09199 9.2932 5.80874C9.2932 5.16711 9.81334 4.64697 10.455 4.64697H17.4256C18.0672 4.64697 18.5873 5.16711 18.5873 5.80874C18.5873 7.09199 19.6276 8.13227 20.9108 8.13227H22.0726C23.3559 8.13227 24.3961 9.17255 24.3961 10.4558V20.9117C24.3961 22.1949 23.3559 23.2352 22.0726 23.2352H5.8079C4.52465 23.2352 3.48438 22.1949 3.48438 20.9117V10.4558C3.48438 9.17255 4.52465 8.13227 5.8079 8.13227" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.74265" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="13.9404" cy="15.103" r="3.48529" stroke="#2F2B3D" stroke-opacity="0.9" stroke-width="1.74265" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    );
+};
+
+export const WhiteUploadIcon = () => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M2.33398 9.91675V11.0834C2.33398 11.7277 2.85632 12.2501 3.50065 12.2501H10.5007C11.145 12.2501 11.6673 11.7277 11.6673 11.0834V9.91675" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4.08398 5.24992L7.00065 2.33325L9.91732 5.24992" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M7.00065 2.33325V9.33325" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    );
+};
+
 export const UploadIcon = () => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">

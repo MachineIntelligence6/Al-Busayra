@@ -11,7 +11,7 @@ export const AddUserInfoFields = ({ control }) => {
   const { setValue } = useFormContext();
 
   const renderLabel = (label, required = false) => (
-    <Typography variant="body1" component="span">
+    <Typography variant="body1" component="span" sx={{fontSize: "16px", color: custom.primaryText, fontWeight: 500, lineHeight: "18px", textTransform: "capitalize"}}>
       {label}
       {required && <Typography component="span" color="error"> *</Typography>}
     </Typography>

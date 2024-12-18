@@ -252,6 +252,7 @@ const ApplicantsTableWrapper = ({
           data={paginatedData}
           onRowSelect={handleRowSelect}
           handleFilterClick={handleFilterClick}
+          isFiltered={true}
         />
         {/* Pagination Component */}
         <TablePagination
