@@ -134,7 +134,7 @@ export const companyMenuData = [
         label: "Driving License Request",
         url: "/employees/driving-license-request",
       },
-      { id: "2-4", label: "EMP Ledger", url: "/employees/emp-ledger" },
+      // { id: "2-4", label: "EMP Ledger", url: "/employees/emp-ledger" },
       { id: "2-5", label: "Employee Clearance", url: "/employees/employee-clearance" },
       {
         id: "2-6",
@@ -150,7 +150,7 @@ export const companyMenuData = [
       { id: "2-9", label: "General Deduction", url: "/employees/general-deduction" },
       { id: "2-10", label: "Passport Return", url: "/employees/passport-return" },
       { id: "2-11", label: "Passport Acceptance", url: "/employees/passport-acceptance" },
-      { id: "2-12", label: "Payroll", url: "/employees/payroll" },
+      // { id: "2-12", label: "Payroll", url: "/employees/payroll" },
       { id: "2-13", label: "Special Allowance", url: "/employees/special-allowance" },
       { id: "2-14", label: "Loan", url: "/employees/loan" },
     ],
