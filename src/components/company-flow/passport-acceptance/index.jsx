@@ -7,17 +7,17 @@ import CompanyHeader from "@/components/Shared-components/CompanyHeader";
 import DescriptiveText from "@/components/Shared-components/DescriptiveText";
 import { custom } from "@/app/theme";
 import CompanyTableModal from "@/components/Shared-components/modals/CompanyTableModal";
-import GeneralDeductionModalTable from "./table/GeneralDeductionModalTable";
-import GeneralDeductionTable from "./table";
+import PassportAcceptanceTable from "./table/PassportAcceptanceTable";
+import PassportTable from "./table";
 
-const GereralDeduction = ({ params }) => {
+const PassportAcceptance = ({ params }) => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [showTable, setShowTable] = useState(false);
+  const [showTable, setShowTable] = useState(true);
 
-  useEffect(() => {
-    let isShowTable = Boolean(params?.table === "true" ? true : false);
-    setShowTable(isShowTable);
-  }, []);
+    useEffect(() => {
+      let isShowTable = Boolean(params?.table === "true" ? true : false);
+      setShowTable(isShowTable);
+    }, []);
 
   return (
     <>
@@ -25,33 +25,35 @@ const GereralDeduction = ({ params }) => {
         <Box>
           <CompanyHeader>
             <DescriptiveText
-              text={"General Deduction"}
+              text={"Passport Return"}
               fontSize={18}
               fontWeight={500}
               color={custom.dreadcrumbText}
             />
           </CompanyHeader>
           <Box sx={{ p: 2 }}>
-            <GeneralDeductionTable />
+            <PassportTable />
           </Box>
         </Box>
       ) : (
-        <CompanyEmpty heading="General Deduction">
+        <CompanyEmpty heading="Passport Return">
           <EmptyScreenView
-            image="/company/icons/general-deduction.svg"
-            buttonText="General Deduction"
-            icon={null}
+            image="/company/passport1.svg"
+            altText="passport-return"
+            title="No Passport Acceptance Request"
+            description="Please click the button below to add passport acceptance request."
+            buttonText="Create Request"
             onButtonClick={() => setModalOpen(true)}
           />
         </CompanyEmpty>
       )}
       {modalOpen && (
         <CompanyTableModal open={modalOpen} onClose={() => setModalOpen(false)}>
-          <GeneralDeductionModalTable />
+          <PassportAcceptanceTable />
         </CompanyTableModal>
       )}
     </>
   );
 };
 
-export default GereralDeduction;
+export default PassportAcceptance;

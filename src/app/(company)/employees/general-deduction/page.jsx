@@ -1,9 +1,9 @@
-import GereralDeduction from '@/components/company-flow/general-deduction-components'
 import React from 'react'
+import GereralDeduction from '@/components/company-flow/general-deduction-components'
 
-const Page = () => {
+const Page = ({searchParams}) => {
     return (
-        <GereralDeduction />
+        <GereralDeduction params={searchParams}/>
     )
 }
 
