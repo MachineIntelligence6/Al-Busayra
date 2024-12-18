@@ -60,6 +60,22 @@ export function StatusIndicator({ status, pathname }) {
         backgroundColor = '#D9F0FF';
         textColor = '#00BAD1';
         break;
+      case 'Currently Assigned' || "Close":
+        backgroundColor = '#E5F8E5';
+        textColor = '#00A000';
+        break;
+      case "Close":
+        backgroundColor = '#E5F8E5';
+        textColor = '#00A000';
+        break;
+      case "Approved":
+        backgroundColor = '#E5F8E5';
+        textColor = '#00A000';
+        break;
+      case "Approval Pending":
+        backgroundColor = '#7367F029';
+        textColor = '#7367F0';
+        break;
       default:
         break;
     }
