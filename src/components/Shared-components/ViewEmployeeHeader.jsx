@@ -84,7 +84,7 @@ const ViewEmployeeHeader = ({
                 {buttons.map((button, index) => (
                   <CustomButton
                     key={index}
-                    variant="contained"
+                    variant={button.variant}
                     startIcon={button.startIcon}
                     endIcon={button.endIcon}
                     sx={{ mt: 2 }}

@@ -8,6 +8,7 @@ import CompanyEmpty from "../../CompanyEmpty";
 import AdvanceSalaryTableModal from "./table/AdvanceSalaryTableModal";
 import AdvanceSalaryTable from "./table";
 import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import CustomButton from "@/components/Shared-components/CustomButton";
 
 const AdvanceSalaryEmptyScreen = () => {
   const [showPopup, setShowPopup] = useState(false);

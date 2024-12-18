@@ -141,7 +141,7 @@ export const companyMenuData = [
         label: "Employee Information Base",
         url: "/employee-information-base",
       },
-      { id: "2-7", label: "Employee Transfer", url: "/employee-transfer" },
+      { id: "2-7", label: "Employee Transfer", url: "/employees/employee-transfer" },
       {
         id: "2-8",
         label: "Food Permit Deduction",
