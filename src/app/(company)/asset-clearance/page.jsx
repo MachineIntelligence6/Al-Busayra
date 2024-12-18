@@ -1,6 +1,6 @@
 "use client"
 import { Box, Divider, Typography } from "@mui/material";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
 import Image from "next/image";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
@@ -17,7 +17,7 @@ import { StatusIndicator } from "@/components/applicants/StatusIndicator";
 const Page = () => {
   const pathname = usePathname();
   const router = useRouter();
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
 
   const {
     modalFilterData,
@@ -35,9 +35,9 @@ const Page = () => {
     setCurrentPage,
   } = useAssetClearance();
 
-  const isTable = searchParams.get("istable");
+  // const isTable = searchParams.get("istable");
 
-   const column = [
+  const column = [
     {
       field: "id",
       headerName: "ID",
@@ -154,9 +154,9 @@ const Page = () => {
       group: "details",
       align: "left",
       render: (row) => (
-       <StatusIndicator
-        status={row.status}
-        pathname={pathname}
+        <StatusIndicator
+          status={row.status}
+          pathname={pathname}
         />
       ),
     },
@@ -199,7 +199,7 @@ const Page = () => {
   };
 
   const basicColumns = getColumnsByGroup("basic");
-  const detailsColumns = getColumnsByGroup("details"); 
+  const detailsColumns = getColumnsByGroup("details");
 
   return (
     <>
@@ -233,9 +233,9 @@ const Page = () => {
             filterTitle="Selected Employees"
           />
         </GenericModal>
-        {!isTable && <Image src="/company/asset-clearence/bike-asset-clearence.svg" alt="bike" height={313} width={479} />}
+        {false && <Image src="/company/asset-clearence/bike-asset-clearence.svg" alt="bike" height={313} width={479} />}
       </Box>
-      {isTable && (
+      {true && (
         <Box sx={{ bgcolor: "white", m: 1.5, borderRadius: "25px", boxShadow: "0px 3px 12px 0px rgba(47, 43, 61, 0.14)" }}>
           <CustomTableWrapper
             handleOpenModal={handleOpenModal}
