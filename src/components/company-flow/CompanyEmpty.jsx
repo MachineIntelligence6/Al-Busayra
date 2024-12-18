@@ -16,7 +16,14 @@ const CompanyEmpty = ({ children, heading = "Heading of page", btnProps = {}, bt
             backgroundImage: "url(/company/icons/empty-background.svg)",
         }}>
 
-            <CompanyHeader btnProps={btnProps} btnDropdown={btnDropdown} heading={heading} />
+            <CompanyHeader btnProps={btnProps} btnDropdown={btnDropdown}>
+                <DescriptiveText
+                    text={heading}
+                    fontSize={18}
+                    fontWeight={500}
+                    color={custom.dreadcrumbText}
+                />
+            </CompanyHeader>
             <Box
                 sx={{
                     display: "flex",

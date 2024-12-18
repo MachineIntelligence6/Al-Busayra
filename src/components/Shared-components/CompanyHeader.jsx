@@ -5,7 +5,7 @@ import CustomButton from "./CustomButton";
 import { custom } from "@/app/theme";
 import CustomDropdownButton from "./CustomDropdownButton";
 
-const CompanyHeader = ({ btnProps = {}, heading, btnDropdown = {} }) => {
+const CompanyHeader = ({ btnProps = {}, btnDropdown = {}, children }) => {
     const isBtn = Object?.keys(btnProps).length ? true : false;
     const isDropdown = Object?.keys(btnDropdown).length ? true : false;
 
@@ -19,12 +19,7 @@ const CompanyHeader = ({ btnProps = {}, heading, btnDropdown = {} }) => {
                 }}
             >
                 <Box sx={{ my: 2 }}>
-                    <DescriptiveText
-                        text={heading}
-                        fontSize={18}
-                        fontWeight={500}
-                        color={custom.dreadcrumbText}
-                    />
+                    {children}
                 </Box>
                 {isBtn ? (
                     <CustomButton
