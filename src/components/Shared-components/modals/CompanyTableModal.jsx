@@ -1,9 +1,11 @@
 import { Box, Dialog, DialogContent, DialogTitle, useMediaQuery, useTheme } from '@mui/material'
 import { X } from 'lucide-react'
 import React from 'react'
+import DescriptiveText from '../DescriptiveText';
+import { custom } from '@/app/theme';
 
-const TableModal = (props) => {
-    const { open, onClose, title = "Employees Modal" } = props;
+const CompanyTableModal = (props) => {
+    const { open, onClose, title = "Select Employee", children } = props;
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down("lg"));
     return (
@@ -18,11 +20,11 @@ const TableModal = (props) => {
                 id="responsive-dialog-title"
                 sx={{
                     display: "flex",
-                    justifyContent: "space-between",
+                    justifyContent: title ? "space-between" : "flex-end",
                     alignItems: "center",
                 }}
             >
-                {title}
+                <DescriptiveText text={title} fontWeight={500} color={custom.primaryText} />
                 <Box
                     onClick={onClose}
                     component="button"
@@ -46,14 +48,14 @@ const TableModal = (props) => {
                     justifyContent="center"
                     flexDirection="column"
                     alignItems="center"
-                    width={700}
-                    height={600}
+                    minWidth={1200}
+                    minHeight={500}
                 >
-                    <h1>hello</h1>
+                    {children}
                 </Box>
             </DialogContent>
         </Dialog >
     )
 }
 
-export default TableModal
+export default CompanyTableModal
