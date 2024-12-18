@@ -2,7 +2,7 @@
 import { useState } from "react";
 import GenericModal from "@/components/applicants/GenericModel";
 import { StatusIndicator } from "@/components/applicants/StatusIndicator";
-import AssetClearanceForm from "@/components/company-flow/asset-clearance/AssetClearanceForm";
+import SimClearanceForm from "@/components/company-flow/asset-clearance/SimClearanceForm";
 import CustomizedAccordions from "@/components/company-flow/asset-clearance/CustomAccordion";
 import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
 import { accordianTableData } from "@/utils/company-flow/asset-clarance-data";
@@ -15,7 +15,6 @@ export default function AssetClearanceFormPage() {
   const pathname = usePathname();
   const router = useRouter();
    const [isModalOpen, setIsModalOpen] = useState(false);
-   const [isAddSim, setIsAddSim] = useState(false);
 
    const handleOpenModal = () => {
      setIsModalOpen(true);
@@ -24,7 +23,7 @@ export default function AssetClearanceFormPage() {
    const handleCloseModal = () => setIsModalOpen(false);
  
    const handleClick = () => {
-    router.push("/asset-clearance/sim-clearance-form");
+    router.push("/asset-clearance?istable=true");
    };
 
   const items = [
@@ -179,18 +178,18 @@ export default function AssetClearanceFormPage() {
       >
        <Box component="div" paddingY="60px" backgroundColor="#fff">
          <EmptyScreenView
-          image="/company/Bike2.svg"
-          altText="Asset Clearance"
-          title="Bike Clearance Successful"
+          image="/company/sim.svg"
+          altText="Sim Clearance"
+          title="Sim Clearance Successful"
           description="The asset has been placed for clearance"
-          buttonText="Add Sim"
+          buttonText="Bike Clearance"
           onButtonClick={handleClick}
         // onButtonClick={handleOpenModal}
         />
         </Box>
       </GenericModal>
       <Box display="flex" flexDirection="column" gap={2} sx={{ width: "100%" }}>
-      <AssetClearanceForm handleOpenModal={handleOpenModal}/>
+      <SimClearanceForm handleOpenModal={handleOpenModal}/>
       <CustomizedAccordions
         column={column}
         data={accordianTableData}

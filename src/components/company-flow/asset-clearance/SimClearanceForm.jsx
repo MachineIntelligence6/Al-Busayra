@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -11,7 +11,6 @@ import {
   InputAdornment,
   Paper,
   TextField,
-  Chip,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { LockOutlined } from "@mui/icons-material";
@@ -24,19 +23,16 @@ import CustomButton from "@/components/Shared-components/CustomButton";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 import DoneIcon from "@mui/icons-material/Done";
 import Image from "next/image";
-import { PlusIcon } from "lucide-react";
 
 const schema = yup.object().shape({
-  assetType: yup.string().required("Asset Type is required"),
-  bikePlateNo: yup.string().required("Bike Plate No. is required"),
-  bikeCity: yup.string().required("Bike City is required"),
-  bikeOwnership: yup.string().required("Bike Ownership is required"),
-  dateOfClearance: yup.date().required("Date of Clearance is required"),
-  timeOfClearance: yup.date().required("Time of Clearance is required"),
-  condition: yup.string().required("Condition is required"),
-  amount: yup.string(),
-  remarks: yup.string().required("Remarks are required"),
-});
+    assetType: yup.string().required("Asset Type is required"),
+    simNumber: yup.string().required("Sim Number is required"),
+    simOperator: yup.string().required("Sim Operator is required"),
+    dateOfSimClearance: yup.date().required("Date of Sim Clearance is required"),
+    timeOfSimClearance: yup.string().required("Time of Sim Clearance is required"),
+    amount: yup.string(),
+    remarks: yup.string().required("Remarks are required"),
+  });
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(3),
@@ -56,7 +52,6 @@ const FieldHeading = styled(Typography)(({ theme }) => ({
 }));
 
 export default function AssetClearanceForm({handleOpenModal}) {
-  const [images, setImages] = useState(["Img-123.jpg", "Img-456.jpg"]);
 
   const {
     control,
@@ -81,17 +76,6 @@ export default function AssetClearanceForm({handleOpenModal}) {
     colsole.log(data);
   };
 
-  // Add a new placeholder image
-  const handleAddImage = () => {
-    const newImage = `Img-${Math.floor(Math.random() * 1000)}.jpg`;
-    setImages((prev) => [...prev, newImage]);
-  };
-
-  // Remove an image
-  const handleDeleteImage = (imageToDelete) => {
-    setImages((prev) => prev.filter((image) => image !== imageToDelete));
-  };
-
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <StyledPaper elevation={0}>
@@ -111,7 +95,7 @@ export default function AssetClearanceForm({handleOpenModal}) {
                   {...field}
                   fullWidth
                   options={[
-                    { id: 12, label: "Bike", value: "bike" },
+                    { id: 12, label: "Sim", value: "sim" },
                     { id: 22, label: "Car", value: "car" },
                   ]}
                   error={!!errors.assetType}
@@ -132,20 +116,21 @@ export default function AssetClearanceForm({handleOpenModal}) {
           >
             <Box>
               <FieldHeading>
-                Bike Plate No.<span className="required">*</span>
+                Sim Number<span className="required">*</span>
               </FieldHeading>
               <Controller
-                name="bikePlateNo"
+                name="simNumber"
                 control={control}
                 render={({ field }) => (
                   <CustomSelect
                     {...field}
                     fullWidth
-                    error={!!errors.bikePlateNo}
-                    helperText={errors.bikePlateNo?.message}
+                    error={!!errors.simNumber}
+                    helperText={errors.simNumber?.message}
+                    placeholder="+942 2322332"
                     options={[
-                      { id: 12, label: "1232", value: "1232" },
-                      { id: 22, label: "3454", value: "3454" },
+                      { id: 12, label: "+941 2324234", value: "+941 2324234" },
+                      { id: 22, label: "+942 2322332", value: "+942 2322332" },
                     ]}
                     InputProps={{
                       endAdornment: (
@@ -159,21 +144,31 @@ export default function AssetClearanceForm({handleOpenModal}) {
               />
             </Box>
 
-            <Box>
+            <Box sx={{ mb: 3 }}>
               <FieldHeading>
-                Bike City<span className="required">*</span>
+                Sim Operator<span className="required">*</span>
               </FieldHeading>
               <Controller
-                name="bikeCity"
+                name="simOperator"
                 control={control}
                 render={({ field }) => (
                   <CustomTextField
                     {...field}
                     fullWidth
                     disabled
-                    error={!!errors.bikeCity}
-                    helperText={errors.bikeCity?.message}
+                    error={!!errors.simOperator}
+                    helperText={errors.simOperator?.message}
                     InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <Image
+                            src="/company/asset-clearence/image.svg"
+                            width={20}
+                            height={20}
+                            alt="Sim Operator Icon"
+                          />
+                        </InputAdornment>
+                      ),
                       endAdornment: (
                         <InputAdornment position="end">
                           <LockOutlined sx={{ color: "action.disabled" }} />
@@ -194,47 +189,12 @@ export default function AssetClearanceForm({handleOpenModal}) {
               mb: 3,
             }}
           >
-            <Box sx={{ mb: 3 }}>
-              <FieldHeading>
-                Bike Ownership<span className="required">*</span>
-              </FieldHeading>
-              <Controller
-                name="bikeOwnership"
-                control={control}
-                render={({ field }) => (
-                  <CustomTextField
-                    {...field}
-                    fullWidth
-                    disabled
-                    error={!!errors.bikeOwnership}
-                    helperText={errors.bikeOwnership?.message}
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <Image
-                            src="/challans/Avatar.png"
-                            width={20}
-                            height={20}
-                            alt="Bike Ownership Icon"
-                          />
-                        </InputAdornment>
-                      ),
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <LockOutlined sx={{ color: "action.disabled" }} />
-                        </InputAdornment>
-                      ),
-                    }}
-                  />
-                )}
-              />
-            </Box>
             <Box>
               <FieldHeading>
-                Date Of Bike Clearance<span className="required">*</span>
+                Date Of Sim Clearance<span className="required">*</span>
               </FieldHeading>
               <Controller
-                name="dateOfClearance"
+                name="dateOfSimClearance"
                 control={control}
                 render={({ field }) => (
                   <CustomDateField
@@ -243,8 +203,8 @@ export default function AssetClearanceForm({handleOpenModal}) {
                       <CustomTextField
                         {...params}
                         fullWidth
-                        error={!!errors.dateOfClearance}
-                        helperText={errors.dateOfClearance?.message}
+                        error={!!errors.dateOfSimClearance}
+                        helperText={errors.dateOfSimClearance?.message}
                       />
                     )}
                   />
@@ -255,20 +215,20 @@ export default function AssetClearanceForm({handleOpenModal}) {
             <Box>
               {/* Field Heading */}
               <FieldHeading>
-                Time Of Bike Clearance<span className="required">*</span>
+                Time Of Sim Clearance<span className="required">*</span>
               </FieldHeading>
 
               {/* Time Picker with AM/PM Buttons */}
               <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                 <Controller
-                  name="timeOfClearance"
+                  name="timeOfSimClearance"
                   control={control}
                   render={({ field }) => (
                     <CustomTextField
                       {...field}
                       fullWidth
-                      error={!!errors.timeOfClearance}
-                      // helperText={errors.timeOfClearance?.message}
+                      error={!!errors.timeOfSimClearance}
+                      helperText={errors.timeOfSimClearance?.message}
                     />
                   )}
                 />
@@ -276,11 +236,13 @@ export default function AssetClearanceForm({handleOpenModal}) {
                 {/* AM/PM Toggle */}
                 <CustomButton
                   type="submit"
-                  variant="contained"
+                  variant="outlined"
                   // onClick={handleNext}
                   sx={{
-                    padding: "4.5px 3px",
+                    padding: "3px 0px",
                     borderRadius: "8px",
+                    color: "#2F2B3D66",
+                    borderColor: "#2F2B3D66",
                   }}
                 >
                   AM
@@ -301,26 +263,6 @@ export default function AssetClearanceForm({handleOpenModal}) {
               </Box>
             </Box>
 
-            <Box sx={{ mb: 3 }}>
-              <FieldHeading>Condition</FieldHeading>
-              <Controller
-                name="condition"
-                control={control}
-                render={({ field }) => (
-                  <CustomSelect
-                    {...field}
-                    fullWidth
-                    error={!!errors.bikePlateNo}
-                    helperText={errors.bikePlateNo?.message}
-                    options={[
-                      { id: 12, label: "Ok", value: "ok" },
-                      { id: 22, label: "Not Ok", value: "notok" },
-                    ]}
-                  />
-                )}
-              />
-            </Box>
-
             <Box>
               <Box sx={{ mb: 2 }}>
                 <FieldHeading>Amount Need To Be Deducted/Penalty</FieldHeading>
@@ -331,7 +273,7 @@ export default function AssetClearanceForm({handleOpenModal}) {
                     <CustomTextField
                       {...field}
                       fullWidth
-                      placeholder="None"
+                      placeholder="e.g 1200"
                       error={!!errors.amount}
                       helperText={errors.amount?.message}
                       InputProps={{
@@ -355,80 +297,6 @@ export default function AssetClearanceForm({handleOpenModal}) {
                 />
               </Box>
 
-              <Box sx={{ width: "100%", mb: 3 }}>
-                {/* Field Heading */}
-                <Typography
-                  sx={{
-                    fontWeight: 500,
-                    fontSize: "14px",
-                    mb: 1,
-                    color: "#333",
-                  }}
-                >
-                  Upload Bike Images
-                </Typography>
-
-                {/* Chip Container */}
-                <Box
-                  sx={{
-                    display: "flex",
-                    gap: 1,
-                    alignItems: "center",
-                    overflowX: "auto",
-                    border: "1px solid #ccc",
-                    borderRadius: "8px",
-                    padding: "4px",
-                    width: "100%", // Ensure full width
-                    boxSizing: "border-box",
-                    justifyContent:"space-between"
-                  }}
-                >
-                  {/* Uploaded Images as Chips */}
-                 <Box>
-                 {images.map((image, index) => (
-                    <Chip
-                      key={index}
-                      label={image}
-                      onDelete={() => handleDeleteImage(image)}
-                      avatar={
-                        <Box
-                          component="img"
-                          src="/icons/image-placeholder.svg" // Replace with a placeholder image path
-                          alt="Image Placeholder"
-                          sx={{
-                            width: 20,
-                            height: 20,
-                            padding: "2px",
-                            borderRadius: "50%",
-                          }}
-                        />
-                      }
-                      sx={{
-                        background: "#F4F4F4",
-                        color: "#333",
-                        fontSize: "12px",
-                        borderRadius: "16px",
-                      }}
-                    />
-                  ))}
-                 </Box>
-
-                  {/* Add Button */}
-                  <CustomButton
-              variant="contained"
-              sx={{
-                bgcolor: "#E6E6E9",
-                padding: "4px",
-                width:"20px",
-                borderRadius: "8px",
-                borderColor:"#2F2B3DE5"
-              }}
-               onClick={handleAddImage}
-            >
-             <PlusIcon sx={{color:"#2F2B3DE5"}}/>
-            </CustomButton>
-                </Box>
-              </Box>
             </Box>
 
             <Box sx={{ mb: 3 }}>
@@ -441,10 +309,10 @@ export default function AssetClearanceForm({handleOpenModal}) {
                 render={({ field }) => (
                   <TextField
                     multiline
-                    rows={4} // Specifies 4 lines
+                    rows={2} // Specifies 2 lines
                     fullWidth
                     variant="outlined"
-                    placeholder="Any..."
+                    placeholder="e.g"
                     sx={{
                       backgroundColor: "#fff",
                       borderRadius: "10px",

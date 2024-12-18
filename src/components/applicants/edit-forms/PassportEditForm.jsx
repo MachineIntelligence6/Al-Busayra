@@ -41,7 +41,7 @@ export default function PassportDetailsEditForm({ setIsPassportModalOpen }) {
   });
 
   const { trigger, control } = methods;
-
+console.log(methods,"methods")
   const handleSave = async () => {
     const isValid = await trigger();
     if (!isValid) {

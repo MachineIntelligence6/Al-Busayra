@@ -7,7 +7,7 @@ import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import CustomTableExportRow from "@/components/Shared-components/customTableExportRow";
 import { CustomTableFilter } from "@/components/Shared-components/Table-components/customTableFilter";
 
-const CustomTableWrapper = ({
+const AssetTableWrapper = ({
   handleOpenModal,
   handleCloseModal,
   setCurrentPage,
@@ -33,7 +33,6 @@ const CustomTableWrapper = ({
   isShow = true,
   isWidth = false,
   isHeader = true,
-  isBorderRadius = false
 }) => {
   const paginatedData = useMemo(() => {
     const startIndex = (currentPage - 1) * rowsPerPage;
@@ -47,7 +46,6 @@ const CustomTableWrapper = ({
         bgcolor: "white",
         overflow: "hidden",
         width: isWidth ? "100%" : "auto",
-        borderRadius: isBorderRadius ? "25px" : 0
       }}
     >
       {isHeader && (
@@ -97,7 +95,7 @@ const CustomTableWrapper = ({
   );
 };
 
-export default CustomTableWrapper;
+export default AssetTableWrapper;
 
 // usage
 //  <CustomTableWrapper
