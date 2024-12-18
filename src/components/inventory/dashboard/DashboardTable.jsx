@@ -8,15 +8,17 @@ import { Box, Divider, Typography } from "@mui/material";
 import { ChevronDown } from "lucide-react";
 import CustomAvatar from "@/components/Shared-components/CustomAvatar";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
-import { childData, dashboardTableData } from "@/utils/hard-data/inventory-data";
+import {
+    childData,
+    dashboardTableData,
+} from "@/utils/hard-data/inventory-data";
 import { useRouter } from "next/navigation";
 import DescriptiveText from "@/components/Shared-components/DescriptiveText";
 import CustomDropdownButton from "@/components/Shared-components/CustomDropdownButton";
 
 const statusButtons = [
-    { label: 'Company Status', value: 'compnay_status' },
-    { label: 'Vendor Status', value: 'vendor_status' },
-
+    { label: "Company Status", value: "compnay_status" },
+    { label: "Vendor Status", value: "vendor_status" },
 ];
 
 const DashboardFilters = [
@@ -43,20 +45,18 @@ const DashboardFilters = [
     { id: 2, filterName: "Bike Cost", placeholder: "$1000" },
 ];
 
-
-
 const DashboardTable = () => {
     const [selectedRows, setSelectedRows] = useState([]);
     const [expandedRows, setExpandedRows] = useState({});
     const [selectedStatus, setSelectedStatus] = useState(statusButtons[0]);
 
-    const router = useRouter()
-
+    const router = useRouter();
 
     const handleActionClick = (obj) => {
-        console.log(obj)
-        if (obj.action === "company_status") router.push("/admin/inventory/company")
-    }
+        console.log(obj);
+        if (obj.action === "company_status")
+            router.push("/admin/inventory/company");
+    };
 
     const MenuItems = useMemo(
         () => [
@@ -84,28 +84,28 @@ const DashboardTable = () => {
             {
                 field: "totalBikes",
                 headerName: "Total Bikes",
-
             },
             {
                 field: "allocatedBikes",
                 headerName: "Allocated Bikes",
-
             },
             {
                 field: "inactiveInventory",
                 headerName: "In active Bikes",
-
             },
             {
                 field: "availableInventory",
                 headerName: "Available Inventory",
-
             },
             {
                 field: "availableInventory",
                 headerName: "Actions",
-                render: () => (<ActionMenu menuItems={MenuItems} onMenuItemClick={handleActionClick} />)
-
+                render: () => (
+                    <ActionMenu
+                        menuItems={MenuItems}
+                        onMenuItemClick={handleActionClick}
+                    />
+                ),
             },
         ];
     }, []);
@@ -127,24 +127,19 @@ const DashboardTable = () => {
             {
                 field: "totalBikes",
                 headerName: "Total Bikes",
-
             },
             {
                 field: "allocatedBikes",
                 headerName: "Allocated Bikes",
-
             },
             {
                 field: "inactiveInventory",
                 headerName: "In active Bikes",
-
             },
             {
                 field: "availableInventory",
                 headerName: "Available Inventory",
-
             },
-
         ];
     }, [MenuItems, handleActionClick]);
 
@@ -171,19 +166,26 @@ const DashboardTable = () => {
                     borderBottom: "2px solid #2F2B3D1F",
                 }}
             >
-                <DescriptiveText text={selectedStatus?.label} fontSize={18} fontWeight={500} />
+                <DescriptiveText
+                    text={selectedStatus?.label}
+                    fontSize={18}
+                    fontWeight={500}
+                />
                 {/* <CustomButton endIcon={<ChevronDown />} sx={{ px: 3 }}>
                     Company Status
                 </CustomButton> */}
-                <CustomDropdownButton options={statusButtons} selectedValue={selectedStatus} setSelectedValue={setSelectedStatus} />
+                <CustomDropdownButton
+                    options={statusButtons}
+                    selectedValue={selectedStatus}
+                    setSelectedValue={setSelectedStatus}
+                />
             </Box>
             <Box component="div" sx={{ p: 2, borderBottom: "1px solid #2F2B3D1F" }}>
                 <TableFilters bottomBorder={false} filters={DashboardFilters} />
             </Box>
-            <Box component="div" sx={{ px: 2, }}>
+            <Box component="div" sx={{ px: 2 }}>
                 <TableExportRow isBtnAdd={false} />
             </Box>
-
 
             <ExpandableTable
                 columns={parentColumns}

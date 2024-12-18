@@ -50,7 +50,7 @@ const CustomDropdownButton = (props) => {
                 }}
 
             >
-                <Box sx={{ width: 200, display: 'flex', flexDirection: 'column' }}>
+                <Box sx={{ minWidth: 200, display: 'flex', flexDirection: 'column' }}>
                     {options.map((option) => (
                         <MenuItem
                             key={option.value}

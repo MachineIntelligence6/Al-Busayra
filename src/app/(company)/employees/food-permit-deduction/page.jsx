@@ -1,10 +1,9 @@
+import FoodPermitDeduction from '@/components/company-flow/food-permit-deduction'
 import React from 'react'
 
 const Page = () => {
     return (
-        <div>
-            Food Permit Deduction
-        </div>
+        <FoodPermitDeduction />
     )
 }
 
