@@ -7,10 +7,10 @@ import CompanyHeader from "@/components/Shared-components/CompanyHeader";
 import DescriptiveText from "@/components/Shared-components/DescriptiveText";
 import { custom } from "@/app/theme";
 import CompanyTableModal from "@/components/Shared-components/modals/CompanyTableModal";
-import GeneralDeductionModalTable from "./table/GeneralDeductionModalTable";
-import GeneralDeductionTable from "./table";
+import PassportReturnTable from "./table/PassportReturnTable";
+import PassportReturnRequestTable from "./table";
 
-const GereralDeduction = ({ params }) => {
+const PassportReturn = ({ params }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [showTable, setShowTable] = useState(false);
 
@@ -25,33 +25,36 @@ const GereralDeduction = ({ params }) => {
         <Box>
           <CompanyHeader>
             <DescriptiveText
-              text={"General Deduction"}
+              text={"Passport Return"}
               fontSize={18}
               fontWeight={500}
               color={custom.dreadcrumbText}
             />
           </CompanyHeader>
           <Box sx={{ p: 2 }}>
-            <GeneralDeductionTable />
+            <PassportReturnRequestTable />
+            ""
           </Box>
         </Box>
       ) : (
-        <CompanyEmpty heading="General Deduction">
+        <CompanyEmpty heading="Passport Return">
           <EmptyScreenView
-            image="/company/icons/general-deduction.svg"
-            buttonText="General Deduction"
-            icon={null}
+            image="/company/passportReturn.svg"
+            altText="passport-return"
+            title="Passport Return Request"
+            description="Please click the button below to add passport return request."
+            buttonText="Create Request"
             onButtonClick={() => setModalOpen(true)}
           />
         </CompanyEmpty>
       )}
       {modalOpen && (
         <CompanyTableModal open={modalOpen} onClose={() => setModalOpen(false)}>
-          <GeneralDeductionModalTable />
+          <PassportReturnTable />
         </CompanyTableModal>
       )}
     </>
   );
 };
 
-export default GereralDeduction;
+export default PassportReturn;
