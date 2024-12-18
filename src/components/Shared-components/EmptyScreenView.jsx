@@ -24,7 +24,6 @@ const EmptyScreenView = ({
         alignItems: "center",
         flexDirection: "column",
         gap: 3,
-        mt: 5,
       }}
     >
       <Box component="figure" className="w-fit">
