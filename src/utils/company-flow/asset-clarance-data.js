@@ -99,7 +99,7 @@ export const AssetClearanceData = [
   {
     label: "Rider Aquiring Company",
     value: "Rafiq Khan",
-    icon: "/public/company/asset-clearence/man.svg",
+    icon: "/company/asset-clearence/man.svg",
   },
   {
     label: "Rider Aquiring Company ",

@@ -3,6 +3,7 @@ import { X } from 'lucide-react'
 import React from 'react'
 import DescriptiveText from '../DescriptiveText';
 import { custom } from '@/app/theme';
+import Scrollbars from 'react-custom-scrollbars';
 
 const CompanyTableModal = (props) => {
     const { open, onClose, title = "Select Employee", children } = props;
@@ -16,41 +17,36 @@ const CompanyTableModal = (props) => {
             maxWidth={""}
             closeAfterTransition
         >
-            <DialogTitle
-                id="responsive-dialog-title"
-                sx={{
-                    display: "flex",
-                    justifyContent: title ? "space-between" : "flex-end",
-                    alignItems: "center",
-                }}
-            >
-                <DescriptiveText text={title} fontWeight={500} color={custom.primaryText} />
-                <Box
-                    onClick={onClose}
-                    component="button"
-                    sx={{
-                        borderRadius: "100%",
-                        "& :hover": {
-                            bgcolor: "#dfdfdf",
-                            color: "#104774",
-                            p: 0.2,
-                            borderRadius: 4,
-                        },
-                    }}
-                >
-                    <X size={18} />
-                </Box>
-            </DialogTitle>
-            <DialogContent>
+
+            <DialogContent sx={{ p: 0 }}>
                 <Box
                     component="div"
                     display="flex"
-                    justifyContent="center"
                     flexDirection="column"
-                    alignItems="center"
-                    minWidth={1200}
-                    minHeight={500}
                 >
+                    <Box sx={{
+                        display: "flex",
+                        justifyContent: title ? "space-between" : "flex-end",
+                        alignItems: "center",
+                        m: 2
+                    }}>
+                        <DescriptiveText text={title} fontWeight={500} color={custom.primaryText} />
+                        <Box
+                            onClick={onClose}
+                            component="button"
+                            sx={{
+                                borderRadius: "100%",
+                                "& :hover": {
+                                    bgcolor: "#dfdfdf",
+                                    color: "#104774",
+                                    p: 0.2,
+                                    borderRadius: 4,
+                                },
+                            }}
+                        >
+                            <X size={18} />
+                        </Box>
+                    </Box>
                     {children}
                 </Box>
             </DialogContent>

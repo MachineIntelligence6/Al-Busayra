@@ -43,7 +43,7 @@ const CustomButton = ({
                 textTransform: "capitalize",
                 fontSize: "15px",
                 fontWeight: 500,
-                lineHeight: 2,
+                // lineHeight: 2,
                 borderRadius: "6px",
                 boxShadow: "none",
                 ...sx,

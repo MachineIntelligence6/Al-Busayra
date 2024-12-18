@@ -18,7 +18,7 @@ const CompanyHeader = ({ btnProps = {}, btnDropdown = {}, children }) => {
                     alignItems: "center",
                 }}
             >
-                <Box sx={{ my: 2 }}>
+                <Box sx={{ my: 2, display: 'flex', gap: 1 }}>
                     {children}
                 </Box>
                 {isBtn ? (

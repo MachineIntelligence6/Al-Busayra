@@ -1,10 +1,11 @@
-import FoodPermitDeduction from '@/components/company-flow/food-permit-deduction'
 import React from 'react'
+import FoodPermitDeduction from '@/components/company-flow/food-permit-deduction'
 
-const Page = () => {
+const page = ({ searchParams }) => {
+    console.log(searchParams)
     return (
-        <FoodPermitDeduction />
+        <FoodPermitDeduction params={searchParams ? searchParams : null} />
     )
 }
 
-export default Page
+export default page
