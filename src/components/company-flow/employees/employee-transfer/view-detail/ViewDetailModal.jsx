@@ -1,15 +1,43 @@
-import ViewEmployeeHeader from "@/components/Shared-components/ViewEmployeeHeader";
+import React, { useRef, useState } from "react";
 import { Box } from "@mui/material";
-import React, { useRef } from "react";
 import ViewDetailCard from "./ViewDetailCard";
+import ViewDetailTable from "./ViewDetailTable";
+import ViewEmployeeHeader from "@/components/Shared-components/ViewEmployeeHeader";
 
 const ViewDetailModal = ({ onClose }) => {
   const PopUpRef = useRef(null);
+  const [activeComponent, setActiveComponent] = useState("card");
+
   const closePopUp = (e) => {
     if (PopUpRef.current === e.target) {
       onClose();
     }
   };
+
+  const handleBackClick = () => {
+    console.log("Back Clicked!");
+  };
+
+  const handleEditClick = () => {
+    console.log("Edit Clicked!");
+  };
+
+  const handleButtonClick = (component) => {
+    setActiveComponent(component);
+  };
+
+  const buttons = [
+    {
+      label: "Transfer History",
+      onClick: () => handleButtonClick("table"),
+      variant: activeComponent === "table" ? "contained" : "outlined",
+    },
+    {
+      label: "Employee Info",
+      onClick: () => handleButtonClick("card"),
+      variant: activeComponent === "card" ? "contained" : "outlined",
+    },
+  ];
 
   return (
     <Box
@@ -30,21 +58,27 @@ const ViewDetailModal = ({ onClose }) => {
       }}
     >
       <Box sx={{ backgroundColor: "#FFF", borderRadius: "15px" }}>
-        <Box sx={{}}>
+        <Box>
           <ViewEmployeeHeader
             fullName="Saleem Akhtar Muhammad Miskeen"
             description="saleemakhtar1234@gmail.com"
             profileImage={"/icons/pic.svg"}
+            onBackClick={handleBackClick}
+            onEditClick={handleEditClick}
+            buttons={buttons}
             sx={{
               borderRadius: "15px",
-              // border: "2px solid rgba(0, 0, 0, 0.1)",
               boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.2)",
             }}
           />
         </Box>
         <Box>
-          <Box sx={{ width: "1188px" }}>
-            <ViewDetailCard />
+          <Box sx={{ minHeight: "300px" }}>
+            {activeComponent === "card" ? (
+              <ViewDetailCard />
+            ) : (
+              <ViewDetailTable />
+            )}
           </Box>
         </Box>
       </Box>
