@@ -239,6 +239,28 @@ export const passportTableData = [
   },
 ];
 
+export const allownceTableData = [
+  
+  {
+    id: "AB00001",
+    name: "Saleem Ashfaq Muhammad Shehzad",
+    image: "/images/profile-f-f.png",
+    date: "12/12/2024",
+    reason: "Any....",
+    document: "Passport",
+    status: "Pending",
+  },
+  {
+    id: "AB00002",
+    name: "Saleem Ashfaq Muhammad Shehzad",
+    image: "/images/profile-f-f.png",
+    date: "12/12/2024",
+    reason: "Any....",
+    document: "Passport",
+    status: "Approved",
+  },
+];
+
 export const generalDeductionTableData = [
   {
     id: "AB00001",
