@@ -5,11 +5,13 @@ import CustomSelect from "@/components/Shared-components/CustomSelect";
 import ImageUpload from "../ImageUpload";
 import CustomTextField from "@/components/Shared-components/CustomTextField";
 import CaptionText from "@/components/Shared-components/CaptionText";
+import { custom } from "@/app/theme";
 
 export const GeneralInfo = ({ control, isUaeResident }) => {
   const { setValue } = useFormContext();
+
   const renderLabel = (label, required = false) => (
-    <Typography variant="body1" component="span">
+    <Typography variant="body1" component="span" sx={{fontSize: "16px", color: custom.primaryText, fontWeight: 500, lineHeight: "18px"}}>
       {label}
       {required && <Typography component="span" color="error"> *</Typography>}
     </Typography>
@@ -28,6 +30,7 @@ export const GeneralInfo = ({ control, isUaeResident }) => {
     {
       label: "UAE Residency/Iqama",
       name: "residency",
+      placeholder: "Non UAE Resident",
       required: true,
       options: [
         { value: "resident", label: "UAE Resident" },
@@ -37,8 +40,9 @@ export const GeneralInfo = ({ control, isUaeResident }) => {
     {
       label: `Full Name ${isUaeResident ? "as per emirates iD" : ""}`,
       name: "fullName",
+      placeholder: "Enter your full name",
       required: true,
-      placeholder: "Enter your full name as per Emirates ID",
+      // placeholder: "Enter your full name as per Emirates ID",
       component: CustomTextField,
     },
     {
@@ -54,6 +58,7 @@ export const GeneralInfo = ({ control, isUaeResident }) => {
     {
       label: "Employment Status",
       name: "employeeStatus",
+      placeholder: "Full time",
       required: true,
       options: [
         { value: "fullTime", label: "Full Time" },
@@ -64,6 +69,7 @@ export const GeneralInfo = ({ control, isUaeResident }) => {
     {
       label: "Preferred Working Country",
       name: "workingCountry",
+      placeholder: "UAE",
       required: true,
       options: [
         { value: "uae", label: "UAE" },
@@ -73,6 +79,7 @@ export const GeneralInfo = ({ control, isUaeResident }) => {
     {
       label: "Preferred Working City",
       name: "workingCity",
+      placeholder: "Dubai",
       required: true,
       options: [
         { value: "dubai", label: "Dubai" },
@@ -83,6 +90,7 @@ export const GeneralInfo = ({ control, isUaeResident }) => {
       label: "Interested platform",
       name: "interestedplatform",
       required: isUaeResident ? true : false,
+      placeholder: "Any",
       options: [
         { value: "dubai", label: "Dubai" },
         { value: "abuDhabi", label: "Abu Dhabi" },

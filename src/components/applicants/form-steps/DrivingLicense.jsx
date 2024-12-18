@@ -5,12 +5,13 @@ import CustomTextField from "@/components/Shared-components/CustomTextField";
 import CustomSelect from "@/components/Shared-components/CustomSelect";
 import CustomDateField from "@/components/Shared-components/CustomDateField";
 import CaptionText from "@/components/Shared-components/CaptionText";
+import { custom } from "@/app/theme";
 
 export const DrivingLicense = ({ control }) => {
   const { setValue } = useFormContext();
 
   const renderLabel = (label, required = false) => (
-    <Typography variant="body1" component="span">
+    <Typography variant="body1" component="span" sx={{fontSize: "16px", color: custom.primaryText, fontWeight: 500, lineHeight: "18px"}}>
       {label}
       {required && <Typography component="span" color="error"> *</Typography>}
     </Typography>

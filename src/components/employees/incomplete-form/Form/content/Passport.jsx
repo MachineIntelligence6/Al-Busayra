@@ -56,7 +56,7 @@ const Passport = ({ formData, setFormData }) => {
               {field.component === CustomDateField && (
                 <CustomDateField
                   label={field.label}
-                  required
+                  required={true}
                   borderRadius={1.5}
                   height={37.5}
                   bgcolor="#FFF"
@@ -76,7 +76,7 @@ const Passport = ({ formData, setFormData }) => {
                   bgColor="#FFFFFF"
                   textSize="13px"
                   marginBottom="4px"
-                  required
+                   required={true}
                 />
               )}
             </Box>

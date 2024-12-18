@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FormControl, Select, MenuItem, Typography } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { custom } from "@/app/theme";
 
 const CustomSelect = ({
   value,
@@ -45,7 +46,7 @@ const CustomSelect = ({
         {...rest}
       >
         <MenuItem value="">
-          <Typography variant="body2" color="gray">
+          <Typography variant="body2" color={custom.placeHolder} sx={{fontSize: "14px"}}>
             {placeholder}
           </Typography>
         </MenuItem>
