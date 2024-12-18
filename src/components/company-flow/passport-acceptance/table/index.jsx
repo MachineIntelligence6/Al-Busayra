@@ -134,7 +134,6 @@ const PassportTable = () => {
         />
         <TablePagination />
       </Box>
-      {showModal && <GeneralDeductionViewModal onClose={onClose} />}
     </Box>
   );
 };
