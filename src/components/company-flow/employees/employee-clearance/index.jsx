@@ -44,7 +44,7 @@ const EmployeeClearanceEmptyScreen = () => {
 
       <Divider sx={{ mt: 1, mx: 2, mb: 2 }} />
 
-      {false ? (
+      {true ? (
         <ClearanceTable />
       ) : (
         <CompanyEmpty>

@@ -132,7 +132,7 @@ export const companyMenuData = [
       {
         id: "2-3",
         label: "Driving License Request",
-        url: "employees/driving-license-request",
+        url: "/employees/driving-license-request",
       },
       { id: "2-4", label: "EMP Ledger", url: "/emp-ledger" },
       { id: "2-5", label: "Employee Clearance", url: "/employees/employee-clearance" },

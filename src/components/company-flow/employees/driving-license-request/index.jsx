@@ -9,12 +9,16 @@ import CompanyEmpty from "../../CompanyEmpty";
 import TableModal from "./table/TableModal";
 import DLTable from "./table";
 import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import { useParams } from "next/navigation";
 // import EmployeeClearanceTableModal from "./table/EmployeeClearanceTableModal";
 // import ClearanceTable from "./table";
 
 const DlRequestEmptyScreen = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const [showTable, setShowTable] = useState(false);
 
+  const params = useParams();
+  console.log(params)
   const onClose = () => {
     setShowPopup(false);
   };
@@ -46,9 +50,9 @@ const DlRequestEmptyScreen = () => {
 
       <Divider sx={{ mt: 1, mx: 2, mb: 2 }} />
 
-      {false ? (
+      {showTable ? (
         <DLTable />
-        
+
       ) : (
         <CompanyEmpty>
           <EmptyScreenView

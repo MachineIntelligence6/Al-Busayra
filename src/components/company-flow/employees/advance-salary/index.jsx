@@ -29,7 +29,7 @@ const AdvanceSalaryEmptyScreen = () => {
       >
         <DynamicBreadcrumb />
         <CustomButton startIcon={<Plus />}>Request Advance Salary</CustomButton>
-    
+
       </Box>
 
       <Divider sx={{ mt: 1, mx: 2, mb: 2 }} />

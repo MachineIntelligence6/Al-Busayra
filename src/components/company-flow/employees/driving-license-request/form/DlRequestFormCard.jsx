@@ -14,7 +14,7 @@ const DlRequestFormCard = () => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push("/employees/advance-salary");
+    router.push("/employees/driving-license-request?table=true");
   };
 
   const months = ["Month 1", "Month 2", "Month 3"];
