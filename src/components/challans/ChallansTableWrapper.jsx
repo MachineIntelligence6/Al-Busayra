@@ -14,6 +14,7 @@ import CustomDropdown from "../Shared-components/CustomDropDown";
 import TableExportRow from "../Shared-components/Table-components/TableExportRow";
 import CustomTable from "../Shared-components/Table-components/CustomTable";
 import DescriptiveText from "../Shared-components/DescriptiveText";
+import CurrencyType from "../Shared-components/CurrencyType";
 
 const challanSalikFilters = [
   {
@@ -210,28 +211,19 @@ const ChallansTableWrapper = ({
         field: "salikAmount", headerName: "SALIK AMOUNT", align: "left",
         render: (row) => {
           return (
-            <>
+            <Box sx={{ display: 'flex', gap: 0.5, alignItems: 'center' }}>
               <Typography
                 variant="caption"
                 sx={{
                   padding: "4px 10px",
                   borderRadius: "3px",
+                  width: 45,
                 }}
               >
                 {row.salikAmount.amount}
               </Typography>
-              <Typography
-                variant="caption"
-                sx={{
-                  backgroundColor: "#80839029", // Light gray background
-                  padding: "4px 10px",
-                  borderRadius: "3px",
-                  color: "secondary-main"
-                }}
-              >
-                {row.salikAmount.currency}
-              </Typography>
-            </>
+              <CurrencyType />
+            </Box>
           )
 
         },
@@ -259,28 +251,19 @@ const ChallansTableWrapper = ({
         field: "challanAmount", headerName: "CHALLAN AMOUNT", align: "left",
         render: (row) => {
           return (
-            <>
+            <Box sx={{ display: 'flex' }}>
               <Typography
                 variant="caption"
                 sx={{
                   padding: "4px 10px",
                   borderRadius: "3px",
+                  width: 45
                 }}
               >
                 {row.challanAmount.amount}
               </Typography>
-              <Typography
-                variant="caption"
-                sx={{
-                  backgroundColor: "#80839029", // Light gray background
-                  padding: "4px 10px",
-                  borderRadius: "3px",
-                  color: "secondary-main"
-                }}
-              >
-                {row.challanAmount.currency}
-              </Typography>
-            </>
+              <CurrencyType />
+            </Box>
           )
 
         },
