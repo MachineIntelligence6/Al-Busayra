@@ -33,7 +33,6 @@ const PassportReturn = ({ params }) => {
           </CompanyHeader>
           <Box sx={{ p: 2 }}>
             <PassportReturnRequestTable />
-            ""
           </Box>
         </Box>
       ) : (
