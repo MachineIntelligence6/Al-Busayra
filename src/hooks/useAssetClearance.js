@@ -1,17 +1,15 @@
 import { useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { TableFiltersData,modalTableFiltersData } from '@/app/constants/assetClearance';
 
 export const useAssetClearance = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [modalFilterData, setModalFilterData] = useState(modalTableFiltersData);
   const [filters, setFilters] = useState(TableFiltersData);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalEntries, setTotalEntries] = useState(10);
   const [headerSearchValue, setHeaderSearchValue] = useState("");
-  const isTable = searchParams.get("istable");
 
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
@@ -28,7 +26,6 @@ export const useAssetClearance = () => {
     currentPage,
     totalEntries,
     headerSearchValue,
-    isTable,
     handleOpenModal,
     handleCloseModal,
     handleRowSelect,

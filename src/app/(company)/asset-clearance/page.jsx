@@ -1,6 +1,6 @@
 "use client"
 import { Box, Divider, Typography } from "@mui/material";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
 import Image from "next/image";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
@@ -17,13 +17,14 @@ import { StatusIndicator } from "@/components/applicants/StatusIndicator";
 const Page = () => {
   const pathname = usePathname();
   const router = useRouter();
+  const searchParams = useSearchParams();
+
   const {
     modalFilterData,
     filters,
     isModalOpen,
     currentPage,
     totalEntries,
-    isTable,
     handleOpenModal,
     handleCloseModal,
     handleRowSelect,
@@ -33,6 +34,8 @@ const Page = () => {
     handleTotalEntriesChange,
     setCurrentPage,
   } = useAssetClearance();
+
+  const isTable = searchParams.get("istable");
 
    const column = [
     {
@@ -196,7 +199,7 @@ const Page = () => {
   };
 
   const basicColumns = getColumnsByGroup("basic");
-const detailsColumns = getColumnsByGroup("details"); 
+  const detailsColumns = getColumnsByGroup("details"); 
 
   return (
     <>

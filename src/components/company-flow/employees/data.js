@@ -209,6 +209,58 @@ export const ClearanceTableData = [
   },
 ];
 
+export const passportTableData = [
+  {
+    id: "AB00001",
+    name: "Saleem Ashfaq Muhammad Shehzad",
+    image: "/images/profile-f-f.png",
+    date: "12/12/2024",
+    reason: "Any....",
+    document: "Passport",
+    status: "New Request",
+  },
+  {
+    id: "AB00001",
+    name: "Saleem Ashfaq Muhammad Shehzad",
+    image: "/images/profile-f-f.png",
+    date: "12/12/2024",
+    reason: "Any....",
+    document: "Passport",
+    status: "Pending",
+  },
+  {
+    id: "AB00001",
+    name: "Saleem Ashfaq Muhammad Shehzad",
+    image: "/images/profile-f-f.png",
+    date: "12/12/2024",
+    reason: "Any....",
+    document: "Passport",
+    status: "Accepted",
+  },
+];
+
+export const generalDeductionTableData = [
+  {
+    id: "AB00001",
+    name: "Saleem Ashfaq Muhammad Shehzad",
+    createdDate: '13/03/2024',
+    image: "/images/profile-f-f.png",
+    deductionReason: "Late Coming",
+    deductionAmount: "1500",
+    remarks: "--",
+  },
+];
+
+export const passportAcceptanceTableData = [
+  {
+    id: "AB00001",
+    name: "Saleem Ashfaq Muhammad Shehzad",
+    image: "/images/profile-f-f.png",
+    submissionDate: '13/03/2024',
+    status: "Pending",
+  },
+];
+
 export const dlTableData = [
   {
     id: "3421",
