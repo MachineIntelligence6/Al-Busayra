@@ -1,24 +1,42 @@
 "use client";
 import { Box, Divider } from "@mui/material";
 import { Plus } from "lucide-react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
-import CustomBreadcrumb from "@/app/Components/sharedComponents/BreadCrum/page";
-import { Button } from "@/components/ui/button";
-// import CompanyEmpty from "../../CompanyEmpty";
-// import EmployeeClearanceTableModal from "./table/EmployeeClearanceTableModal";
-// import ClearanceTable from "./table";
 import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
 import CompanyEmpty from "../../CompanyEmpty";
-import CustomDropdown from "@/components/Shared-components/CustomDropDown";
+import CustomDropdownButton from "@/components/Shared-components/CustomDropdownButton";
 import TransferTableModal from "./table/TransferTableModal";
+
+const statusButtons = [
+  {
+    label: "Transfer",
+  },
+  {
+    label: "Transfer of Platform (Acquiring)",
+    value: "transfer_of_platform_acquiring",
+  },
+  {
+    label: "Transfer of Platform (Providing)",
+    value: "transfer_of_platform_providing",
+  },
+];
 
 const EmployeeTransferEmptyScreen = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState(statusButtons[0]);
 
   const onClose = () => {
     setShowPopup(false);
   };
+
+  useEffect(() => {
+    if (selectedStatus.value === "transfer_of_platform_acquiring") {
+      setShowPopup(true);
+    } else {
+      setShowPopup(false);
+    }
+  }, [selectedStatus]);
 
   return (
     <Box component="div">
@@ -32,24 +50,16 @@ const EmployeeTransferEmptyScreen = () => {
       >
         <DynamicBreadcrumb />
 
-        {/* <CustomButton startIcon={<Plus />}>Request Advance Salary</CustomButton> */}
-
-        {/* <CustomBreadcrumb name="Employee Clearance" /> */}
-        {true && (
-          <Button
-            className="bg-[#296291] hover:bg-[#4080b4]"
-            // onClick={() => setShowPopup(true)}
-          >
-            Transfer
-            <Plus />
-          </Button>
-        )}
+        <CustomDropdownButton
+          options={statusButtons}
+          selectedValue={selectedStatus}
+          setSelectedValue={setSelectedStatus}
+        />
       </Box>
 
       <Divider sx={{ mt: 1, mx: 2, mb: 2 }} />
 
       {false ? (
-        // <ClearanceTable />
         ""
       ) : (
         <CompanyEmpty>
