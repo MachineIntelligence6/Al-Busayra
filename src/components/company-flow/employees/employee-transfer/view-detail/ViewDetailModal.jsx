@@ -62,10 +62,12 @@ const ViewDetailModal = ({ onClose }) => {
           <ViewEmployeeHeader
             fullName="Saleem Akhtar Muhammad Miskeen"
             description="saleemakhtar1234@gmail.com"
-            profileImage={"/icons/pic.svg"}
+            profileImage={"/company/picc.png"}
             onBackClick={handleBackClick}
             onEditClick={handleEditClick}
             buttons={buttons}
+            isClose={true}
+            handleCloseClick={onClose}
             sx={{
               borderRadius: "15px",
               boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.2)",
@@ -73,7 +75,12 @@ const ViewDetailModal = ({ onClose }) => {
           />
         </Box>
         <Box>
-          <Box sx={{ minHeight: "300px" }}>
+          <Box
+            sx={{
+              minHeight: activeComponent === "card" ? "" : "400px",
+              minWidth: "1100px",
+            }}
+          >
             {activeComponent === "card" ? (
               <ViewDetailCard />
             ) : (

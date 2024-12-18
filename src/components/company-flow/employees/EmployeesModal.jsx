@@ -18,23 +18,16 @@ import Image from "next/image";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import GenericModal from "@/components/applicants/GenericModel";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
-import { assetAllocationData, assetClarenceData } from "@/utils/company-flow/asset-clarance-data";
+import {
+  assetAllocationData,
+  assetClarenceData,
+} from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
 import DetailModal from "./view-detail";
 import CustomAvatar from "@/components/Shared-components/CustomAvatar";
 import Scrollbars from "react-custom-scrollbars";
 
 const TableFiltersData = [
-
-
-
-
-
-
-
-
-
-  
   {
     id: 2,
     filterName: "ID",
@@ -227,7 +220,6 @@ const EmployeesModal = ({ open, onClose, title = "Employees Modal" }) => {
   ];
 
   return (
-
     <Dialog
       fullScreen={fullScreen}
       open={open}
@@ -261,7 +253,6 @@ const EmployeesModal = ({ open, onClose, title = "Employees Modal" }) => {
         </Box>
       </DialogTitle>
       <Scrollbars style={{ height: 700, width: 1200 }}>
-
         <DialogContent>
           <Box
             component="div"
