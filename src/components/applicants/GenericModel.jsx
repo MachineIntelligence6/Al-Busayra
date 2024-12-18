@@ -37,13 +37,15 @@ const GenericModal = ({
       onClose={onClose}
       aria-labelledby="modal-title"
       aria-describedby="modal-description"
+      BackdropProps={{
+        sx: {
+          backgroundColor: 'rgba(0, 0, 0, 0.6)',
+        },
+      }}
     >
-      {/* <Box sx={modalStyle}> */}
-
         <Box id="modal-description" sx={modalStyle}>
           {children}
         </Box>
-      {/* </Box> */}
     </Modal>
   );
 };

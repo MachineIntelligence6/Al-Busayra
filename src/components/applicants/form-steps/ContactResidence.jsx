@@ -8,10 +8,11 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import CaptionText from "@/components/Shared-components/CaptionText";
+import { custom } from "@/app/theme";
 
 export const ContactResidence = ({ control, isUaeResident }) => {
   const renderLabel = (label, required = false) => (
-    <Typography variant="body1" component="span">
+    <Typography variant="body1" component="span" sx={{fontSize: "16px", color: custom.primaryText, fontWeight: 500, lineHeight: "18px"}}>
       {label}
       {required && (
         <Typography component="span" color="error">

@@ -13,12 +13,12 @@ import CustomTextField from "@/components/Shared-components/CustomTextField";
 import CustomCountryCodeInput from "@/components/Shared-components/CustomCountryCodeInput";
 import CaptionText from "@/components/Shared-components/CaptionText";
 import { countryCodes } from "@/utils/hard-data/common";
-
+import { custom } from "@/app/theme";
 
 
 export const Referral = ({ control }) => {
   const renderLabel = (label, required = false) => (
-    <Typography variant="body1" component="span">
+    <Typography variant="body1" component="span" sx={{fontSize: "16px", color: custom.primaryText, fontWeight: 500, lineHeight: "18px"}}>
       {label}
       {required && (
         <Typography component="span" color="error">

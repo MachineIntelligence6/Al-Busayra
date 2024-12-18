@@ -13,9 +13,10 @@ import { PassportDetailsSchema } from "@/utils/schemas/PassportDetailsEditSchema
 import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
 import CustomDateField from "@/components/Shared-components/CustomDateField";
 import CaptionText from "@/components/Shared-components/CaptionText";
+import { custom } from "@/app/theme";
 
 const renderLabel = (label, required = false) => (
-  <Typography variant="body1" component="span">
+  <Typography variant="body1" component="span" sx={{fontSize: "16px", color: custom.primaryText, fontWeight: 500, lineHeight: "18px"}}>
     {label}
     {required && (
       <Typography component="span" color="error">

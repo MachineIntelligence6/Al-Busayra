@@ -10,7 +10,6 @@ import PhoneNumberTextField from '@/components/Shared-components/NumberTextField
 import UploadInputField from '@/components/Shared-components/UploadInputField';
 import CaptionText from '@/components/Shared-components/CaptionText';
 
-
 const fields = [
     {
         label: "Plateform ID",
