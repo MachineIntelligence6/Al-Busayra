@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabelTop from './InputLabel';
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Checkbox, Stack, Typography } from '@mui/material';
 import { custom } from '@/app/theme';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
@@ -57,8 +57,6 @@ const CustomMultiSelected = (props) => {
             target: { value },
         } = event;
         setSelected(typeof value === 'string' ? value.split(',') : value);
-
-        // If onChange is passed, call it
         if (onChange) onChange(value);
     };
 
@@ -101,15 +99,19 @@ const CustomMultiSelected = (props) => {
                 }}
                 MenuProps={MenuProps}
             >
-                {options.map((option) => (
-                    <MenuItem
-                        key={option.value}
-                        value={option.value}
-                        style={getStyles(option.value, selected, theme)}
-                    >
-                        {option.label}
-                    </MenuItem>
-                ))}
+                {options.map((option) => {
+
+                    return (
+                        <MenuItem
+                            key={option.value}
+                            value={option.value}
+                            sx={{ m: 1 }}
+                            style={getStyles(option.value, selected, theme)}
+                        >
+                            <Checkbox size='small' sx={{ p: 0.5 }} checked={selected.includes(option.value)} />  {option.label}
+                        </MenuItem>
+                    )
+                })}
             </Select>
         </FormControl>
     );

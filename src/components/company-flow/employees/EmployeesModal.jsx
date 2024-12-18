@@ -78,6 +78,8 @@ const EmployeesModal = ({ open, onClose, title = "Employees Modal" }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalEntries, setTotalEntries] = useState(10);
   const [headerSearchValue, setHeaderSearchValue] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
+
   const rowsPerPage = 7;
 
   // Handler for search input change
@@ -115,7 +117,6 @@ const EmployeesModal = ({ open, onClose, title = "Employees Modal" }) => {
     // Add your filter logic here, such as opening a dropdown or modal
   };
 
-  const [showPopup, setShowPopup] = useState(false);
 
   const column = [
     {

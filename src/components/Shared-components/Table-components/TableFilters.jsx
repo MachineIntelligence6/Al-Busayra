@@ -11,6 +11,7 @@ const options = ["A", "B", "C", "D"];
 const TableFilters = ({
   filters,
   bottomBorder = true,
+  heading = "Advance Filter"
 }) => {
   const [dropdown1Value, setDropdown1Value] = useState("");
   const [dropdown2Value, setDropdown2Value] = useState("");
@@ -23,9 +24,9 @@ const TableFilters = ({
   ];
 
   return (
-    <Box component="div" sx={{ p: 2, pb: 1, px: 3 }}>
+    <Box component="div" sx={{ pb: 1, px: 2, pt: 1 }}>
 
-      <DescriptiveText text="Advnace Filter" fontWeigth={500} fontSize={15} color={custom.primaryText} />
+      {heading && <DescriptiveText text={heading} fontWeigth={500} fontSize={15} color={custom.primaryText} />}
 
 
       <Box
