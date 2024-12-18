@@ -19,7 +19,6 @@ const Page = () => {
   const [isTable, setIsTable] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  // const searchParams = useSearchParams();
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -42,9 +41,7 @@ const Page = () => {
     setCurrentPage,
   } = useAssetClearance();
 
-  // const isTable = searchParams.get("istable");
-
-   const column = [
+  const column = [
     {
       field: "id",
       headerName: "ID",
@@ -161,9 +158,9 @@ const Page = () => {
       group: "details",
       align: "left",
       render: (row) => (
-       <StatusIndicator
-        status={row.status}
-        pathname={pathname}
+        <StatusIndicator
+          status={row.status}
+          pathname={pathname}
         />
       ),
     },
@@ -206,7 +203,7 @@ const Page = () => {
   };
 
   const basicColumns = getColumnsByGroup("basic");
-  const detailsColumns = getColumnsByGroup("details"); 
+  const detailsColumns = getColumnsByGroup("details");
 
   return (
     <>
