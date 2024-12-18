@@ -13,7 +13,7 @@ import CustomTextField from "../CustomTextField";
 import { UploadIcon } from "@/utils/Icons";
 import { custom } from "@/app/theme";
 
-const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntries, btnText = "Add New",  required = false  }) => {
+const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntries, btnText = "Add New", required = false, isExportBtn = true, isMenu = true }) => {
   const [text, setText] = useState("");
   const handleInputChange = (e) => {
     setText(e.target.value);
@@ -94,11 +94,11 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntri
           onChange={(e) => console.log(e.target.value)}
           sx={{
             borderRadius: "6px",
-          width:"auto"
+            width: "auto"
           }}
         />
 
-        <CustomButton bgColor="foreground" color={custom.secondaryText} startIcon={<UploadIcon />}>Export</CustomButton>
+        {isExportBtn && <CustomButton bgColor="foreground" color={custom.secondaryText} startIcon={<UploadIcon />}>Export</CustomButton>}
         {isBtnAdd && <CustomButton endIcon={<AddIcon />} onClick={handleOpenModal ? () => handleOpenModal() : () => { }}>{btnText}</CustomButton>}
         <Box
           sx={{
@@ -107,7 +107,7 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntri
             borderRadius: "5px",
           }}
         >
-          <ActionMenu menuItems={MenuItems} onMenuItemClick={handleMenuClick} />
+          {isMenu && <ActionMenu menuItems={MenuItems} onMenuItemClick={handleMenuClick} />}
         </Box>
       </Box>
     </Box>

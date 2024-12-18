@@ -3,6 +3,7 @@ export const foodPermitDeductionTableData = [
         id: "AB0001",
         fullName: "Saleem Akhtar Muhammad Miskeen",
         image: "/images/profile-f-f.png",
+        email: "saleem@gmail.com",
         resident: "UAE",
         bikeRegistrationCity: "Dubai",
         workingCity: "Ajman",
@@ -16,6 +17,7 @@ export const foodPermitDeductionTableData = [
     {
         id: "AB0002",
         fullName: "MD Kulem Ullah MD Sukwor",
+        email: "saleem@gmail.com",
         image: "/images/profile-f-f.png",
         resident: "UAE",
         bikeRegistrationCity: "Dubai",
@@ -30,6 +32,7 @@ export const foodPermitDeductionTableData = [
     {
         id: "AB0003",
         fullName: "MD Kulem Ullah MD Sukwor",
+        email: "saleem@gmail.com",
         image: "/images/profile-f-f.png",
         resident: "UAE",
         bikeRegistrationCity: "Dubai",
@@ -44,6 +47,7 @@ export const foodPermitDeductionTableData = [
     {
         id: "AB0004",
         fullName: "Saleem Akhtar Muhammad Miskeen",
+        email: "saleem@gmail.com",
         image: "/images/profile-m-m.png",
         resident: "UAE",
         bikeRegistrationCity: "Dubai",
@@ -58,6 +62,7 @@ export const foodPermitDeductionTableData = [
     {
         id: "AB0005",
         fullName: "Saleem Akhtar Muhammad Miskeen",
+        email: "saleem@gmail.com",
         image: "/images/profile-f.jpg",
         resident: "UAE",
         bikeRegistrationCity: "Dubai",
