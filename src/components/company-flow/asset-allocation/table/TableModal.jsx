@@ -29,16 +29,16 @@ const TableModal = ({ onClose }) => {
         padding: 4,
       }}
     >
-      <Box
+      {/* <Box
         sx={{
-          backgroundColor: "white",
-          padding: 2,
-          borderRadius: 2,
+          // backgroundColor: "white",
+          paddingBottom: 2,
+          // borderRadius: 2,
           boxShadow: 3,
         }}
-      >
+      > */}
         <AddAssetTable />
-      </Box>
+      {/* </Box> */}
     </Box>
   );
 };

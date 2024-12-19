@@ -1,11 +1,9 @@
 import { Box, Divider } from "@mui/material";
 import React from "react";
-import DescriptiveText from "./DescriptiveText";
 import CustomButton from "./CustomButton";
-import { custom } from "@/app/theme";
 import CustomDropdownButton from "./CustomDropdownButton";
 
-const CompanyHeader = ({ btnProps = {}, btnDropdown = {}, children }) => {
+const CompanyHeader = ({ btnProps={}, btnDropdown = {}, children }) => {
     const isBtn = Object?.keys(btnProps).length ? true : false;
     const isDropdown = Object?.keys(btnDropdown).length ? true : false;
 

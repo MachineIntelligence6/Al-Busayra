@@ -76,6 +76,14 @@ export function StatusIndicator({ status, pathname }) {
         backgroundColor = '#7367F029';
         textColor = '#7367F0';
         break;
+      case "In Progress":
+        backgroundColor = '#7367F029';
+        textColor = '#7367F0';
+        break;
+        case "Completed":
+          backgroundColor = '#E5F8E5';
+          textColor = '#00A000';
+          break;
       default:
         break;
     }
