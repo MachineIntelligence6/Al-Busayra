@@ -12,6 +12,8 @@ import ActionMenu from "@/components/Shared-components/ActionMenu";
 import { useRouter } from "next/navigation";
 import { DownloadIcon, PdfIcon } from "@/utils/Icons";
 import { allownceTableData } from "../../data";
+import CompanyHeader from "@/components/Shared-components/CompanyHeader";
+import DescriptiveText from "@/components/Shared-components/DescriptiveText";
 
 const filters = [
   { id: 1, filterName: "ID", placeholder: "e.g" },
@@ -143,21 +145,23 @@ const SpecialAllowanceTable = () => {
   }, []);
 
   return (
-    <Box sx={{ bgcolor: "white", mx: 2 }}>
-      <TableFilters bottomBorder={false} filters={filters} />
-      <TableExportRow isBtnAdd={false} />
-      <Box sx={{ height: "100%" }}>
-        <CustomTable
-          columns={fullColumns}
-          data={allownceTableData}
-          onRowSelect={handleRowSelect}
-          handleFilterClick={handleFilterClick}
-          isSelectedOption={false}
-        />
-        <TablePagination />
+    <>
+      <Box sx={{ bgcolor: "white", mx: 2 }}>
+        <TableFilters bottomBorder={false} filters={filters} />
+        <TableExportRow isBtnAdd={false} />
+        <Box sx={{ height: "100%" }}>
+          <CustomTable
+            columns={fullColumns}
+            data={allownceTableData}
+            onRowSelect={handleRowSelect}
+            handleFilterClick={handleFilterClick}
+            isSelectedOption={false}
+          />
+          <TablePagination />
+        </Box>
+        {/* {showModal && <RejectModal onClose={onClose} />} */}
       </Box>
-      {/* {showModal && <RejectModal onClose={onClose} />} */}
-    </Box>
+    </>
   );
 };
 
