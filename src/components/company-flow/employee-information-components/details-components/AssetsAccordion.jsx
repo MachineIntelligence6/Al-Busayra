@@ -1,4 +1,4 @@
-import CustomTable from '@/components/Shared-components/Table-components/CustomTable'
+import CustomTable from '@/components/shared-components/Table-components/CustomTable'
 import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import Scrollbars from 'react-custom-scrollbars'

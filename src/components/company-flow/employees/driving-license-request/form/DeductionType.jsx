@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Divider, Typography } from "@mui/material";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
-import CurrencyType from "@/components/Shared-components/CurrencyType";
+import CustomTextField from "@/components/shared-components/CustomTextField";
+import CurrencyType from "@/components/shared-components/CurrencyType";
 
 const DeductionType = ({ deductionType, months }) => {
   if (!deductionType) return null;

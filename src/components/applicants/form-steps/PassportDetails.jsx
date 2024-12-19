@@ -1,11 +1,11 @@
 import React, { createElement } from "react";
 import { Controller } from "react-hook-form";
-import { Box, Typography, Switch } from "@mui/material";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
-import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
-import CustomDateField from "@/components/Shared-components/CustomDateField";
+import { Box, Typography } from "@mui/material";
+import CustomTextField from "@/components/shared-components/CustomTextField";
+import CustomFileUploadField from "@/components/shared-components/CustomFIleUploadField";
+import CustomDateField from "@/components/shared-components/CustomDateField";
 import IOSSwitch from "@/components/ui/switch-button";
-import CaptionText from "@/components/Shared-components/CaptionText";
+import CaptionText from "@/components/shared-components/CaptionText";
 import { custom } from "@/app/theme";
 
 export const PassportDetails = ({ control }) => {

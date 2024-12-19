@@ -1,38 +1,29 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardContent,
   Typography,
   Box,
   Button,
-  Switch,
-  FormControlLabel,
-  Modal,
   useTheme,
   useMediaQuery,
   TextareaAutosize,
   Divider,
   Avatar,
-  colors,
+  TextField,
 } from "@mui/material";
-import Input from "@/app/Components/Input/Input";
 import { useFormik } from "formik";
 
-import { custom } from "@/app/theme";
-import { Check, CircleX, CircleXIcon, LucideCircleX, X } from "lucide-react";
-import DialogHeading from "@/components/Shared-components/DialogHeading";
-import CaptionText from "@/components/Shared-components/CaptionText";
-import CustomDateField from "@/components/Shared-components/CustomDateField";
-import DescriptiveText from "@/components/Shared-components/DescriptiveText";
-import IOSSwitch from "@/components/ui/switch-button";
-import CustomButton from "@/components/Shared-components/CustomButton";
-import { YuppValSchema } from "@/components/Shared-components/Schemas/YuppValSchema";
-import CustomDropdown from "@/components/Shared-components/CustomDropDown";
-import CustomInput from "@/components/Shared-components/CustomInput";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
-import CurrencyType from "@/components/Shared-components/CurrencyType";
+import { Check, CircleX } from "lucide-react";
+import CaptionText from "@/components/shared-components/CaptionText";
+import CustomDateField from "@/components/shared-components/CustomDateField";
+import CustomButton from "@/components/shared-components/CustomButton";
+import { YuppValSchema } from "@/components/shared-components/Schemas/YuppValSchema";
+import CustomDropdown from "@/components/shared-components/CustomDropDown";
+import CustomTextField from "@/components/shared-components/CustomTextField";
+import CurrencyType from "@/components/shared-components/CurrencyType";
 
 const SpecialAllownceRequestForm = ({ open, onClose }) => {
   const [isActive, setIsActive] = useState(true);
@@ -128,7 +119,7 @@ const SpecialAllownceRequestForm = ({ open, onClose }) => {
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                   <CaptionText text="Employee ID" />
-                  <Input
+                  <TextField
                     name="employeeId"
                     value={formik.values.employeeId}
                     onChange={formik.handleChange}

@@ -1,15 +1,15 @@
 "use client"
 import { Box, Divider, FormControl, MenuItem, Select, Stack, Typography, } from '@mui/material'
 import React, { useMemo } from 'react'
-import DynamicBreadcrumb from '../Shared-components/BreadCrumb';
+import DynamicBreadcrumb from '../shared-components/BreadCrumb';
 import Grid from '@mui/material/Grid2'
-import CustomTextField from '../Shared-components/CustomTextField';
-import CustomButton from '../Shared-components/CustomButton';
+import CustomTextField from '../shared-components/CustomTextField';
+import CustomButton from '../shared-components/CustomButton';
 import { Edit, Plus, Trash, Trash2 } from 'lucide-react';
-import CustomTable from '../Shared-components/Table-components/CustomTable';
+import CustomTable from '../shared-components/Table-components/CustomTable';
 import { configrationTableData } from './data';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
-import TablePagination from '../Shared-components/Table-components/TablePagination';
+import TablePagination from '../shared-components/Table-components/TablePagination';
 
 
 

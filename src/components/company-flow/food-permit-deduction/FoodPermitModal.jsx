@@ -1,15 +1,15 @@
-import ActionMenu from '@/components/Shared-components/ActionMenu';
-import CompanyTableModal from '@/components/Shared-components/modals/CompanyTableModal'
+import ActionMenu from '@/components/shared-components/ActionMenu';
+import CompanyTableModal from '@/components/shared-components/modals/CompanyTableModal'
 import { Box, Typography } from '@mui/material';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useMemo, useState } from 'react'
 import CustomTableWrapper from '../asset-clearance/CustomTableWrapper';
-import CustomAvatar from '@/components/Shared-components/CustomAvatar';
+import CustomAvatar from '@/components/shared-components/CustomAvatar';
 import { foodPermitDeductionTableData } from '@/utils/company-flow/food-permit-deduction.data';
-import TableFilters from '@/components/Shared-components/Table-components/TableFilters';
-import CustomTable from '@/components/Shared-components/Table-components/CustomTable';
-import TablePagination from '@/components/Shared-components/Table-components/TablePagination';
-import CustomTableExportRow from '@/components/Shared-components/customTableExportRow';
+import TableFilters from '@/components/shared-components/Table-components/TableFilters';
+import CustomTable from '@/components/shared-components/Table-components/CustomTable';
+import TablePagination from '@/components/shared-components/Table-components/TablePagination';
+import CustomTableExportRow from '@/components/shared-components/customTableExportRow';
 
 const tableFiltersData = [
     {

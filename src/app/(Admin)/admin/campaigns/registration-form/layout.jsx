@@ -1,5 +1,3 @@
-import localFont from "next/font/local";
-import { Box } from "@mui/material";
 import RegistrationLayout from "@/Layouts/RegistrationLayout";
 
 
@@ -12,7 +10,7 @@ export default function RegistrationFormLayout({ children }) {
 
   return (
     <html lang="en" className="" key={"auth-layout"}>
-      <body body className={` antialiased`
+      <body className={` antialiased`
       }>
         <RegistrationLayout>{children}</RegistrationLayout>
       </body >

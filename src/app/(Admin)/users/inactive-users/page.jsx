@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Box, Divider, Typography } from "@mui/material";
-import { useRouter } from "next/navigation";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
 import { usePathname } from "next/navigation";
 import UserTableWrapper from "@/components/users/UserTableWrapper";
 import UserCard from "@/components/users/UserCard";

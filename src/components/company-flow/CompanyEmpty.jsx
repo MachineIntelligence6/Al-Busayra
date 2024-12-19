@@ -1,10 +1,10 @@
 import { Box, Divider } from "@mui/material";
 import React from "react";
-import DynamicBreadcrumb from "../Shared-components/BreadCrumb";
-import CustomButton from "../Shared-components/CustomButton";
-import DescriptiveText from "../Shared-components/DescriptiveText";
+import DynamicBreadcrumb from "../shared-components/BreadCrumb";
+import CustomButton from "../shared-components/CustomButton";
+import DescriptiveText from "../shared-components/DescriptiveText";
 import { custom } from "@/app/theme";
-import CompanyHeader from "../Shared-components/CompanyHeader";
+import CompanyHeader from "../shared-components/CompanyHeader";
 
 const CompanyEmpty = ({ children, heading = "Heading of page", btnProps = {}, btnDropdown = {} }) => {
 

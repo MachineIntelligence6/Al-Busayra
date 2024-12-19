@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
 
-import { Upload, ChevronDown, Check, X } from "lucide-react";
+import { ChevronDown, Check, X } from "lucide-react";
 
 import {
   Select,
@@ -21,7 +21,7 @@ function CompanyInfo({setTabs,setListing}) {
     <div className = 'max-h-[80vh] overflow-auto scrollbar ' id="scrollbar2">
       <div className="flex flex-col items-start justify-start gap-5">
         <div className="bg-[#E9EAEC] cursor-pointer w-[100px] h-[100px] border-[#C9C8CC] border-[1px] flex flex-row items-center justify-center rounded-[10px]">
-          <img src="/camera.png" className="w-[35px] h-[35px]" />
+          <img src="/camera.png" className="w-[35px] h-[35px]" alt="" />
         </div>
         {/* <Button className="bg-[#104774] hover:bg-[#4080b4] text-white flex flex-row items-center gap-2">
           Upload Logo <Upload />{" "}

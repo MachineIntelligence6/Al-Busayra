@@ -5,7 +5,7 @@ import {
   FormHelperText,
 } from "@mui/material";
 import Image from "next/image";
-import CustomButton from "../Shared-components/CustomButton";
+import CustomButton from "../shared-components/CustomButton";
 import { CameraIcon ,WhiteUploadIcon} from "@/utils/Icons";
 
 const ImageUpload = ({

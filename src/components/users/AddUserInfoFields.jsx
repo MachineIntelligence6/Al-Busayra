@@ -1,11 +1,11 @@
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import { Box, Typography, Checkbox, ListItemText, MenuItem, Select } from "@mui/material";
-import CustomSelect from "@/components/Shared-components/CustomSelect";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
+import CustomSelect from "@/components/shared-components/CustomSelect";
+import CustomTextField from "@/components/shared-components/CustomTextField";
 import ImageUpload from "../applicants/ImageUpload";
-import { CustomMultiSelect } from "../Shared-components/CustomMultiSelect";
-import CaptionText from "../Shared-components/CaptionText";
+import { CustomMultiSelect } from "../shared-components/CustomMultiSelect";
+import CaptionText from "../shared-components/CaptionText";
 
 export const AddUserInfoFields = ({ control }) => {
   const { setValue } = useFormContext();

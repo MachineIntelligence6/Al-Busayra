@@ -1,5 +1,5 @@
-import DynamicBreadcrumb from '@/components/Shared-components/BreadCrumb'
-import CustomButton from '@/components/Shared-components/CustomButton'
+import DynamicBreadcrumb from '@/components/shared-components/BreadCrumb'
+import CustomButton from '@/components/shared-components/CustomButton'
 import { Box, Divider } from '@mui/material'
 import { ChevronDown } from 'lucide-react'
 import React from 'react'

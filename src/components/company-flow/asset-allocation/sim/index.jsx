@@ -1,8 +1,7 @@
-import SideCard from "@/components/Shared-components/SideCard";
+import SideCard from "@/components/shared-components/SideCard";
 import { Box } from "@mui/material";
 import React from "react";
 import { allocateAssetData } from "@/utils/vendor-detail";
-import AllocateAsset from "../bike/AllocateAsset";
 import SimAssignForm from "./SimAssignForm";
 
 const AssignSim = () => {

@@ -1,6 +1,6 @@
 "use client";
 
-import SideCard from "@/components/Shared-components/SideCard";
+import SideCard from "@/components/shared-components/SideCard";
 import { Box } from "@mui/material";
 import React from "react";
 import { passportRequestData } from "@/utils/vendor-detail";

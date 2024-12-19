@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Box } from "@mui/material";
 import { useRouter } from "next/navigation";
-import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
+import EmptyScreenView from "@/components/shared-components/EmptyScreenView";
 
 const SimAssignedModal = ({ onClose }) => {
   const router = useRouter();

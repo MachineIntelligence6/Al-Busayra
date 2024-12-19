@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
+import EmptyScreenView from "@/components/shared-components/EmptyScreenView";
 import FoodPermitDeductionMainTable from "../food-permit-deduction/FoodPermitDeductionMainTable";
 import CompanyEmpty from "../CompanyEmpty";
 import LoanTableModal from "./LoadTableModal";

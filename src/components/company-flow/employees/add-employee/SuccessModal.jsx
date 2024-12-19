@@ -11,7 +11,7 @@ import {
     useMediaQuery,
 } from "@mui/material";
 import { CircleX, X } from "lucide-react";
-import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
+import EmptyScreenView from "@/components/shared-components/EmptyScreenView";
 import { useRouter } from "next/navigation";
 
 const SuccessModal = ({ open, onClose, title, }) => {

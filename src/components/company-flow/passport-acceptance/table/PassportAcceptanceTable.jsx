@@ -2,10 +2,10 @@
 import { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
-import ActionMenu from "@/components/Shared-components/ActionMenu";
+import ActionMenu from "@/components/shared-components/ActionMenu";
 import { assetClarenceData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
-import CustomAvatar from "@/components/Shared-components/CustomAvatar";
+import CustomAvatar from "@/components/shared-components/CustomAvatar";
 
 const TableFiltersData = [
   {

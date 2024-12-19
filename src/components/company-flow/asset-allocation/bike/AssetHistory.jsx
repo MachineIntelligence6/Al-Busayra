@@ -1,15 +1,10 @@
 // import CampaignsWrapper from "@/components/Campaigns";
-import TableExportRow from "@/components/Shared-components/Table-components/TableExportRow";
-import TableFilters from "@/components/Shared-components/Table-components/TableFilters";
 import { Avatar, Box, Typography } from "@mui/material";
 import React, { useMemo } from "react";
 import { AssetHistoryTableData } from "../../employees/data";
-import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
-import TablePagination from "@/components/Shared-components/Table-components/TablePagination";
-import Link from "next/link";
-import CustomAvatar from "@/components/Shared-components/CustomAvatar";
-import CurrencyType from "@/components/Shared-components/CurrencyType";
-import ActionMenu from "@/components/Shared-components/ActionMenu";
+import CustomTable from "@/components/shared-components/Table-components/CustomTable";
+import CustomAvatar from "@/components/shared-components/CustomAvatar";
+import ActionMenu from "@/components/shared-components/ActionMenu";
 
 // const filters = [
 //   { id: 1, filterName: "ID", placeholder: "3421" },

@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
-import CustomDropdown from '@/components/Shared-components/CustomDropDown'
-import CustomFileUploadField from '@/components/Shared-components/CustomFIleUploadField'
-import PercentageTextField from '@/components/Shared-components/PercentageTextField'
+import CustomDropdown from '@/components/shared-components/CustomDropDown'
+import CustomFileUploadField from '@/components/shared-components/CustomFIleUploadField'
+import PercentageTextField from '@/components/shared-components/PercentageTextField'
 
 const OtherDetailsForm = () => {
     return (

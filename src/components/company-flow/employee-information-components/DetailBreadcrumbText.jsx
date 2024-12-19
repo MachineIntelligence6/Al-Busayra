@@ -1,6 +1,6 @@
 import React from 'react'
-import CompanyHeader from '@/components/Shared-components/CompanyHeader'
-import DescriptiveText from '@/components/Shared-components/DescriptiveText'
+import CompanyHeader from '@/components/shared-components/CompanyHeader'
+import DescriptiveText from '@/components/shared-components/DescriptiveText'
 import { custom } from '@/app/theme'
 
 const DetailBreadcrumbText = () => {

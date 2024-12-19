@@ -2,14 +2,14 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
-import CustomAvatar from "@/components/Shared-components/CustomAvatar";
+import CustomAvatar from "@/components/shared-components/CustomAvatar";
 import { useLoan } from "@/hooks/useLoan";
 import { StatusIndicator } from "@/components/applicants/StatusIndicator";
 import GenericModal from "@/components/applicants/GenericModel";
 import CustomTableWrapper from "../asset-clearance/CustomTableWrapper";
 import { loanMainTableData } from "@/utils/company-flow/loanMainTableData";
 import Image from "next/image";
-import CurrencyType from "@/components/Shared-components/CurrencyType";
+import CurrencyType from "@/components/shared-components/CurrencyType";
 import { headerMenuItemsForLoanTable } from "@/app/constants/assetClearance";
 import LoanDeductionForm from "./LoanDeductionForm";
 import VisaLoanForm from "./VisaLoanForm";

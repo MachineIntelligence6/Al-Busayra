@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from "uuid";
-import DynamicBreadcrumb from '@/components/Shared-components/BreadCrumb'
-import CustomButton from '@/components/Shared-components/CustomButton'
-import CustomDropdown from '@/components/Shared-components/CustomDropDown'
+import DynamicBreadcrumb from '@/components/shared-components/BreadCrumb'
+import CustomButton from '@/components/shared-components/CustomButton'
+import CustomDropdown from '@/components/shared-components/CustomDropDown'
 import { Box, Divider, Typography } from '@mui/material'
 import { FileDown, Upload } from 'lucide-react'
 import AddInventorForm from './forms';

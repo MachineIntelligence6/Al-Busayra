@@ -1,14 +1,14 @@
 "use client";
 import { useState } from "react";
-import EmptyScreen from "@/components/Shared-components/EmptyScreen";
+import EmptyScreen from "@/components/shared-components/EmptyScreen";
 import { Box, Divider, Typography } from "@mui/material";
 import ImageUpload from "@/components/applicants/ImageUpload";
 import { Controller, useForm, useFormContext } from "react-hook-form";
 import PlatformModal from "./PlatformModal";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formSchema } from "@/utils/schemas/applicants-schema";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
-import CustomButton from "@/components/Shared-components/CustomButton";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
+import CustomButton from "@/components/shared-components/CustomButton";
 import { Plus } from "lucide-react";
 import PlatformTableWrapper from "./PlatformTableWrapper";
 

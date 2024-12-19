@@ -2,13 +2,13 @@
 import { useEffect, useState } from "react";
 import { Box, Divider, Typography } from "@mui/material";
 import { usePathname } from "next/navigation";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
-import { CustomPermissionTabs } from "@/components/Shared-components/CustomPermissionTabs";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
+import { CustomPermissionTabs } from "@/components/shared-components/CustomPermissionTabs";
 import { CompanyIcon, GlobalIcon } from "@/utils/Icons";
 import RoleInfoCard from "@/components/roles-template/RoleInfoCard";
 import CustomizablePermissionsTable from "@/components/roles-template/CustomPermissionsTable";
 import { CompanyPermissions, permissions } from "@/utils/permissionsData";
-import ViewEmployeeHeader from "@/components/Shared-components/ViewEmployeeHeader";
+import ViewEmployeeHeader from "@/components/shared-components/ViewEmployeeHeader";
 import { Building, Building2, Globe2, Mail, MapPin, Phone, User, UserCircle2 } from "lucide-react";
 
 const columns = ["View", "Add", "Edit", "Delete"];

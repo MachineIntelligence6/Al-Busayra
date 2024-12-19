@@ -3,15 +3,14 @@
 import { Box, Card, Typography, Avatar, IconButton } from "@mui/material";
 import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
 import DoneIcon from "@mui/icons-material/Done";
-import CustomButton from "@/components/Shared-components/CustomButton";
+import CustomButton from "@/components/shared-components/CustomButton";
 
 import { GeneralInfoView } from "./General-info";
 import { ContactInfoView } from "./Contact-info";
 import { DrivingLicenseView } from "./Driving-license";
 import { PassportDetailsView } from "./Passport-details";
 import { ReferralView } from "./Referral";
-import StatusAlert from "./StatusAlert";
-import { StatusDropdown } from "@/components/Shared-components/CustomColoredDropdown";
+import { StatusDropdown } from "@/components/shared-components/CustomColoredDropdown";
 
 
 const profile = {

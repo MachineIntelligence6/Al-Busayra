@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import DynamicBreadcrumb from '@/components/Shared-components/BreadCrumb'
+import DynamicBreadcrumb from '@/components/shared-components/BreadCrumb'
 import { Box, Divider } from '@mui/material'
 import InventoryViewDetails from '@/components/inventory/inventory-list/InventoryViewDetails'
 

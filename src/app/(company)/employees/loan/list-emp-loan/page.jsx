@@ -1,9 +1,9 @@
 "use client"
-import React, { useState } from 'react'
+import React from 'react'
 import { Box } from '@mui/material'
 import { PlusIcon } from 'lucide-react'
-import CompanyHeader from '@/components/Shared-components/CompanyHeader'
-import DescriptiveText from '@/components/Shared-components/DescriptiveText'
+import CompanyHeader from '@/components/shared-components/CompanyHeader'
+import DescriptiveText from '@/components/shared-components/DescriptiveText'
 import { custom } from '@/app/theme'
 import { useLoan } from '@/hooks/useLoan'
 import LoanMainTable from '@/components/company-flow/loan/LoanMainTable'

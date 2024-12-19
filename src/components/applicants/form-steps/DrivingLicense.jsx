@@ -1,10 +1,10 @@
 import React, { createElement } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import { Box, Typography } from "@mui/material";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
-import CustomSelect from "@/components/Shared-components/CustomSelect";
-import CustomDateField from "@/components/Shared-components/CustomDateField";
-import CaptionText from "@/components/Shared-components/CaptionText";
+import CustomTextField from "@/components/shared-components/CustomTextField";
+import CustomSelect from "@/components/shared-components/CustomSelect";
+import CustomDateField from "@/components/shared-components/CustomDateField";
+import CaptionText from "@/components/shared-components/CaptionText";
 import { custom } from "@/app/theme";
 
 export const DrivingLicense = ({ control }) => {

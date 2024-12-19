@@ -1,8 +1,7 @@
 import React from "react";
 import SimAssignedForm from "@/components/company-flow/asset-allocation/sim";
-import CustomBreadcrumb from "@/app/Components/sharedComponents/BreadCrum/page";
 import { Separator } from "@/components/ui/separator";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
 
 const page = () => {
   return (

@@ -11,7 +11,7 @@ import EmiratesId from "./EmiratesId";
 import VisaInfo from "./VisaInfo";
 import InsuranceInfo from "./InsuranceInfo";
 import OtherInfo from "./OtherInfo";
-import ViewEmployeeHeader from "../../Shared-components/ViewEmployeeHeader";
+import ViewEmployeeHeader from "../../shared-components/ViewEmployeeHeader";
 import { ViewEmployeeCardData } from "../../../utils/view-employee-card-data";
 
 import { useRouter } from "next/navigation";

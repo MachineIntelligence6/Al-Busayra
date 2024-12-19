@@ -1,15 +1,15 @@
 import React, { useMemo, useState } from "react";
-import ActionMenu from "@/components/Shared-components/ActionMenu";
-import CustomAvatar from "@/components/Shared-components/CustomAvatar";
-import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
-import TableExportRow from "@/components/Shared-components/Table-components/TableExportRow";
-import TableFilters from "@/components/Shared-components/Table-components/TableFilters";
+import ActionMenu from "@/components/shared-components/ActionMenu";
+import CustomAvatar from "@/components/shared-components/CustomAvatar";
+import CustomTable from "@/components/shared-components/Table-components/CustomTable";
+import TableExportRow from "@/components/shared-components/Table-components/TableExportRow";
+import TableFilters from "@/components/shared-components/Table-components/TableFilters";
 import { data } from "@/utils/campaigns.data";
 import { Box } from "@mui/material";
 import { usePathname } from "next/navigation";
 import { platformListing } from "@/utils/schemas/vendor.data";
 import PlatformDetailModal from "./PlatformDetailModal";
-import TablePagination from "@/components/Shared-components/Table-components/TablePagination";
+import TablePagination from "@/components/shared-components/Table-components/TablePagination";
 
 const platformFilters = [
   { id: 1, filterName: "Platform ID", placeholder: "CA1" },

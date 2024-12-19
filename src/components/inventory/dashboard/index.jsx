@@ -1,6 +1,6 @@
 "use client";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
-import CustomButton from "@/components/Shared-components/CustomButton";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
+import CustomButton from "@/components/shared-components/CustomButton";
 import { Box, Divider, Icon } from "@mui/material";
 import {
     Bike,
@@ -15,7 +15,7 @@ import React, { useState } from "react";
 import DashboardCard from "./DashboardCard";
 import PersonOffIcon from "@mui/icons-material/PersonOff";
 import DashboardTable from "./DashboardTable";
-import CustomDropdownButton from "@/components/Shared-components/CustomDropdownButton";
+import CustomDropdownButton from "@/components/shared-components/CustomDropdownButton";
 
 const statusButtons = [
     { label: "SIM Inventory", value: "sim_inventory" },

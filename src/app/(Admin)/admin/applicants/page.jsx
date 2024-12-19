@@ -2,8 +2,8 @@
 
 import { Box, Divider } from "@mui/material";
 import { useRouter } from "next/navigation";
-import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import EmptyScreenView from "@/components/shared-components/EmptyScreenView";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
 // import { useState } from "react";
 // import MultiStepFormModel from "@/components/applicants/MultiStepFormModel";
 // import GenericModal from "@/components/applicants/GenericModel";

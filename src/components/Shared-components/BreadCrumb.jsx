@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Box, Breadcrumbs, Divider, Typography } from "@mui/material";
+import { Box, Breadcrumbs, Typography } from "@mui/material";
 import CustomButton from "./CustomButton";
 import { custom } from "@/app/theme";
 

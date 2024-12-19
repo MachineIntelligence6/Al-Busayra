@@ -1,6 +1,6 @@
 import BasicInfo from "@/components/employees/ViewEmployee/BasicInfo";
-import MasonryGrid from "@/components/Shared-components/masonry-grid";
-import InventoryViewDetailModal from "@/components/Shared-components/modals/InventoryViewDetailModal";
+import MasonryGrid from "@/components/shared-components/masonry-grid";
+import InventoryViewDetailModal from "@/components/shared-components/modals/InventoryViewDetailModal";
 import { inventoryViewDetails } from "@/utils/hard-data/inventory-data";
 import { Box } from "@mui/material";
 import React, { useState } from "react";

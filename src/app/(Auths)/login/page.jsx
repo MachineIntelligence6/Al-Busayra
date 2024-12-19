@@ -1,6 +1,5 @@
 import React from "react";
-import AuthLayout from "@/Layouts/AuthLayout";
-import Login from "@/components/Auth-components/Login";
+import Login from "@/components/auth-components/Login";
 
 const page = () => {
   return (

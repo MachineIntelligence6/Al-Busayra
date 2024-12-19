@@ -1,11 +1,11 @@
 "use client";
 import React, { useMemo } from "react";
 import { Box, Button, Typography } from "@mui/material";
-import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
-import TablePagination from "@/components/Shared-components/Table-components/TablePagination";
+import CustomTable from "@/components/shared-components/Table-components/CustomTable";
+import TablePagination from "@/components/shared-components/Table-components/TablePagination";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
-import CustomTableExportRow from "@/components/Shared-components/customTableExportRow";
-import { CustomTableFilter } from "@/components/Shared-components/Table-components/customTableFilter";
+import CustomTableExportRow from "@/components/shared-components/customTableExportRow";
+import { CustomTableFilter } from "@/components/shared-components/Table-components/customTableFilter";
 
 const CustomTableWrapper = ({
   handleOpenModal,

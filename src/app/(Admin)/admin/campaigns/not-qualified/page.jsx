@@ -1,7 +1,7 @@
 import React from 'react'
 import CampaignsWrapper from '@/components/Campaigns'
 import { Box, Divider } from '@mui/material'
-import DynamicBreadcrumb from '@/components/Shared-components/BreadCrumb'
+import DynamicBreadcrumb from '@/components/shared-components/BreadCrumb'
 
 
 const page = () => {

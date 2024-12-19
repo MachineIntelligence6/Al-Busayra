@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
 import OTPInput from "./OTPInput";
-import CustomButton from "@/components/Shared-components/CustomButton";
+import CustomButton from "@/components/shared-components/CustomButton";
 import { Box, Typography } from "@mui/material";
 import Link from "next/link";
 
 function OTp() {
+    const [otp, setOtp] = useState(new Array(6).fill(""));
     const router = useRouter();
+
+    const handleContinue = () => {
+        const otpCode = otp?.join("")
+        if(otpCode === "111111"){
+            router.push("/admin/campaigns")
+        }
+    }
 
     return (
         <div className="flex flex-col items-center justify-center h-full ">
@@ -26,9 +34,9 @@ function OTp() {
                     </p>
                 </div>
                 <div className="flex flex-col w-full mb-6">
-                    <OTPInput />
+                    <OTPInput setOtp={setOtp} otp={otp} />
                 </div>
-                <CustomButton fullWidth onClick={() => router.push("/admin/campaigns")} sx={{ display: "flex", gap: 1 }}>
+                <CustomButton fullWidth onClick={handleContinue} sx={{ display: "flex", gap: 1 }}>
                     Continue <FaArrowRight className="text-white" />
                 </CustomButton>
             </div>

@@ -1,13 +1,13 @@
 import React, { createElement } from "react";
 import { Controller } from "react-hook-form";
 import { Box, Typography, InputAdornment } from "@mui/material";
-import CustomSelect from "@/components/Shared-components/CustomSelect";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
-import CustomCountryCodeInput from "@/components/Shared-components/CustomCountryCodeInput";
+import CustomSelect from "@/components/shared-components/CustomSelect";
+import CustomTextField from "@/components/shared-components/CustomTextField";
+import CustomCountryCodeInput from "@/components/shared-components/CustomCountryCodeInput";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import CaptionText from "@/components/Shared-components/CaptionText";
+import CaptionText from "@/components/shared-components/CaptionText";
 import { custom } from "@/app/theme";
 
 export const ContactResidence = ({ control, isUaeResident }) => {

@@ -2,14 +2,14 @@
 import React, { useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Box } from "@mui/material";
-import TableFilters from "../Shared-components/Table-components/TableFilters";
-import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
+import TableFilters from "../shared-components/Table-components/TableFilters";
+import CustomTable from "@/components/shared-components/Table-components/CustomTable";
 import { data } from "@/utils/campaigns.data";
-import CustomAvatar from "../Shared-components/CustomAvatar";
-import ActionMenu from "../Shared-components/ActionMenu";
-import TableExportRow from "../Shared-components/Table-components/TableExportRow";
-import ActionModalCardCampaign from "../Shared-components/ActionModalCardCampaign";
-import TablePagination from "../Shared-components/Table-components/TablePagination";
+import CustomAvatar from "../shared-components/CustomAvatar";
+import ActionMenu from "../shared-components/ActionMenu";
+import TableExportRow from "../shared-components/Table-components/TableExportRow";
+import ActionModalCardCampaign from "../shared-components/ActionModalCardCampaign";
+import TablePagination from "../shared-components/Table-components/TablePagination";
 
 const columnConfig = {
   shortlistedApplicants: [

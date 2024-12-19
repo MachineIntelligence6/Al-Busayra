@@ -4,7 +4,15 @@ import { TextField, IconButton, InputAdornment } from "@mui/material";
 import InputLabelTop from "./InputLabel";
 import { Eye, EyeOff } from "lucide-react";
 
-function CustomInput({ onChange, placeholder, labelText, type = "text", required = false, height = 38 }) {
+function CustomInput({
+  labelText,
+  type = "text",
+  error = false,
+  helperText = "",
+  register,
+  name,
+  ...props // Spread the rest of the props including ref and name from react-hook-form
+}) {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleTogglePasswordVisibility = () => {
@@ -17,24 +25,25 @@ function CustomInput({ onChange, placeholder, labelText, type = "text", required
       <TextField
         size="small"
         type={type === "password" && !showPassword ? "password" : "text"}
-        onChange={onChange}
-        placeholder={placeholder}
-        sx={{ height: height }}
+        error={error} // Pass error state from react-hook-form
+        helperText={helperText} // Display the error message if there's any
+        {...register(name)} // Register the input with react-hook-form
+        {...props} // Spread props to handle other attributes
         InputProps={
           type === "password"
             ? {
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    onClick={handleTogglePasswordVisibility}
-                    edge="end"
-                    aria-label="toggle password visibility"
-                  >
-                    {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      onClick={handleTogglePasswordVisibility}
+                      edge="end"
+                      aria-label="toggle password visibility"
+                    >
+                      {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }
             : null
         }
       />

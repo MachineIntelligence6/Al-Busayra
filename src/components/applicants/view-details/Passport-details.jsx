@@ -1,5 +1,5 @@
 import { Chip, Box, IconButton, Typography } from '@mui/material';
-import { InfoCard, InfoItem } from '@/components/Shared-components/CustomInfoCard';
+import { InfoCard, InfoItem } from '@/components/shared-components/CustomInfoCard';
 import { CalendarIcon, HashIcon, PassportBookIcon, FIleIcon } from "@/utils/Icons";
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 export function PassportDetailsView({ profile, onEdit }) {

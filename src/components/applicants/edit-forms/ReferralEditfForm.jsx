@@ -4,11 +4,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Box, Divider, Paper, Typography } from "@mui/material";
 import CancelIcon from "@mui/icons-material/Cancel";
 import DoneIcon from "@mui/icons-material/Done";
-import CustomButton from "@/components/Shared-components/CustomButton";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
-import CustomCountryCodeInput from "@/components/Shared-components/CustomCountryCodeInput";
+import CustomButton from "@/components/shared-components/CustomButton";
+import CustomTextField from "@/components/shared-components/CustomTextField";
+import CustomCountryCodeInput from "@/components/shared-components/CustomCountryCodeInput";
 import { referralFormSchema } from "@/utils/schemas/ReferralFormSchema";
-import CaptionText from "@/components/Shared-components/CaptionText";
+import CaptionText from "@/components/shared-components/CaptionText";
 import { custom } from "@/app/theme";
 
 const renderLabel = (label, required = false) => (

@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Box } from "@mui/material";
 import ViewDetailCard from "./ViewDetailCard";
 import ViewDetailTable from "./ViewDetailTable";
-import ViewEmployeeHeader from "@/components/Shared-components/ViewEmployeeHeader";
+import ViewEmployeeHeader from "@/components/shared-components/ViewEmployeeHeader";
 
 const ViewDetailModal = ({ onClose }) => {
   const PopUpRef = useRef(null);

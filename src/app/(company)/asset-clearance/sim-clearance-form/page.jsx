@@ -4,7 +4,7 @@ import GenericModal from "@/components/applicants/GenericModel";
 import { StatusIndicator } from "@/components/applicants/StatusIndicator";
 import SimClearanceForm from "@/components/company-flow/asset-clearance/SimClearanceForm";
 import CustomizedAccordions from "@/components/company-flow/asset-clearance/CustomAccordion";
-import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
+import EmptyScreenView from "@/components/shared-components/EmptyScreenView";
 import { accordianTableData } from "@/utils/company-flow/asset-clarance-data";
 import { DownloadIcon, FIleIcon } from "@/utils/Icons";
 import { Box, Typography } from "@mui/material";

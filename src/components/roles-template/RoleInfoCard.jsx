@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Box } from "@mui/material";
-import { InfoCard, InfoItem } from "@/components/Shared-components/CustomInfoCard";
+import { InfoCard, InfoItem } from "@/components/shared-components/CustomInfoCard";
 
 const RoleInfoCard = ({ title, data, onEdit }) => {
   // Split data into two groups to display in two columns

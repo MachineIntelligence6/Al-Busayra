@@ -1,20 +1,20 @@
 "use client"
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
 import { Box, Divider, Typography } from "@mui/material";
 import React, { useMemo } from "react";
 import { Bike, CircleCheck, CircleX, Download, HandCoins, Image, Network } from "lucide-react";
 import MainCard from "./MainCard";
 import DetailsCard from "./DetailsCard";
 import Grid from "@mui/material/Grid2";
-import TableFilters from "@/components/Shared-components/Table-components/TableFilters";
-import TableExportRow from "@/components/Shared-components/Table-components/TableExportRow";
-import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
-import CustomAvatar from "@/components/Shared-components/CustomAvatar";
+import TableFilters from "@/components/shared-components/Table-components/TableFilters";
+import TableExportRow from "@/components/shared-components/Table-components/TableExportRow";
+import CustomTable from "@/components/shared-components/Table-components/CustomTable";
+import CustomAvatar from "@/components/shared-components/CustomAvatar";
 import { DashboardDetailTable } from "@/utils/hard-data/inventory-data";
-import ActionMenu from "@/components/Shared-components/ActionMenu";
+import ActionMenu from "@/components/shared-components/ActionMenu";
 import { redirect, useRouter } from "next/navigation";
 import { custom } from "@/app/theme";
-import DescriptiveText from "@/components/Shared-components/DescriptiveText";
+import DescriptiveText from "@/components/shared-components/DescriptiveText";
 
 const menuItems = [
     { label: "View Details", action: "view_details" },

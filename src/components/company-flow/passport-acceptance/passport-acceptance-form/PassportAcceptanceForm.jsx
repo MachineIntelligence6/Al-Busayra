@@ -1,13 +1,13 @@
 "use client";
-import CustomButton from "@/components/Shared-components/CustomButton";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
+import CustomButton from "@/components/shared-components/CustomButton";
+import CustomTextField from "@/components/shared-components/CustomTextField";
 import { Box, Typography } from "@mui/material";
 import { Check, MoveLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useMemo } from "react";
-import CustomDateField from "@/components/Shared-components/CustomDateField";
-import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
-import CustomDropdown from "@/components/Shared-components/CustomDropDown";
+import CustomDateField from "@/components/shared-components/CustomDateField";
+import CustomFileUploadField from "@/components/shared-components/CustomFIleUploadField";
+import CustomDropdown from "@/components/shared-components/CustomDropDown";
 
 // const bikeOptions = [
 //   { label: "Asset is cleared ", value: "assetIscleared" },

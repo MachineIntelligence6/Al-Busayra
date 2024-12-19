@@ -2,13 +2,12 @@
 import { Box, Divider } from "@mui/material";
 import { Plus } from "lucide-react";
 import React, { useState } from "react";
-import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
-import CustomBreadcrumb from "@/app/Components/sharedComponents/BreadCrum/page";
+import EmptyScreenView from "@/components/shared-components/EmptyScreenView";
 import { Button } from "@/components/ui/button";
 import CompanyEmpty from "../../CompanyEmpty";
 import EmployeeClearanceTableModal from "./table/EmployeeClearanceTableModal";
 import ClearanceTable from "./table";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
 
 const EmployeeClearanceEmptyScreen = () => {
   const [showPopup, setShowPopup] = useState(false);

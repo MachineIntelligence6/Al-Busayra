@@ -1,10 +1,8 @@
 "use client";
 import React from "react";
 import { Box } from "@mui/material";
-import TableFilters from "@/components/Shared-components/Table-components/TableFilters";
-import CustomBreadcrumb from "@/app/Components/sharedComponents/BreadCrum/page";
+import CustomBreadcrumb from "@/app/components/sharedComponents/BreadCrum/page";
 import { SearchForm } from "@/components/search-form";
-import CustomButton from "@/components/Shared-components/CustomButton";
 import FixedTable from "./table/FixedTable";
 
 const Payroll = () => {

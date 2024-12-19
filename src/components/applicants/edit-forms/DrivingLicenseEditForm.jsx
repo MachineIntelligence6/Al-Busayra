@@ -6,12 +6,12 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { Box, Divider, Paper, Typography } from "@mui/material";
 import CancelIcon from "@mui/icons-material/Cancel";
 import DoneIcon from "@mui/icons-material/Done";
-import CustomButton from "@/components/Shared-components/CustomButton";
-import CustomSelect from "@/components/Shared-components/CustomSelect";
-import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
+import CustomButton from "@/components/shared-components/CustomButton";
+import CustomSelect from "@/components/shared-components/CustomSelect";
+import CustomFileUploadField from "@/components/shared-components/CustomFIleUploadField";
 import { DrivingLicenseEditSchema } from "@/utils/schemas/DrivingLicenseEditFormSchema";
-import CustomDateField from "@/components/Shared-components/CustomDateField";
-import CaptionText from "@/components/Shared-components/CaptionText";
+import CustomDateField from "@/components/shared-components/CustomDateField";
+import CaptionText from "@/components/shared-components/CaptionText";
 import { custom } from "@/app/theme";
 
 const renderLabel = (label, required = false) => (

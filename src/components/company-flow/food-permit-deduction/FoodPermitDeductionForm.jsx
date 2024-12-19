@@ -1,14 +1,14 @@
 "use client";
-import CustomButton from "@/components/Shared-components/CustomButton";
-import CustomDateField from "@/components/Shared-components/CustomDateField";
-import CustomDropdown from "@/components/Shared-components/CustomDropDown";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
+import CustomButton from "@/components/shared-components/CustomButton";
+import CustomDateField from "@/components/shared-components/CustomDateField";
+import CustomDropdown from "@/components/shared-components/CustomDropDown";
+import CustomTextField from "@/components/shared-components/CustomTextField";
 import { Box, Typography } from "@mui/material";
 import { Check, MoveLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useMemo, useState } from "react";
-import CurrencyType from "@/components/Shared-components/CurrencyType";
-import CustomMultiSelected from "@/components/Shared-components/CustomMultiSelected";
+import CurrencyType from "@/components/shared-components/CurrencyType";
+import CustomMultiSelected from "@/components/shared-components/CustomMultiSelected";
 import DeductionType from "../employees/driving-license-request/form/DeductionType";
 
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Divider } from "@mui/material";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
 import EmployeeTableWrapper from "@/components/employees/incomplete-form/Table";
 
 const page = () => {

@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import React from "react";
 import FormTab from "./FormTab";
 import { inventoryFormTab } from "@/utils/hard-data/inventoryFormTab";
-import CustomButton from "@/components/Shared-components/CustomButton";
+import CustomButton from "@/components/shared-components/CustomButton";
 import { ArrowBack, Close } from "@mui/icons-material";
 import { Backpack, Check, CircleX } from "lucide-react";
 import BikeInfoForm from "./BikeInfoForm";

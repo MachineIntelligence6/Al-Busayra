@@ -1,7 +1,7 @@
 "use client"
 import { custom } from '@/app/theme'
-import HeadingText1 from '@/components/Shared-components/HeadingText1'
-import HeadingText3 from '@/components/Shared-components/HeadingText3'
+import HeadingText1 from '@/components/shared-components/HeadingText1'
+import HeadingText3 from '@/components/shared-components/HeadingText3'
 import { Box } from '@mui/material'
 import React from 'react'
 

@@ -1,27 +1,19 @@
 "use client";
 import { useState } from "react";
-import { Plus, Upload } from "lucide-react";
+import { Plus } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import CustomBreadcrumb from "../../../Components/sharedComponents/BreadCrum/page";
+import CustomBreadcrumb from "../../../components/sharedComponents/BreadCrum/page";
 import { Button } from "@/components/ui/button";
 import {
   AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Separator } from "@/components/ui/separator";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import CompanyInfo from "../../../Components/dashboardComponents/modalComponents/CompanyInfo";
-import ContactInfo from "../../../Components/dashboardComponents/modalComponents/ContactInfo";
-import Locations from "../../../Components/dashboardComponents/modalComponents/Locations";
-import Listings from "../../../Components/dashboardComponents/modalComponents/Listings";
+import CompanyInfo from "../../../components/dashboardComponents/modalComponents/CompanyInfo";
+import ContactInfo from "../../../components/dashboardComponents/modalComponents/ContactInfo";
+import Locations from "../../../components/dashboardComponents/modalComponents/Locations";
+import Listings from "../../../components/dashboardComponents/modalComponents/Listings";
 
 export default function Page() {
   const [tabs, setTabs] = useState("company");
@@ -47,7 +39,7 @@ export default function Page() {
         </div> :
           <div className="flex flex-col w-full h-full items-center justify-center gap-10">
             <div className="">
-              <img src="/objectsimage.png" className="" />
+              <img src="/objectsimage.png" className="" alt="" />
             </div>
             <div className="flex flex-col items-center gap-[10px] ">
               <h1 className="text-[20px] text-[#104774] font-semibold leading-[28px]">
@@ -81,6 +73,7 @@ export default function Page() {
                           <img
                             src="/companyinfo.png"
                             className="w-[22px] h-[22px]"
+                            alt=""
                           />
                         </div>
                         <div className="flex flex-col items-start ">
@@ -102,6 +95,7 @@ export default function Page() {
                           <img
                             src="/contactInfo.png"
                             className="w-[22px] h-[22px]"
+                            alt=""
                           />
                         </div>
                         <div className="flex flex-col items-start ">
@@ -120,7 +114,7 @@ export default function Page() {
                         className="flex flex-row items-center gap-[12px]"
                       >
                         <div className="bg-[#104774] p-[8px] rounded-md">
-                          <img src="/location.png" className="w-[22px] h-[22px]" />
+                          <img src="/location.png" className="w-[22px] h-[22px]" alt="" />
                         </div>
                         <div className="flex flex-col items-start ">
                           <div className="text-[#2F2B3DE5] text-[15px] font-medium leading-[22px]">

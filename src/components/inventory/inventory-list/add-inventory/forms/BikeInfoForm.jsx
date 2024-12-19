@@ -1,7 +1,7 @@
-import CustomDateField from "@/components/Shared-components/CustomDateField";
-import CustomDropdown from "@/components/Shared-components/CustomDropDown";
-import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
+import CustomDateField from "@/components/shared-components/CustomDateField";
+import CustomDropdown from "@/components/shared-components/CustomDropDown";
+import CustomFileUploadField from "@/components/shared-components/CustomFIleUploadField";
+import CustomTextField from "@/components/shared-components/CustomTextField";
 import { Box } from "@mui/material";
 import React from "react";
 

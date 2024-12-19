@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import React, { useMemo } from "react";
 import EmployeeDetailHeader from "./EmployeeDetailHeader";
 import { detailsTabs } from "@/utils/company-flow/employee-inforamtion-base.data";
-import CustomButton from "@/components/Shared-components/CustomButton";
+import CustomButton from "@/components/shared-components/CustomButton";
 import { custom } from "@/app/theme";
 import EmployeeView from "../../employees/view-employee";
 import Image from "next/image";

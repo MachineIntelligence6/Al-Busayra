@@ -1,21 +1,19 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardContent,
   Typography,
   Box,
-  Button,
-  Switch,
   FormControlLabel,
   Modal,
   useTheme,
   useMediaQuery,
   TextareaAutosize,
   Divider,
+  TextField,
 } from "@mui/material";
-import Input from "@/app/Components/Input/Input";
 import { useFormik } from "formik";
 import { YuppValSchema } from "./Schemas/YuppValSchema";
 import IOSSwitch from "../ui/switch-button";
@@ -25,7 +23,7 @@ import DescriptiveText from "./DescriptiveText";
 import CaptionText from "./CaptionText";
 import DialogHeading from "./DialogHeading";
 import { custom } from "@/app/theme";
-import { Check, CircleX, CircleXIcon, LucideCircleX, X } from "lucide-react";
+import { Check, CircleX } from "lucide-react";
 
 const CampaignCreateModal = ({ open, onClose }) => {
   const [isActive, setIsActive] = useState(true);
@@ -95,7 +93,7 @@ const CampaignCreateModal = ({ open, onClose }) => {
                     sx={{ display: "flex", justifyContent: "space-between" }}
                   >
                     <CaptionText text="Campaign Name" />
-                    <Input
+                    <TextField
                       name="campaignName"
                       value={formik.values.campaignName}
                       onChange={formik.handleChange}

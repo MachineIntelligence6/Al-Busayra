@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import {
-  TextField,
-  Select,
-  MenuItem,
   Box,
   Divider,
-  Typography,
+  TextField,
 } from "@mui/material";
-import Input from "@/app/Components/Input/Input";
-import Dropdown from "@/app/Components/Input/Dropdown";
-import CustomCountryCodeInput from "@/components/Shared-components/CustomCountryCodeInput";
+import Dropdown from "@/app/components/Input/Dropdown";
+import CustomCountryCodeInput from "@/components/shared-components/CustomCountryCodeInput";
 
 const ContactResidence = ({ formData, setFormData }) => {
   const handleInputChange = (e) => {
@@ -100,7 +96,8 @@ const ContactResidence = ({ formData, setFormData }) => {
                 />
               )}
               {field.component === Input && (
-                <Input
+                <TextField
+                  size="small"
                   labelText={field.label}
                   customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
                   name={field.name}

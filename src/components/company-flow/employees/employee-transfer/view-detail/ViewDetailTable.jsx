@@ -1,11 +1,11 @@
 import React, { useMemo, useState } from "react";
-import CustomAvatar from "@/components/Shared-components/CustomAvatar";
-import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
+import CustomAvatar from "@/components/shared-components/CustomAvatar";
+import CustomTable from "@/components/shared-components/Table-components/CustomTable";
 
 import { Box } from "@mui/material";
 import { usePathname } from "next/navigation";
 import { ViewDetailTableData } from "@/utils/schemas/vendor.data";
-import CustomButton from "@/components/Shared-components/CustomButton";
+import CustomButton from "@/components/shared-components/CustomButton";
 import EndDateModal from "./EndDateModal";
 
 const ViewDetailTable = () => {
