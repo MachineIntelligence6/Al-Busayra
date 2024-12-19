@@ -226,7 +226,8 @@ const AdvanceSalaryRequestTable = () => {
         justifyContent="center"
         flexDirection="column"
         alignItems="center"
-        height="85vh"
+        // height="85vh"
+        borderRadius="10px"
       >
         {/* <GenericModal
           open={isModalOpen}

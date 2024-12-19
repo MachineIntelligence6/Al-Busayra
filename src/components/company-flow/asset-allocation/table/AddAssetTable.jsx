@@ -203,14 +203,16 @@ const AddAssetTable = () => {
       </Box>
       <Divider sx={{ mt: 2 }} /> */}
 
-      <Box
+      {/* <Box
         component="div"
         display="flex"
         justifyContent="center"
         flexDirection="column"
         alignItems="center"
         height="85vh"
-      >
+        paddingBottom={2}
+        overflow="auto"
+      > */}
         {/* <GenericModal
           open={isModalOpen}
           onClose={handleCloseModal}
@@ -245,7 +247,7 @@ const AddAssetTable = () => {
         />
         {/* </GenericModal> */}
         {/* <Image src="/company/asset-clearence/bike-asset-clearence.svg" alt="bike" height="313" width="479" /> */}
-      </Box>
+      {/* </Box> */}
     </>
   );
 };
