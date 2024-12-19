@@ -2,11 +2,11 @@
 import React, { useState } from 'react'
 import { Box } from '@mui/material'
 import { PlusIcon } from 'lucide-react'
-import LoanMainTable from '@/components/company-flow/loan/loanMainTable'
 import CompanyHeader from '@/components/Shared-components/CompanyHeader'
 import DescriptiveText from '@/components/Shared-components/DescriptiveText'
 import { custom } from '@/app/theme'
 import { useLoan } from '@/hooks/useLoan'
+import LoanMainTable from '@/components/company-flow/loan/LoanMainTable'
 
 const Page = () => {
      const {
