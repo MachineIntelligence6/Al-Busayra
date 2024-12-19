@@ -1,11 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
-import Image from "next/image";
-import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
-import GenericModal from "@/components/applicants/GenericModel";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
 import { assetClarenceData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
@@ -66,6 +62,7 @@ const AddAssetTable = () => {
   const [totalEntries, setTotalEntries] = useState(10);
   const [headerSearchValue, setHeaderSearchValue] = useState("");
   const rowsPerPage = 7;
+  const [showPopup, setShowPopup] = useState(false);
 
   // Handler for search input change
   const onSearchChange = (value) => {
@@ -79,12 +76,24 @@ const AddAssetTable = () => {
     setTotalEntries(value);
   };
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-    console.log("cl");
+  // const handleOpenModal = () => {
+  //   setIsModalOpen(true);
+  //   console.log("cl");
+  // };
+
+  const handleCloseModal = () => {
+    const onClose = () => {
+      setShowPopup(false);
+      setIsModalOpen(false);
+    };
+
+    // Call the onClose function
+    onClose();
   };
 
-  const handleCloseModal = () => setIsModalOpen(false);
+  // const onClose = () => {
+  //   setShowPopup(false);
+  // };
 
   const handleRowSelect = (selectedRowIds) => {
     console.log("Selected Row IDs:", selectedRowIds);
@@ -93,6 +102,9 @@ const AddAssetTable = () => {
   const handleMenuClick = (menuItem) => {
     console.log("Menu clicked:", menuItem.label);
     router.push(menuItem.route);
+    if (menuItem.label === "View Details") {
+      setShowPopup(true); // Show popup
+    }
   };
 
   const handleFilterClick = (field) => {
@@ -188,9 +200,19 @@ const AddAssetTable = () => {
       headerName: "ACTION",
       align: "left",
       render: (row) => (
+        // <ActionMenu
+        //   menuItems={actionMenu}
+        //   onMenuItemClick={(item) => router.push(item.route)}
+        // />
         <ActionMenu
           menuItems={actionMenu}
-          onMenuItemClick={(item) => router.push(item.route)}
+          onMenuItemClick={(item) => {
+            if (item.label === "View Details") {
+              setShowPopup(true); // Show popup for "View Details"
+            } else if (item.route) {
+              router.push(item.route); // Only push route if it's defined
+            }
+          }}
         />
       ),
     },
@@ -198,31 +220,8 @@ const AddAssetTable = () => {
 
   return (
     <>
-      {/* <Box sx={{ px: 2 }}>
-        <DynamicBreadcrumb isBtnShow={true} icon={<AddOutlinedIcon />} btnName="Allocate Asset" onClick={handleOpenModal} />
-      </Box>
-      <Divider sx={{ mt: 2 }} /> */}
-
-      {/* <Box
-        component="div"
-        display="flex"
-        justifyContent="center"
-        flexDirection="column"
-        alignItems="center"
-        height="85vh"
-        paddingBottom={2}
-        overflow="auto"
-      > */}
-        {/* <GenericModal
-          open={isModalOpen}
-          onClose={handleCloseModal}
-          title="Applicants Modal"
-          height="80vh"
-          width="100%"
-        > */}
+      <Box >
         <CustomTableWrapper
-          // handleOpenModal={handleOpenModal}
-          handleCloseModal={handleCloseModal}
           rowsPerPage={rowsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
@@ -243,11 +242,9 @@ const AddAssetTable = () => {
           menuItems={headerMenuItems}
           onSearchChange={onSearchChange}
           // btnText="Add New Item"
-          filterTitle="Selected Employees"
+          isHeader={false}
         />
-        {/* </GenericModal> */}
-        {/* <Image src="/company/asset-clearence/bike-asset-clearence.svg" alt="bike" height="313" width="479" /> */}
-      {/* </Box> */}
+      </Box>
     </>
   );
 };

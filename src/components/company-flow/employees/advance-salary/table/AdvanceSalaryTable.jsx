@@ -1,16 +1,12 @@
 "use client";
 import { useState } from "react";
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
-import Image from "next/image";
-import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
-import GenericModal from "@/components/applicants/GenericModel";
 import ActionMenu from "@/components/Shared-components/ActionMenu";
 import { assetClarenceData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
-import AdvDetailModal from "../view-detail";
 import CustomAvatar from "@/components/Shared-components/CustomAvatar";
+import AdvDetailModal from "../view-detail";
 
 const TableFiltersData = [
   {
@@ -83,12 +79,24 @@ const AdvanceSalaryRequestTable = () => {
     setTotalEntries(value);
   };
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-    console.log("cl");
+  // const handleOpenModal = () => {
+  //   setIsModalOpen(true);
+  //   console.log("cl");
+  // };
+
+  const handleCloseModal = () => {
+    const onClose = () => {
+      setShowPopup(false);
+      setIsModalOpen(false);
+    };
+
+    // Call the onClose function
+    onClose();
   };
 
-  const handleCloseModal = () => setIsModalOpen(false);
+  // const onClose = () => {
+  //   setShowPopup(false);
+  // };
 
   const handleRowSelect = (selectedRowIds) => {
     console.log("Selected Row IDs:", selectedRowIds);
@@ -215,30 +223,8 @@ const AdvanceSalaryRequestTable = () => {
 
   return (
     <>
-      {/* <Box sx={{ px: 2 }}>
-        <DynamicBreadcrumb isBtnShow={true} icon={<AddOutlinedIcon />} btnName="Allocate Asset" onClick={handleOpenModal} />
-      </Box>
-      <Divider sx={{ mt: 2 }} /> */}
-
-      <Box
-        component="div"
-        display="flex"
-        justifyContent="center"
-        flexDirection="column"
-        alignItems="center"
-        // height="85vh"
-        borderRadius="10px"
-      >
-        {/* <GenericModal
-          open={isModalOpen}
-          onClose={handleCloseModal}
-          title="Applicants Modal"
-          height="80vh"
-          width="100%"
-        > */}
+      <Box>
         <CustomTableWrapper
-          // handleOpenModal={handleOpenModal}
-          // handleCloseModal={handleCloseModal}
           rowsPerPage={rowsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
@@ -259,12 +245,10 @@ const AdvanceSalaryRequestTable = () => {
           menuItems={headerMenuItems}
           onSearchChange={onSearchChange}
           // btnText="Add New Item"
-          filterTitle="Select Employees"
+          isHeader={false}
         />
-        {/* </GenericModal> */}
-        {/* <Image src="/company/asset-clearence/bike-asset-clearence.svg" alt="bike" height="313" width="479" /> */}
-        {showPopup && <AdvDetailModal onClose={() => setShowPopup(false)} />}
       </Box>
+      {showPopup && <AdvDetailModal onClose={() => setShowPopup(false)} />}
     </>
   );
 };

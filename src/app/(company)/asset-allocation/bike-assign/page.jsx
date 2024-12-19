@@ -1,22 +1,26 @@
-"use client"
+"use client";
 import React from "react";
 import AssignBike from "@/components/company-flow/asset-allocation/bike";
-import CustomBreadcrumb from "@/app/Components/sharedComponents/BreadCrum/page";
-import { Separator } from "@/components/ui/separator";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import { Box } from "@mui/material";
+import CompanyHeader from "@/components/Shared-components/CompanyHeader";
+import DescriptiveText from "@/components/Shared-components/DescriptiveText";
+import { custom } from "@/app/theme";
 
 const page = () => {
   return (
-    <div className="px-5">
-      <div className="flex flex-row items-center justify-between ">
-        {/* <CustomBreadcrumb name="Asset Allocation" /> */}
-        <DynamicBreadcrumb />
-      </div>
-      <div className="my-4">
-        <Separator />
-      </div>
-      <AssignBike />
-    </div>
+    <Box>
+      <CompanyHeader>
+        <DescriptiveText
+          text={"Asset Allocation / Allocate Asset"}
+          fontSize={18}
+          fontWeight={500}
+          color={custom.dreadcrumbText}
+        />
+      </CompanyHeader>
+      <Box sx={{ p: 2 }}>
+        <AssignBike />
+      </Box>
+    </Box>
   );
 };
 

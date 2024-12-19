@@ -1,55 +1,62 @@
 "use client";
 
-import { Box, Divider } from "@mui/material";
-import { Plus } from "lucide-react";
+import { Box } from "@mui/material";
+import { PlusIcon } from "lucide-react";
 import React, { useState } from "react";
 import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
 import CompanyEmpty from "../../CompanyEmpty";
-import AdvanceSalaryTableModal from "./table/AdvanceSalaryTableModal";
+import CompanyHeader from "@/components/Shared-components/CompanyHeader";
+import DescriptiveText from "@/components/Shared-components/DescriptiveText";
+import { custom } from "@/app/theme";
+import CompanyTableModal from "@/components/Shared-components/modals/CompanyTableModal";
+import AdvanceSalaryRequestTable from "./table/AdvanceSalaryTable";
 import AdvanceSalaryTable from "./table";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
-import CustomButton from "@/components/Shared-components/CustomButton";
 
 const AdvanceSalaryEmptyScreen = () => {
-  const [showPopup, setShowPopup] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [showTable, setShowTable] = useState(false);
 
-  const onClose = () => {
-    setShowPopup(false);
+  const btnProps = {
+    text: "Request Advance Salary",
+    endIcon: <PlusIcon size={16} />,
+    onClick: () => {
+      setModalOpen(true);
+    },
   };
 
   return (
-    <Box component="div">
-      <Box
-        sx={{
-          px: 2,
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <DynamicBreadcrumb />
-        <CustomButton startIcon={<Plus />}>Request Advance Salary</CustomButton>
-
-      </Box>
-
-      <Divider sx={{ mt: 1, mx: 2, mb: 2 }} />
-
-      {false ? (
-        <AdvanceSalaryTable />
+    <>
+      {showTable ? (
+        <Box>
+          <CompanyHeader btnProps={btnProps}>
+            <DescriptiveText
+              text={"Advance Salary"}
+              fontSize={18}
+              fontWeight={500}
+              color={custom.dreadcrumbText}
+            />
+          </CompanyHeader>
+          <Box sx={{ p: 2 }}>
+            <AdvanceSalaryTable />
+          </Box>
+        </Box>
       ) : (
-        <CompanyEmpty>
+        <CompanyEmpty heading="Advance Salary" btnProps={btnProps}>
           <EmptyScreenView
             image="/company/advance-salary.svg"
-            title="No Advance Salary Request"
+            altText="adv"
             description="Please click the button below to add advance salary request."
             buttonText="Advance Salary Request"
-            onButtonClick={() => setShowPopup(true)}
+            onButtonClick={() => setModalOpen(true)}
           />
         </CompanyEmpty>
       )}
-
-      {showPopup && <AdvanceSalaryTableModal onClose={onClose} />}
-    </Box>
+      {modalOpen && (
+        <CompanyTableModal open={modalOpen} onClose={() => setModalOpen(false)}>
+          <AdvanceSalaryRequestTable />
+        </CompanyTableModal>
+      )}
+    </>
   );
 };
 
