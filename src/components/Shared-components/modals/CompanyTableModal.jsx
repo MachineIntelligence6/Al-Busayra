@@ -52,14 +52,14 @@ const CompanyTableModal = (props) => {
           <X size={18} />
         </Box>
       </DialogTitle>
-      <DialogContent>
+      <DialogContent sx={{ p: 0 }}>
         <Box
           component="div"
           display="flex"
           justifyContent="center"
           flexDirection="column"
           alignItems="center"
-          minWidth={1200}
+          // minWidth={1200}
           minHeight={500}
         >
           {children}

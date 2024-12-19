@@ -61,7 +61,7 @@ const AssetVerificationForm = () => {
   return (
     <Box>
       <Typography sx={{ color: "#4B465C", fontSize: "18px", fontWeight: 500 }}>
-        Advance Salary Form
+        Asset Verification
       </Typography>
 
       <Box

@@ -3,11 +3,10 @@ import AssetAllocation from "@/components/company-flow/asset-allocation";
 
 const page = () => {
   return (
-    <div className="px-5">
+    <div>
       <AssetAllocation />
     </div>
   );
 };
-
 
 export default page;

@@ -1,40 +1,23 @@
-import React from "react";
-import { Box, Divider } from "@mui/material";
-import CustomBreadcrumb from "@/app/Components/sharedComponents/BreadCrum/page";
-import { Button } from "@/components/ui/button";
-import { Plus } from "lucide-react";
+"use client";
+import { Box } from "@mui/material";
 import AdvanceSalaryForm from "@/components/company-flow/employees/advance-salary/salary-form";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import React from "react";
+import CompanyHeader from "@/components/Shared-components/CompanyHeader";
+import DescriptiveText from "@/components/Shared-components/DescriptiveText";
+import { custom } from "@/app/theme";
 
 const page = () => {
   return (
-    <Box
-      sx={{
-        px: 2,
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <DynamicBreadcrumb />
-        {/* <CustomButton startIcon={<Plus />}>Request Advance Salary</CustomButton> */}
-        {/* <CustomBreadcrumb name="Advance Salary Form" /> */}
-        <Button className="bg-[#296291] hover:bg-[#4080b4]">
-          Request Advance Salary
-          <Plus />
-        </Button>
-      </Box>
-      <Divider sx={{ mt: 1 }} />
-
-      <Box
-        sx={{
-          mt: 2,
-        }}
-      >
+    <Box>
+      <CompanyHeader>
+        <DescriptiveText
+          text={"Advance Salary / Advance Salary Form"}
+          fontSize={18}
+          fontWeight={500}
+          color={custom.dreadcrumbText}
+        />
+      </CompanyHeader>
+      <Box sx={{ p: 2 }}>
         <AdvanceSalaryForm />
       </Box>
     </Box>

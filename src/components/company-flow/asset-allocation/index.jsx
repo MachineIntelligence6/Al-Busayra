@@ -1,43 +1,65 @@
 "use client";
 
-import CustomBreadcrumb from "@/app/Components/sharedComponents/BreadCrum/page";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Plus, ChevronDown } from "lucide-react";
-import React, { useState } from "react";
-import EmptyScreen from "./EmptyScreen";
-import TableModal from "./table/TableModal";
+import React, { useEffect, useState } from "react";
+import CompanyEmpty from "../CompanyEmpty";
+import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
+import { Box } from "@mui/material";
+import CompanyHeader from "@/components/Shared-components/CompanyHeader";
+import DescriptiveText from "@/components/Shared-components/DescriptiveText";
+import { custom } from "@/app/theme";
+import CompanyTableModal from "@/components/Shared-components/modals/CompanyTableModal";
 import AllocateAssetTable from "./table";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import { PlusIcon } from "lucide-react";
+import AddAssetTable from "./table/AddAssetTable";
 
 const AssetAllocation = () => {
-  const [showPopup, setShowPopup] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [showTable, setShowTable] = useState(true);
 
-  const onClose = () => {
-    setShowPopup(false);
+  // useEffect(() => {
+  //   let isShowTable = Boolean(params?.table === "true" ? true : false);
+  //   setShowTable(isShowTable);
+  // }, []);
+
+  const btnProps = {
+    text: "Allocate Asset",
+    startIcon: <PlusIcon size={16} />,
+    onClick: () => {
+      setModalOpen(true);
+    },
   };
 
   return (
-    <div>
-      <div className="flex flex-row items-center justify-between">
-        <DynamicBreadcrumb />
-        {/* <CustomBreadcrumb name="Asset Allocation" /> */}
-        <Button
-          className="bg-[#296291] hover:bg-[#4080b4]"
-          onClick={() => setShowPopup(true)}
-        >
-          <Plus />
-          Allocate Asset
-        </Button>
-      </div>
-      <div className="py-2">
-        <Separator />
-      </div>
-
-      {true ? <AllocateAssetTable /> : <EmptyScreen />}
-
-      {showPopup && <TableModal onClose={onClose} />}
-    </div>
+    <>
+      {showTable ? (
+        <Box>
+          <CompanyHeader btnProps={btnProps}>
+            <DescriptiveText
+              text={"Asset Allocation"}
+              fontSize={18}
+              fontWeight={500}
+              color={custom.dreadcrumbText}
+            />
+          </CompanyHeader>
+          <Box sx={{ p: 2 }}>
+            <AllocateAssetTable />
+          </Box>
+        </Box>
+      ) : (
+        <CompanyEmpty heading="Asset Allocation" btnProps={btnProps}>
+          <EmptyScreenView
+            image="/company/Bike.svg"
+            altText="bike"
+            showButton={false}
+          />
+        </CompanyEmpty>
+      )}
+      {modalOpen && (
+        <CompanyTableModal open={modalOpen} onClose={() => setModalOpen(false)}>
+          <AddAssetTable />
+        </CompanyTableModal>
+      )}
+    </>
   );
 };
 

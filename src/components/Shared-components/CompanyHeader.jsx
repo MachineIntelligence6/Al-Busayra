@@ -35,7 +35,7 @@ const CompanyHeader = ({ btnProps={}, btnDropdown = {}, children }) => {
                     />
                 ) : null}
             </Box>
-            <Divider sx={{}} />
+            <Divider />
         </Box>
     );
 };

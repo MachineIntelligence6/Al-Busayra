@@ -1,74 +1,62 @@
 "use client";
-import { Box, Divider } from "@mui/material";
-import { Plus } from "lucide-react";
+import { Box } from "@mui/material";
 import React, { useState } from "react";
 import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
-import CustomBreadcrumb from "@/app/Components/sharedComponents/BreadCrum/page";
-import { Button } from "@/components/ui/button";
+import { PlusIcon } from "lucide-react";
 import CompanyEmpty from "../../CompanyEmpty";
-import TableModal from "./table/TableModal";
+import CompanyHeader from "@/components/Shared-components/CompanyHeader";
+import DescriptiveText from "@/components/Shared-components/DescriptiveText";
+import { custom } from "@/app/theme";
+import CompanyTableModal from "@/components/Shared-components/modals/CompanyTableModal";
+import DLModalTable from "./table/DLModalTable";
 import DLTable from "./table";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
-import { useParams } from "next/navigation";
-// import EmployeeClearanceTableModal from "./table/EmployeeClearanceTableModal";
-// import ClearanceTable from "./table";
 
 const DrivingLicenseRequest = () => {
-  const [showPopup, setShowPopup] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [showTable, setShowTable] = useState(false);
 
-  const params = useParams();
-  console.log(params)
-  const onClose = () => {
-    setShowPopup(false);
+  const btnProps = {
+    text: "Driving License Request",
+    endIcon: <PlusIcon size={16} />,
+    onClick: () => {
+      setModalOpen(true);
+    },
   };
 
   return (
-    <Box component="div">
-      <Box
-        sx={{
-          px: 2,
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <DynamicBreadcrumb />
-        {/* <CustomButton startIcon={<Plus />}>Request Advance Salary</CustomButton> */}
-
-        {/* <CustomBreadcrumb name="Driving License Request" /> */}
-        {false && (
-          <Button
-            className="bg-[#296291] hover:bg-[#4080b4]"
-            onClick={() => setShowPopup(true)}
-          >
-            Request Advance Salary
-            <Plus />
-          </Button>
-        )}
-      </Box>
-
-      <Divider sx={{ mt: 2, mx: 2 }} />
-
-      {true ? (
-        <Box sx={{ mt: 2 }}>
-          <DLTable />
+    <>
+      {showTable ? (
+        <Box>
+          <CompanyHeader btnProps={btnProps}>
+            <DescriptiveText
+              text={"Driving License Request"}
+              fontSize={18}
+              fontWeight={500}
+              color={custom.dreadcrumbText}
+            />
+          </CompanyHeader>
+          <Box sx={{ p: 2 }}>
+            <DLTable />
+          </Box>
         </Box>
-
       ) : (
-        <CompanyEmpty>
+        <CompanyEmpty heading="Driving License Request" btnProps={btnProps}>
           <EmptyScreenView
             image="/company/dlRequest.svg"
+            altText="adv"
             title="No Driving License Request"
             description="Please click the button below to add driving license request."
             buttonText="Driving License Request"
-            onButtonClick={() => setShowPopup(true)}
+            onButtonClick={() => setModalOpen(true)}
           />
         </CompanyEmpty>
       )}
-
-      {showPopup && <TableModal onClose={onClose} />}
-    </Box>
+      {modalOpen && (
+        <CompanyTableModal open={modalOpen} onClose={() => setModalOpen(false)}>
+          <DLModalTable />
+        </CompanyTableModal>
+      )}
+    </>
   );
 };
 
