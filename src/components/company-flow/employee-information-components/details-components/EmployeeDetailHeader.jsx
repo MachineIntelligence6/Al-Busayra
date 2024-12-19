@@ -95,9 +95,9 @@ const EmployeeDetailHeader = (props) => {
                             <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
 
                                 <CustomDropdown options={dropdownMenu} placeholder={"Please Select"} />
-                                <Box sx={{ width: 160 }}>
+                                <Box sx={{ width: 200 }}>
 
-                                    <CustomButton >Hold Salary</CustomButton>
+                                    <Button variant="contained" sx={{ bgcolor: "#E68F3C", color: "white", textTransform: "capitalize" }}>Hold Salary</Button>
                                 </Box>
                             </Box>
                         </Box>
