@@ -191,17 +191,17 @@ const EmployeeDetailsIndex = () => {
                     <Box sx={{ display: "flex", gap: 2 }}>
                         {detailsTabs.map((tab, index) => (
                             <CustomButton
-                                key={tab.id} // Make sure to add a key prop
+                                key={tab.id}
                                 startIcon={tab.icon}
                                 sx={{
                                     backgroundColor:
-                                        value === index ? custom.deepBlue : "transparent", // Highlight active tab
-                                    color: value === index ? custom.white : custom.secondaryText, // Active tab color
+                                        value === index ? custom.deepBlue : "transparent",
+                                    color: value === index ? custom.white : custom.secondaryText,
                                     borderRadius: 1.5,
                                     fontSize: 14,
                                     fontWeight: 500,
                                 }}
-                                onClick={() => setValue(index)} // Update active tab on click
+                                onClick={() => setValue(index)}
                             >
                                 {tab.label}
                             </CustomButton>

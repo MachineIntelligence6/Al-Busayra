@@ -11,6 +11,7 @@ const DetailBreadcrumbText = () => {
                 fontSize={18}
                 fontWeight={500}
                 color={custom.muted}
+
             />
             <DescriptiveText
                 text={"/"}
