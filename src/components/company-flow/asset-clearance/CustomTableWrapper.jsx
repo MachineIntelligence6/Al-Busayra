@@ -40,7 +40,6 @@ const CustomTableWrapper = ({
     const endIndex = startIndex + rowsPerPage;
     return tableData?.slice(startIndex, endIndex);
   }, [currentPage, rowsPerPage, tableData]);
-
   return (
     <Box
       sx={{

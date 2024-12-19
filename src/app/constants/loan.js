@@ -49,19 +49,12 @@ export const TableFiltersData = [
   ];
   
   export const actionMenu = [
-    { label: "Allocate Asset", route: "#" },
-    { label: "Asset Clearence", route: "/asset-clearance/asset-clearance-form" },
-    { label: "View Details", route: "/admin/applicants/hold" },
+    { label: "List of EMP loan", route: "/employees/loan/list-emp-loan" },
   ];
   
   export const headerMenuItems = [
     { label: "Edit", action: "edit" },
     { label: "Delete", action: "delete" },
-  ];
-  
-  export const headerMenuItemsForLoanTable = [
-    { label: "Request Loan", action: "request loan" },
-    { label: "Request Visa", action: "request visa" },
   ];
   
   

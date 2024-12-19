@@ -32,7 +32,7 @@ const AdvanceSalaryTableModal = ({ onClose }) => {
       <Box
         sx={{
           backgroundColor: "white",
-          padding: 2,
+          // padding: 2,
           borderRadius: 2,
           boxShadow: 3,
         }}
