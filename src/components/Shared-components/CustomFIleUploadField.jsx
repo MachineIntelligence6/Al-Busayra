@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import CustomTextField from "@/components/shared-components/CustomTextField";
-import { Check, CircleX, FileBarChart2, X } from "lucide-react";
+import {  CircleX, FileBarChart2 } from "lucide-react";
 import InputLabelTop from "./InputLabel";
 
 const CustomFileUploadField = (props) => {

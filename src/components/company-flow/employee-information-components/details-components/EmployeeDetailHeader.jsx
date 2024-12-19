@@ -9,7 +9,7 @@ import {
     Button,
 } from "@mui/material";
 import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
-import CustomDropdown from "@/components/Shared-components/CustomDropDown";
+import CustomDropdown from "@/components/shared-components/CustomDropDown";
 
 const dropdownMenu = [
     { value: "employee_transfer_form", label: "Employee Transfer Form" },
