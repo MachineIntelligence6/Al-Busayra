@@ -2,9 +2,8 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import CustomInput from "../Shared-components/CustomInput";
-import AppLogo from "../Shared-components/AppLogo";
 import HeadingWrapper from "./HeadingWrapper";
-import { Box, Button, Checkbox, Typography } from "@mui/material";
+import { Box, Checkbox, Typography } from "@mui/material";
 import CustomButton from "@/components/Shared-components/CustomButton";
 import OTp from "./otp-component";
 

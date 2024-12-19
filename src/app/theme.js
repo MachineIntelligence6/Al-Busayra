@@ -4,13 +4,13 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#1976d2",
+      main: "#fff",
     },
     secondary: {
-      main: "#dc004e",
+      main: "#fff",
     },
     background: {
-      default: "#23567F", // Default background color for the app
+      default: "#fff", // Default background color for the app
       // paper: "#ffffff", // Background color for paper components
     },
   },
