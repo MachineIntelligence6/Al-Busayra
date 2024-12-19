@@ -7,9 +7,10 @@ import { custom } from '@/app/theme'
 import TableFilters from '@/components/Shared-components/Table-components/TableFilters'
 import TableExportRow from '@/components/Shared-components/Table-components/TableExportRow'
 import CustomTable from '@/components/Shared-components/Table-components/CustomTable'
-import { empInfoBaseTableData } from '@/utils/company-flow/employee-inforamtion-base.data'
+import { actionMenuItems, empInfoBaseTableData } from '@/utils/company-flow/employee-inforamtion-base.data'
 import CustomAvatar from '@/components/Shared-components/CustomAvatar'
 import ActionMenu from '@/components/Shared-components/ActionMenu'
+import { useRouter } from 'next/navigation'
 
 
 const actionMenu = [
@@ -56,9 +57,10 @@ const tableFiltersData = [
 
 
 const EmployeeInformationBase = () => {
+    const router = useRouter()
 
     const handleActionMenu = (item) => {
-
+        if (item.action === "view_details") router.push("/employees/employee-information-base/employee-details")
     }
 
 
@@ -156,7 +158,7 @@ const EmployeeInformationBase = () => {
                 align: "left",
                 render: (row) => (
                     <ActionMenu
-                        menuItems={actionMenu}
+                        menuItems={actionMenuItems}
                         onMenuItemClick={(item) => handleActionMenu(item)}
                     />
                 ),

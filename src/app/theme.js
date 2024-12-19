@@ -31,6 +31,7 @@ const theme = createTheme({
     // Add custom colors here
     custom: {
       deepBlue: "#104774",
+      lightBlue: "#23567F",
       white: "#ffffff",
       primaryText: "#2F2B3DE5",
       secondaryText: "#808390",
@@ -39,7 +40,8 @@ const theme = createTheme({
       muted: "#2F2B3D66",
       errorDark: "#E64449",
       errorButton: "#FF4C51",
-      placeHolder:"#2F2B3D66"
+      placeHolder: "#2F2B3D66",
+      light1: "#F2F2F2",
     },
   },
 });

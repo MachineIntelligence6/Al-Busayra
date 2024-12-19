@@ -15,7 +15,7 @@ import { ViewEmployeeCardData } from "@/utils/view-employee-card-data";
 import ViewEmployeeHeader from "@/components/Shared-components/ViewEmployeeHeader";
 import { useRouter } from "next/navigation";
 
-const EmployeeView = () => {
+const EmployeeView = ({ isHeader = true, padding = 2 }) => {
   const [profile, setProfile] = useState(ViewEmployeeCardData);
   const router = useRouter();
 
@@ -25,15 +25,15 @@ const EmployeeView = () => {
   };
 
   return (
-    <Box sx={{ p: 2 }}>
-      <ViewEmployeeHeader
+    <Box sx={{ p: padding }}>
+      {isHeader && <ViewEmployeeHeader
         fullName="Saleem Akhtar"
         profileImage={"/icons/pic.svg"}
         sx={{
           borderRadius: "15px",
           boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.2)",
         }}
-      />
+      />}
 
       <Box
         sx={{

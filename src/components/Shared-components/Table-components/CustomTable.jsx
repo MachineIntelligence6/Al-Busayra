@@ -51,7 +51,7 @@ const allowedFields = [
   "createdOn",
 ];
 
-const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelectedOption = true, isFiltered = true, headTextTransform = "capitalize" }) => {
+const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelectedOption = true, isFiltered = true, headTextTransform = "capitalize", headingTextColor = "#2F2B3DE5" }) => {
   const [selectedRows, setSelectedRows] = useState([]);
 
   const isAllSelected = selectedRows.length === data?.length && data?.length > 0;
@@ -123,7 +123,7 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
 
                 key={column.field}
                 align={column.align || "left"}
-                sx={{ fontWeight: "500", whiteSpace: "nowrap", }}
+                sx={{ fontWeight: "500", whiteSpace: "nowrap", wordSpacing: 1 }}
               >
                 <Box
                   component="div"
@@ -136,7 +136,7 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelected
 
                   }}
                 >
-                  <Typography variant="body2" sx={{ fontSize: "13px", fontWeight: 500, textTransform: headTextTransform, color: "#2F2B3DE5", lineHeight: 0 }}>{column.headerName}</Typography>
+                  <Typography variant="body2" sx={{ fontSize: "13px", fontWeight: 500, textTransform: headTextTransform, color: headingTextColor, lineHeight: 0 }}>{column.headerName}</Typography>
                   {allowedFields.includes(column) && isFiltered && (
                     <Box component="img" src="/icons/filter.svg" sx={{ width: 20, height: 20 }} onClick={() => handleFilterClick(column.field)}></Box>
                   )}
