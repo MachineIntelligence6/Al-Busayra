@@ -9,21 +9,40 @@ import CompanyTableModal from "@/components/Shared-components/modals/CompanyTabl
 import CompanyEmpty from "../../CompanyEmpty";
 import SpecialAllowanceModalTable from "./table/SpecialAllowanceModalTable";
 import SpecialAllowanceTable from "./table";
+import SpecialAllownceRequestForm from "./form-modal/SpecialAllownceRequestForm";
 
 const SpecialAllowance = ({ params }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [showTable, setShowTable] = useState(true);
 
-  useEffect(() => {
-    let isShowTable = Boolean(params?.table === "true" ? true : false);
-    setShowTable(isShowTable);
-  }, []);
+  // useEffect(() => {
+  //   let isShowTable = Boolean(params?.table === "true" ? true : false);
+  //   setShowTable(isShowTable);
+  // }, []);
+
+  const onTopBtnClick = () => {
+    setShowPopup(true);
+  };
+
+  const [showPopup, setShowPopup] = useState(false);
+
+  const onClose = () => {
+    setShowPopup(false);
+  };
+
+  
 
   return (
     <>
       {showTable ? (
         <Box>
-          <CompanyHeader>
+          <CompanyHeader
+            btnProps={{
+              text: "Create Request",
+              icon: null,
+              onClick: onTopBtnClick,
+            }}
+          >
             <DescriptiveText
               text={"Special Allowance"}
               fontSize={18}
@@ -51,6 +70,9 @@ const SpecialAllowance = ({ params }) => {
         <CompanyTableModal open={modalOpen} onClose={() => setModalOpen(false)}>
           <SpecialAllowanceModalTable />
         </CompanyTableModal>
+      )}
+      {showPopup && (
+        <SpecialAllownceRequestForm onClose={() => setShowPopup(false)} />
       )}
     </>
   );

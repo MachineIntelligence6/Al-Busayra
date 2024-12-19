@@ -13,7 +13,21 @@ import CustomTextField from "../CustomTextField";
 import { UploadIcon } from "@/utils/Icons";
 import { custom } from "@/app/theme";
 
-const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntries, btnText = "Add New", required = false, isExportBtn = true, isMenu = true }) => {
+const TableExportRow = ({
+  handleOpenModal,
+  isBtnAdd,
+  setTotalEntries,
+  handleMenuClick,
+  totalEntries,
+  btnText = "Add New",
+  required = false,
+  isExportBtn = true,
+  isMenu = true,
+  menuItems = [  // Add menuItems prop with a default value
+    { label: "Edit Details", action: "edit" },
+    { label: "Change Status", action: "change status" }
+  ]
+}) => {
   const [text, setText] = useState("");
   const handleInputChange = (e) => {
     setText(e.target.value);
@@ -23,16 +37,9 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntri
     setTotalEntries(event.target.value);
   };
 
-  const MenuItems = useMemo(() => {
-    return [
-      { label: "Edit Details", action: "edit" },
-      { label: "Change Status", action: "change status" },
-    ];
-  }, []);
-
-  const handleMenuClick = (value) => {
-    console.log("clicked menu", value);
-  };
+  // const handleMenuClick = (value) => {
+  //   console.log("clicked menu", value);
+  // };
 
   // Default text
   const onButtonClick = () => {
@@ -67,7 +74,6 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntri
               color: custom.primaryText,
               fontWeight: "400",
             }}
-          //   label={entries}
           >
             <MenuItem value={10} defaultChecked>
               10
@@ -107,7 +113,7 @@ const TableExportRow = ({ handleOpenModal, isBtnAdd, setTotalEntries, totalEntri
             borderRadius: "5px",
           }}
         >
-          {isMenu && <ActionMenu menuItems={MenuItems} onMenuItemClick={handleMenuClick} />}
+          {isMenu && <ActionMenu menuItems={menuItems} onMenuItemClick={handleMenuClick} />}
         </Box>
       </Box>
     </Box>
