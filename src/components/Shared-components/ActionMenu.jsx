@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Menu, MenuItem, IconButton } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import DescriptiveText from "./DescriptiveText";
+import { custom } from "@/app/theme";
 
 const ActionMenu = ({ menuItems = [], onMenuItemClick }) => {
+
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
@@ -29,7 +32,7 @@ const ActionMenu = ({ menuItems = [], onMenuItemClick }) => {
                 aria-haspopup="true"
                 onClick={handleOpenMenu}
             >
-                <MoreVertIcon color="#80839029"/>
+                <MoreVertIcon color="#80839029" />
             </IconButton>
             <Menu
                 id="more-options-menu"
@@ -39,7 +42,9 @@ const ActionMenu = ({ menuItems = [], onMenuItemClick }) => {
                 PaperProps={{
                     style: {
                         maxHeight: 48 * 4.5, // Limit menu height
-                        width: "200px",
+                        minWidth: "220px",
+                        p: 2,
+                        borderRadius: 8
                     },
                 }}
             >
@@ -47,12 +52,12 @@ const ActionMenu = ({ menuItems = [], onMenuItemClick }) => {
                     <MenuItem
                         key={index}
                         onClick={() => handleMenuItemClick(item)}
-                        sx={{ "&:hover": { color: "#23567f" } }}
+                        sx={{ mx: 1, "&:hover": { "& p": { color: custom.deepBlue, } } }}
                     >
-                        {item.label}
+                        <DescriptiveText text={item.label} color={custom.primaryText} />
                     </MenuItem>
                 ))}
-            </Menu>
+            </Menu >
         </>
     );
 };

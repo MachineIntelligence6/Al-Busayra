@@ -1,7 +1,9 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 import CustomButton from "./CustomButton";
-// import  page  from "./page";
+import { Plus } from "lucide-react";
+import { custom } from "@/app/theme";
+import DescriptiveText from "./DescriptiveText";
 
 const EmptyScreenView = ({
   image,
@@ -10,6 +12,9 @@ const EmptyScreenView = ({
   description,
   buttonText,
   onButtonClick,
+  descriptionTag,
+  icon = <Plus size={18} />,
+  showButton = true, 
 }) => {
   return (
     <Box
@@ -18,23 +23,46 @@ const EmptyScreenView = ({
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        gap: 5,
-        mt: 5,
+        gap: 3,
+        width: "100%",
+        height: "100%",
       }}
     >
-      <div className=" w-fit ">
+      <Box component="figure" className="w-fit">
         <img src={image} alt={altText} />
-      </div>
-      <div className="flex flex-col gap-3 justify-center items-center">
-        <h3 className="text-[rgba(16,71,116,1)] text-xl font-semibold ">
-          {title}
-        </h3>
-        <p className="text-[#4B465C] text-center">{description}</p>
-        <CustomButton onClick={onButtonClick} sx={{ px: 4 }}>
-          <img src="/resuable/plus.svg" alt="plus" />
-          {buttonText}
-        </CustomButton>
-      </div>
+      </Box>
+      <Box
+        component="div"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 1,
+          alignItems: "center",
+        }}
+      >
+        {title && (
+          <DescriptiveText
+            text={title}
+            fontSize={20}
+            fontWeight={600}
+            color={custom.deepBlue}
+          />
+        )}
+        {description && (
+          <DescriptiveText
+            text={description}
+            fontSize={16}
+            fontWeight={400}
+            color={custom.breadcrumbText}
+          />
+        )}
+        {/* Conditionally render the button */}
+        {showButton && (
+          <CustomButton onClick={onButtonClick} sx={{ px: 4 }} endIcon={icon}>
+            {buttonText}
+          </CustomButton>
+        )}
+      </Box>
     </Box>
   );
 };

@@ -1,6 +1,5 @@
+"use client"
 import React, { useState } from "react";
-import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
 import {
   Table,
   TableBody,
@@ -8,38 +7,61 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
   Checkbox,
-  IconButton,
   Box,
+  Typography,
+  styled,
 } from "@mui/material";
-import FilterListIcon from "@mui/icons-material/FilterList";
-import { FilterList } from "@mui/icons-material";
-import Image from "next/image";
+import { custom } from "@/app/theme";
 
 const allowedFields = [
   "date",
-  "residentCountry",
   "fullName",
-  "status",
-  "remarks",
-  "campaignName",
-  "phoneNumber",
+  "residentCountry",
+  "residentCity",
   "drivingLicense",
-  "residentCity"
+  "passportNumber",
+  "phoneNumber",
+  "preferredWorkingCity",
+  "referBy",
+  "campaignName",
+  "remarks",
+  "reasonToHold",
+  "status",
+  // salik
+  "invoiceMonth",
+  "vendorName",
+  "dateOfSalik",
+  "transactionID",
+  "registrationNo.",
+  "salikAmount",
+  "tollGate",
+  "direction",
+  // traffic
+  "id",
+  "bikePlateNo",
+  "challanAmount",
+  "challanNumber",
+  "city",
+  "location",
+  "reason",
+  "dateAndTimeOfTrafficChallan",
+  "challanAttachments",
+  "bikeOwner",
+  "createdOn",
 ];
 
-const CustomTable = ({ columns, data, onRowSelect, handleFilterClick }) => {
+const CustomTable = ({ columns, data, onRowSelect, handleFilterClick, isSelectedOption = true, isFiltered = true, headTextTransform = "capitalize", headingTextColor = "#2F2B3DE5" }) => {
   const [selectedRows, setSelectedRows] = useState([]);
 
-  const isAllSelected = selectedRows.length === data.length && data.length > 0;
+  const isAllSelected = selectedRows.length === data?.length && data?.length > 0;
   const isIndeterminate =
-    selectedRows.length > 0 && selectedRows.length < data.length;
+    selectedRows.length > 0 && selectedRows?.length < data?.length;
 
   const handleSelectRow = (rowId) => {
     const updatedSelection = selectedRows.includes(rowId)
-      ? selectedRows.filter((id) => id !== rowId) // Deselect row
-      : [...selectedRows, rowId]; // Select row
+      ? selectedRows.filter((id) => id !== rowId)
+      : [...selectedRows, rowId];
 
     setSelectedRows(updatedSelection);
     onRowSelect && onRowSelect(updatedSelection);
@@ -56,88 +78,101 @@ const CustomTable = ({ columns, data, onRowSelect, handleFilterClick }) => {
     }
   };
 
+  const CustomCheckbox = styled(Checkbox)(({ theme }) => ({
+    // '& .MuiSvgIcon-root': {
+    //   borderRadius: '4px', // Rounded corners for the icon
+    //   border: `2px solid ${custom.muted}`,
+    //     backgroundColor: 'transparent'
+    // },
+    '&.Mui-checked': {
+      color: custom.deepBlue, // Color when checked
+      backgroundColor: 'transparent',
+    },
+  }));
+
   return (
     <TableContainer
       sx={{
-        maxWidth: "80vw",
-        overflowX: "auto",
+        maxWidth: "100vw",
       }}
+      className="no-scroll-show"
     >
-      <Table stickyHeader sx={{
-        maxWidth: "80vw",
-        overflowX: "auto",
-      }}>
+      <Table stickyHeader>
         <TableHead
           sx={{
             "& .MuiTableCell-root": {
               fontWeight: "500",
               bgcolor: "#80839014",
+              // fontSize: '13px',
+              // height: '60px',
+              //  py: 3,
             },
           }}
         >
-          <TableRow>
-            {/* Checkbox Column Header */}
-            <TableCell padding="checkbox">
-              <Checkbox
+          <TableRow sx={{ "& .MuiTableCell-root": { py: "5px", } }}>
+            {isSelectedOption && <TableCell padding="checkbox" >
+              <CustomCheckbox
                 indeterminate={isIndeterminate}
                 checked={isAllSelected}
                 onChange={handleSelectAll}
+                size="small"
               />
-            </TableCell>
-            {/* Render Column Headers */}
+            </TableCell>}
             {columns.map((column) => (
               <TableCell
+
                 key={column.field}
                 align={column.align || "left"}
-                sx={{ fontWeight: "400", whiteSpace: "nowrap" }}
+                sx={{ fontWeight: "500", whiteSpace: "nowrap", wordSpacing: 1 }}
               >
-                <span style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                  {column.headerName}
+                <Box
+                  component="div"
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: 'space-between',
+                    gap: 1,
+                    py: 2
 
-                  {/* Conditionally render the filter icon based on column field */}
-                  {allowedFields.includes(column.field) ? (
-                    <IconButton
-                      size="small"
-                      onClick={() => handleFilterClick(column.field)}
-                    //   sx={{ marginLeft: "8px", padding: 0 }}
-                    >
-                      <FilterListIcon />
-                      {/* <Image src="/public/applicantIcons/filter.svg" alt="filter" width={50} height={50} /> */}
-                    </IconButton>
-                  ) : null}
-                </span>
+                  }}
+                >
+                  <Typography variant="body2" sx={{ fontSize: "13px", fontWeight: 500, textTransform: headTextTransform, color: headingTextColor, lineHeight: 0 }}>{column.headerName}</Typography>
+                  {allowedFields.includes(column) && isFiltered && (
+                    <Box component="img" src="/icons/filter.svg" sx={{ width: 20, height: 20 }} onClick={() => handleFilterClick(column.field)}></Box>
+                  )}
+                </Box>
               </TableCell>
             ))}
           </TableRow>
         </TableHead>
-        <TableBody sx={{ overflowY: "scroll", maxHeight: "100%" }}>
-          {data.map((row) => (
-            <TableRow key={row.id} hover>
-              {/* Checkbox Column */}
-              <TableCell padding="checkbox">
-                <Checkbox
+        <TableBody>
+          {data?.map((row) => (
+            <TableRow key={row.id} hover sx={{ "& .MuiTableCell-root": { py: "13px" }, color: custom.primaryText }}>
+              {isSelectedOption && <TableCell padding="checkbox">
+                <CustomCheckbox
+                  size="small"
                   checked={selectedRows.includes(row.id)}
                   onChange={() => handleSelectRow(row.id)}
                 />
-              </TableCell>
-              {/* Render Row Data */}
-              {columns.map((column) => (
+              </TableCell>}
+              {columns?.map((column) => (
                 <TableCell
+
                   key={column.field}
                   align={column.align || "left"}
                   sx={{ whiteSpace: "nowrap" }}
                 >
-                  {column.render ? column.render(row) : row[column.field]}
+                  {column.render
+                    ? column.render(row)
+                    : typeof row[column.field] === "object"
+                      ? <Typography color={custom.primaryText} fontSize="14px" fontWeight="400">{row[column.field]?.name}</Typography> || "-"
+                      : <Typography color={custom.primaryText} fontSize="14px" fontWeight="400">{row[column.field]}</Typography>}
                 </TableCell>
               ))}
             </TableRow>
           ))}
         </TableBody>
       </Table>
-      <Box
-        component="div"
-        sx={{ width: "100%", height: 40, bgcolor: "ButtonShadow" }}
-      ></Box>
     </TableContainer>
   );
 };

@@ -1,6 +1,9 @@
 import React from "react";
 import { Typography } from "@mui/material";
 import AppLogo from "../Shared-components/AppLogo";
+import HeadingText3 from "../Shared-components/HeadingText3";
+import DescriptiveText from "../Shared-components/DescriptiveText";
+import { custom } from "@/app/theme";
 
 const HeadingWrapper = (props) => {
   const { heading, subHeading } = props;
@@ -9,19 +12,8 @@ const HeadingWrapper = (props) => {
     <>
       <AppLogo />
       <div className="my-5">
-        <Typography
-          variant="h5"
-          fontWeight={600}
-          className=" text-2xl leading-[38px] text-[#2F2B3D] mt-5"
-        >
-          {heading}
-        </Typography>
-        <Typography
-          variant="body2"
-          className="text-normal text-sm leading-[22px] text-[#2F2B3DB2]"
-        >
-          {subHeading}
-        </Typography>
+        <HeadingText3>{heading}</HeadingText3>
+        <DescriptiveText text={subHeading} />
       </div>
     </>
   );

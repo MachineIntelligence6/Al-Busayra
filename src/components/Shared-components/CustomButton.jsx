@@ -1,23 +1,27 @@
+"use client"
 import React from "react";
 import { Button } from "@mui/material";
+import { custom } from "@/app/theme";
 
 const CustomButton = ({
     children,
-    color,          // Explicit color for text
-    bgColor = "primary", // Default bgColor
+    color,              // Explicit color for text
+    bgColor = custom.deepBlue, // Default bgColor
     variant = "contained", // Default variant
     startIcon,
     endIcon,
-    sx,             // Custom styles
-    ...rest         // Remaining props
+    sx,                 // Custom styles
+    onClick,
+    type,
+    ...rest             // Remaining props
 }) => {
     // Define a centralized color mapping
     const colors = {
-        primary: "#104774",
+        primary: custom.deepBlue,
         muted: "#808390",
         secondary: "#737682",
         foreground: "#80839029",
-        danger: "#FF4C51",
+        danger: custom.errorButton,
     };
 
     // Determine background and text color
@@ -30,14 +34,21 @@ const CustomButton = ({
             variant={variant}
             startIcon={startIcon ?? startIcon}
             endIcon={endIcon ?? endIcon}
+            type={type}
             sx={{
                 backgroundColor: variant === "contained" ? backgroundColor : "transparent",
                 color: textColor,
                 borderColor: borderColor,
                 borderWidth: variant === "outlined" ? 1 : 0, // Border width for outlined
                 textTransform: "capitalize",
+                fontSize: "15px",
+                fontWeight: 500,
+                // lineHeight: 2,
+                borderRadius: "6px",
+                boxShadow: "none",
                 ...sx,
             }}
+            onClick={onClick} // Add the onClick handler here
             {...rest}
         >
             {children}
