@@ -42,6 +42,7 @@ const theme = createTheme({
       errorButton: "#FF4C51",
       placeHolder: "#2F2B3D66",
       light1: "#F2F2F2",
+      borderColor: "#2F2B3D40",
     },
   },
 });

@@ -1,11 +1,10 @@
-import { Box, Tabs, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React, { useMemo } from "react";
 import EmployeeDetailHeader from "./EmployeeDetailHeader";
 import { detailsTabs } from "@/utils/company-flow/employee-inforamtion-base.data";
 import CustomButton from "@/components/Shared-components/CustomButton";
 import { custom } from "@/app/theme";
 import EmployeeView from "../../employees/view-employee";
-import CustomizedAccordions from "../../asset-clearance/CustomAccordion";
 import Image from "next/image";
 import { DownloadIcon, FIleIcon } from "@/utils/Icons";
 import { StatusIndicator } from "@/components/applicants/StatusIndicator";
@@ -32,9 +31,7 @@ const EmployeeDetailsIndex = () => {
     const pathname = usePathname();
     const router = useRouter();
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
+
 
     const columns = useMemo(() => {
         return [
@@ -191,17 +188,17 @@ const EmployeeDetailsIndex = () => {
                     <Box sx={{ display: "flex", gap: 2 }}>
                         {detailsTabs.map((tab, index) => (
                             <CustomButton
-                                key={tab.id} // Make sure to add a key prop
+                                key={tab.id}
                                 startIcon={tab.icon}
                                 sx={{
                                     backgroundColor:
-                                        value === index ? custom.deepBlue : "transparent", // Highlight active tab
-                                    color: value === index ? custom.white : custom.secondaryText, // Active tab color
+                                        value === index ? custom.deepBlue : "transparent",
+                                    color: value === index ? custom.white : custom.secondaryText,
                                     borderRadius: 1.5,
                                     fontSize: 14,
                                     fontWeight: 500,
                                 }}
-                                onClick={() => setValue(index)} // Update active tab on click
+                                onClick={() => setValue(index)}
                             >
                                 {tab.label}
                             </CustomButton>

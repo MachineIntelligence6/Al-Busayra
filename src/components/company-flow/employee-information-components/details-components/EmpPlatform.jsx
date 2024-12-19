@@ -1,10 +1,12 @@
+import { Box } from '@mui/material'
 import React from 'react'
+import EmpInfoViewCard from './EmpInfoViewCard'
 
 const EmpPlatform = () => {
     return (
-        <div>
-            Emp Platform
-        </div>
+        <Box sx={{ p: 1 }}>
+            <EmpInfoViewCard />
+        </Box>
     )
 }
 

@@ -13,6 +13,7 @@ const CustomButton = ({
     sx,                 // Custom styles
     onClick,
     type,
+    fullWidth = false,
     ...rest             // Remaining props
 }) => {
     // Define a centralized color mapping
@@ -35,6 +36,7 @@ const CustomButton = ({
             startIcon={startIcon ?? startIcon}
             endIcon={endIcon ?? endIcon}
             type={type}
+            fullWidth={fullWidth}
             sx={{
                 backgroundColor: variant === "contained" ? backgroundColor : "transparent",
                 color: textColor,

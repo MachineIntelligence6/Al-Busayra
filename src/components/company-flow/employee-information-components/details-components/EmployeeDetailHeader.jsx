@@ -9,6 +9,18 @@ import {
     Button,
 } from "@mui/material";
 import CameraAltOutlinedIcon from "@mui/icons-material/CameraAltOutlined";
+import CustomDropdown from "@/components/Shared-components/CustomDropDown";
+
+const dropdownMenu = [
+    { value: "employee_transfer_form", label: "Employee Transfer Form" },
+    { value: "food_permit_deduction", label: "Food Permit Deduction" },
+    { value: "general_deduction", label: "General Deduction" },
+    { value: "passport_return", label: "Passport Return" },
+    { value: "passport_acceptance", label: "Passport Acceptance" },
+    { value: "payroll", label: "Payroll" },
+    { value: "special_fllowance_form", label: "Special Allowance Form" },
+    { value: "visa_loan_form", label: "Visa Loan Form" },
+];
 
 const EmployeeDetailHeader = (props) => {
     const { profileImage, fullName, description, sx } = props;
@@ -76,10 +88,26 @@ const EmployeeDetailHeader = (props) => {
                                     {description}
                                 </Typography>
                             </Box>
-
                         </Box>
-                        <Box sx={{ alignSelf: "end" }}>
-                            <h1>hello</h1>
+                        <Box sx={{ alignSelf: "end", width: 400 }}>
+                            <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
+                                <CustomDropdown
+                                    options={dropdownMenu}
+                                    placeholder={"Please Select"}
+                                />
+                                <Box sx={{ width: 200 }}>
+                                    <Button
+                                        variant="contained"
+                                        sx={{
+                                            bgcolor: "#E68F3C",
+                                            color: "white",
+                                            textTransform: "capitalize",
+                                        }}
+                                    >
+                                        Hold Salary
+                                    </Button>
+                                </Box>
+                            </Box>
                         </Box>
                     </Box>
                 </Box>

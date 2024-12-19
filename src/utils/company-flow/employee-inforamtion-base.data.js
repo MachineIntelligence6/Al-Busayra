@@ -1,4 +1,4 @@
-import { ClipboardPlus, FileText, ShieldCheck, Star, User } from "lucide-react";
+import { ClipboardPlus, FileText, Home, Mail, MapPin, Phone, ShieldCheck, Star, User, Webcam } from "lucide-react";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
 import TurnedInNotOutlinedIcon from "@mui/icons-material/TurnedInNotOutlined";
@@ -243,5 +243,78 @@ export const salarySlipTable = [
             name: "Careem",
         },
         status: "Close",
+    },
+];
+
+export const platformData = [
+    {
+        id: uuid(),
+        key: "Platform ID",
+        value: "CA125",
+        icon: <User size={20} />
+
+    },
+    {
+        id: uuid(),
+        key: "Platform Type",
+        value: "Bike Rent",
+        icon: <Star size={20} />
+
+    },
+    {
+        id: uuid(),
+        key: "Country",
+        value: "UAE",
+        icon: <Webcam size={20} />
+
+    },
+    {
+        id: uuid(),
+        key: "Address",
+        value: "Street 08, Al Jamal Resident",
+        icon: <Home size={20} />
+
+    },
+    {
+        id: uuid(),
+        key: "POC Phone Number",
+        value: "+971 123 456 7890",
+        icon: <Phone size={20} />
+
+    },
+    {
+        id: uuid(),
+        key: "Platform Name",
+        value: "Careem",
+        icon: <User size={20} />
+
+    },
+    {
+        id: uuid(),
+        key: "Email Address",
+        value: "Abidali@gmail.com",
+        icon: <Mail size={20} />
+
+    },
+    {
+        id: uuid(),
+        key: "City",
+        value: "Dubai",
+        icon: <MapPin size={20} />
+
+    },
+    {
+        id: uuid(),
+        key: "POC Name",
+        value: "Abdul Rehman",
+        icon: <User size={20} />
+
+    },
+    {
+        id: uuid(),
+        key: "Status",
+        value: "Active",
+        icon: <ShieldCheck size={20} />
+
     },
 ]
