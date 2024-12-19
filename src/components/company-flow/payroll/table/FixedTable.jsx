@@ -1,16 +1,16 @@
 "use client";
-import TableExportRow from "@/components/Shared-components/Table-components/TableExportRow";
-import TableFilters from "@/components/Shared-components/Table-components/TableFilters";
+import TableExportRow from "@/components/shared-components/Table-components/TableExportRow";
+import TableFilters from "@/components/shared-components/Table-components/TableFilters";
 import { Box, Typography } from "@mui/material";
 import React, { useMemo, useState } from "react";
-import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
-import TablePagination from "@/components/Shared-components/Table-components/TablePagination";
+import CustomTable from "@/components/shared-components/Table-components/CustomTable";
+import TablePagination from "@/components/shared-components/Table-components/TablePagination";
 import Link from "next/link";
-import CustomAvatar from "@/components/Shared-components/CustomAvatar";
-import ActionMenu from "@/components/Shared-components/ActionMenu";
+import CustomAvatar from "@/components/shared-components/CustomAvatar";
+import ActionMenu from "@/components/shared-components/ActionMenu";
 import { useRouter } from "next/navigation";
 import { payrollTableData, payrollTableData1 } from "@/utils/PayrollTableData";
-import CustomButton from "@/components/Shared-components/CustomButton";
+import CustomButton from "@/components/shared-components/CustomButton";
 import { Check } from "lucide-react";
 import { EditIcon } from "@/utils/Icons";
 

@@ -6,16 +6,16 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { Box, Divider, InputAdornment, Paper, Typography } from "@mui/material";
 import CancelIcon from "@mui/icons-material/Cancel";
 import DoneIcon from "@mui/icons-material/Done";
-import CustomButton from "@/components/Shared-components/CustomButton";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
-import CustomSelect from "@/components/Shared-components/CustomSelect";
-import CustomCountryCodeInput from "@/components/Shared-components/CustomCountryCodeInput";
+import CustomButton from "@/components/shared-components/CustomButton";
+import CustomTextField from "@/components/shared-components/CustomTextField";
+import CustomSelect from "@/components/shared-components/CustomSelect";
+import CustomCountryCodeInput from "@/components/shared-components/CustomCountryCodeInput";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { contactEditFormSchema } from "@/utils/schemas/contactEditFormSchema";
-import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
-import CaptionText from "@/components/Shared-components/CaptionText";
+import CustomFileUploadField from "@/components/shared-components/CustomFIleUploadField";
+import CaptionText from "@/components/shared-components/CaptionText";
 import { custom } from "@/app/theme";
 
 const renderLabel = (label, required = false) => (

@@ -1,8 +1,7 @@
 "use client"
 import BasicInfo from '@/components/employees/ViewEmployee/BasicInfo'
-import DynamicBreadcrumb from '@/components/Shared-components/BreadCrumb'
-import CustomButton from '@/components/Shared-components/CustomButton'
-import MasonryGrid from '@/components/Shared-components/masonry-grid'
+import DynamicBreadcrumb from '@/components/shared-components/BreadCrumb'
+import MasonryGrid from '@/components/shared-components/masonry-grid'
 import { inventoryViewDetails } from '@/utils/hard-data/inventory-data'
 import { Box, Divider } from '@mui/material'
 import React, { useState } from 'react'

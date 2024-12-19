@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 import { Box, Divider, Typography } from "@mui/material";
 import { usePathname } from "next/navigation";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
-import { CustomPermissionTabs } from "@/components/Shared-components/CustomPermissionTabs";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
+import { CustomPermissionTabs } from "@/components/shared-components/CustomPermissionTabs";
 import { CalendarIcon, CompanyIcon, GlobalIcon,ShieldIcon,UserIcon } from "@/utils/Icons";
 import RoleInfoCard from "@/components/roles-template/RoleInfoCard";
 import CustomizablePermissionsTable from "@/components/roles-template/CustomPermissionsTable";

@@ -13,18 +13,18 @@ import { CircleX, X } from "lucide-react";
 import { useState } from "react";
 import { Divider, Typography } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
 import Image from "next/image";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import GenericModal from "@/components/applicants/GenericModel";
-import ActionMenu from "@/components/Shared-components/ActionMenu";
+import ActionMenu from "@/components/shared-components/ActionMenu";
 import {
   assetAllocationData,
   assetClarenceData,
 } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
 import DetailModal from "./view-detail";
-import CustomAvatar from "@/components/Shared-components/CustomAvatar";
+import CustomAvatar from "@/components/shared-components/CustomAvatar";
 import Scrollbars from "react-custom-scrollbars";
 
 const TableFiltersData = [

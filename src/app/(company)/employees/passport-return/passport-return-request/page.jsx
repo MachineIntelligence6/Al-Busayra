@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { Box } from "@mui/material";
-import CompanyHeader from "@/components/Shared-components/CompanyHeader";
-import DescriptiveText from "@/components/Shared-components/DescriptiveText";
+import CompanyHeader from "@/components/shared-components/CompanyHeader";
+import DescriptiveText from "@/components/shared-components/DescriptiveText";
 import { custom } from "@/app/theme";
 import PassportReturnRequest from "@/components/company-flow/passport-return/passport-return-form";
 

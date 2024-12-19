@@ -1,5 +1,5 @@
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
-import SideCard from "@/components/Shared-components/SideCard";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
+import SideCard from "@/components/shared-components/SideCard";
 import { AssetClearanceData } from "@/utils/company-flow/asset-clarance-data";
 import { Box, Divider,} from "@mui/material";
 

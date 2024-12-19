@@ -1,5 +1,6 @@
 
 import AdminLayout from "@/Layouts/AdminLayout";
+import AdminProviders from "@/redux/AdminProvider";
 
 export const metadata = {
     title: "Create Next App",
@@ -10,7 +11,9 @@ export default function AdminRootLayout({ children }) {
     return (
         <html lang="en" className="" >
             <body className={` antialiased`} >
-                <AdminLayout>{children}</AdminLayout>
+                <AdminProviders>
+                    <AdminLayout>{children}</AdminLayout>
+                </AdminProviders>
             </body>
         </html>
     );

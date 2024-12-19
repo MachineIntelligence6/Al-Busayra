@@ -3,14 +3,14 @@ import React, { useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Box, Divider, Switch, Typography } from "@mui/material";
 import { useRouter } from "next/navigation"; // Import useRou
-import ActionMenu from "../Shared-components/ActionMenu";
-import TableExportRow from "../Shared-components/Table-components/TableExportRow";
-import CustomTable from "../Shared-components/Table-components/CustomTable";
-import TablePagination from "../Shared-components/Table-components/TablePagination";
+import ActionMenu from "../shared-components/ActionMenu";
+import TableExportRow from "../shared-components/Table-components/TableExportRow";
+import CustomTable from "../shared-components/Table-components/CustomTable";
+import TablePagination from "../shared-components/Table-components/TablePagination";
 import { rolesTemplateListData } from "@/utils/templateListData";
-import CustomDropdown from "../Shared-components/CustomDropDown";
+import CustomDropdown from "../shared-components/CustomDropDown";
 import { StatusIndicator } from "../applicants/StatusIndicator";
-import CustomTextField from "../Shared-components/CustomTextField";
+import CustomTextField from "../shared-components/CustomTextField";
 import IOSSwitch from "../ui/switch-button";
 
 const roleFilters = [

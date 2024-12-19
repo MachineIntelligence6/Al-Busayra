@@ -1,9 +1,9 @@
 import { custom } from '@/app/theme'
-import DescriptiveText from '@/components/Shared-components/DescriptiveText'
-import CustomTable from '@/components/Shared-components/Table-components/CustomTable'
+import DescriptiveText from '@/components/shared-components/DescriptiveText'
+import CustomTable from '@/components/shared-components/Table-components/CustomTable'
 import { salarySlipTable } from '@/utils/company-flow/employee-inforamtion-base.data'
 import { Avatar, Box } from '@mui/material'
-import { Download, File, FileText, Image } from 'lucide-react'
+import { Download, FileText } from 'lucide-react'
 import React, { useMemo } from 'react'
 
 const SalarySlipTable = () => {

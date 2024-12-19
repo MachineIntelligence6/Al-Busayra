@@ -1,10 +1,9 @@
 import React from "react";
 import { Box, Divider } from "@mui/material";
-import CustomBreadcrumb from "@/app/Components/sharedComponents/BreadCrum/page";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import AdvanceSalaryForm from "@/components/company-flow/employees/advance-salary/salary-form";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
 
 const page = () => {
   return (

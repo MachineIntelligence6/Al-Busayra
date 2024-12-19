@@ -2,15 +2,15 @@
 import { useState } from "react";
 import { Box, Divider, Typography } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
 import Image from "next/image";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import GenericModal from "@/components/applicants/GenericModel";
-import ActionMenu from "@/components/Shared-components/ActionMenu";
+import ActionMenu from "@/components/shared-components/ActionMenu";
 import { transferData } from "@/utils/company-flow/asset-clarance-data";
 import CustomTableWrapper from "@/components/company-flow/asset-clearance/CustomTableWrapper";
 import AdvDetailModal from "../../advance-salary/view-detail";
-import CustomAvatar from "@/components/Shared-components/CustomAvatar";
+import CustomAvatar from "@/components/shared-components/CustomAvatar";
 import ViewDetailModal from "../view-detail/ViewDetailModal";
 
 const TableFiltersData = [

@@ -1,6 +1,6 @@
 "use client";
-import {useEffect, useState} from 'react';
-import DynamicBreadcrumb from '@/components/Shared-components/BreadCrumb';
+import {useState} from 'react';
+import DynamicBreadcrumb from '@/components/shared-components/BreadCrumb';
 import { Box, Divider } from '@mui/material';
 import { usePathname, useRouter } from 'next/navigation';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';

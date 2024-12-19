@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { Box, Button, Typography, TextField } from "@mui/material";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import DoneIcon from "@mui/icons-material/Done";
-import CustomButton from "@/components/Shared-components/CustomButton";
+import CustomButton from "@/components/shared-components/CustomButton";
 import { useRouter } from "next/navigation";
 
 const RejectModal = ({ onClose }) => {

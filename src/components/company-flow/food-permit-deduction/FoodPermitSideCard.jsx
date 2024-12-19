@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Avatar, Typography, Divider, Button } from "@mui/material";
-import DescriptiveText from "@/components/Shared-components/DescriptiveText";
+import DescriptiveText from "@/components/shared-components/DescriptiveText";
 import { custom } from "@/app/theme";
 
 const FoodPermitSideCard = ({

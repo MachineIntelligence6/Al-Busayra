@@ -1,12 +1,12 @@
 "use client";
-import CustomButton from "@/components/Shared-components/CustomButton";
-import CustomDropdown from "@/components/Shared-components/CustomDropDown";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
+import CustomButton from "@/components/shared-components/CustomButton";
+import CustomDropdown from "@/components/shared-components/CustomDropDown";
+import CustomTextField from "@/components/shared-components/CustomTextField";
 import { Box, Typography } from "@mui/material";
 import { Check, MoveLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useMemo } from "react";
-import CurrencyType from "@/components/Shared-components/CurrencyType";
+import CurrencyType from "@/components/shared-components/CurrencyType";
 
 const bikeOptions = [
   { label: "Asset is cleared ", value: "assetIscleared" },

@@ -1,8 +1,7 @@
-import AssignBike from "@/components/company-flow/asset-allocation/bike";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
-import SideCard from "@/components/Shared-components/SideCard";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
+import SideCard from "@/components/shared-components/SideCard";
 import { AssetClearanceData } from "@/utils/company-flow/asset-clarance-data";
-import { AppBar, Box, Divider, Toolbar } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 
 export default function AssetClearanceLayout({ children }) {
     return (

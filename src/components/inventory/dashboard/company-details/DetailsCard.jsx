@@ -1,4 +1,4 @@
-import DoubleChevronUp from '@/components/Shared-components/DoubleChevronUp'
+import DoubleChevronUp from '@/components/shared-components/DoubleChevronUp'
 import { addContractData } from '@/utils/vendor-detail'
 import { Avatar, Box, Divider, Icon, Typography } from '@mui/material'
 import { ChevronUp } from 'lucide-react'

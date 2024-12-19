@@ -1,14 +1,14 @@
 "use Client"
 import React, { createElement } from 'react'
-import VendorModalWrapper from "@/components/Shared-components/modals/VendorModalWrapper";
+import VendorModalWrapper from "@/components/shared-components/modals/VendorModalWrapper";
 import { Controller, useFormContext } from 'react-hook-form';
 import { Box, Typography } from '@mui/material';
 import ImageUpload from '@/components/applicants/ImageUpload';
-import CustomTextField from '@/components/Shared-components/CustomTextField';
-import CustomSelect from "@/components/Shared-components/CustomSelect";
-import PhoneNumberTextField from '@/components/Shared-components/NumberTextField';
-import UploadInputField from '@/components/Shared-components/UploadInputField';
-import CaptionText from '@/components/Shared-components/CaptionText';
+import CustomTextField from '@/components/shared-components/CustomTextField';
+import CustomSelect from "@/components/shared-components/CustomSelect";
+import PhoneNumberTextField from '@/components/shared-components/NumberTextField';
+import UploadInputField from '@/components/shared-components/UploadInputField';
+import CaptionText from '@/components/shared-components/CaptionText';
 
 const fields = [
     {

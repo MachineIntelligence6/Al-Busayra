@@ -1,5 +1,5 @@
 import InActiveEmployeeTable from '@/components/employees/incomplete-form/Table/InActiveEmployeeTable'
-import DynamicBreadcrumb from '@/components/Shared-components/BreadCrumb'
+import DynamicBreadcrumb from '@/components/shared-components/BreadCrumb'
 import { Box, Divider } from '@mui/material'
 import React from 'react'
 

@@ -9,9 +9,9 @@
 import React, { createElement } from "react";
 import { Controller } from "react-hook-form";
 import { Box, Typography } from "@mui/material";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
-import CustomCountryCodeInput from "@/components/Shared-components/CustomCountryCodeInput";
-import CaptionText from "@/components/Shared-components/CaptionText";
+import CustomTextField from "@/components/shared-components/CustomTextField";
+import CustomCountryCodeInput from "@/components/shared-components/CustomCountryCodeInput";
+import CaptionText from "@/components/shared-components/CaptionText";
 import { countryCodes } from "@/utils/hard-data/common";
 import { custom } from "@/app/theme";
 

@@ -3,12 +3,12 @@
 import { Box, Divider } from "@mui/material";
 import { Plus } from "lucide-react";
 import React, { useState } from "react";
-import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
+import EmptyScreenView from "@/components/shared-components/EmptyScreenView";
 import CompanyEmpty from "../../CompanyEmpty";
 import AdvanceSalaryTableModal from "./table/AdvanceSalaryTableModal";
 import AdvanceSalaryTable from "./table";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
-import CustomButton from "@/components/Shared-components/CustomButton";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
+import CustomButton from "@/components/shared-components/CustomButton";
 
 const AdvanceSalaryEmptyScreen = () => {
   const [showPopup, setShowPopup] = useState(false);

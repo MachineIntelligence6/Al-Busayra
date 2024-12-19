@@ -2,8 +2,8 @@
 import React from "react";
 import { Box } from "@mui/material";
 import EMPGeneralDeductionForm from "@/components/company-flow/general-deduction-components/emp-form";
-import CompanyHeader from "@/components/Shared-components/CompanyHeader";
-import DescriptiveText from "@/components/Shared-components/DescriptiveText";
+import CompanyHeader from "@/components/shared-components/CompanyHeader";
+import DescriptiveText from "@/components/shared-components/DescriptiveText";
 import { custom } from "@/app/theme";
 
 const Page = () => {

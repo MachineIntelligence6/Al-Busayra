@@ -1,4 +1,4 @@
-import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
+import EmptyScreenView from "@/components/shared-components/EmptyScreenView";
 import { Box } from "@mui/material";
 import React, { useRef } from "react";
 import { useRouter } from "next/navigation";

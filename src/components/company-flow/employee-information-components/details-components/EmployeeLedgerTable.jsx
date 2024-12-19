@@ -1,4 +1,4 @@
-import CustomTable from '@/components/Shared-components/Table-components/CustomTable'
+import CustomTable from '@/components/shared-components/Table-components/CustomTable'
 import { ledgerTable } from '@/utils/company-flow/employee-inforamtion-base.data'
 import { Box } from '@mui/material'
 import React, { useMemo } from 'react'

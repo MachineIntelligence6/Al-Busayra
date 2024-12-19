@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Box } from "@mui/material";
-import CustomDateField from "@/components/Shared-components/CustomDateField";
-import CustomButton from "@/components/Shared-components/CustomButton";
+import CustomDateField from "@/components/shared-components/CustomDateField";
+import CustomButton from "@/components/shared-components/CustomButton";
 import { Check, MoveLeft } from "lucide-react";
 
 const EndDateModal = ({ onClose }) => {

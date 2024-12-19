@@ -3,15 +3,15 @@ import { Controller } from "react-hook-form";
 import { Box, Typography, Grid, Divider, Paper, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import CancelIcon from "@mui/icons-material/Cancel";
 import DoneIcon from "@mui/icons-material/Done";
-import CustomButton from "@/components/Shared-components/CustomButton";
-import CustomSelect from "@/components/Shared-components/CustomSelect";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
-import CaptionText from "@/components/Shared-components/CaptionText";
+import CustomButton from "@/components/shared-components/CustomButton";
+import CustomSelect from "@/components/shared-components/CustomSelect";
+import CustomTextField from "@/components/shared-components/CustomTextField";
+import CaptionText from "@/components/shared-components/CaptionText";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { useForm, FormProvider } from "react-hook-form";
 import { custom } from "zod";
-import CurrencyType from "@/components/Shared-components/CurrencyType";
+import CurrencyType from "@/components/shared-components/CurrencyType";
 
 export default function LoanDeductionForm({ onClose }) {
   const methods = useForm({

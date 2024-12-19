@@ -1,15 +1,15 @@
 "use client"
 import React, { useMemo } from 'react'
 import { Box, Typography } from '@mui/material'
-import CompanyHeader from '@/components/Shared-components/CompanyHeader'
-import DescriptiveText from '@/components/Shared-components/DescriptiveText'
+import CompanyHeader from '@/components/shared-components/CompanyHeader'
+import DescriptiveText from '@/components/shared-components/DescriptiveText'
 import { custom } from '@/app/theme'
-import TableFilters from '@/components/Shared-components/Table-components/TableFilters'
-import TableExportRow from '@/components/Shared-components/Table-components/TableExportRow'
-import CustomTable from '@/components/Shared-components/Table-components/CustomTable'
+import TableFilters from '@/components/shared-components/Table-components/TableFilters'
+import TableExportRow from '@/components/shared-components/Table-components/TableExportRow'
+import CustomTable from '@/components/shared-components/Table-components/CustomTable'
 import { actionMenuItems, empInfoBaseTableData } from '@/utils/company-flow/employee-inforamtion-base.data'
-import CustomAvatar from '@/components/Shared-components/CustomAvatar'
-import ActionMenu from '@/components/Shared-components/ActionMenu'
+import CustomAvatar from '@/components/shared-components/CustomAvatar'
+import ActionMenu from '@/components/shared-components/ActionMenu'
 import { useRouter } from 'next/navigation'
 
 

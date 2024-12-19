@@ -2,14 +2,14 @@
 import React, { useMemo, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Box } from "@mui/material";
-import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
+import CustomTable from "@/components/shared-components/Table-components/CustomTable";
 import { data } from "@/utils/campaigns.data";
-import ActionMenu from "@/components/Shared-components/ActionMenu";
-import TableExportRow from "@/components/Shared-components/Table-components/TableExportRow";
+import ActionMenu from "@/components/shared-components/ActionMenu";
+import TableExportRow from "@/components/shared-components/Table-components/TableExportRow";
 // import TablePagination from "../Shared-components/Table-components/TablePagination";
-import TableFilters from "@/components/Shared-components/Table-components/TableFilters";
-import CustomAvatar from "@/components/Shared-components/CustomAvatar";
-import TablePagination from "@/components/Shared-components/Table-components/TablePagination";
+import TableFilters from "@/components/shared-components/Table-components/TableFilters";
+import CustomAvatar from "@/components/shared-components/CustomAvatar";
+import TablePagination from "@/components/shared-components/Table-components/TablePagination";
 
 const platformFilters = [
   {

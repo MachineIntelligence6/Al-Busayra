@@ -1,5 +1,5 @@
-import CustomDateField from '@/components/Shared-components/CustomDateField'
-import CustomFileUploadField from '@/components/Shared-components/CustomFIleUploadField'
+import CustomDateField from '@/components/shared-components/CustomDateField'
+import CustomFileUploadField from '@/components/shared-components/CustomFIleUploadField'
 import { Box } from '@mui/material'
 import React from 'react'
 

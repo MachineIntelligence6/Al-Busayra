@@ -6,11 +6,11 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { Box, Divider, Paper, Typography } from "@mui/material";
 import CancelIcon from "@mui/icons-material/Cancel";
 import DoneIcon from "@mui/icons-material/Done";
-import CustomButton from "@/components/Shared-components/CustomButton";
+import CustomButton from "@/components/shared-components/CustomButton";
 import { GeneralInfoSchema } from "@/utils/schemas/generalInformation";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
-import CustomSelect from "@/components/Shared-components/CustomSelect";
-import CaptionText from "@/components/Shared-components/CaptionText";
+import CustomTextField from "@/components/shared-components/CustomTextField";
+import CustomSelect from "@/components/shared-components/CustomSelect";
+import CaptionText from "@/components/shared-components/CaptionText";
 import { custom } from "@/app/theme";
 
 const renderLabel = (label, required = false) => (

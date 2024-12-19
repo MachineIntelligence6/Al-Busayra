@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
+import EmptyScreenView from "@/components/shared-components/EmptyScreenView";
 import { Box } from "@mui/material";
-import CompanyHeader from "@/components/Shared-components/CompanyHeader";
-import DescriptiveText from "@/components/Shared-components/DescriptiveText";
+import CompanyHeader from "@/components/shared-components/CompanyHeader";
+import DescriptiveText from "@/components/shared-components/DescriptiveText";
 import { custom } from "@/app/theme";
-import CompanyTableModal from "@/components/Shared-components/modals/CompanyTableModal";
+import CompanyTableModal from "@/components/shared-components/modals/CompanyTableModal";
 import CompanyEmpty from "../../CompanyEmpty";
 import SpecialAllowanceModalTable from "./table/SpecialAllowanceModalTable";
 import SpecialAllowanceTable from "./table";

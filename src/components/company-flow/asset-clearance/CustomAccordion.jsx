@@ -3,7 +3,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Box, Accordion, AccordionSummary, AccordionDetails, Typography } from "@mui/material";
-import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
+import CustomTable from "@/components/shared-components/Table-components/CustomTable";
 import Scrollbars from "react-custom-scrollbars";
 
 export default function CustomizedAccordions({ data, column, items, title }) {

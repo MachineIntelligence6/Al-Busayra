@@ -1,9 +1,8 @@
-import CurrencyType from "@/components/Shared-components/CurrencyType";
-import CustomAvatar from "@/components/Shared-components/CustomAvatar";
-import CustomTable from "@/components/Shared-components/Table-components/CustomTable";
+import CurrencyType from "@/components/shared-components/CurrencyType";
+import CustomAvatar from "@/components/shared-components/CustomAvatar";
+import CustomTable from "@/components/shared-components/Table-components/CustomTable";
 import {
     empRequestTableData,
-    ledgerTable,
 } from "@/utils/company-flow/employee-inforamtion-base.data";
 import { Box, Typography } from "@mui/material";
 import React, { useMemo } from "react";

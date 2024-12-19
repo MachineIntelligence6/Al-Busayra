@@ -1,11 +1,9 @@
 "use client";
-import Dropdown from "@/app/Components/Input/Dropdown";
-import Input from "@/app/Components/Input/Input";
-import CustomButton from "@/components/Shared-components/CustomButton";
-import CustomDateField from "@/components/Shared-components/CustomDateField";
-import CustomDatePicker from "@/components/Shared-components/CustomDatePicker";
-import CustomDropdown from "@/components/Shared-components/CustomDropDown";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
+
+import CustomButton from "@/components/shared-components/CustomButton";
+import CustomDateField from "@/components/shared-components/CustomDateField";
+import CustomDropdown from "@/components/shared-components/CustomDropDown";
+import CustomTextField from "@/components/shared-components/CustomTextField";
 import { Box, Typography } from "@mui/material";
 import { Check, MoveLeft } from "lucide-react";
 import { useRouter } from "next/navigation";

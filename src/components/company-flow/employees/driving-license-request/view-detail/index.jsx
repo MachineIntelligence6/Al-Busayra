@@ -1,4 +1,4 @@
-import ViewEmployeeHeader from "@/components/Shared-components/ViewEmployeeHeader";
+import ViewEmployeeHeader from "@/components/shared-components/ViewEmployeeHeader";
 import { Box } from "@mui/material";
 import React, { useRef } from "react";
 import ViewDetailCard from "./ViewDetailCard";

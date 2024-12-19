@@ -1,10 +1,10 @@
 "use client"
-import ActionMenu from "@/components/Shared-components/ActionMenu";
+import ActionMenu from "@/components/shared-components/ActionMenu";
 import { Box, Typography } from "@mui/material";
 import { usePathname, useRouter} from "next/navigation";
 import React from "react";
 import CustomTableWrapper from "../asset-clearance/CustomTableWrapper";
-import CustomAvatar from "@/components/Shared-components/CustomAvatar";
+import CustomAvatar from "@/components/shared-components/CustomAvatar";
 import { useLoan } from "@/hooks/useLoan";
 import { assetClarenceData } from "@/utils/company-flow/asset-clarance-data";
 import { custom } from "@/app/theme";

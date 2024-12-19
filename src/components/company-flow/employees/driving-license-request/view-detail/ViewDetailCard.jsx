@@ -1,4 +1,4 @@
-import { ViewCard, ViewItem } from "@/components/Shared-components/ViewCard";
+import { ViewCard, ViewItem } from "@/components/shared-components/ViewCard";
 import { Box, Divider } from "@mui/material";
 import { tableViewDetail } from "@/utils/vendor-detail";
 import DeductionType from "../form/DeductionType";

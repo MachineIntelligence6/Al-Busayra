@@ -3,17 +3,17 @@ import { Controller, useFormContext } from "react-hook-form";
 import { Box, Typography, Grid, Divider, Paper } from "@mui/material";
 import CancelIcon from "@mui/icons-material/Cancel";
 import DoneIcon from "@mui/icons-material/Done";
-import CustomButton from "@/components/Shared-components/CustomButton";
-import CustomSelect from "@/components/Shared-components/CustomSelect";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
-import CaptionText from "@/components/Shared-components/CaptionText";
+import CustomButton from "@/components/shared-components/CustomButton";
+import CustomSelect from "@/components/shared-components/CustomSelect";
+import CustomTextField from "@/components/shared-components/CustomTextField";
+import CaptionText from "@/components/shared-components/CaptionText";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, FormProvider } from "react-hook-form";
 import { custom } from "@/app/theme";
-import CurrencyType from "@/components/Shared-components/CurrencyType";
+import CurrencyType from "@/components/shared-components/CurrencyType";
 
 // Validation Schema
 const LoanDeductionSchema = yup.object().shape({

@@ -1,6 +1,6 @@
 "use client";
 
-import SideCard from "@/components/Shared-components/SideCard";
+import SideCard from "@/components/shared-components/SideCard";
 import { Box } from "@mui/material";
 import React from "react";
 import AssetHistory from "./AssetHistory";
@@ -10,7 +10,6 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import CompanyEmpTableWrapper from "../../employees/CompanyEmpTableWrapper";
 
 const AssignBike = () => {
   return (

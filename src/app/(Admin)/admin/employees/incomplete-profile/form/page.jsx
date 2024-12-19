@@ -1,6 +1,6 @@
 import React from "react";
 import MultiStepForm from "@/components/employees/incomplete-form/Form";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
 import { Box, Divider } from "@mui/material";
 
 const page = () => {

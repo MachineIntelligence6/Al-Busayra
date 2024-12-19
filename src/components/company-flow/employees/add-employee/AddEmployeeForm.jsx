@@ -3,7 +3,7 @@ import FormTab from '@/components/inventory/inventory-list/add-inventory/forms/F
 import { addEmployeeFormTabs } from '@/utils/hard-data/inventoryFormTab';
 import { Box } from '@mui/material';
 import { useRouter } from 'next/navigation';
-import CustomButton from '@/components/Shared-components/CustomButton';
+import CustomButton from '@/components/shared-components/CustomButton';
 import { ArrowBack } from '@mui/icons-material';
 import { Check } from 'lucide-react';
 import EmploypeeForm from './EmployeeForm';

@@ -2,9 +2,9 @@
 import { Box, Divider } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import CompanyEmpty from "../CompanyEmpty";
-import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
-import CompanyTableModal from "@/components/Shared-components/modals/CompanyTableModal";
+import EmptyScreenView from "@/components/shared-components/EmptyScreenView";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
+import CompanyTableModal from "@/components/shared-components/modals/CompanyTableModal";
 import { Plus } from "lucide-react";
 import FoodPermitModal from "./FoodPermitModal";
 import FoodPermitDeductionMainTable from "./FoodPermitDeductionMainTable";

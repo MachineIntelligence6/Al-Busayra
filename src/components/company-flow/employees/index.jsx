@@ -1,11 +1,11 @@
 "use client";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
-import CustomButton from "@/components/Shared-components/CustomButton";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
+import CustomButton from "@/components/shared-components/CustomButton";
 import { Box, Divider } from "@mui/material";
 import { Plus } from "lucide-react";
 import React, { useState } from "react";
 import CompanyEmpty from "../CompanyEmpty";
-import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
+import EmptyScreenView from "@/components/shared-components/EmptyScreenView";
 import EmployeesModal from "./EmployeesModal";
 import CompanyEmpTableWrapper from "./CompanyEmpTableWrapper";
 

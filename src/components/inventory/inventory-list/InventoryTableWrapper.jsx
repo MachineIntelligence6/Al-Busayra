@@ -1,9 +1,9 @@
 "use client"
-import ActionMenu from '@/components/Shared-components/ActionMenu';
-import CustomAvatar from '@/components/Shared-components/CustomAvatar';
-import CustomTable from '@/components/Shared-components/Table-components/CustomTable';
-import TableExportRow from '@/components/Shared-components/Table-components/TableExportRow';
-import TableFilters from '@/components/Shared-components/Table-components/TableFilters';
+import ActionMenu from '@/components/shared-components/ActionMenu';
+import CustomAvatar from '@/components/shared-components/CustomAvatar';
+import CustomTable from '@/components/shared-components/Table-components/CustomTable';
+import TableExportRow from '@/components/shared-components/Table-components/TableExportRow';
+import TableFilters from '@/components/shared-components/Table-components/TableFilters';
 import { InventoryListData } from '@/utils/hard-data/inventory-data';
 import { Box, Typography } from '@mui/material';
 import { Download, Image } from 'lucide-react';

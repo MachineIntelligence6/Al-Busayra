@@ -1,10 +1,10 @@
 import React, { createElement } from "react";
 import { Controller } from "react-hook-form";
 import { Box, Typography } from "@mui/material";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
-import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
-import CustomSelect from "@/components/Shared-components/CustomSelect";
-import CaptionText from "@/components/Shared-components/CaptionText";
+import CustomTextField from "@/components/shared-components/CustomTextField";
+import CustomFileUploadField from "@/components/shared-components/CustomFIleUploadField";
+import CustomSelect from "@/components/shared-components/CustomSelect";
+import CaptionText from "@/components/shared-components/CaptionText";
 import { custom } from "@/app/theme";
 
 export const EmiratesID = ({ control }) => {

@@ -1,12 +1,9 @@
-"use client"
-import React from "react";
-import Login from "@/components/Auth-components/Login";
-import ForgotPassword from "@/components/Auth-components/ForgotPassword";
+import dynamic from "next/dynamic";
 
-const page = () => {
-  return (
-    <ForgotPassword />
-  );
+const ForgotPassword = dynamic(() => import("@/components/auth-components/ForgotPassword"), { ssr: false });
+
+const Page = () => {
+  return <ForgotPassword />;
 };
 
-export default page;
+export default Page;

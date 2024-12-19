@@ -8,13 +8,13 @@ import { Download } from 'lucide-react';
 import { FIleIcon } from "@/utils/Icons";
 import Image from "next/image";
 import { StatusIndicator } from "../applicants/StatusIndicator";
-import TablePagination from "../Shared-components/Table-components/TablePagination";
-import ActionMenu from "../Shared-components/ActionMenu";
-import CustomDropdown from "../Shared-components/CustomDropDown";
-import TableExportRow from "../Shared-components/Table-components/TableExportRow";
-import CustomTable from "../Shared-components/Table-components/CustomTable";
-import DescriptiveText from "../Shared-components/DescriptiveText";
-import CurrencyType from "../Shared-components/CurrencyType";
+import TablePagination from "../shared-components/Table-components/TablePagination";
+import ActionMenu from "../shared-components/ActionMenu";
+import CustomDropdown from "../shared-components/CustomDropDown";
+import TableExportRow from "../shared-components/Table-components/TableExportRow";
+import CustomTable from "../shared-components/Table-components/CustomTable";
+import DescriptiveText from "../shared-components/DescriptiveText";
+import CurrencyType from "../shared-components/CurrencyType";
 
 const challanSalikFilters = [
   {

@@ -1,15 +1,13 @@
 "use client";
 
-import { Box, Button, Divider, Typography } from "@mui/material";
+import { Box, Divider, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useFormik } from "formik";
-import { RegisterSchema } from "@/components/Shared-components/Schemas/RegisterSchema";
-import Input from "@/app/Components/Input/Input";
-import AppLogo from "@/components/Shared-components/AppLogo";
-import CustomDropdown from "@/components/Shared-components/CustomDropDown";
-import CustomButton from "@/components/Shared-components/CustomButton";
+import { RegisterSchema } from "@/components/shared-components/Schemas/RegisterSchema";
+import AppLogo from "@/components/shared-components/AppLogo";
+import CustomDropdown from "@/components/shared-components/CustomDropDown";
+import CustomButton from "@/components/shared-components/CustomButton";
 import { Check, CircleX } from "lucide-react";
-import { redirect } from "next/navigation";
 import Link from "next/link";
 
 const Page = () => {
@@ -93,8 +91,9 @@ const Page = () => {
         onSubmit={formik.handleSubmit}
         className="flex flex-col gap-5"
       >
-        <Input
+        <TextField
           name="fullName"
+          size="small"
           value={formik.values.fullName}
           onChange={formik.handleChange}
           placeholder="e.g John Smith"
@@ -102,8 +101,9 @@ const Page = () => {
           error={Boolean(formik.touched.fullName && formik.errors.fullName)}
           helperText={formik.touched.fullName && formik.errors.fullName}
         />
-        <Input
+        <TextField
           name="email"
+          size="small"
           value={formik.values.email}
           onChange={formik.handleChange}
           placeholder="e.g johnsmith@gmail.com"
@@ -111,8 +111,9 @@ const Page = () => {
           error={Boolean(formik.touched.email && formik.errors.email)}
           helperText={formik.touched.email && formik.errors.email}
         />
-        <Input
+        <TextField
           name="phone"
+          size="small"
           value={formik.values.phone}
           onChange={formik.handleChange}
           placeholder="123 456 7890"

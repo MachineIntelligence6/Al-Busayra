@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import GenericModal from "@/components/applicants/GenericModel";
 import ChallansTableWrapper from "@/components/challans/ChallansTableWrapper";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
 import { Box, Divider } from "@mui/material";
 import { usePathname } from "next/navigation";
 import FileUploadIcon from "@mui/icons-material/FileUpload";

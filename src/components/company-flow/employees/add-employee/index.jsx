@@ -1,5 +1,5 @@
 "use client"
-import DynamicBreadcrumb from '@/components/Shared-components/BreadCrumb'
+import DynamicBreadcrumb from '@/components/shared-components/BreadCrumb'
 import { addEmployeeFormTabs } from '@/utils/hard-data/inventoryFormTab'
 import { Avatar, Box, Divider, Typography, } from '@mui/material'
 import Grid from '@mui/material/Grid2'

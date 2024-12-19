@@ -1,8 +1,6 @@
-import Dropdown from "@/app/Components/Input/Dropdown";
-import Input from "@/app/Components/Input/Input";
-import CustomDateField from "@/components/Shared-components/CustomDateField";
-import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
-import { Box, Divider } from "@mui/material";
+import CustomDateField from "@/components/shared-components/CustomDateField";
+import CustomFileUploadField from "@/components/shared-components/CustomFIleUploadField";
+import { Box, Divider, TextField } from "@mui/material";
 import React from "react";
 
 const Passport = ({ formData, setFormData }) => {
@@ -44,7 +42,8 @@ const Passport = ({ formData, setFormData }) => {
             <Box key={index} sx={{ width: "calc(33% - 8px)" }}>
               {/* Render Input components */}
               {field.component === Input && (
-                <Input
+                <TextField
+                  size="small"
                   labelText={field.label}
                   customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
                   name={field.name}

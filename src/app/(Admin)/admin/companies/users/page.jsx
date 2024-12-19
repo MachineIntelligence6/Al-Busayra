@@ -1,6 +1,6 @@
 "use client"
 import AdminCompany from '@/components/admin-company'
-import DynamicBreadcrumb from '@/components/Shared-components/BreadCrumb'
+import DynamicBreadcrumb from '@/components/shared-components/BreadCrumb'
 import { Box, Divider } from '@mui/material'
 import React from 'react'
 

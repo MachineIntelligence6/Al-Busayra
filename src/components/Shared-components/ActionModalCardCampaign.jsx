@@ -5,7 +5,7 @@ import { Button, Typography } from "@mui/material";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import DoneIcon from "@mui/icons-material/Done";
 import { useFormik } from "formik";
-import { Schema } from "@/components/Shared-components/Schemas/Schema";
+import { Schema } from "@/components/shared-components/Schemas/Schema";
 import CustomButton from "./CustomButton";
 
 const statusOptions = [

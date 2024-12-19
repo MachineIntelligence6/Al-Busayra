@@ -2,10 +2,10 @@
 import { Box, Divider } from "@mui/material";
 import { Plus } from "lucide-react";
 import React, { useState, useEffect } from "react";
-import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import EmptyScreenView from "@/components/shared-components/EmptyScreenView";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
 import CompanyEmpty from "../../CompanyEmpty";
-import CustomDropdownButton from "@/components/Shared-components/CustomDropdownButton";
+import CustomDropdownButton from "@/components/shared-components/CustomDropdownButton";
 import TransferTableModal from "./table/TransferTableModal";
 
 const statusButtons = [

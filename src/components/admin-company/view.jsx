@@ -1,10 +1,8 @@
-import CustomBreadcrumb from "@/app/Components/sharedComponents/BreadCrum/page";
-import { Breadcrumb } from "@/components/ui/breadcrumb";
+import CustomBreadcrumb from "@/app/components/sharedComponents/BreadCrum/page";
 import { Separator } from "@/components/ui/separator";
 import React from "react";
 import { Check } from "lucide-react";
 import CampaignsWrapper from "@/components/Campaigns";
-import { Box } from "@mui/material";
 
 function View() {
     const userData = {
@@ -45,8 +43,8 @@ function View() {
         <div className="">
             <CustomBreadcrumb name="View Company" />
             <Separator className="mt-5" />
-            <div class="grid grid-cols-[390px_1fr] gap-4 mt-5 h-full">
-                <div class="bg-[#062A47] rounded-[25px] h-full">
+            <div className="grid grid-cols-[390px_1fr] gap-4 mt-5 h-full">
+                <div className="bg-[#062A47] rounded-[25px] h-full">
                     <div className="flex flex-col gap-2 p-[25px]">
                         <div className="w-[66px] h-[66px] rounded-full">
                             <img src="/icon1.png" alt="" />
@@ -76,7 +74,7 @@ function View() {
                     </div>
                 </div>
 
-                <div class=" px-[20px] flex flex-col gap-[20px]  h-full">
+                <div className=" px-[20px] flex flex-col gap-[20px]  h-full">
                     <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-[20px]">
                         {d?.map((element, idx) => {
                             return (

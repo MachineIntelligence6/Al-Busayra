@@ -1,10 +1,9 @@
 "use client"
 import React from "react";
-import Image from "next/image";
 import { Box, Typography } from "@mui/material";
 import { usePathname } from "next/navigation";
-import HeadingText1 from "@/components/Shared-components/HeadingText1";
-import HeadingText3 from "@/components/Shared-components/HeadingText3";
+import HeadingText1 from "@/components/shared-components/HeadingText1";
+import HeadingText3 from "@/components/shared-components/HeadingText3";
 import { custom } from "@/app/theme";
 
 

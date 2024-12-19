@@ -2,7 +2,7 @@ import { Separator } from "@/components/ui/separator";
 import React from "react";
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button";
-import { Upload, ChevronDown, Check, X, ArrowLeft } from "lucide-react";
+import { Check, X, ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 function Locations() {

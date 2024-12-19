@@ -3,12 +3,10 @@
 import * as React from "react";
 // import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import ActionMenu from "../Shared-components/ActionMenu";
+import ActionMenu from "./ActionMenu";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import Input from "@/app/Components/Input/Input";
-import { Box, Button } from "@mui/material";
-import { CloudUploadIcon } from "lucide-react";
+import { Box, Button, TextField } from "@mui/material";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 
 const EntriesDropDown = () => {
@@ -77,7 +75,8 @@ const EntriesDropDown = () => {
           alignItems: "center",
         }}
       >
-        <Input
+        <TextField
+          size="small"
           // onChange={onChange}
           customClass="w-2/3"
           placeholder="Search"

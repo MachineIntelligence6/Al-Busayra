@@ -1,20 +1,20 @@
 "use client";
 import React, { useMemo, useState } from "react";
-import CustomButton from "@/components/Shared-components/CustomButton";
-import ExpandableTable from "@/components/Shared-components/Table-components/ExpandableTable";
-import TableExportRow from "@/components/Shared-components/Table-components/TableExportRow";
-import TableFilters from "@/components/Shared-components/Table-components/TableFilters";
+import CustomButton from "@/components/shared-components/CustomButton";
+import ExpandableTable from "@/components/shared-components/Table-components/ExpandableTable";
+import TableExportRow from "@/components/shared-components/Table-components/TableExportRow";
+import TableFilters from "@/components/shared-components/Table-components/TableFilters";
 import { Box, Divider, Typography } from "@mui/material";
 import { ChevronDown } from "lucide-react";
-import CustomAvatar from "@/components/Shared-components/CustomAvatar";
-import ActionMenu from "@/components/Shared-components/ActionMenu";
+import CustomAvatar from "@/components/shared-components/CustomAvatar";
+import ActionMenu from "@/components/shared-components/ActionMenu";
 import {
     childData,
     dashboardTableData,
 } from "@/utils/hard-data/inventory-data";
 import { useRouter } from "next/navigation";
-import DescriptiveText from "@/components/Shared-components/DescriptiveText";
-import CustomDropdownButton from "@/components/Shared-components/CustomDropdownButton";
+import DescriptiveText from "@/components/shared-components/DescriptiveText";
+import CustomDropdownButton from "@/components/shared-components/CustomDropdownButton";
 
 const statusButtons = [
     { label: "Company Status", value: "compnay_status" },

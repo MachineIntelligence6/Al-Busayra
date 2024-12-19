@@ -1,5 +1,5 @@
 import { custom } from '@/app/theme';
-import DescriptiveText from '@/components/Shared-components/DescriptiveText';
+import DescriptiveText from '@/components/shared-components/DescriptiveText';
 import { uuid } from '@/utils/cmmon';
 import { Avatar, Box, Divider } from '@mui/material';
 import { Calendar } from 'lucide-react';

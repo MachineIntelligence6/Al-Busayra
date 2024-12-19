@@ -1,4 +1,4 @@
-import { InfoCard, InfoItem } from "@/components/Shared-components/CustomInfoCard";
+import { InfoCard, InfoItem } from "@/components/shared-components/CustomInfoCard";
 import { FlagIcon, GenderIcon, HomeIcon, UserIcon } from "@/utils/Icons";
 
 export function GeneralInfoView({ profile, onEdit }) {

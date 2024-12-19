@@ -1,6 +1,6 @@
 "use client";
 
-import { ViewCard, ViewItem } from "@/components/Shared-components/ViewCard";
+import { ViewCard, ViewItem } from "@/components/shared-components/ViewCard";
 import { Box, Divider } from "@mui/material";
 
 export default function VisaInfo({ profile, onEdit }) {

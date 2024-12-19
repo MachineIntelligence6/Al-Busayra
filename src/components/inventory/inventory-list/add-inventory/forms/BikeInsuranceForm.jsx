@@ -1,5 +1,5 @@
-import CustomDateField from '@/components/Shared-components/CustomDateField'
-import CustomDropdown from '@/components/Shared-components/CustomDropDown'
+import CustomDateField from '@/components/shared-components/CustomDateField'
+import CustomDropdown from '@/components/shared-components/CustomDropDown'
 import { Box } from '@mui/material'
 import React from 'react'
 

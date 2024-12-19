@@ -1,10 +1,10 @@
 import React, { createElement } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import { Box, Typography } from "@mui/material";
-import CustomSelect from "@/components/Shared-components/CustomSelect";
+import CustomSelect from "@/components/shared-components/CustomSelect";
 import ImageUpload from "../ImageUpload";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
-import CaptionText from "@/components/Shared-components/CaptionText";
+import CustomTextField from "@/components/shared-components/CustomTextField";
+import CaptionText from "@/components/shared-components/CaptionText";
 import { custom } from "@/app/theme";
 
 export const GeneralInfo = ({ control, isUaeResident }) => {

@@ -13,9 +13,9 @@ import { DrivingLicense } from "./form-steps/DrivingLicense";
 import { PassportDetails } from "./form-steps/PassportDetails";
 import { Referral } from "./form-steps/Referral";
 import { formSchema } from "@/utils/schemas/applicants-schema";
-import CustomTabs from "../Shared-components/CustomTabs";
-import { CustomTabPanel } from "../Shared-components/CustomTabPanel";
-import CustomButton from "@/components/Shared-components/CustomButton";
+import CustomTabs from "../shared-components/CustomTabs";
+import { CustomTabPanel } from "../shared-components/CustomTabPanel";
+import CustomButton from "@/components/shared-components/CustomButton";
 import { useRouter } from "next/navigation";
 
 export default function MultiStepFormModel({ handleCloseModal }) {

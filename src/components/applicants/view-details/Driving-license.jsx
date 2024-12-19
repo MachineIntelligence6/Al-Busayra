@@ -1,4 +1,4 @@
-import { InfoCard, InfoItem } from "@/components/Shared-components/CustomInfoCard";
+import { InfoCard, InfoItem } from "@/components/shared-components/CustomInfoCard";
 import { CalendarIcon, HashIcon } from "@/utils/Icons";
 
 export function DrivingLicenseView({ profile, onEdit }) {

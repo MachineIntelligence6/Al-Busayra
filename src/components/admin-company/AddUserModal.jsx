@@ -1,16 +1,15 @@
 import React, { createElement } from 'react'
-import VendorModal from '../Shared-components/modals/VendorModalWrapper'
+import VendorModal from '../shared-components/modals/VendorModalWrapper'
 import { Box } from '@mui/material'
-import CustomTextField from '../Shared-components/CustomTextField';
-import PhoneNumberTextField from '../Shared-components/NumberTextField';
-import CustomMultiSelected from '../Shared-components/CustomMultiSelected';
+import CustomTextField from '../shared-components/CustomTextField';
+import CustomMultiSelected from '../shared-components/CustomMultiSelected';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import CaptionText from '../Shared-components/CaptionText';
+import CaptionText from '../shared-components/CaptionText';
 import { addUserSchema } from '@/utils/schemas/addCopmanyUser.schema';
-import CustomSelect from '../Shared-components/CustomSelect';
+import CustomSelect from '../shared-components/CustomSelect';
 import ImageUpload from '../applicants/ImageUpload';
-import CustomCountryCodeInput from '../Shared-components/CustomCountryCodeInput';
+import CustomCountryCodeInput from '../shared-components/CustomCountryCodeInput';
 import { countryCodes } from '@/utils/hard-data/common';
 
 const fields = [

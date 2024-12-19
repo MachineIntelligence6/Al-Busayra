@@ -10,14 +10,14 @@ import {
 } from "@mui/material";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { usePathname } from "next/navigation";
-import AppLogo from "./Shared-components/AppLogo";
-import SvgIcon from "./Shared-components/SvgIcon";
+import AppLogo from "./shared-components/AppLogo";
+import SvgIcon from "./shared-components/SvgIcon";
 import Link from "next/link";
-import CompanyProfileMiniCard from "./Shared-components/profiles/CompanyProfileMiniCard";
+import CompanyProfileMiniCard from "./shared-components/profiles/CompanyProfileMiniCard";
 import { BellDot, Circle } from "lucide-react";
-import DescriptiveText from "./Shared-components/DescriptiveText";
+import DescriptiveText from "./shared-components/DescriptiveText";
 import { custom } from "@/app/theme";
-import SidebarProfileCard from "./Shared-components/SidebarProfileCard";
+import SidebarProfileCard from "./shared-components/SidebarProfileCard";
 
 const SidebarMenu = ({ adminMenuData, portal = "admin" }) => {
   const [openMenu, setOpenMenu] = useState(null);

@@ -1,9 +1,8 @@
-import CurrencyType from "@/components/Shared-components/CurrencyType";
+import CurrencyType from "@/components/shared-components/CurrencyType";
 import {
   CalendarIcon,
   GlobeIcon,
   HomeIcon,
-  IdIcon,
   LicenseIcon,
   MailIcon,
   MapIcon,

@@ -1,10 +1,10 @@
-import CustomAvatar from "@/components/Shared-components/CustomAvatar";
+import CustomAvatar from "@/components/shared-components/CustomAvatar";
 import { Avatar, Box, Divider, Typography } from "@mui/material";
 import React from "react";
 import { addContractData } from "@/utils/vendor-detail";
 import ContractForm from "./ContractForm";
 import OtherContracts from "./OtherContracts";
-import SideCard from "@/components/Shared-components/SideCard";
+import SideCard from "@/components/shared-components/SideCard";
 
 const AddContract = () => {
   return (

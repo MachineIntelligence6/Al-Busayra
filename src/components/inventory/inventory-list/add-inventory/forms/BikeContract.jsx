@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
-import CustomDropdown from '@/components/Shared-components/CustomDropDown'
-import CustomFileUploadField from '@/components/Shared-components/CustomFIleUploadField'
-import CustomTextField from '@/components/Shared-components/CustomTextField'
+import CustomDropdown from '@/components/shared-components/CustomDropDown'
+import CustomFileUploadField from '@/components/shared-components/CustomFIleUploadField'
+import CustomTextField from '@/components/shared-components/CustomTextField'
 import { LockKeyhole } from 'lucide-react'
 
 const BikeContract = () => {

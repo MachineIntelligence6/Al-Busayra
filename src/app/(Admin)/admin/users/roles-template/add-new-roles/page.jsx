@@ -1,6 +1,6 @@
 "use client";
 import { Box, Divider } from "@mui/material";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
 import PermissionsTableWrapper from "@/components/roles-template/PermissionsTableWrapper";
 
 const Page = () => {

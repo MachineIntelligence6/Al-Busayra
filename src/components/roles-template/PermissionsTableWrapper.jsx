@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import CustomizablePermissionsTable from "./CustomPermissionsTable";
 import { permissions } from "@/utils/permissionsData";
-import CustomTextField from "../Shared-components/CustomTextField";
-import CustomDropdown from "../Shared-components/CustomDropDown";
+import CustomTextField from "../shared-components/CustomTextField";
+import CustomDropdown from "../shared-components/CustomDropDown";
 
 const roleFilters = [
   {

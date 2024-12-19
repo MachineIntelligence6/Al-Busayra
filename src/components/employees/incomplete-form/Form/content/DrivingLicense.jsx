@@ -1,9 +1,7 @@
 import React from "react";
-import Dropdown from "@/app/Components/Input/Dropdown";
-import Input from "@/app/Components/Input/Input";
-import { Box, Divider } from "@mui/material";
-import CustomDateField from "@/components/Shared-components/CustomDateField";
-import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
+import { Box, Divider, TextField } from "@mui/material";
+import CustomDateField from "@/components/shared-components/CustomDateField";
+import CustomFileUploadField from "@/components/shared-components/CustomFIleUploadField";
 
 const DrivingLicense = ({ formData, setFormData }) => {
   const handleInputChange = (e) => {
@@ -55,7 +53,8 @@ const DrivingLicense = ({ formData, setFormData }) => {
             <Box key={index} sx={{ width: "calc(33% - 8px)" }}>
               {/* Render Input components */}
               {field.component === Input && (
-                <Input
+                <TextField
+                  size="small"
                   labelText={field.label}
                   customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
                   name={field.name}

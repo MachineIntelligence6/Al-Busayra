@@ -1,4 +1,4 @@
-import { InfoCard, InfoItem } from "@/components/Shared-components/CustomInfoCard";
+import { InfoCard, InfoItem } from "@/components/shared-components/CustomInfoCard";
 import { CheckIcon, MailIcon, PhoneIcon, WhatsappIcon } from "@/utils/Icons";
 
 export function ContactInfoView({ profile, onEdit }) {

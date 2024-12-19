@@ -1,9 +1,7 @@
 import React from "react";
-import { TextField, Box, Typography, Divider } from "@mui/material";
-import Input from "@/app/Components/Input/Input";
-import Dropdown from "@/app/Components/Input/Dropdown";
-import CustomDateField from "@/components/Shared-components/CustomDateField";
-import CustomFileUploadField from "@/components/Shared-components/CustomFIleUploadField";
+import {Box, Divider, TextField } from "@mui/material";
+import CustomDateField from "@/components/shared-components/CustomDateField";
+import CustomFileUploadField from "@/components/shared-components/CustomFIleUploadField";
 
 const EmiratesId = ({ formData, setFormData }) => {
   const handleInputChange = (e) => {
@@ -50,7 +48,8 @@ const EmiratesId = ({ formData, setFormData }) => {
             <Box key={index} sx={{ width: "calc(33% - 8px)" }}>
               {/* Ensures 3 fields per row */}
               {field.component === Input && (
-                <Input
+                <TextField
+                  size="small"
                   labelText={field.label}
                   customClass="w-full gap-[1px] text-[13px] text-[#2F2B3DE5]"
                   name={field.name}

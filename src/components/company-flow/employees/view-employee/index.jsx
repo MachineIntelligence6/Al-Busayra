@@ -12,7 +12,7 @@ import VisaInfo from "./VisaInfo";
 import InsuranceInfo from "./InsuranceInfo";
 import OtherInfo from "./OtherInfo";
 import { ViewEmployeeCardData } from "@/utils/view-employee-card-data";
-import ViewEmployeeHeader from "@/components/Shared-components/ViewEmployeeHeader";
+import ViewEmployeeHeader from "@/components/shared-components/ViewEmployeeHeader";
 import { useRouter } from "next/navigation";
 
 const EmployeeView = ({ isHeader = true, padding = 2 }) => {

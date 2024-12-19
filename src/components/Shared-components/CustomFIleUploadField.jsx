@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
-import CustomTextField from "@/components/Shared-components/CustomTextField";
+import CustomTextField from "@/components/shared-components/CustomTextField";
 import { Check, CircleX, FileBarChart2, X } from "lucide-react";
 import InputLabelTop from "./InputLabel";
 

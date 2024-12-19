@@ -2,20 +2,18 @@
 import { Box, Divider } from "@mui/material";
 import { Plus } from "lucide-react";
 import React, { useState } from "react";
-import EmptyScreenView from "@/components/Shared-components/EmptyScreenView";
-import CustomBreadcrumb from "@/app/Components/sharedComponents/BreadCrum/page";
+import EmptyScreenView from "@/components/shared-components/EmptyScreenView";
 import { Button } from "@/components/ui/button";
 import CompanyEmpty from "../../CompanyEmpty";
 import TableModal from "./table/TableModal";
 import DLTable from "./table";
-import DynamicBreadcrumb from "@/components/Shared-components/BreadCrumb";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
 import { useParams } from "next/navigation";
 // import EmployeeClearanceTableModal from "./table/EmployeeClearanceTableModal";
 // import ClearanceTable from "./table";
 
 const DrivingLicenseRequest = () => {
   const [showPopup, setShowPopup] = useState(false);
-  const [showTable, setShowTable] = useState(false);
 
   const params = useParams();
   console.log(params)
