@@ -39,7 +39,7 @@ const AdminLayout = ({ children }) => {
                             bgcolor: "#F8F7FA",
                             flexGrow: 1,
                             borderRadius: 7,
-                            // p: 3,
+                            p: 3,
                             overflow: "auto",
                             display: "flex",
                             flexDirection: "column",

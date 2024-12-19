@@ -31,7 +31,7 @@ const DynamicBreadcrumb = ({
 
   return (
     <Box display="flex" justifyContent="space-between" alignItems="center"  >
-      <Breadcrumbs aria-label="breadcrumb" sx={{ py: 2 }}>
+      <Breadcrumbs aria-label="breadcrumb" sx={{}}>
         {breadcrumbs.map((crumb, index) => {
           const isLast = index === breadcrumbs.length - 1;
           return isLast ? (
