@@ -2,9 +2,9 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { usePathname } from "next/navigation";
+import { custom } from "@/app/theme";
 import HeadingText1 from "@/components/shared-components/HeadingText1";
 import HeadingText3 from "@/components/shared-components/HeadingText3";
-import { custom } from "@/app/theme";
 
 
 const AuthLayout = ({ children }) => {

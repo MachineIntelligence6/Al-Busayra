@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { Box, Divider } from "@mui/material";
 import GenericModal from "@/components/applicants/GenericModel";
-import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
 import AddIcon from "@mui/icons-material/Add";
 import { usePathname } from "next/navigation";
 import ProfileView from "@/components/applicants/view-details/profile-view";
@@ -13,6 +12,7 @@ import ContactEditForm from "@/components/applicants/edit-forms/ContactEditForm"
 import DrivingLicenseEditForm from "@/components/applicants/edit-forms/DrivingLicenseEditForm";
 import PassportDetailsEditForm from "@/components/applicants/edit-forms/PassportEditForm";
 import ReferralEditForm from "@/components/applicants/edit-forms/ReferralEditfForm";
+import DynamicBreadcrumb from "@/components/shared-components/BreadCrumb";
 
 const Page = () => {
   const route = useRouter();

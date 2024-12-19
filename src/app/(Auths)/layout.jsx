@@ -1,5 +1,5 @@
 import "../globals.css";
-import AuthLayout from "@/Layouts/AuthLayout";
+import AuthLayout from "@/layouts/AuthLayout";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
